@@ -1,0 +1,46 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/usr/local/var/postgres
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '4000:80'
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./maisie_api
+    volumes:
+      - /app/deps
+      - ./maisie_api:/app
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=maisie_api_dev
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+      - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
+  test:
+    build:
+      context: ./maisie_api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/deps
+      - ./maisie_api:/app
+    command: ["mix", "test"]
+    environment:
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=maisie_api_test
+      - PGPASSWORD=postgres_password
+      - PGPORT=5432
+      - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
+volumes:
+  postgres-data:
