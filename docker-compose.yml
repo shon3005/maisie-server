@@ -13,6 +13,15 @@ services:
       context: ./nginx
     ports:
       - '4000:80'
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./maisie-site
+    volumes:
+      - /app/node_modules
+      - ./maisie-site:/app
+    environment:
+      - API=api/api/graphql
   api:
     build:
       dockerfile: Dockerfile.dev

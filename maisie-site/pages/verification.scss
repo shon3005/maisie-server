@@ -1,0 +1,11 @@
+@import "../presets.scss";
+
+a { text-decoration: none; }
+.verified-container {width: 100vw; height: 100vh; background-color: $black; }
+.verified-container > h1 { max-width: 80vw; color: white; font-size: 40pt; }
+.verified-container > span { max-width: 80vw; text-align: center; color: $purple; font-size: 12pt; }
+.verified-container > img { width: 10vw; min-width: 100px; }
+.button-container { height: 44px; }
+.verified-button { @include transition(all, 200ms); box-shadow: 0px 4px $purple25; margin-top: 0px; margin-bottom: 4px; height: 40px; background-color: $purple; border-radius: 5px; color: white; padding-left: 20px; padding-right: 20px; }
+.verified-button:active { box-shadow: 0px 0px $purple25; margin-top: 4px; margin-bottom: 0px; opacity: .75;}
+.verified-footer-text { color: $purple25; text-align: center; width: 100%; font-size: 12pt; bottom: 15px; z-index: 998; position: absolute; }

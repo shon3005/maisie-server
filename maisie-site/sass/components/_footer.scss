@@ -1,0 +1,162 @@
+.footer {
+  @include desktop {
+    z-index: 9999;
+    position: fixed;
+    min-height: 40px;
+    bottom: 0;
+    width: 100%;
+    background-color: $color-black;
+    padding-left: 5%;
+    padding-right: 5%;
+    &__drawer {
+      flex: 1;
+      position: relative;
+      z-index: 3;
+      height: 0;
+      @include transition(all, 200ms);
+      & span {
+        color: $color-primary;
+      }
+    }
+    span {
+      font-size: 10pt;
+      font-weight: 400;
+    }
+
+    &:hover {
+      @include desktop {
+        & .footer__more {
+          opacity: 0;
+        }
+        & .footer__logos {
+          transform: scale(1);
+        }
+        & .footer__drawer {
+          height: 200px;
+          &-links {
+            width: 75%;
+            & .dropdown {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+        }
+        & .footer__logos-social {
+          margin-top: 10px;
+          opacity: 1;
+          height: auto;
+        }
+        & .footer__logos-logo {
+          transform: rotate(90deg);
+          -webkit-animation: rotating 12s linear infinite;
+          -moz-animation: rotating 12s linear infinite;
+          animation: rotating 12s linear infinite;
+        }
+      }
+    }
+  }
+  @include mobile {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: $color-black;
+    &__drawer {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      &-links {
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+    }
+  }
+  &__logos {
+    @include mobile {
+      margin-top: 25px;
+      width: 100%;
+      flex-direction: row !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+    @include transition(all, 200ms);
+    transform: scale(.75);
+    z-index: 3;
+    &-logo {
+      @include transition(all, 200ms);
+      @include mobile { display: none; }
+    }
+    &-social {
+      @include transition(all, 200ms);
+      @include mobile {
+        width: 50%;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+      }
+      @include desktop {
+        opacity: 0;
+        height: 0;
+      }
+      & img {
+        @include desktop { width: 25px; }
+        @include mobile { width: 50px; }
+        border-radius: 50px;
+      }
+      & a {
+        @include transition(all, 200ms);
+        &:hover {
+          opacity: .75
+        }
+        &:active {
+          opacity: .5
+        }
+      }
+    }
+  }
+  &__more {
+    @include mobile {
+      display: none !important;
+    }
+    @include transition(all, 200ms);
+    z-index: 2;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    img {
+      width: 20px;
+    }
+  }
+}
+.dropdown {
+  @include transition(all, 200ms);
+  @include desktop {
+    & span, a {
+      font-size: $font-size-small;
+    }
+  }
+  @include mobile {
+    width: 100%;
+    opacity: 1;
+    align-items: center !important;
+    & span, a {
+      font-size: $font-size-reg;
+    }
+  }
+  transform: scale(.75);
+  opacity: 0;
+  & span {
+    color: $color-primary;
+  }
+  & a {
+    @include transition(all, 200ms);
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $color-primary
+    }
+  }
+}
