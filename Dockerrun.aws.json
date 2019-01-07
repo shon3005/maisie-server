@@ -1,0 +1,26 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "api",
+      "image": "shon3005/multi-maisie-api",
+      "hostname": "api",
+      "essential": false,
+      "memory": 250
+    },
+    {
+      "name": "nginx",
+      "image": "shon3005/multi-maisie-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["api"],
+      "memory": 128
+    }
+  ]
+}

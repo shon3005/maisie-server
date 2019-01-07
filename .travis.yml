@@ -1,0 +1,40 @@
+sudo: required
+
+elixir:
+  - 1.7
+
+addons:
+  postgresql: '10.6'
+
+services:
+  - docker
+  - postgresql
+
+before_script:
+  - cp ./maisie_api/config/travis.exs ./maisie_api/config/test.exs
+  - mix do ecto.create, ecto.migrate
+
+script:
+  - mix test
+
+after_success:
+  - docker build -t shon3005/multi-maisie-nginx ./nginx
+  - docker build -t shon3005/multi-maisie-api ./maisie_api
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push shon3005/multi-maisie-nginx
+  - docker push shon3005/multi-maisie-api
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-maisie-docker
+  env: MultiMaisieDocker-env
+  bucket_name: elasticbeanstalk-us-east-1-640883773139
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY

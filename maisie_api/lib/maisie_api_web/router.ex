@@ -12,8 +12,8 @@ defmodule MaisieApiWeb.Router do
 
     forward("/graphql", Absinthe.Plug, schema: MaisieApiWeb.Schema)
 
-    if Mix.env() == :dev do
-      forward("/graphiql", Absinthe.Plug.GraphiQL, schema: MaisieApiWeb.Schema)
-    end
+    # if Mix.env() == :dev do
+    forward("/graphiql", Absinthe.Plug.GraphiQL, schema: MaisieApiWeb.Schema)
+    # end
   end
 end

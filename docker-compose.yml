@@ -27,20 +27,5 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
       - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
-  test:
-    build:
-      context: ./maisie_api
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/deps
-      - ./maisie_api:/app
-    command: ["mix", "test"]
-    environment:
-      - PGUSER=postgres
-      - PGHOST=postgres
-      - PGDATABASE=maisie_api_test
-      - PGPASSWORD=postgres_password
-      - PGPORT=5432
-      - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
 volumes:
   postgres-data:

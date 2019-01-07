@@ -1,8 +1,8 @@
-FROM elixir:latest
+FROM bitwalker/alpine-elixir-phoenix:latest
 WORKDIR "/app"
-RUN mix local.hex --force
-RUN mix local.rebar --force
 COPY ./mix.exs ./mix.lock ./
 RUN mix do deps.get, deps.compile
 COPY . .
-CMD mix ecto.create && mix ecto.migrate && mix phx.server
+RUN ["chmod", "+x", "./entrypoint.sh"]
+ENTRYPOINT ["sh", "./entrypoint.sh"]
+CMD mix phx.server
