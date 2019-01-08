@@ -11,7 +11,8 @@ services:
   - postgresql
 
 before_script:
-  - cp ./maisie_api/config/test.exs config/test.exs
+  - cp ./maisie_api/config/test.exs ./maisie_api/config/test.exs
+  - cd maisie_api
   - mix do ecto.create, ecto.migrate
 
 script:
