@@ -19,11 +19,13 @@ script:
 after_success:
   - docker build -t shon3005/multi-maisie-nginx ./nginx
   - docker build -t shon3005/multi-maisie-api ./maisie_api
+  - docker build -t shon3005/multi-maisie-site ./maisie_site
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push shon3005/multi-maisie-nginx
   - docker push shon3005/multi-maisie-api
+  - docker push shon3005/multi-maisie-site
 
 deploy:
   provider: elasticbeanstalk

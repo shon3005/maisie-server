@@ -27,5 +27,14 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
       - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./maisie_site
+    volumes:
+      - /app/node_modules
+      - ./maisie_site:/app
+    environment:
+      - API=api
 volumes:
   postgres-data:
