@@ -19,9 +19,9 @@ config :logger, level: :warn
 
 # Configure your database
 config :maisie_api, MaisieApi.Repo,
-  username: System.get_env("PGUSER"),
-  password: System.get_env("PGPASSWORD"),
-  database: System.get_env("PGDATABASE"),
-  hostname: System.get_env("PGHOST"),
-  port: System.get_env("PGPORT"),
+  username: "postgres",
+  password: "postgres_password",
+  database: "maisie_api_test",
+  hostname: "localhost",
+  port: 5432,
   pool: Ecto.Adapters.SQL.Sandbox
