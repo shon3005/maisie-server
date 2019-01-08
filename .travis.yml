@@ -14,9 +14,11 @@ services:
 
 before_script:
   - cd maisie_api
+  - ls
   - mix do ecto.create, ecto.migrate
 
 script:
+  - cd maisie_api
   - mix test
 
 after_success:
