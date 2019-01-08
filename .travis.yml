@@ -1,5 +1,10 @@
 sudo: required
 
+# safelist
+branches:
+  only:
+  - master
+
 language: elixir
 
 elixir:
@@ -12,8 +17,10 @@ services:
   - docker
   - postgresql
 
-before_script:
-  - cd maisie_api && mix do ecto.create, ecto.migrate
+before_install:
+  - ls
+  - cd maisie_api
+  - mix do ecto.create, ecto.migrate
 
 script:
   - mix test
