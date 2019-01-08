@@ -20,6 +20,7 @@ services:
 before_install:
   - ls
   - cd maisie_api
+  - mix local.hex --force && mix local.rebar --force
   - mix do ecto.create, ecto.migrate
 
 script:
