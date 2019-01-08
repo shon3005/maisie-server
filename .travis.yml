@@ -5,26 +5,15 @@ branches:
   only:
   - master
 
-language: elixir
-
-elixir:
-  - 1.7
-
-addons:
-  postgresql: '10.6'
-
 services:
   - docker
-  - postgresql
 
 before_install:
-  - ls
-  - cd maisie_api
-  - mix local.hex --force && mix local.rebar --force
-  - mix do deps.get, ecto.create, ecto.migrate
+  - docker build -t shon3005/multi-maisie-test -f ./maisie_api/Dockerfile.dev ./maisie_api
 
 script:
-  - mix test
+  - docker run -itd --name=postgres postgres
+  - docker run -e "PGUSER=postgres" -e "PGPASSWORD=postgres_password" -e "PGDATABASE=maisie_api_test" -e "PGHOST=postgres" -e "PGPORT=5432" shon3005/multi-maisie-test mix test -- --coverage
 
 after_success:
   - docker build -t shon3005/multi-maisie-nginx ./nginx
@@ -41,7 +30,7 @@ deploy:
   app: multi-maisie-docker
   env: MultiMaisieDocker-env
   bucket_name: elasticbeanstalk-us-east-1-640883773139
-  bucket_path: docker-multi
+  bucket_path: multi-maisie-docker
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
