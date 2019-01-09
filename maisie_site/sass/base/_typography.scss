@@ -1,0 +1,12 @@
+.font-title {
+  font-weight: 400;
+  font-size: 50px;
+  letter-spacing: -1px;
+}
+
+.h-large {
+  font-size: calc(20pt + 2vw);
+  font-weight: "Regular";
+  color: $color-secondary;
+  text-align: center;
+}

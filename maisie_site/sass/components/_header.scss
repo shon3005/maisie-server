@@ -1,0 +1,22 @@
+.header {
+  height: 80px;
+  width: 100%;
+  z-index: 9999;
+  > a > img {
+    height: 30px;
+  }
+  &__links {
+    > a {
+      @include transition(all, 200ms);
+      text-transform: capitalize;
+      color: $color-secondary;
+      font-weight: 500;
+      text-decoration: none;
+      margin-left: 5%;
+      font-size: $font-size-small;
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
