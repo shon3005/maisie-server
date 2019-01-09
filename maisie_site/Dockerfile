@@ -11,7 +11,7 @@ RUN npm run build
 FROM nginx
 EXPOSE 3000
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app /usr/share/nginx/html
+COPY --from=builder /app/.next /usr/share/nginx/html
 
 # # And then copy over node_modules, etc from that stage to the smaller base image
 # FROM mhart/alpine-node:base
