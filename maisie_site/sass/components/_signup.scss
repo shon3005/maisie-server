@@ -1,0 +1,167 @@
+.signup {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+
+  background-color: rgba(2,22,41,.90);
+
+  -webkit-animation: 150ms ease-out 0s 1 loadElement;
+  -moz-animation: 150ms ease-out 0s 1 loadElement;
+  -ms-animation: 150ms ease-out 0s 1 loadElement;
+  -o-animation: 150ms ease-out 0s 1 loadElement;
+  animation: 150ms ease-out 0s 1 loadElement;
+
+  &__main {
+    > div {
+      padding-top: 30px;
+      padding-bottom: 40px;
+      width: 380px;
+
+      border-radius: 7px;
+      box-shadow: $shadow-ssss;
+      background-color: #FCFDFF;
+
+      .signup__main_in {
+        &-title {
+          color: $color-primary-light;
+          font-size: $font-size-reg;
+          font-weight: 600;
+          text-transform: uppercase;
+          height: 25px;
+          margin-bottom: 30px;
+        }
+        &-text {
+          color: $color-secondary;
+          font-size: $font-size-small;
+          font-weight: 500;
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        .signup_logo {
+          height: 40px;
+          opacity: .25;
+          -webkit-animation: rotating 40s infinite;
+          -moz-animation:    rotating 40s infinite;
+          -o-animation:      rotating 40s infinite;
+          animation:         rotating 40s infinite;
+        }
+        .signup_wordmark {
+          height: 30px;
+          margin-top: 5px;
+          margin-left: 10px;
+        }
+      }
+
+      .signup__main__form {
+        width: 340px;
+
+        &-full {
+          width: 100%;
+          flex-direction: column-reverse !important;
+        }
+        &-half {
+          > div {
+            flex-direction: column-reverse !important;
+            width: 160px;
+          }
+        }
+        &-half, &-full {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        &-button {
+          @include transition(all, 200ms);
+          height: 40px;
+          width: 100%;
+          margin-top: 10px;
+
+          box-shadow: none;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+
+          background-color: $color-primary-light;
+          color: white;
+          font-family: "Open Sans";
+          font-size: $font-size-small;
+          font-weight: 500;
+        }
+        &-button.button_available {
+          @include transition(all, 200ms);
+          background-color: $color-primary !important;
+          box-shadow: 0 2px 5px 0 rgba(118,146,255,0.25), 0 2px 10px 0 rgba(118,146,255,0.25);
+          &:hover {
+            cursor: pointer;
+          }
+          &:active {
+            opacity: .75;
+          }
+        }
+      }
+    }
+  }
+}
+
+.signup_spinner {
+  height: 40px;
+  -webkit-animation: rotating 2s ease-in-out infinite;
+  -moz-animation:    rotating 2s ease-in-out infinite;
+  -o-animation:      rotating 2s ease-in-out infinite;
+  animation:         rotating 2s ease-in-out infinite;
+}
+
+.form_tag {
+  @include transition(all, 200ms);
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: $font-size-tag-small;
+  color: $color-secondary-20;
+  margin-left: 10px;
+}
+.form_field {
+  @include transition(all, 200ms);
+
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  width: 100%;
+
+  outline: none;
+  border: 0;
+  box-shadow: $shadow-sss;
+  border-radius: 5px;
+  border: 1px solid white;
+
+  font-weight: "Regular";
+  font-size: $font-size-small;
+  color: $color-secondary;
+
+  &:focus {
+    border: 1px solid $color-secondary-05;
+    ~div {
+      color: $color-primary;
+    }
+  }
+
+  &::placeholder {
+    color: $color-secondary-20;
+    font-size: $font-size-small;
+    font-weight: "Regular";
+  }
+}
+
+.fieldSuccess {
+  border: 1px solid $color-green !important;
+}
+.fieldFailure {
+  border: 1px solid $color-red !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
