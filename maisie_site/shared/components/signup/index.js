@@ -12,19 +12,23 @@ export default class extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  signUpUser = async (e) => {
+  signUpUser = async (credentials, client) => {
     try {
-      const result = await registerUser(client, e.firstName, e.lastName, e.email, e.password, e.passwordConfirmation);
+      const result = await registerUser(client, credentials.firstName, credentials.lastName, credentials.email, credentials.password, credentials.passwordConfirmation);
       this.setState({ submitted: "submitted" })
     } catch(e) {
-      this.setState({ submitted: "not_submitted", errors: e });
+      const errors = {}
+      errors[e.message.replace("GraphQL error: ", "")] = 1
+      errors.email ? errors.description = "THIS ACCOUNT ALREADY EXISTS" : null;
+
+      this.setState({ submitted: "not_submitted", errors: errors });
     }
   }
 
   async handleSubmit(credentials, client) {
     event.preventDefault()
     this.setState({ submitted: "submitting" })
-    this.signUpUser(credentials);
+    this.signUpUser(credentials, client);
   }
 
   withActiveSlide = (a, b, c) => {

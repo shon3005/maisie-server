@@ -53,6 +53,10 @@
           margin-top: 5px;
           margin-left: 10px;
         }
+        > button {
+          background-color: $color-secondary;
+          box-shadow: $shadow-ss;
+        }
       }
 
       .signup__main__form {
@@ -88,6 +92,29 @@
       }
     }
   }
+  button {
+    @include transition(all, 200ms);
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+
+    box-shadow: none;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+
+    color: white;
+    font-family: "Open Sans";
+    font-size: $font-size-small;
+    font-weight: 500;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: .75;
+    }
+  }
 }
 
 .signup_spinner {
@@ -105,6 +132,9 @@
   font-size: $font-size-tag-small;
   color: $color-secondary-20;
   margin-left: 10px;
+  &.error {
+    color: $color-red !important;
+  }
 }
 .form_field {
   @include transition(all, 200ms);
