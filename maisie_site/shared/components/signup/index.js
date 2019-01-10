@@ -12,12 +12,12 @@ export default class extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  signUpUser = async (credentials) => {
+  signUpUser = async (e) => {
     try {
       const result = await registerUser(client, e.firstName, e.lastName, e.email, e.password, e.passwordConfirmation);
       this.setState({ submitted: "submitted" })
     } catch(e) {
-      this.setState({ submitted: "not_submitted", errors: e.response.data.msg });
+      this.setState({ submitted: "not_submitted", errors: e });
     }
   }
 
