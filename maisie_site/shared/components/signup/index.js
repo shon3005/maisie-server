@@ -12,16 +12,18 @@ export default class extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  async handleSubmit(e, client) {
-    this.setState({ submitted: "submitting" })
-    // insert logic for backend call
-    // also enable spinner during this time (we can just use the image at 'static/shared/icon' as a spinner that appears while this function is running)
+  signUpUser = async (credentials) => {
     try {
       const result = await registerUser(client, e.firstName, e.lastName, e.email, e.password, e.passwordConfirmation);
       this.setState({ submitted: "submitted" })
     } catch(e) {
-      console.log(e);
+      this.setState({ submitted: "not_submitted", errors: e.response.data.msg });
     }
+  }
+
+  async handleSubmit(credentials, client) {
+    this.setState({ submitted: "submitting" })
+    this.signUpUser(credentials);
   }
 
   withActiveSlide = (a, b, c) => {
@@ -36,7 +38,7 @@ export default class extends Component {
         {client => (
           <div className="signup col-c-c">
             <div className="signup__main col-c-c">
-              {this.withActiveSlide(<SlideOne email={this.props.email} onSubmit={(event) => this.handleSubmit(event, client)} />, <SlideTwo />, <SlideThree />)}
+              {this.withActiveSlide(<SlideOne email={this.props.email} onCancel={this.props.onCancel} onSubmit={(event) => this.handleSubmit(event, client)} errors={this.state.errors ? this.state.errors : {}} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
             </div>
           </div>
         )}

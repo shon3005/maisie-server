@@ -1,6 +1,6 @@
-let LINKS_COLUMN_ONE = [["For Consumers", "https://heymaisie.com"],["For Providers", "mailto:providers@heymaisie.com?subject=Inquiring about Maisie for Providers"],["Common Q's", ""]],
+let LINKS_COLUMN_ONE = [["For Consumers", "https://heymaisie.com"],["For Providers", "mailto:providers@heymaisie.com?subject=Inquiring about Maisie for Providers"],["Common Q's", "https://docs.google.com/document/d/1ptvBRSMTaRM5PvlVe0x3kTb8fRlV1CUJhr7W8aWm-6M/edit?usp=sharing"]],
     LINKS_COLUMN_TWO = [/*["Our Values", ""],["Why Maisie?", ""],*/["Work at Maisie", "https://angel.co/maisie-1"]],
-    LINKS_COLUMN_THREE = [["Product Help", "support@heymaisie.com"],["Contact Us", "say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
+    LINKS_COLUMN_THREE = [["Product Help", "mailto:support@heymaisie.com"],["Contact Us", "mailto:say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
 
 
 function Links(props) {
@@ -13,9 +13,9 @@ function Logos() {
     <div className="footer__logos col-c-c">
       <img className="footer__logos-logo" src="../static/footer/dots_purple.svg" style={{height: 25}} />
       <div className="footer__logos-social col">
-        <a href="#"><img src="../static/footer/instagram.svg" /></a>
+        <a href="https://www.instagram.com/sayheymaisie"><img src="../static/footer/instagram.svg" /></a>
         <a href="https://www.twitter.com/sayheymaisie"><img src="../static/footer/twitter.svg" /></a>
-        <a href="#"><img src="../static/footer/facebook.svg" /></a>
+        <a href="https://www.facebook.com/pg/Maisie-2274087959477864/"><img src="../static/footer/facebook.svg" /></a>
       </div>
     </div>
   )
