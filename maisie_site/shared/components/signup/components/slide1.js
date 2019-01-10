@@ -17,9 +17,6 @@ function pass_check(x) {
   // insert logic
   return x.length >= 6
 }
-function confirm_check(x) {
-  return x.length > 0
-}
 function zip_check(x) {
   // insert logic
   return x.length === 5 && parseInt(x)
@@ -31,12 +28,12 @@ export default class extends Component {
     this.state = {
       showSignup: true,
       allChecked: false,
+      $email: this.props.email,
       $firstName: '',
       $lastName: '',
-      $email: props.email,
+      $zip: '',
       $password: '',
       $passwordConfirmation: '',
-      $zip: ''
     }
   }
   componentDidMount() {
@@ -46,13 +43,17 @@ export default class extends Component {
   listenForFilledOutFields() {
     return this.state.email === "success" && this.state.firstname === "success" && this.state.lastname === "success" && this.state.password === "success" && this.state.confirm === "success" && this.state.zip === "success"
   }
-  handleZipChange(e) {
-    if (e.length === 5) {
-      let f = zip_check(e)
-      this.setState({ zip: f ? "success" : "failure" })
-    } else {
-      this.setState({ zip: "" })
-    }
+  // handleZipChange(e) {
+  //   if (e.length === 5) {
+  //     let f = zip_check(e)
+  //     this.setState({ zip: f ? "success" : "failure" })
+  //   } else {
+  //     this.setState({ zip: "" })
+  //   }
+  // }
+
+  confirm_check(x) {
+    return x === this.refs.password.value
   }
 
   handleBlur(e, x) {
@@ -61,7 +62,7 @@ export default class extends Component {
     else if (x === "firstname") { f = firstname_check(e) }
     else if (x === "lastname") { f = lastname_check(e) }
     else if (x === "password") { f = pass_check(e) }
-    else if (x === "confirm") { f = confirm_check(e) }
+    else if (x === "confirm") { f = this.confirm_check(e) }
     else if (x === "zip") { f = zip_check(e) }
     this.setState({ [x]: f ? "success" : "failure" })
   }
@@ -80,6 +81,7 @@ export default class extends Component {
             firstName: this.state.$firstName,
             lastName: this.state.$lastName,
             email: this.state.$email,
+            zip: this.state.$zip,
             password: this.state.$password,
             passwordConfirmation: this.state.$passwordConfirmation
           })
@@ -89,73 +91,83 @@ export default class extends Component {
               <input
                 className={classNames(["form_field", {"fieldSuccess": this.state.firstname === "success", "fieldFailure": this.state.firstname === "failure"}])}
                 type="text"
-                onBlur={(e, x) => this.handleBlur(e.target.value, "firstname")}
+                onChange={(e, x) => {
+                  this.handleBlur(e.target.value, "firstname");
+                  this.setState({ $firstName: e.target.value });
+                }}
                 placeholder="Wayne"
                 name="firstname"
-                ref={(input) => {
-                  this.nameInput = input
-                }}
-                onChange={(e) => this.setState({$firstName: e.target.value})}
+                ref={(input) => { this.nameInput = input; }}
               />
-              <div className="form_tag">FIRST NAME:</div>
+              <div className={classNames(["form_tag", {"error": this.props.errors.firstName }])}>{this.props.errors.firstName ? 'INVALID FIRST NAME' : "FIRST NAME:"}</div>
             </div>
             <div className="col">
               <input
                 className={classNames(["form_field", {"fieldSuccess": this.state.lastname === "success", "fieldFailure": this.state.lastname === "failure"}])}
                 type="text"
-                onBlur={(e, x) => this.handleBlur(e.target.value, "lastname")}
+                onChange={(e, x) => {
+                  this.handleBlur(e.target.value, "lastname");
+                  this.setState({ $lastName: e.target.value });
+                }}
                 placeholder="Tables"
                 name="lastname"
-                onChange={(e) => this.setState({$lastName: e.target.value})}
               />
-              <div className="form_tag">LAST NAME:</div>
+              <div className={classNames(["form_tag", {"error": this.props.errors.lastName }])}>{this.props.errors.lastName ? 'INVALID LAST NAME' : "LAST NAME:"}</div>
             </div>
           </div>
           <div className="signup__main__form-full col">
             <input
               className={classNames(["form_field", {"fieldSuccess": this.state.email === "success", "fieldFailure": this.state.email === "failure"}])}
               type="text"
-              onBlur={(e, x) => this.handleBlur(e.target.value, "email")}
+              onChange={(e, x) => {
+                this.handleBlur(e.target.value, "email");
+                this.setState({ $email: e.target.value });
+              }}
               placeholder="waynetables@gmail.com"
               name="email"
               defaultValue={this.props.email && this.props.email != " " ? this.props.email : null}
-              onChange={(e) => this.setState({$email: e.target.value})}
             />
-            <div className="form_tag">EMAIL:</div>
+            <div className={classNames(["form_tag", {"error": this.props.errors.email }])}>{this.props.errors.email ? this.props.errors.description : "EMAIL:"}</div>
           </div>
           <div className="signup__main__form-half row-sb">
             <div className="col">
               <input
                 className={classNames(["form_field", {"fieldSuccess": this.state.password === "success", "fieldFailure": this.state.password === "failure"}])}
                 type="password"
-                onBlur={(e, x) => this.handleBlur(e.target.value, "password")}
+                onChange={(e, x) => {
+                  this.handleBlur(e.target.value, "password");
+                  this.setState({ $password: e.target.value });
+                }}
                 name="password"
-                onChange={(e) => this.setState({$password: e.target.value})}
+                ref="password"
               />
-              <div className="form_tag">PASSWORD:</div>
+              <div className={classNames(["form_tag", {"error": this.props.errors.password }])}>{this.props.errors.password && !this.props.errors.description ? 'INVALID PASSWORD' : "PASSWORD:"}</div>
             </div>
             <div className="col">
               <input
                 className={classNames(["form_field", {"fieldSuccess": this.state.confirm === "success", "fieldFailure": this.state.confirm === "failure"}])}
                 type="password"
-                onBlur={(e, x) => this.handleBlur(e.target.value, "confirm")}
+                onChange={(e, x) => {
+                  this.handleBlur(e.target.value, "confirm");
+                  this.setState({ $passwordConfirmation: e.target.value });
+                }}
                 name="confirm"
-                onChange={(e) => this.setState({$passwordConfirmation: e.target.value})}
               />
-              <div className="form_tag">CONFIRM PASSWORD:</div>
+              <div className={classNames(["form_tag", {"error": this.props.errors.password }])}>{this.props.errors.password && this.props.errors.description ? this.props.errors.description : "CONFIRM PASSWORD:"}</div>
             </div>
           </div>
           <div className="signup__main__form-full col">
             <input
               className={classNames(["form_field", {"fieldSuccess": this.state.zip === "success", "fieldFailure": this.state.zip === "failure"}])}
-              onChange={(e) => this.handleZipChange(e.target.value)}
               type="text"
-              onBlur={(e, x) => this.handleBlur(e.target.value, "zip")}
+              onChange={(e, x) => {
+                this.handleBlur(e.target.value, "zip");
+                this.setState({ $zip: e.target.value });
+              }}
               placeholder="10001"
               name="zip"
-              onChange={(e) => this.setState({$zip: e.target.value})}
             />
-            <div className="form_tag">ZIP CODE:</div>
+            <div className={classNames(["form_tag", {"error": this.props.errors.zip }])}>{this.props.errors.zip ? 'INVALID ZIP CODE' : "ZIP:"}</div>
           </div>
           <button
             className={classNames(["signup__main__form-button", {
@@ -164,6 +176,11 @@ export default class extends Component {
             type="submit"
             disabled={!this.listenForFilledOutFields()}
           >Submit</button>
+          <button
+            onClick={this.props.onCancel}
+            className="signup__main__form-cancel"
+            type="button"
+          >Cancel</button>
         </form>
       </div>
     )

@@ -1,4 +1,4 @@
-const socials = [["instagram", "https://instagram.com"], ["twitter", "https://twitter.com/sayheymaisie"], ["facebook", "https://facebook.com"]]
+const socials = [["instagram", "https://instagram.com/sayheymaisie"], ["twitter", "https://twitter.com/sayheymaisie"], ["facebook", "https://www.facebook.com/pg/Maisie-2274087959477864/"]]
 
 export default () => socials.map((x, index) =>
     <a key={x} className="socialbuttons__button" href={x[1]}>

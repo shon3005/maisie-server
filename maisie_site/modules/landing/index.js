@@ -11,12 +11,18 @@ export default class extends Component {
   constructor(props) {
     super(props)
     this.state = { email: "", showSignup: false }
+    this.handleEmailEntry = this.handleEmailEntry.bind(this)
+    this.handleButton = this.handleButton.bind(this)
   }
   handleEmailEntry = (email) => {
     this.setState({email: email, showSignup: email ? true : false});
   }
+  handleButton() {
+    this.setState({email: "", showSignup: false})
+  }
+
   render() {
-    const furtherSignUp = this.state.showSignup ? <SignUp email={this.state.email} /> : null
+    const furtherSignUp = this.state.showSignup ? <SignUp email={this.state.email} onCancel={this.handleButton} handleButton={this.handleButton} /> : null
     return(
       <div className="landing container">
           {furtherSignUp}
