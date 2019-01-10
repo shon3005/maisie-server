@@ -22,6 +22,7 @@ export default class extends Component {
   }
 
   async handleSubmit(credentials, client) {
+    event.preventDefault()
     this.setState({ submitted: "submitting" })
     this.signUpUser(credentials);
   }
