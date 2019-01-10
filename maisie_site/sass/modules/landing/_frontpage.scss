@@ -39,6 +39,24 @@
       margin-top: calc(75px + 5%);
       text-align: center;
       width: 90%;
+      > div {
+        width: 100%;
+        margin-top: 10px;
+        > div {
+          padding-right: 20px;
+          padding-left: 20px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          border-radius: 50px;
+          background-color: $color-primary-light;
+          margin-top: 20px;
+
+          color: $color-primary;
+          font-size: $font-size-small;
+          font-weight: 600;
+        }
+      }
+
       &-title {
         @include mobile {
           text-align: center;
