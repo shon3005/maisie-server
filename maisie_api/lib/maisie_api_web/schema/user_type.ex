@@ -14,6 +14,7 @@ defmodule MaisieApiWeb.Schema.Types.Usertype do
         field(:first_name, non_null(:string))
         field(:last_name, non_null(:string))
         field(:email, non_null(:string))
+        field(:zip, non_null(:string))
         field(:password, non_null(:string))
         field(:password_confirmation, non_null(:string))
     end

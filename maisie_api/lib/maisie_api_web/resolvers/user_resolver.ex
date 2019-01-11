@@ -19,6 +19,6 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     end
 
     defp format_errors([email: {"has already been taken", _}]) do
-        {:error, %{message: "email", details: "email has already been taken"}}
+        {:error, %{message: "email", details: "EMAIL HAS ALREADY BEEN TAKEN"}}
     end
 end
