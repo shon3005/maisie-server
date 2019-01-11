@@ -6,9 +6,9 @@ defmodule MaisieApi.AccountsTest do
   describe "users" do
     alias MaisieApi.Accounts.User
 
-    @valid_attrs %{email: "shon3005@gmail.com", first_name: "Shaun", last_name: "Chua", password: "123456789", password_confirmation: "123456789", role: "user"}
-    @update_attrs %{email: "shaun.chua@nyu.edu", first_name: "Shaunny", last_name: "Tan", password_hash: "some updated password_hash", role: "user"}
-    @invalid_attrs %{email: nil, first_name: nil, last_name: nil, password_hash: nil, role: nil}
+    @valid_attrs %{email: "shon3005@gmail.com", first_name: "Shaun", last_name: "Chua", password: "123456789", password_confirmation: "123456789", role: "user", zip: "10010"}
+    # @update_attrs %{email: "shaun.chua@nyu.edu", first_name: "Shaunny", last_name: "Tan", password_hash: "some updated password_hash", role: "user"}
+    # @invalid_attrs %{email: nil, first_name: nil, last_name: nil, password_hash: nil, role: nil, zip: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -36,6 +36,7 @@ defmodule MaisieApi.AccountsTest do
       assert user.last_name == "Chua"
       # assert user.password_hash == "some password_hash"
       assert user.role == "user"
+      assert user.role == "10010"
     end
 
     # test "create_user/1 with invalid data returns error changeset" do
