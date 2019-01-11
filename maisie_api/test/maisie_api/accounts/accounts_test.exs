@@ -36,7 +36,7 @@ defmodule MaisieApi.AccountsTest do
       assert user.last_name == "Chua"
       # assert user.password_hash == "some password_hash"
       assert user.role == "user"
-      assert user.role == "10010"
+      assert user.zip == "10010"
     end
 
     # test "create_user/1 with invalid data returns error changeset" do
