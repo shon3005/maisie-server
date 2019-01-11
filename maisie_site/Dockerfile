@@ -1,7 +1,7 @@
 # Do the npm install or yarn install in the full image
 FROM mhart/alpine-node AS builder
 WORKDIR /app
-COPY ./package.json ./package-lock.json ./
+COPY ./package.json ./
 RUN npm install
 COPY . .
 RUN npm run build
