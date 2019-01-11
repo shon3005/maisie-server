@@ -14,12 +14,16 @@ export default class extends Component {
 
   signUpUser = async (credentials, client) => {
     try {
-      const result = await registerUser(client, credentials.firstName, credentials.lastName, credentials.email, credentials.password, credentials.passwordConfirmation);
+      const result = await registerUser(client, credentials.firstName, credentials.lastName, credentials.email, credentials.password, credentials.passwordConfirmation, credentials.zip);
       this.setState({ submitted: "submitted" })
     } catch(e) {
       const errors = {}
-      errors[e.message.replace("GraphQL error: ", "")] = 1
-      errors.email ? errors.description = "THIS ACCOUNT ALREADY EXISTS" : null;
+      e.graphQLErrors ?
+        e.graphQLErrors.forEach((error) => {
+          errors[error.message] = 1;
+          errors.description = error.details;
+        }) :
+        null;
 
       this.setState({ submitted: "not_submitted", errors: errors });
     }
