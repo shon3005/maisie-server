@@ -11,6 +11,7 @@ set -e
 
 mix ecto.create
 mix ecto.migrate
+mix elasticsearch.build users --cluster MaisieApi.ElasticsearchCluster
 # mix run priv/repo/seeds.exs
  
 exec "$@"

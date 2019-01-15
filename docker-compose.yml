@@ -1,5 +1,17 @@
 version: '3'
 services:
+  elasticsearch:
+    image: 'elasticsearch:6.5.4'
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+  kibana:
+    image: 'kibana:6.5.4'
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
   postgres:
     image: 'postgres:latest'
     ports:
@@ -26,6 +38,10 @@ services:
       - PGDATABASE=maisie_api_dev
       - PGPASSWORD=postgres_password
       - PGPORT=5432
+      - ESHOST=elasticsearch
+      - ESPORT=9200
+      - ESUSER=elasticsearch
+      - ESPASSWORD=elasticsearch_password
       - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
   client:
     build:
@@ -36,3 +52,4 @@ services:
       - ./maisie_site:/app
 volumes:
   postgres-data:
+  elasticsearch-data:
