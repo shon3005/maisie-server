@@ -2,7 +2,7 @@ defmodule MaisieApiWeb.Router do
   use MaisieApiWeb, :router
 
   pipeline :api do
-    plug CORSPlug, [origin: "http://localhost:3000"]
+    plug CORSPlug, [origin: System.get_env("MAISIE_ORIGIN")]
     plug :accepts, ["json"]
     plug MaisieApiWeb.Plugs.Context
   end

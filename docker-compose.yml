@@ -43,6 +43,7 @@ services:
       - ESUSER=elasticsearch
       - ESPASSWORD=elasticsearch_password
       - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
+      - MAISIE_ORIGIN=http://client:3000
   client:
     build:
       dockerfile: Dockerfile.dev
