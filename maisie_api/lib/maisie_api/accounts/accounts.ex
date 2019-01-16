@@ -57,7 +57,7 @@ defmodule MaisieApi.Accounts do
   end
 
   defp create_user_index({:ok, result} = user, attrs) do
-    # elastic_user = Elasticsearch.put_document(MaisieApi.ElasticsearchCluster, result, "users")
+    elastic_user = Elasticsearch.put_document(MaisieApi.ElasticsearchCluster, result, "users")
     user
   end
 
