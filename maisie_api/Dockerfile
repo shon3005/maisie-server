@@ -4,4 +4,4 @@ COPY ./mix.exs ./mix.lock ./
 RUN MIX_ENV=prod mix do deps.get, deps.compile
 COPY . .
 RUN MIX_ENV=prod mix compile
-CMD MIX_ENV=prod mix do ecto.create, ecto.migrate, phx.server
+CMD MIX_ENV=prod mix do ecto.create, ecto.migrate, mix elasticsearch.build users --cluster MaisieApi.ElasticsearchCluster, phx.server
