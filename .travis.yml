@@ -14,7 +14,7 @@ before_install:
   - docker build -t shon3005/multi-maisie-test -f ./maisie_api/Dockerfile.dev ./maisie_api
 
 script:
-  - docker run --network maisie_nw -e "PGUSER=postgres" -e "PGPASSWORD=postgres_password" -e "PGDATABASE=maisie_api_test" -e "PGHOST=postgres" -e "PGPORT=5432" shon3005/multi-maisie-test mix test
+  - docker run --network maisie_nw -e "ESHOST=elasticsearch" -e "ESPORT=9200" -e "ESUSER=elasticsearch" -e "ESPASSWORD=elasticsearch_password" -e "PGUSER=postgres" -e "PGPASSWORD=postgres_password" -e "PGDATABASE=maisie_api_test" -e "PGHOST=postgres" -e "PGPORT=5432" shon3005/multi-maisie-test mix test
 
 after_success:
   - docker build -t shon3005/multi-maisie-nginx ./nginx
