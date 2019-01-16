@@ -11,7 +11,7 @@ services:
 before_install:
   - docker network create -d bridge --subnet 172.25.0.0/16 maisie_nw
   - docker run -itd --name postgres --network maisie_nw postgres
-  - docker run -itd --name elasticsearch --network maisie_nw elasticsearch
+  - docker run -itd --name elasticsearch --network maisie_nw elasticsearch:6.5.4
   - docker build -t shon3005/multi-maisie-test -f ./maisie_api/Dockerfile.dev ./maisie_api
 
 script:
