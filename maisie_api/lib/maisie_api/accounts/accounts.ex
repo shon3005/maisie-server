@@ -52,12 +52,12 @@ defmodule MaisieApi.Accounts do
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
-    |> create_user_index(attrs)
     |> Repo.insert()
+    |> create_user_index(attrs)
   end
 
-  defp create_user_index(user, attrs) do
-    elastic_user = Elasticsearch.put_document(MaisieApi.ElasticsearchCluster, struct(User, attrs), "users/_doc")
+  defp create_user_index({:ok, result} = user, attrs) do
+    elastic_user = Elasticsearch.put_document(MaisieApi.ElasticsearchCluster, result, "users")
     user
   end
 
