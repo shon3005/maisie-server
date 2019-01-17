@@ -9,13 +9,13 @@
           "type": "text"
         },
         "email": {
-          "type": "text"
+          "type": "keyword"
         },
         "zip": {
-          "type": "text"
+          "type": "keyword"
         },
         "role": {
-          "type": "text"
+          "type": "keyword"
         }
       }
     }
