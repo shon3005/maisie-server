@@ -1,5 +1,5 @@
 {
-  "name": "maisiev2",
+  "name": "maisie_site",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,6 +19,7 @@
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",
     "next": "^7.0.2",
+    "next-routes": "^1.4.2",
     "react": "^16.6.3",
     "react-apollo": "^2.3.3",
     "react-aspect-ratio": "^1.0.31",
