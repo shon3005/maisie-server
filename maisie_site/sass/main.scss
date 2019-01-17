@@ -17,6 +17,8 @@
 @import "components/emailCapture";
 @import "components/socialButtons";
 @import "components/signup";
+@import "components/appheader";
+@import "components/sidebar";
 
 // MODULES
 @import "modules/landing/frontpage";
@@ -25,9 +27,20 @@
 @import "modules/landing/details";
 @import "modules/landing/doublewindow";
 
+@import "modules/discover/base";
+
+@import "modules/messages/base";
+
+@import "modules/schedule/base";
+
+@import "modules/account/base";
+
+@import "modules/support/base";
+
 // LAYOUT
 @import "layout/flex";
 @import "layout/screens";
+@import "layout/withPage";
 
 // PAGES
 @import "pages/landing";

@@ -33,7 +33,7 @@ img.center-child { @include img-center; } // call this on the img element you wi
 @mixin tabletandmobile { @media (max-width: 920px) { @content; }}
 
 // DESKTOP
-@mixin desktop { @media (min-width: 600px) { @content; }}
+@mixin desktop { @media (min-width: 850px) { @content; }}
 
 // in case you want to get more granular, below are more screen size options
 @mixin size-one { @media (max-width: 600px) { @content; }}

@@ -1,0 +1,45 @@
+.appheader {
+  height: 64px;
+  width: 100%;
+  z-index: 998;
+
+  background-color: $color-secondary;
+  box-shadow: 0 0 30px 0 rgba(5,45,84,0.15);
+
+  padding-left: 3%;
+  padding-right: 3%;
+
+  > img {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__search {
+    width: 25%;
+    height: 36px;
+
+    background-color: $color-primary-lighter;
+    border: 1px solid $color-primary-lighter;
+    border-radius: 50px;
+    color: $color-primary-light;
+  }
+
+  &__user {
+    > span {
+      color: white;
+      font-size: $font-size-reg;
+      margin-right: 10px;
+    }
+    > div {
+      height: 30px;
+      width: 30px;
+      border-radius: 50px;
+      border: 1px solid $color-primary;
+      background-color: $color-primary-light;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

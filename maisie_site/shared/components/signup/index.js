@@ -2,37 +2,24 @@ import React, { Component } from "react";
 import SlideOne from "./components/slide1.js";
 import SlideTwo from "./components/slide2.js";
 import SlideThree from "./components/slide3.js";
-import registerUser from '../../services/register-user';
-import { ApolloConsumer } from 'react-apollo';
+
+var classNames = require('classnames');
 
 export default class extends Component {
   constructor(props) {
     super(props)
-    this.state = { submitted: "not_submitted" }
+    this.state = { submitted: "not_submitted"}
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  signUpUser = async (credentials, client) => {
-    try {
-      const result = await registerUser(client, credentials.firstName, credentials.lastName, credentials.email, credentials.password, credentials.passwordConfirmation, credentials.zip);
-      this.setState({ submitted: "submitted" })
-    } catch(e) {
-      const errors = {}
-      e.graphQLErrors ?
-        e.graphQLErrors.forEach((error) => {
-          errors[error.message] = 1;
-          errors.description = error.details;
-        }) :
-        null;
-
-      this.setState({ submitted: "not_submitted", errors: errors });
-    }
-  }
-
-  async handleSubmit(credentials, client) {
+  handleSubmit(e) {
     event.preventDefault()
     this.setState({ submitted: "submitting" })
-    this.signUpUser(credentials, client);
+    // insert logic for backend call
+    // also enable spinner during this time (we can just use the image at 'static/shared/icon' as a spinner that appears while this function is running)
+    //
+    // when done:
+    // this.setState({ submitted: "submitted" })
   }
 
   withActiveSlide = (a, b, c) => {
@@ -43,15 +30,11 @@ export default class extends Component {
 
   render() {
     return(
-      <ApolloConsumer>
-        {client => (
-          <div className="signup col-c-c">
-            <div className="signup__main col-c-c">
-              {this.withActiveSlide(<SlideOne email={this.props.email} onCancel={this.props.onCancel} onSubmit={(event) => this.handleSubmit(event, client)} errors={this.state.errors ? this.state.errors : {}} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
-            </div>
-          </div>
-        )}
-      </ApolloConsumer>
+      <div className="signup col-c-c">
+        <div className="signup__main col-c-c">
+          {this.withActiveSlide(<SlideOne email={this.props.email} onSubmit={this.handleSubmit} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
+        </div>
+      </div>
     )
   }
 }

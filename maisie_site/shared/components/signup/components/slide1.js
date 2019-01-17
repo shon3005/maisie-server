@@ -25,16 +25,7 @@ function zip_check(x) {
 export default class extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      showSignup: true,
-      allChecked: false,
-      $email: this.props.email,
-      $firstName: '',
-      $lastName: '',
-      $zip: '',
-      $password: '',
-      $passwordConfirmation: '',
-    }
+    this.state = { showSignup: true, allChecked: false }
   }
   componentDidMount() {
     if (this.props.email.length > 0 && this.props.email != " ") { this.handleBlur(this.props.email, "email") }
@@ -67,6 +58,7 @@ export default class extends Component {
     this.setState({ [x]: f ? "success" : "failure" })
   }
   render() {
+    const error = "sample error"
     return(
       <div className="col-c-c">
         <div className="signup__main_in col-fs-c">
