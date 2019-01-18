@@ -21,19 +21,3 @@ config :maisie_api, MaisieApi.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 20,
   ssl: true
-
-config :maisie_api, MaisieApi.ElasticsearchCluster,
-  url: System.get_env("ESURL"),
-  username: System.get_env("ESUSER"),
-  password: System.get_env("ESPASSWORD"),
-  api: Elasticsearch.API.HTTP,
-  json_library: Poison, # or Jason
-  indexes: %{
-    users: %{
-      settings: "priv/elasticsearch/users.json",
-      store: MaisieApi.ElasticsearchStore,
-      sources: [MaisieApi.Accounts.User],
-      bulk_page_size: 5000,
-      bulk_wait_interval: 15_000
-    }
-  }
