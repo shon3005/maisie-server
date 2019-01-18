@@ -32,6 +32,10 @@
       top: -150px;
       width: 85%;
       z-index: 8;
+      -webkit-animation: rotating 50s infinite;
+      -moz-animation:    rotating 50s infinite;
+      -o-animation:      rotating 50s infinite;
+      animation:         rotating 50s infinite;
 
     }
 
