@@ -1,1 +1,7 @@
-export default () => <div className="discover col-fs-c" />
+export default () =>
+  <div className="discover col-fs-c">
+    <div className="discover__cta col-c-c">
+      <img src="../../static/landing/circle_large.svg" />
+      <div>Join a new Circle</div>
+    </div>
+  </div>

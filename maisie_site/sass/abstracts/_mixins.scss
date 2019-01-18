@@ -17,13 +17,6 @@ img.center-child { @include img-center; } // call this on the img element you wi
 // adds browser support for transitions
 @mixin transition($what: all, $time: 0.2s) { -webkit-transition: $what $time; -moz-transition: $what $time; -ms-transition: $what $time; -o-transition: $what $time; transition: $what $time; }
 
-// rotation
-@keyframes rotating { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@-moz-keyframes rotating { from { -moz-transform: rotate(0deg); } to { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes rotating { from { -webkit-transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); } }
-
-
-
 // SCREENS
 
 // MOBILE

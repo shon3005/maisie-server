@@ -27,15 +27,15 @@
 @import "modules/landing/details";
 @import "modules/landing/doublewindow";
 
-@import "modules/discover/base";
+@import "modules/discover/discover";
 
-@import "modules/messages/base";
+@import "modules/messages/messages";
 
-@import "modules/schedule/base";
+@import "modules/schedule/schedule";
 
-@import "modules/account/base";
+@import "modules/account/account";
 
-@import "modules/support/base";
+@import "modules/support/support";
 
 // LAYOUT
 @import "layout/flex";
