@@ -5,12 +5,18 @@
   background-color: $color-primary-lighter;
   &__main {
     box-shadow: 0px -2px 0px 0px $color-secondary-05;
-    height: 300px;
+    @include tabletandmobile {
+      height: auto;
+      flex-direction: column !important;
+    }
 
     &-spacer {
       height: 300px;
       width: 2px;
       background-color: $color-secondary-05;
+      @include tabletandmobile {
+        display: none;
+      }
     }
 
     &_box {
@@ -20,6 +26,12 @@
       padding-right: 50px;
       padding-top: 50px;
       padding-bottom: 80px;
+      @include tabletandmobile {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 50px;
+      }
 
       > img {
         height: 50px;
@@ -45,6 +57,11 @@
 
         .doublewindow-cta {
           margin-top: 30px;
+          @include tabletandmobile {
+            height: 100px;
+            justify-content: space-between !important;
+            flex-direction: column !important;
+          }
           &-right, &-1, &-2 {
             height: 40px;
             line-height: 40px;
@@ -84,18 +101,20 @@
 
           &-1, &-2 {
             @include transition(all, 200ms);
-            padding-left: 15px;
-            padding-right: 15px;
+            @include user-select(none);
+            padding-left: 20px;
+            padding-right: 20px;
 
             box-shadow: 0 2px 5px 0 $color-secondary-10, 0 2px 10px 0 $color-secondary-10;
 
             outline: none;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
 
             font-size: $font-size-small;
 
             &:hover {
+              transform: scale(1.05);
               cursor: pointer;
             }
           }

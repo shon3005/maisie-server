@@ -1,12 +1,12 @@
 .front {
   @include user-select(none);
   @include mobile {
-    height: 600px;
+    height: 800px;
   }
   background: $color-primary-lighter;
   z-index: 1;
   height: calc(100vh - 40px);
-  min-height: 600px;
+  min-height: 800px;
   width: 100%;
   position: relative;
   &__header {
@@ -23,17 +23,17 @@
     flex: 1;
     img {
       @include mobile {
-        height: 600px;
+        height: 800px;
       }
       min-width: 100vw;
       height: calc(100vh - 40px);
-      min-height: 600px;
+      min-height: 760px;
       bottom: 0;
     }
   }
   &__content {
     z-index: 3;
-    height: 90vh;
+    height: 90%;
     width: 100%;
     &_in {
       margin-top: calc(75px + 5%);
@@ -42,6 +42,7 @@
       > div {
         width: 100%;
         margin-top: 10px;
+        margin-bottom: 25px;
         > div {
           padding-right: 20px;
           padding-left: 20px;
