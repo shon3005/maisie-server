@@ -55,19 +55,3 @@ config :maisie_api, MaisieApi.Repo,
   hostname: System.get_env("PGHOST"),
   port: System.get_env("PGPORT"),
   pool_size: 10
-
-config :maisie_api, MaisieApi.ElasticsearchCluster,
-  url: "http://#{System.get_env("ESHOST")}:#{System.get_env("ESPORT")}",
-  username: System.get_env("ESUSER"),
-  password: System.get_env("ESPASSWORD"),
-  api: Elasticsearch.API.HTTP,
-  json_library: Poison, # or Jason
-  indexes: %{
-    users: %{
-      settings: "priv/elasticsearch/users.json",
-      store: MaisieApi.ElasticsearchStore,
-      sources: [MaisieApi.Accounts.User],
-      bulk_page_size: 5000,
-      bulk_wait_interval: 15_000
-    }
-  }
