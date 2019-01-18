@@ -61,6 +61,10 @@ defmodule MaisieApi.Accounts do
     user
   end
 
+  defp create_user_index({:error, result} = user, _attrs) do
+    user
+  end
+
   @doc """
   Updates a user.
 
