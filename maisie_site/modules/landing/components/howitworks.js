@@ -6,11 +6,11 @@ const steps = [
   }, {
     "step": 2,
     "header": "Join your circle",
-    "text": "We’ll match you with a group of peers and a therapist to lead it. A meeting time will be found that works for everyone."
+    "text": "We’ll match you with a group of peers and a therapist to lead it. A meeting time that works for everyone will be found."
   }, {
     "step": 3,
     "header": "Meet",
-    "text": "Now that your Circle has formed, you’ll come together weekly for conversation guided by your Circle leader."
+    "text": "Now that your Circle has formed, you’ll come together weekly for a conversation guided by your Circle leader."
   }
 ]
 

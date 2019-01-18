@@ -42,9 +42,9 @@
     "node-sass": "^4.10.0"
   },
   "scripts": {
-    "dev": "next",
+    "dev": "API=http://localhost:4000 next",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start",
     "export": "next export",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

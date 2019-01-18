@@ -26,7 +26,7 @@ const Cards = (props) => u.map((v, index) =>
 
 export default () =>
   <div className="whycommunity col-fs-c">
-    <span className="whycommunity-title h-large">Why community?</span>
+    <span className="whycommunity-title h-large">Why community-focused?</span>
     <div className="whycommunity__content row-sa">
       <Cards />
     </div>

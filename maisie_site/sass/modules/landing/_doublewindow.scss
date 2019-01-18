@@ -45,6 +45,11 @@
 
         .doublewindow-cta {
           margin-top: 30px;
+          @include tabletandmobile {
+            height: 100px;
+            justify-content: space-between !important;
+            flex-direction: column !important;
+          }
           &-right, &-1, &-2 {
             height: 40px;
             line-height: 40px;

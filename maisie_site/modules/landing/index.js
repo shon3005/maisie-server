@@ -7,12 +7,23 @@ import Details from './components/details.js';
 import DoubleWindow from './components/doublewindow/index.js';
 import Footer from '../../shared/components/footer.js';
 
+import axios from 'axios';
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
+
 export default class extends Component {
   constructor(props) {
     super(props)
     this.state = { email: "", showSignup: false }
     this.handleEmailEntry = this.handleEmailEntry.bind(this)
     this.handleButton = this.handleButton.bind(this)
+  }
+  async componentDidMount() {
+    try {
+      await axios.post(`${publicRuntimeConfig.api}/api/analytics/newPageVisit`, {page: 'home'});
+    } catch (e) {
+      console.log(e.response.data.msg);
+    }
   }
   handleEmailEntry = (email) => {
     this.setState({email: email, showSignup: email ? true : false});
