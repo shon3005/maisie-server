@@ -102,7 +102,7 @@ defmodule MaisieApi.Accounts do
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking user changes.
 
-  ## Examples
+  Examples
 
       iex> change_user(user)
       %Ecto.Changeset{source: %User{}}
