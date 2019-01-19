@@ -17,7 +17,7 @@ const u = [
 const Cards = (props) => u.map((v, index) =>
   <div key={index} className="communitycard col-c">
     <div>
-      <img src={`../../static/landing/community-${(index+1).toString()}.svg`} />
+      <img src={`https://s3.amazonaws.com/maisie-files/landing/community-${(index+1).toString()}.svg`} />
     </div>
     <span className="communitycard-title">{v.title}</span>
     <span className="communitycard-text">{v.text}</span>
