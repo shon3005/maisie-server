@@ -29,8 +29,8 @@ const Steps = (props) => steps.map((step, index) =>
 
 export default (props) =>
   <div className="howitworks col">
-    <img className="howitworks-background" src="../../../static/landing/curved-back.svg" />
-    <img className="howitworks-graphic" src="../../../static/landing/circle-faces.svg" />
+    <img className="howitworks-background" src="https://s3.amazonaws.com/maisie-files/landing/curved-back.svg" />
+    <img className="howitworks-graphic" src="https://s3.amazonaws.com/maisie-files/landing/circle-faces.svg" />
     <div className="howitworks__content col-fs-c">
       <span className="howitworks__content-title h-large">How does it work?</span>
       <Steps />

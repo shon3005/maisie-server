@@ -1,6 +1,6 @@
 export default () =>
   <div className="doublewindow__main_box row">
-    <img src="../../../../../static/landing/questions.svg" />
+    <img src="https://s3.amazonaws.com/maisie-files/landing/questions.svg" />
     <div className="col">
       <span className="doublewindow-title">
         Have questions?
