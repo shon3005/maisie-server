@@ -34,7 +34,7 @@ const details = [
 
 export default (props) =>
   <div className="details row-sa">
-    <img src="../../../static/landing/circle_small.svg" />
+    <img src="https://s3.amazonaws.com/maisie-files/landing/circle_small.svg" />
     <div className="details__content">
       <div className="details__content__head row-fs-c">
         <div className="col-fs">

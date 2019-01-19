@@ -11,11 +11,11 @@ function Links(props) {
 function Logos() {
   return(
     <div className="footer__logos col-c-c">
-      <img className="footer__logos-logo" src="../static/footer/dots_purple.svg" style={{height: 25}} />
+      <img className="footer__logos-logo" src="https://s3.amazonaws.com/maisie-files/footer/dots_purple.svg" style={{height: 25}} />
       <div className="footer__logos-social col">
-        <a href="https://www.instagram.com/sayheymaisie"><img src="../static/footer/instagram.svg" /></a>
-        <a href="https://www.twitter.com/sayheymaisie"><img src="../static/footer/twitter.svg" /></a>
-        <a href="https://www.facebook.com/pg/Maisie-2274087959477864/"><img src="../static/footer/facebook.svg" /></a>
+        <a href="https://www.instagram.com/sayheymaisie"><img src="https://s3.amazonaws.com/maisie-files/footer/instagram.svg" /></a>
+        <a href="https://www.twitter.com/sayheymaisie"><img src="https://s3.amazonaws.com/maisie-files/footer/twitter.svg" /></a>
+        <a href="https://www.facebook.com/pg/Maisie-2274087959477864/"><img src="https://s3.amazonaws.com/maisie-files/footer/facebook.svg" /></a>
       </div>
     </div>
   )
@@ -24,7 +24,7 @@ function Logos() {
 function Drawer() {
   return(
     <div className="footer__more row-c-c">
-      <img src="../static/footer/more.svg" />
+      <img src="https://s3.amazonaws.com/maisie-files/footer/more.svg" />
     </div>
   )
 }
