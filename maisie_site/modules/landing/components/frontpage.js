@@ -20,5 +20,5 @@ export default (props) =>
         <div className="socialbuttons row-sb-c"><SocialButtons /></div>
       </div>
     </div>
-    <div className="front__background col-c-c"><img src="../../static/landing/back.png" /></div>
+    <div className="front__background col-c-c"><img src="https://s3.amazonaws.com/maisie-files/landing/back.png" /></div>
   </div>
