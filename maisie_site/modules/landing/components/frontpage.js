@@ -16,7 +16,7 @@ export default (props) =>
       </div>
       <div className="front__content-prompt col-sb-c">
         <EmailCapture color={1} onEmailEntry={(email) => props.onEmailEntry(email)} />
-        <div style={{height: '10vh'}} />
+        <div style={{height: 40}} />
         <div className="socialbuttons row-sb-c"><SocialButtons /></div>
       </div>
     </div>
