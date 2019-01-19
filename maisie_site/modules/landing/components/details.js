@@ -23,7 +23,7 @@ const details = [
     <span className="details__list-tag">{cat.title}</span>
     {cat.content.map((listitem, index) =>
       <div key={index} className="details__list-checkedItem row">
-        <img src="../../../static/shared/purplecheckmark.svg" />
+        <img src="https://s3.amazonaws.com/maisie-files/shared/purplecheckmark.svg" />
         <span>{listitem}</span>
       </div>
     )}
