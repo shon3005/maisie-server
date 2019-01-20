@@ -8,6 +8,8 @@ defmodule MaisieApi.Accounts do
 
   alias MaisieApi.Accounts.User
 
+  alias SendGrid.{Mail, Email}
+
   @doc """
   Returns the list of users.
 
@@ -53,6 +55,20 @@ defmodule MaisieApi.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
+    |> send_email()
+  end
+
+  defp send_email({:ok, details}=user) do
+    |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
+    |> Email.put_from("do-not-reply@heymaisie.com")
+    |> Email.add_to(details.email)
+    |> Email.add_dynamic_template_data("firstName", details.first_name)
+    |> Mail.send()
+    user
+  end
+
+  defp send_email({:error, details}=user) do
+    user
   end
 
   @doc """

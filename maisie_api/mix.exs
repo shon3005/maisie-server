@@ -49,7 +49,8 @@ defmodule MaisieApi.MixProject do
       {:absinthe_ecto, "~> 0.1.3"},
       {:poison, "~> 2.0"},
       {:guardian, "~> 1.0"},
-      {:cors_plug, "~> 2.0"}
+      {:cors_plug, "~> 2.0"},
+      {:sendgrid, "~> 2.0.0-rc.0"}
     ]
   end
 
