@@ -3,14 +3,10 @@ sudo: required
 # safelist
 branches:
   only:
-  - staging
+  - master
 
 services:
   - docker
-
-env:
-  SENDGRID_API_KEY: $SENDGRID_API_KEY
-  SENDGRID_TEMPLATE_ID: $SENDGRID_TEMPLATE_ID
 
 before_install:
   - docker network create -d bridge --subnet 172.25.0.0/16 maisie_nw
@@ -18,7 +14,7 @@ before_install:
   - docker build -t shon3005/multi-maisie-test -f ./maisie_api/Dockerfile.dev ./maisie_api
 
 script:
-  - docker run --network maisie_nw -e SENDGRID_API_KEY -e SENDGRID_TEMPLATE_ID -e "MAISIE_ORIGIN=http://localhost:3000" -e "PGUSER=postgres" -e "PGPASSWORD=postgres_password" -e "PGDATABASE=maisie_api_test" -e "PGHOST=postgres" -e "PGPORT=5432" shon3005/multi-maisie-test mix test
+  - docker run --network maisie_nw -e "MAISIE_ORIGIN=http://localhost:3000" -e "PGUSER=postgres" -e "PGPASSWORD=postgres_password" -e "PGDATABASE=maisie_api_test" -e "PGHOST=postgres" -e "PGPORT=5432" shon3005/multi-maisie-test mix test
 
 after_success:
   - docker build -t shon3005/multi-maisie-nginx ./nginx
@@ -35,11 +31,11 @@ deploy:
   provider: elasticbeanstalk
   region: us-east-1
   app: multi-maisie-docker
-  env: MultiMaisieDocker-env
+  env: Maisie-App-env
   bucket_name: elasticbeanstalk-us-east-1-640883773139
   bucket_path: multi-maisie-docker
   on:
-    branch: staging
+    branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
