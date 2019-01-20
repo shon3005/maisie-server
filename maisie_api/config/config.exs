@@ -30,6 +30,9 @@ config :maisie_api, MaisieApi.Guardian,
        issuer: "maisie_api",
        secret_key: System.get_env("GUARDIANSECRET")
 
+config :sendgrid,
+  api_key: System.get_env("SENDGRID_API_KEY")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
