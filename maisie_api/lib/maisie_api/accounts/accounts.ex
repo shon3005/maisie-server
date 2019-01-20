@@ -55,23 +55,34 @@ defmodule MaisieApi.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-    |> send_email()
+    |> to_send_email(Mix.env())
   end
 
-  defp send_email({:ok, details}=user) do
-    if Mix.env() != :test do
-      Email.build()
-      |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
-      |> Email.put_from("do-not-reply@heymaisie.com")
-      |> Email.add_to(details.email)
-      |> Email.add_dynamic_template_data("firstName", details.first_name)
-      |> Mail.send()
-    end
+  defp to_send_email({:ok, details}=user, :prod) do
+    send_email(details)
     user
   end
 
-  defp send_email({:error, details}=user) do
+  defp to_send_email({:ok, details}=user, :dev) do
+    send_email(details)
     user
+  end
+
+  defp to_send_email({:error, _details}=user, _env) do
+    user
+  end
+
+  defp to_send_email(user, _env) do
+    user
+  end
+
+  defp send_email(details) do
+    Email.build()
+    |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
+    |> Email.put_from("do-not-reply@heymaisie.com")
+    |> Email.add_to(details.email)
+    |> Email.add_dynamic_template_data("firstName", details.first_name)
+    |> Mail.send()
   end
 
   @doc """
