@@ -20,6 +20,8 @@ services:
     volumes:
       - /app/deps
       - ./maisie_api:/app
+    env_file:
+      - .env
     environment:
       - PGUSER=postgres
       - PGHOST=postgres
