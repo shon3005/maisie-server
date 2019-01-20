@@ -22,7 +22,6 @@ export default class extends Component {
   }
 
   render() {
-    const furtherSignUp = this.state.showSignup ? <SignUp email={this.state.email} onCancel={this.handleButton} handleButton={this.handleButton} /> : null
     return(
       <div>
         {furtherSignUp}

@@ -30,7 +30,7 @@ export default class extends Component {
 
   render() {
     return(
-      <div className="signup col-c-c">
+      <div className={classNames(["signup col-c-c", {active: this.props.showSignup}])}>
         <div className="signup__main col-c-c">
           {this.withActiveSlide(<SlideOne email={this.props.email} onSubmit={this.handleSubmit} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
         </div>

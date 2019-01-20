@@ -25,7 +25,7 @@ $color-red: #FF8585;
 $gradient-blue-purple: linear-gradient(to bottom right, $color-blue 0%, $color-primary 75%);
 
 // SHADOWS
-$shadow-ss: 0 0px 2px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10);
+$shadow-ss: 0 0px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.07);
 $shadow-sss: 0 5px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10);
 $shadow-ssss: 0 2px 2px 0 rgba(2,22,41,0.01), 0 5px 5px 0 rgba(2,22,41,0.02), 0 5px 20px 0 rgba(2,22,41,0.10);
 $shadow-sssss: 0 5px 5px 0 rgba(2,22,41,0.02), 0 5px 30px 0 rgba(2,22,41,0.10);
@@ -38,8 +38,9 @@ $font-display: 'Cabin', sans-serif;
 $font-size-tag-small: 8pt;
 $font-size-tag: 10pt;
 $font-size-small: 10pt;
-$font-size-reg: 12pt;
-$font-size-large: 20pt;
+$font-size-reg: 16px;
+$font-size-med: 20px;
+$font-size-large: 28px;
 
 
 // RESPONSIVE BREAKPOINTS
