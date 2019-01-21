@@ -3,7 +3,7 @@ sudo: required
 # safelist
 branches:
   only:
-  - distillery-bundle
+  - staging
 
 services:
   - docker
@@ -35,7 +35,7 @@ deploy:
   bucket_name: elasticbeanstalk-us-east-1-640883773139
   bucket_path: multi-maisie-docker
   on:
-    branch: distillery-bundle
+    branch: staging
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
