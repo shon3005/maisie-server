@@ -3,7 +3,7 @@ sudo: required
 # safelist
 branches:
   only:
-  - staging
+  -  master
 
 services:
   - docker
@@ -31,11 +31,11 @@ deploy:
   provider: elasticbeanstalk
   region: us-east-1
   app: multi-maisie-docker
-  env: MultiMaisieDocker-env
+  env: Maisie-App-env
   bucket_name: elasticbeanstalk-us-east-1-640883773139
   bucket_path: multi-maisie-docker
   on:
-    branch: staging
+    branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key:
     secure: $AWS_SECRET_KEY
