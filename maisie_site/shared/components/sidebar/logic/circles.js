@@ -1,6 +1,6 @@
 const LOGIC_LINKS = [
   {
-    "text": "Circle 1",
+    "text": "Testy Testers",
     "img": "",
     "href": "group",
     "id": "001",
