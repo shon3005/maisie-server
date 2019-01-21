@@ -36,7 +36,5 @@ USER nobody
 COPY --from=build /app/_build/prod/rel/maisie_api ./
 
 ENV REPLACE_OS_VARS=true
-# ENV PORT=4000
-# EXPOSE $PORT
 
 ENTRYPOINT ["/app/bin/maisie_api"]
