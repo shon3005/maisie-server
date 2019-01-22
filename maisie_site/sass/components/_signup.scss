@@ -16,19 +16,19 @@
 
   background-color: rgba(2,22,41,.90);
 
-  @include tabletandmobile {
+  @include mobile {
     &__main {
       position: fixed;
       height: 100%;
-      width: 100%;
+      width: 100vw;
       justify-content: space-between;
       overflow-y: scroll;
-      bottom: 0;
       > div {
         height: 100%;
-        width: 100%;
+        width: 100vw;
         background-color: #FCFDFF;
         padding: 20px;
+        border-radius: 0;
         .signup__main_in {
           height: 100px;
           &-title {
