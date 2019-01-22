@@ -1,121 +1,213 @@
 .signup {
-  height: 100%;
-  width: 100vw;
-  position: absolute;
-  z-index: 99999;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  background-color: rgba(2,22,41,.90);
-
   -webkit-animation: 150ms ease-out 0s 1 loadElement;
   -moz-animation: 150ms ease-out 0s 1 loadElement;
   -ms-animation: 150ms ease-out 0s 1 loadElement;
   -o-animation: 150ms ease-out 0s 1 loadElement;
   animation: 150ms ease-out 0s 1 loadElement;
 
-  &__main {
-    position:fixed;
-    top: 10vh;
-    > div {
-      padding-top: 30px;
-      padding-bottom: 40px;
-      width: 380px;
+  height: 100%;
+  width: 100%;
 
-      border-radius: 7px;
-      box-shadow: $shadow-ssss;
-      background-color: #FCFDFF;
+  position: absolute;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 
-      .signup__main_in {
-        &-title {
-          color: $color-primary-light;
-          font-size: $font-size-reg;
-          font-weight: 600;
-          text-transform: uppercase;
-          height: 25px;
-          margin-bottom: 30px;
-        }
-        &-text {
-          color: $color-secondary;
-          font-size: $font-size-small;
-          font-weight: 500;
-          margin-top: 20px;
-          margin-bottom: 10px;
-        }
-        .signup_logo {
-          height: 40px;
-          opacity: .25;
-          -webkit-animation: rotating 40s infinite;
-          -moz-animation:    rotating 40s infinite;
-          -o-animation:      rotating 40s infinite;
-          animation:         rotating 40s infinite;
-        }
-        .signup_wordmark {
-          height: 30px;
-          margin-top: 5px;
-          margin-left: 10px;
-        }
-        > button {
-          background-color: $color-secondary;
-          box-shadow: $shadow-ss;
-        }
-      }
+  background-color: rgba(2,22,41,.90);
 
-      .signup__main__form {
-        width: 340px;
+  @include tabletandmobile {
+    &__main {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      justify-content: space-between;
+      overflow-y: scroll;
 
-        &-full {
-          width: 100%;
-          flex-direction: column-reverse !important;
-        }
-        &-half {
-          > div {
-            flex-direction: column-reverse !important;
-            width: 160px;
+      > div {
+        height: 100%;
+        width: 100%;
+        background-color: #FCFDFF;
+        padding: 20px;
+        .signup__main_in {
+          height: 100px;
+          &-title {
+            color: $color-primary-light;
+            font-size: $font-size-reg;
+            font-weight: 600;
+            text-transform: uppercase;
+            height: 25px;
+            margin-bottom: 30px;
+          }
+          &-text {
+            color: $color-secondary;
+            font-size: $font-size-small;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+          .signup_logo {
+            height: 40px;
+            opacity: .25;
+            -webkit-animation: rotating 40s infinite;
+            -moz-animation:    rotating 40s infinite;
+            -o-animation:      rotating 40s infinite;
+            animation:         rotating 40s infinite;
+          }
+          .signup_wordmark {
+            height: 30px;
+            margin-top: 5px;
+            margin-left: 10px;
+          }
+          > button {
+            background-color: $color-secondary;
+            box-shadow: $shadow-ss;
           }
         }
-        &-half, &-full {
+        .signup__main__wrap {
           width: 100%;
-          margin-bottom: 20px;
-        }
-        &-cancel {
-          background-color: $color-secondary;
-        }
-        &-button {
-          background-color: $color-primary-light;
-          &:not(button_available):hover {
-            cursor: default;
+          height: auto;
+          flex: 1;
+          overflow-y: scroll;
+          &__form {
+            padding-left: 5px;
+            padding-right: 5px;
+            &-full {
+              flex-direction: column-reverse !important;
+            }
+            &-half {
+              > div {
+                width: 48%;
+                flex-direction: column-reverse !important;
+              }
+            }
+            &-half, &-full {
+              width: 100%;
+              margin-bottom: 20px;
+            }
+            &-cancel {
+              background-color: $color-secondary;
+            }
+            &-button {
+              background-color: $color-primary-light;
+              &:not(button_available):hover {
+                cursor: default;
+              }
+            }
+            &-button.button_available {
+              height: auto;
+              background-color: $color-primary !important;
+              box-shadow: 0 2px 5px 0 rgba(118,146,255,0.25), 0 2px 10px 0 rgba(118,146,255,0.25);
+            }
           }
-        }
-        &-button.button_available {
-          background-color: $color-primary !important;
-          box-shadow: 0 2px 5px 0 rgba(118,146,255,0.25), 0 2px 10px 0 rgba(118,146,255,0.25);
         }
       }
     }
   }
-  button {
-    @include transition(all, 200ms);
-    height: 40px;
-    width: 100%;
-    margin-top: 10px;
+  @include desktop {
+    &__main {
+      > div {
+        padding-top: 30px;
+        padding-bottom: 40px;
+        width: 380px;
 
-    box-shadow: none;
-    outline: none;
-    border: none;
-    border-radius: 5px;
+        border-radius: 7px;
+        box-shadow: $shadow-ssss;
+        background-color: #FCFDFF;
 
-    color: white;
-    font-family: "Open Sans";
-    font-size: $font-size-small;
-    font-weight: 500;
+        .signup__main_in {
+          &-title {
+            color: $color-primary-light;
+            font-size: $font-size-reg;
+            font-weight: 600;
+            text-transform: uppercase;
+            height: 25px;
+            margin-bottom: 30px;
+          }
+          &-text {
+            color: $color-secondary;
+            font-size: $font-size-small;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 10px;
+          }
+          .signup_logo {
+            height: 40px;
+            opacity: .25;
+            -webkit-animation: rotating 40s infinite;
+            -moz-animation:    rotating 40s infinite;
+            -o-animation:      rotating 40s infinite;
+            animation:         rotating 40s infinite;
+          }
+          .signup_wordmark {
+            height: 30px;
+            margin-top: 5px;
+            margin-left: 10px;
+          }
+          > button {
+            background-color: $color-secondary;
+            box-shadow: $shadow-ss;
+          }
+        }
+        .signup__main__wrap {
+          &__form {
+            width: 340px;
 
-    &:hover {
-      cursor: pointer;
+            &-full {
+              width: 100%;
+              flex-direction: column-reverse !important;
+            }
+            &-half {
+              > div {
+                flex-direction: column-reverse !important;
+                width: 160px;
+              }
+            }
+            &-half, &-full {
+              width: 100%;
+              margin-bottom: 20px;
+            }
+            &-cancel {
+              background-color: $color-secondary;
+            }
+            &-button {
+              background-color: $color-primary-light;
+              &:not(button_available):hover {
+                cursor: default;
+              }
+            }
+            &-button.button_available {
+              background-color: $color-primary !important;
+              box-shadow: 0 2px 5px 0 rgba(118,146,255,0.25), 0 2px 10px 0 rgba(118,146,255,0.25);
+            }
+          }
+        }
+      }
     }
-    &:active {
-      opacity: .75;
-    }
+  }
+}
+
+button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel {
+  @include transition(all, 200ms);
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+
+  box-shadow: none;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+
+  color: white;
+  font-family: "Open Sans";
+  font-size: $font-size-small;
+  font-weight: 500;
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    opacity: .75;
   }
 }
 
