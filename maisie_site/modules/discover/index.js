@@ -5,10 +5,10 @@ import JoinCircle from './components/join_circle_button.js';
   // set equal to 2 for waiting to hear back from us
 let WELCOME_POSITION = 0
 
-export default () =>
+export default (props) =>
   <div className="discover col-fs-c">
     <div className="discover__cta row-sb-c">
       <span>Welcome back, Wayne.</span>
-      <JoinCircle pos={WELCOME_POSITION} />
+      <JoinCircle pos={WELCOME_POSITION} onSignUpFlowPress={props.onSignUpFlowPress} />
     </div>
   </div>
