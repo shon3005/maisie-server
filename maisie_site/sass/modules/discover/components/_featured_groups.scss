@@ -18,7 +18,18 @@
   }
 
   &__buttons {
-    
+    z-index: 998;
+    width: 95%;
+
+    > div {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      background-color: white;
+      font-size: 20px;
+      color: $color-primary;
+      box-shadow: $shadow-sssss;
+    }
   }
 
   &__dots {
