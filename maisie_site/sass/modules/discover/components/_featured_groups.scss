@@ -1,0 +1,40 @@
+.featured_groups {
+  height: 25vw;
+  width: 100%;
+  min-height: 200px;
+  position: relative;
+  background-color: white;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: $shadow-ss;
+  margin-top: $border-padding-inner;
+  overflow: hidden;
+
+  > img {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+  }
+
+  &__buttons {
+    
+  }
+
+  &__dots {
+    z-index: 999;
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    &-inner {
+      position: relative;
+      width: 75px;
+      > div {
+        height: 5px;
+        width: 5px;
+        border-radius: 100px;
+        background-color: white;
+      }
+    }
+  }
+}

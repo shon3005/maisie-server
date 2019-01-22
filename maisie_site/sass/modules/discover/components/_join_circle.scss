@@ -1,0 +1,43 @@
+.join_circle_button {
+  > span.sec {
+    display: none;
+  }
+  @include user-select(none);
+  @include transition(all, 200ms);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $color-primary;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px 0 rgba(5, 45, 84, 0.1), 0 2px 10px 0 rgba(5, 45, 84, 0.1);
+
+  color: white;
+  font-weight: 500;
+  font-size: $font-size-reg;
+  text-transform: capitalize;
+
+  > span.sec {
+    font-size: $font-size-tag-small;
+    opacity: .5;
+    text-transform: none;
+  }
+
+  &.normal {
+  }
+  &.in_progress {
+    > span.sec {
+      display: inherit;
+    }
+  }
+  &.awaiting {
+
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  &:active {
+    opacity: .75;
+  }
+}
