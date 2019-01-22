@@ -171,12 +171,14 @@
               background-color: $color-secondary;
             }
             &-button {
+              height: 40px !important;
               background-color: $color-primary-light;
               &:not(button_available):hover {
                 cursor: default;
               }
             }
             &-button.button_available {
+              height: 40px !important;
               background-color: $color-primary !important;
               box-shadow: 0 2px 5px 0 rgba(118,146,255,0.25), 0 2px 10px 0 rgba(118,146,255,0.25);
             }
@@ -189,7 +191,7 @@
 
 button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel {
   @include transition(all, 200ms);
-  height: 40px;
+  height: 40px !important;
   width: 100%;
   margin-top: 10px;
 
