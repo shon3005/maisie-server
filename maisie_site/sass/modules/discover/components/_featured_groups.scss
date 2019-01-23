@@ -6,7 +6,6 @@
   background-color: white;
   border-radius: 5px 5px 0px 0px;
   box-shadow: $shadow-ss;
-  margin-top: $border-padding-inner;
   overflow: hidden;
 
   > img {
@@ -29,6 +28,7 @@
       font-size: 20px;
       color: $color-primary;
       box-shadow: $shadow-sssss;
+      font-weight: 600;
     }
   }
 

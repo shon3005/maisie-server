@@ -8,9 +8,12 @@ let WELCOME_POSITION = 0 // Determines what the welcome widget should say
 
 export default (props) =>
   <div className="discover col-fs-c">
-    <div className="discover__cta row-sb-c">
-      <span>Welcome back, Wayne.</span>
-      <JoinCircle pos={WELCOME_POSITION} onSignUpFlowPress={props.onSignUpFlowPress} />
-    </div>
+
     <FeaturedGroups />
   </div>
+
+
+  // <div className="discover__cta row-sb-c">
+  //   <span>Welcome back, Wayne.</span>
+  //   <JoinCircle pos={WELCOME_POSITION} onSignUpFlowPress={props.onSignUpFlowPress} />
+  // </div>
