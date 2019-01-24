@@ -13,7 +13,7 @@ config :maisie_api,
 # Configures the endpoint
 config :maisie_api, MaisieApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  secret_key_base: System.get_env("SECRET_KEY_BASE"),
   render_errors: [view: MaisieApiWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: MaisieApi.PubSub, adapter: Phoenix.PubSub.PG2]
 
