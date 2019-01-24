@@ -2,7 +2,7 @@ defmodule MaisieApiWeb.Router do
   use MaisieApiWeb, :router
 
   pipeline :api do
-    plug CORSPlug, [origin: "${MAISIE_ORIGIN}"]
+    plug CORSPlug, [origin: System.get_env("MAISIE_ORIGIN")]
     plug :accepts, ["json"]
     plug MaisieApiWeb.Plugs.Context
   end
@@ -12,8 +12,8 @@ defmodule MaisieApiWeb.Router do
 
     forward("/graphql", Absinthe.Plug, schema: MaisieApiWeb.Schema)
 
-    # if Mix.env() == :dev do
+    if Mix.env() == :dev do
       forward("/graphiql", Absinthe.Plug.GraphiQL, schema: MaisieApiWeb.Schema)
-    # end
+    end
   end
 end
