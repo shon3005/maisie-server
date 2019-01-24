@@ -30,9 +30,9 @@ RUN mix release --env=prod
 FROM alpine:3.6
 RUN apk add --update bash openssl
 
-RUN mkdir /app && chown -R nobody: /app
+# RUN mkdir /app && chown -R nobody: /app
 WORKDIR /app
-USER nobody
+# USER nobody
 
 COPY --from=build /app/_build/prod/rel/maisie_api ./
 
