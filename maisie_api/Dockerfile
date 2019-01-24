@@ -1,8 +1,8 @@
 FROM bitwalker/alpine-elixir-phoenix:latest
 WORKDIR /app
+ENV MIX_ENV=prod
 COPY ./mix.exs ./mix.lock ./
-RUN MIX_ENV=prod mix do deps.get
-# , deps.compile
+RUN mix do deps.get
 COPY . .
-# RUN MIX_ENV=prod mix compile
-CMD MIX_ENV=prod mix do ecto.create, ecto.migrate, phx.server
+CMD ["mix", "do", "ecto.create,", "ecto.migrate,", "phx.server"]
+# CMD MIX_ENV=prod mix do ecto.create, ecto.migrate, phx.server
