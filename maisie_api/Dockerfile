@@ -1,23 +1,24 @@
 # Dockerfile
-FROM elixir:1.6.5-alpine as build
+# FROM elixir:1.6.5-alpine as build
+FROM bitwalker/alpine-elixir-phoenix:latest
 
 # install build dependencies
-RUN apk add --update git
+# RUN apk add --update git
 
 # prepare build dir
-RUN mkdir /app
+# RUN mkdir /app
 WORKDIR /app
 
 # install hex + rebar
-RUN mix local.hex --force && \
-    mix local.rebar --force
+# RUN mix local.hex --force && \
+    # mix local.rebar --force
 
 # set build ENV
 ENV MIX_ENV=prod
 
 # install mix dependencies
 COPY mix.exs mix.lock ./
-COPY config ./
+# COPY config ./
 # COPY deps ./
 RUN mix do deps.get, deps.compile
 
