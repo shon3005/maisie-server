@@ -21,11 +21,3 @@ config :maisie_api, MaisieApi.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 20,
   ssl: true
-
-config :sendgrid,
-  api_key: System.get_env("SENDGRID_API_KEY")
-
-# Guardian config details
-config :maisie_api, MaisieApi.Guardian,
-       issuer: "maisie_api",
-       secret_key: System.get_env("GUARDIANSECRET")
