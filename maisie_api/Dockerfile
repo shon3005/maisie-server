@@ -24,7 +24,7 @@ RUN mix do deps.get, deps.compile
 
 # build release
 COPY . .
-RUN mix release --no-tar --verbose
+RUN mix release --env=prod
 
 # prepare release image
 FROM alpine:3.6
@@ -37,7 +37,7 @@ USER nobody
 COPY --from=build /app/_build/prod/rel/maisie_api ./
 
 ENV REPLACE_OS_VARS=true
-# ENV PORT=4000
-# EXPOSE $PORT
+ENV PORT=4000
+EXPOSE $PORT
 
 ENTRYPOINT ["/app/bin/maisie_api"]

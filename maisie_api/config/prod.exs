@@ -10,8 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :maisie_api, MaisieApiWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "api", port: 80],
+  http: [:inet6, port: "${PORT}" || 4000],
+  url: [host: "${MAISIE_ORIGIN}", port: "${PORT}"],
   cache_static_manifest: "priv/static/cache_manifest.json",
   code_reloader: false,
   server: true

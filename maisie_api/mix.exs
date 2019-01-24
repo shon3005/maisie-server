@@ -50,7 +50,8 @@ defmodule MaisieApi.MixProject do
       {:poison, "~> 2.0"},
       {:guardian, "~> 1.0"},
       {:cors_plug, "~> 2.0"},
-      {:sendgrid, "~> 2.0.0-rc.0"}
+      {:sendgrid, "~> 2.0.0-rc.0"},
+      {:distillery, "~> 1.0"}
     ]
   end
 
