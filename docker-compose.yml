@@ -28,8 +28,9 @@ services:
       - PGDATABASE=maisie_api_dev
       - PGPASSWORD=postgres_password
       - PGPORT=5432
-      - GUARDIANSECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
+      - GUARDIAN_SECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
       - MAISIE_ORIGIN=http://client:3000
+      - SECRET_KEY_BASE=nTt+ZjxSBg7tGy0swaERVpA1LfRcXCn5eMMTKxSQYep8kMGPZEUSEFdlPWLEqglJ
   client:
     build:
       dockerfile: Dockerfile.dev

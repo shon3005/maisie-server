@@ -9,7 +9,8 @@ use Mix.Config
 # kept out of version control and might be hard to recover
 # or recreate for your teammates (or yourself later on).
 config :maisie_api, MaisieApiWeb.Endpoint,
-  secret_key_base: "UDGI6SRGYgS5kBvGB3gXl8Wh1VRtm4Kq2dklHbff2uku5jeWix/yLm0nHtvAOViE"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  # secret_key_base: "UDGI6SRGYgS5kBvGB3gXl8Wh1VRtm4Kq2dklHbff2uku5jeWix/yLm0nHtvAOViE"
 
 # Configure your database
 config :maisie_api, MaisieApi.Repo,

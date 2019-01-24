@@ -13,7 +13,7 @@ config :maisie_api,
 # Configures the endpoint
 config :maisie_api, MaisieApiWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "nTt+ZjxSBg7tGy0swaERVpA1LfRcXCn5eMMTKxSQYep8kMGPZEUSEFdlPWLEqglJ",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
   render_errors: [view: MaisieApiWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: MaisieApi.PubSub, adapter: Phoenix.PubSub.PG2]
 
@@ -28,7 +28,7 @@ config :phoenix, :json_library, Jason
 # Guardian config details
 config :maisie_api, MaisieApi.Guardian,
        issuer: "maisie_api",
-       secret_key: System.get_env("GUARDIANSECRET")
+       secret_key: System.get_env("GUARDIAN_SECRET")
 
 config :sendgrid,
   api_key: System.get_env("SENDGRID_API_KEY")
