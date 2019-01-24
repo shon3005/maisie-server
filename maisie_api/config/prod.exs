@@ -12,10 +12,9 @@ use Mix.Config
 config :maisie_api, MaisieApiWeb.Endpoint,
   http: [:inet6, port: "${PORT}" || 4000],
   url: [host: "api", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json",
   code_reloader: false,
   server: true
-
+# cache_static_manifest: "priv/static/cache_manifest.json",
 # Do not print debug messages in production
 config :logger, level: :info
 
