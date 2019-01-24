@@ -41,5 +41,4 @@ ENV PORT=4000
 EXPOSE $PORT
 
 # ENTRYPOINT ["/app/bin/maisie_api"]
-# CMD /app/bin/maisie_api foreground
-CMD /app/bin/maisie_api start
+CMD /app/bin/maisie_api foreground

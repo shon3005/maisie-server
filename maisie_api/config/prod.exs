@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :maisie_api, MaisieApiWeb.Endpoint,
   http: [:inet6, port: "${PORT}" || 4000],
-  url: [host: "${HOST}", port: 80],
+  url: [host: "api", port: 80],
   code_reloader: false,
   server: true
 # cache_static_manifest: "priv/static/cache_manifest.json",
