@@ -1,7 +1,9 @@
-import React from 'react'
-import App, { Container } from 'next/app'
 import Head from 'next/head'
 import '../sass/main.scss';
+import App, { Container } from 'next/app'
+import React from 'react'
+import withApollo from '../shared/services/with-apollo'
+import { ApolloProvider } from 'react-apollo'
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
