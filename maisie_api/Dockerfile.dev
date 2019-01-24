@@ -1,7 +1,7 @@
-FROM bitwalker/alpine-elixir-phoenix:latest
+# FROM bitwalker/alpine-elixir-phoenix:latest
+FROM elixir:1.6.5-alpine
 WORKDIR "/app"
 COPY ./mix.exs ./mix.lock ./
-# , deps.compile
 RUN mix do deps.get
 COPY ./priv ./config ./entrypoint.sh ./
 RUN ["chmod", "+x", "./entrypoint.sh"]
