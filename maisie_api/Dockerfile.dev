@@ -4,7 +4,8 @@ WORKDIR "/app"
 RUN mix local.hex --force && \
     mix local.rebar --force
 COPY ./mix.exs ./mix.lock ./
-RUN mix do deps.get
+RUN mix deps.compile
+# RUN mix do deps.get, 
 COPY ./priv ./config ./entrypoint.sh ./
 RUN ["chmod", "+x", "./entrypoint.sh"]
 ENTRYPOINT ["sh", "./entrypoint.sh"]
