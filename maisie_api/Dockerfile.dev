@@ -1,6 +1,8 @@
 # FROM bitwalker/alpine-elixir-phoenix:latest
 FROM elixir:1.6.5-alpine
 WORKDIR "/app"
+RUN mix local.hex --force && \
+    mix local.rebar --force
 COPY ./mix.exs ./mix.lock ./
 RUN mix do deps.get
 COPY ./priv ./config ./entrypoint.sh ./
