@@ -1,6 +1,6 @@
 # Dockerfile
 # FROM elixir:1.6.5-alpine as build
-FROM bitwalker/alpine-elixir-phoenix:latest
+FROM bitwalker/alpine-elixir-phoenix:latest as build
 
 # install build dependencies
 # RUN apk add --update git
