@@ -78,7 +78,7 @@ defmodule MaisieApi.Accounts do
 
   defp send_email(details) do
     Email.build()
-    |> Email.put_template("${SENDGRID_TEMPLATE_ID}")
+    |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
     |> Email.put_from("do-not-reply@heymaisie.com")
     |> Email.add_to(details.email)
     |> Email.add_dynamic_template_data("firstName", details.first_name)

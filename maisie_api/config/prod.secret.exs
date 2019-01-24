@@ -13,19 +13,19 @@ config :maisie_api, MaisieApiWeb.Endpoint,
 
 # Configure your database
 config :maisie_api, MaisieApi.Repo,
-  username: "${PGUSER}",
-  password: "${PGPASSWORD}",
-  database: "${PGDATABASE}",
-  hostname: "${PGHOST}",
-  port: "${PGPORT}",
+  username: System.get_env("PGUSER"),
+  password: System.get_env("PGPASSWORD"),
+  database: System.get_env("PGDATABASE"),
+  hostname: System.get_env("PGHOST"),
+  port: System.get_env("PGPORT"),
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 20,
   ssl: true
 
 config :sendgrid,
-  api_key: "${SENDGRID_API_KEY}"
+  api_key: System.get_env("SENDGRID_API_KEY")
 
 # Guardian config details
 config :maisie_api, MaisieApi.Guardian,
        issuer: "maisie_api",
-       secret_key: "${GUARDIANSECRET}"
+       secret_key: System.get_env("GUARDIANSECRET")
