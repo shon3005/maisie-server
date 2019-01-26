@@ -1,0 +1,28 @@
+.hostabb {
+  width: 100%;
+  &__thumb {
+    height: 40px;
+    width: 40px;
+    background-color: $color-primary;
+    border-radius: 50px;
+    overflow: hidden;
+    > img {
+      height: 40px;
+      width: 40px;
+    }
+  }
+  &__text {
+    margin-left: 15px;
+    font-weight: 400;
+    &-tag {
+      color: $color-secondary-25;
+      font-size: $font-size-small;
+    }
+    &-name {
+      margin-top: -5px;
+      color: $color-secondary;
+      font-size: $font-size-reg;
+      text-transform: capitalize;
+    }
+  }
+}

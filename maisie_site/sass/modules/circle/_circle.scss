@@ -2,33 +2,26 @@
   height: 100%;
   width: 100%;
 
-  &__title {
-    @include user-select(none);
-    width: 100%;
-    text-align: center;
-    height: 60px;
-    line-height: 60px;
+  &_l {
     color: $color-secondary;
-    font-weight: 600;
-    font-size: $font-size-reg;
-  }
-  &__side {
-    width: 200px;
-    height: 100%;
-    // padding-top: calc(60px);
-  }
-  &__cent {
-    width: auto;
-    height: 100%;
-    flex: 1;
-    > span {
-      font-weight: 600px;
-      font-size: 40px;
-      color: #052D54;
-      height: 40px;
-      line-height: 40px;
+    &-title {
+      font-size: $font-size-title;
+      font-weight: 500;
     }
-    margin-left: $border-padding-inner;
-    margin-right: $border-padding-inner;
+    &-text {
+      font-weight: 400;
+      font-size: $font-size-small;
+    }
+  }
+  &_r {
+
+  }
+
+  &__subhead {
+    font-size: $font-size-tag;
+    color: $color-primary;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
 }

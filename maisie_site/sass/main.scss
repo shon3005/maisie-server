@@ -40,9 +40,11 @@
 @import "modules/support/support";
 
 @import "modules/circle/circle";
-@import "modules/circle/components/circlehost";
-@import "modules/circle/components/meetingtime";
-@import "modules/circle/circle_variables";
+@import "modules/circle/components/hostabb";
+@import "modules/circle/components/tags";
+@import "modules/circle/components/details";
+@import "modules/circle/components/location";
+@import "modules/circle/components/host";
 
 // LAYOUT
 @import "layout/flex";
