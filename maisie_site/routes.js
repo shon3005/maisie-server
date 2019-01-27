@@ -3,6 +3,7 @@ const routes = require('next-routes')
 module.exports = routes()                           // ----   ----   -----
 .add('home')                                    // about  about  /about
 .add('settings')
+.add('host')
 .add('messages')
 .add('schedule')
 .add('support')

@@ -35,6 +35,10 @@
 
 @import "modules/schedule/schedule";
 
+@import "modules/host/host";
+@import "modules/host/components/hostpayments";
+@import "modules/host/components/hostschedule";
+
 @import "modules/settings/settings";
 
 @import "modules/support/support";
