@@ -1,6 +1,7 @@
 .circle {
   height: 100%;
   width: 100%;
+  min-width: 750px;
 
   &_l {
     color: $color-secondary;
@@ -23,5 +24,18 @@
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 10px;
+  }
+}
+
+.circleback {
+  @include transition(all, 200ms);
+  @include user-select(none);
+  margin-bottom: $border-padding-inner;
+  &:hover {
+    cursor: pointer;
+    opacity: .75;
+  }
+  &:active {
+    opacity: .5;
   }
 }

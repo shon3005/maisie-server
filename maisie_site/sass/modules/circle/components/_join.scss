@@ -1,0 +1,47 @@
+.circlejoin {
+  width: 240px;
+  background-color: white;
+  box-shadow: $shadow-ss;
+  border-radius: 5px;
+  margin-left: $border-padding-inner*2;
+  padding: 10px;
+  padding-top: 20px;
+
+  &-price {
+    font-size: 40px;
+    color: $color-secondary;
+  }
+
+  > button {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+
+    font-size: $font-size-small;
+    font-weight: 500;
+    font-family: "Open Sans";
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: .75;
+    }
+  }
+
+  > button.primary {
+    background-color: $color-primary;
+    color: white;
+    box-shadow: inset 0 -11px 12px 0 rgba(5,45,84,0.05);
+  }
+
+  > button.secondary {
+    color: $color-primary;
+  }
+}
