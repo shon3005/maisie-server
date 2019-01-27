@@ -1,5 +1,6 @@
 .appheader {
   width: 100%;
+  height: auto;
   z-index: 99998;
 
   background-color: $color-black;
@@ -39,14 +40,10 @@
       border: 1px solid $color-primary;
       background-color: $color-primary-light;
     }
-    &:hover {
-      cursor: pointer;
-    }
 
 
     &_drop {
       position: absolute;
-      padding-bottom: 10px;
       display: none;
       z-index: 99999;
 
@@ -59,21 +56,42 @@
       box-shadow: $shadow-sssss;
       border-radius: 0px 0px 5px 5px;
 
+      &-name {
+        padding: 20px;
+        font-size: $font-size-reg;
+        width: 100%;
+        white-space: nowrap;
+        font-weight: 600;
+
+        > a {
+          @include transition(all, 200ms);
+          font-size: $font-size-small;
+          color: $color-primary;
+          font-weight: 500;
+          margin-top: 5px;
+          &:hover {
+            cursor: pointer;
+            opacity: .5;
+          }
+        }
+      }
+
       &-item {
 
         @include user-select(none);
         @include transition(all, 200ms);
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
         > span {
           text-overflow: ellipsis;
           flex: 1;
           width: 100%;
-          margin-left: 10px;
           overflow: hidden;
           white-space: nowrap;
           text-transform: capitalize;
-          font-size: $font-size-reg;
+          font-size: $font-size-small;
+          font-weight: 500;
+          color: $color-primary;
         }
         &-tag {
           position: absolute;
@@ -90,16 +108,18 @@
         &:hover {
           cursor: pointer;
           background-color: $color-primary-lighter;
+          > span {
+            color: $color-secondary;
+          }
         }
         &:active {
           opacity: .5;
         }
         &.large {
-          padding-top: 10px;
-          padding-bottom: 10px;
-          margin-top: 10px;
+          padding-top: 15px;
+          padding-bottom: 15px;
           > img {
-            height: 24px;
+            height: 20px;
           }
         }
         &-imgc {

@@ -1,20 +1,16 @@
 const LOGIC_MAIN = [
   {
-    "text": "discover",
-    "img": "../../../static/sidebar/circles.svg",
-    "href": "discover",
+    "text": "home",
+    "img": "../../../static/sidebar/home.svg",
+    "href": "home",
   }, {
     "text": "messages",
     "img": "../../../static/sidebar/messages.svg",
     "href": "messages",
   }, {
-    "text": "schedule",
-    "img": "../../../static/sidebar/schedule.svg",
-    "href": "schedule",
-  }, {
-    "text": "account",
+    "text": "settings",
     "img": "../../../static/sidebar/settings.svg",
-    "href": "account",
+    "href": "settings",
   }, {
     "text": "support",
     "img": "../../../static/sidebar/support.svg",
