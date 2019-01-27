@@ -1,4 +1,4 @@
-import withPage from '../shared/withPage.js';
+import withPageNoSide from '../shared/withPageNoSide.js';
 import Messages from '../modules/messages/index.js';
 
-export default () => withPage(<Messages />, "messages");
+export default () => withPageNoSide(<Messages />, "messages");

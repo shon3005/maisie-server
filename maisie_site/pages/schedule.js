@@ -1,4 +1,4 @@
-import withPage from '../shared/withPage.js';
+import withPageNoSide from '../shared/withPageNoSide.js';
 import Schedule from '../modules/schedule/index.js';
 
-export default () => withPage(<Schedule />, "schedule");
+export default () => withPageNoSide(<Schedule />, "schedule");

@@ -1,6 +1,6 @@
 import withPage from '../shared/withPage';
 import withPageNoSide from '../shared/withPageNoSide';
-import Discover from '../modules/discover/index';
+import Home from '../modules/home/index';
 import React, { Component } from 'react';
 
 export default class extends React.Component {
@@ -15,7 +15,7 @@ export default class extends React.Component {
     const toShow =
       this.state.inSignUpFlow
       ? withPageNoSide( <div /> )
-      : withPage( <Discover onSignUpFlowPress={this.handleSignUpToggle.bind(this)} />, "discover" )
+      : withPageNoSide( <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} />, "home" )
     return(
       <div>{toShow}</div>
     )
