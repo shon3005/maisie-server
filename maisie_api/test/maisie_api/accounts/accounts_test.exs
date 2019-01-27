@@ -70,4 +70,69 @@ defmodule MaisieApi.AccountsTest do
     #   assert %Ecto.Changeset{} = Accounts.change_user(user)
     # end
   end
+
+  # describe "hosts" do
+  #   alias MaisieApi.Accounts.Host
+
+  #   @valid_attrs %{description: "some description", education: "some education", image_url: "some image_url", license: "some license"}
+  #   @update_attrs %{description: "some updated description", education: "some updated education", image_url: "some updated image_url", license: "some updated license"}
+  #   @invalid_attrs %{description: nil, education: nil, image_url: nil, license: nil}
+
+  #   def host_fixture(attrs \\ %{}) do
+  #     {:ok, host} =
+  #       attrs
+  #       |> Enum.into(@valid_attrs)
+  #       |> Accounts.create_host()
+
+  #     host
+  #   end
+
+  #   test "list_hosts/0 returns all hosts" do
+  #     host = host_fixture()
+  #     assert Accounts.list_hosts() == [host]
+  #   end
+
+  #   test "get_host!/1 returns the host with given id" do
+  #     host = host_fixture()
+  #     assert Accounts.get_host!(host.id) == host
+  #   end
+
+  #   test "create_host/1 with valid data creates a host" do
+  #     assert {:ok, %Host{} = host} = Accounts.create_host(@valid_attrs)
+  #     assert host.description == "some description"
+  #     assert host.education == "some education"
+  #     assert host.image_url == "some image_url"
+  #     assert host.license == "some license"
+  #   end
+
+  #   test "create_host/1 with invalid data returns error changeset" do
+  #     assert {:error, %Ecto.Changeset{}} = Accounts.create_host(@invalid_attrs)
+  #   end
+
+  #   test "update_host/2 with valid data updates the host" do
+  #     host = host_fixture()
+  #     assert {:ok, %Host{} = host} = Accounts.update_host(host, @update_attrs)
+  #     assert host.description == "some updated description"
+  #     assert host.education == "some updated education"
+  #     assert host.image_url == "some updated image_url"
+  #     assert host.license == "some updated license"
+  #   end
+
+  #   test "update_host/2 with invalid data returns error changeset" do
+  #     host = host_fixture()
+  #     assert {:error, %Ecto.Changeset{}} = Accounts.update_host(host, @invalid_attrs)
+  #     assert host == Accounts.get_host!(host.id)
+  #   end
+
+  #   test "delete_host/1 deletes the host" do
+  #     host = host_fixture()
+  #     assert {:ok, %Host{}} = Accounts.delete_host(host)
+  #     assert_raise Ecto.NoResultsError, fn -> Accounts.get_host!(host.id) end
+  #   end
+
+  #   test "change_host/1 returns a host changeset" do
+  #     host = host_fixture()
+  #     assert %Ecto.Changeset{} = Accounts.change_host(host)
+  #   end
+  # end
 end

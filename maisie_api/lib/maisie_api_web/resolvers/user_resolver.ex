@@ -1,7 +1,7 @@
 defmodule MaisieApiWeb.Resolvers.UserResolver do
     alias MaisieApi.Accounts
 
-    def users(_,_, %{context: context}) do
+    def users(_,_, %{context: _context}) do
         {:ok, Accounts.list_users()}
     end
 

@@ -1,6 +1,7 @@
 FROM bitwalker/alpine-elixir-phoenix:latest
 WORKDIR "/app"
 COPY ./mix.exs ./mix.lock ./
-RUN mix do deps.get, compile
+RUN mix deps.get
 COPY . .
+RUN mix compile
 CMD ["mix", "do", "ecto.create,", "ecto.migrate,", "phx.server"]

@@ -2,7 +2,7 @@ defmodule MaisieApi.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias MaisieApi.Services.Group
+  alias MaisieApi.Accounts.Host
 
   schema "users" do
     field :email, :string, unique: true
@@ -13,7 +13,7 @@ defmodule MaisieApi.Accounts.User do
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
     field :role, :string, default: "user"
-    has_many :groups, Group
+    has_one :host, Host
 
     timestamps()
   end

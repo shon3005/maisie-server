@@ -1,4 +1,4 @@
-defmodule MaisieApiWeb.Schema.Types.Usertype do
+defmodule MaisieApiWeb.Schema.Types.UserType do
     use Absinthe.Schema.Notation
     use Absinthe.Ecto, repo: MaisieApi.Repo
 

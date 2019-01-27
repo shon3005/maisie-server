@@ -83,7 +83,23 @@ export default () => {
 
 
 
+// import CircleHost from './components/circlehost';
+// import MeetingTime from './components/meetingtime';
+// import { ApolloConsumer } from 'react-apollo';
+// import getCircle from '../../shared/services/get-circle';
 
+// const getCircleDetails = (circleId, client) => {
+//   getCircle(circleId, client);
+// }
+
+// export default () =>
+//   <ApolloConsumer>
+//     {client => (
+//       <div>
+//         {getCircleDetails(1, client)}
+//       </div>
+//     )}
+//   </ApolloConsumer>
 
 // GENERAL STUFF
 //   circle name
