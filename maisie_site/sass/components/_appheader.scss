@@ -1,7 +1,6 @@
 .appheader {
-  height: 64px;
   width: 100%;
-  z-index: 998;
+  z-index: 99998;
 
   background-color: $color-black;
 
@@ -26,12 +25,14 @@
   }
 
   &__user {
+    position: relative;
+    height: 64px;
     > span {
       color: white;
       font-size: $font-size-reg;
       margin-right: 10px;
     }
-    > div {
+    &-thumb {
       height: 30px;
       width: 30px;
       border-radius: 50px;
@@ -41,5 +42,82 @@
     &:hover {
       cursor: pointer;
     }
+
+
+    &_drop {
+      position: absolute;
+      padding-bottom: 10px;
+      display: none;
+      z-index: 99999;
+
+      top: 64px;
+      transform: scale(.9);
+      opacity: 0;
+      height: 0;
+
+      background-color: white;
+      box-shadow: $shadow-sssss;
+      border-radius: 0px 0px 5px 5px;
+
+      &-item {
+
+        @include user-select(none);
+        @include transition(all, 200ms);
+        padding-left: 30px;
+        padding-right: 30px;
+        > span {
+          text-overflow: ellipsis;
+          flex: 1;
+          width: 100%;
+          margin-left: 10px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-transform: capitalize;
+          font-size: $font-size-reg;
+        }
+        &-tag {
+          position: absolute;
+          height: 5px;
+          width: 5px;
+          background-color: $color-primary;
+          left: -2.5px;
+          border-radius: 50px;
+          box-shadow: 0px 0px 10px $color-primary;
+          &:not(.active) {
+            display: none;
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: $color-primary-lighter;
+        }
+        &:active {
+          opacity: .5;
+        }
+        &.large {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          margin-top: 10px;
+          > img {
+            height: 24px;
+          }
+        }
+        &-imgc {
+          height: 20px;
+          width: 20px;
+          border-radius: 50px;
+          background-color: $color-primary-light;
+          border: 1px solid $color-primary;
+        }
+      }
+    }
   }
+}
+
+.appheader__user:hover > .appheader__user_drop {
+  display: flex;
+  transform: scale(1);
+  flex-direction: column;
+  opacity: 1;
+  height: auto;
 }

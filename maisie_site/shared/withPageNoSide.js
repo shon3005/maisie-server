@@ -1,4 +1,4 @@
-import Header from '../shared/components/app_header.js';
+import Header from '../shared/components/app_header/index.js';
 
 export default (page, id) =>
   <div className="withPage col">
