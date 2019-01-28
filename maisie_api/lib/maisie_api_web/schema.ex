@@ -9,6 +9,12 @@ defmodule MaisieApiWeb.Schema do
     import_types(MaisieApiWeb.Schema.Types)
 
     query do
+        @desc "Get authenticated user"
+        field :get_user, :user_type do
+            middleware(Middleware.Authorize, :any)
+            resolve(&Resolvers.UserResolver.user/3)
+        end
+
         @desc "Get a list of all users"
         field :users, list_of(:user_type) do
             middleware(Middleware.Authorize, :any)
@@ -49,25 +55,25 @@ defmodule MaisieApiWeb.Schema do
            resolve(&Resolvers.HostResolver.register_host/3)
         end
 
-      #   @desc "Create a circle"
-      #   field :create_circle, type: :circle_type do
-      #      arg(:input, non_null(:circle_input_type))
-      #      middleware(Middleware.Authorize, :any)
-      #      resolve(&Resolvers.CircleResolver.create_circle/3)
-      #   end
-         @desc "Create a circle"
-         field :create_circle, :string do
-            arg :file, non_null(:upload)
+        @desc "Create a circle"
+        field :create_circle, type: :circle_type do
+           arg(:input, non_null(:circle_input_type))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.CircleResolver.create_circle/3)
+        end
+         # @desc "Create a circle"
+         # field :create_circle, :string do
+         #    arg :file, non_null(:upload)
 
-            resolve fn args, _ ->
-               IO.puts("hello")
-               IO.inspect(args)
-               IO.puts("bye")
-               args.file # this is a `%Plug.Upload{}` struct.
+         #    resolve fn args, _ ->
+         #       IO.puts("hello")
+         #       IO.inspect(args)
+         #       IO.puts("bye")
+         #       args.file # this is a `%Plug.Upload{}` struct.
 
-               {:ok, "success"}
-            end
-         end
+         #       {:ok, "success"}
+         #    end
+         # end
     end
 
     # subscription do

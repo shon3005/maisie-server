@@ -7,13 +7,26 @@ import Location from './components/location.js';
 import Host from './components/host.js';
 import Join from './components/join.js';
 import Router from 'next/router';
+import { ApolloConsumer } from 'react-apollo';
+import getCircle from '../../shared/services/get-circle';
 
 const Sub = (props) => <div className="circle__subhead">{props.children}</div>
+
+const getCircleDetails = (circleId, client) => {
+  getCircle(circleId, client);
+}
 
 export default () => {
   const x = DUMMY_DATA
   return(
     <div className="col">
+      <ApolloConsumer>
+        {client => (
+          <div>
+            {getCircleDetails(1, client)}
+          </div>
+        )}
+      </ApolloConsumer>
       <div onClick={() => Router.back()} className="circleback row-fs-c">
         <img src={'../../static/shared/back.svg'} />
         <span>Back</span>

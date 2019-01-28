@@ -1,6 +1,10 @@
 defmodule MaisieApiWeb.Resolvers.UserResolver do
     alias MaisieApi.Accounts
 
+    def user(_, _, %{context: %{current_user: current_user}}) do
+        {:ok, Accounts.get_user!(current_user.id)};
+    end
+
     def users(_,_, %{context: _context}) do
         {:ok, Accounts.list_users()}
     end

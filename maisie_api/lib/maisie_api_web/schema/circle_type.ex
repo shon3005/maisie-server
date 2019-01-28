@@ -12,17 +12,17 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
     end
 
     input_object :circle_input_type do
-        # field(:name, :string)
-        # field(:description, :string)
-        # field(:price, :float)
-        # field(:day, :string)
-        # field(:time, :string)
-        # field(:duration, :integer)
-        # field(:program_length, :integer)
-        # field(:start, :datetime)
-        # field(:end, :datetime)
-        # field(:space_type, :string)
-        # field(:location, :string)
+        field(:name, :string)
+        field(:description, :string)
+        field(:price, :float)
+        field(:day, :string)
+        field(:time, :string)
+        field(:duration, :integer)
+        field(:program_length, :integer)
+        field(:start, :datetime)
+        field(:end, :datetime)
+        field(:space_type, :string)
+        field(:location, :string)
         # field(:file, non_null(:upload))
     end
 
