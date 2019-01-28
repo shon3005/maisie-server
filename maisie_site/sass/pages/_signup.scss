@@ -23,6 +23,10 @@
         width: 64px;
         border-radius: 50px;
         box-shadow: $shadow-ssss;
+        -webkit-animation: rotating 100s infinite;
+        -moz-animation:    rotating 100s infinite;
+        -o-animation:      rotating 100s infinite;
+        animation:         rotating 100s infinite;
       }
 
       &-welcome {

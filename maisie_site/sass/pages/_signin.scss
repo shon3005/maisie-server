@@ -10,10 +10,10 @@ textarea, select, input, button { outline: none; }
     width: 64px;
     border-radius: 50px;
     box-shadow: $shadow-ssss;
-    -webkit-animation: rotating 75s infinite;
-    -moz-animation:    rotating 75s infinite;
-    -o-animation:      rotating 75s infinite;
-    animation:         rotating 75s infinite;
+    -webkit-animation: rotating 100s infinite;
+    -moz-animation:    rotating 100s infinite;
+    -o-animation:      rotating 100s infinite;
+    animation:         rotating 100s infinite;
   }
 
   &-welcome {

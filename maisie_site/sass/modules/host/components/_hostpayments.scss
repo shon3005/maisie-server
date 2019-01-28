@@ -1,14 +1,4 @@
 .hostpanelpay {
-  width: 240px;
-  height: 200px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: $shadow-ssss;
-  padding: 20px;
-
-  > span {
-
-  }
   &-tag {
     font-size: $font-size-tag;
     color: $color-primary;
@@ -23,8 +13,7 @@
   > button {
     @include transition(all, 200ms);
     @include user-select(none);
-
-    width: 100%;
+    width: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
     border: none;
