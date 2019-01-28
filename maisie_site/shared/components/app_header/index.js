@@ -31,9 +31,10 @@ export default () =>
         <Link route={`circles`} as={`circles/001`} params={{id: "001"}}>
           <div className="appheader__user_drop-item large row-fs-c">
             <div className="appheader__user_drop-item-tag" />
-            <span>circle Example (test)</span>
+            <span>circle Example TEST</span>
           </div>
         </Link>
+        <SideItemLarge text="Sign In TEST" img="" href="signin" />
       </div>
     </div>
   </div>

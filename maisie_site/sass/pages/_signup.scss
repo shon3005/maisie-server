@@ -1,0 +1,121 @@
+.signupfull {
+  height: 100vh;
+  width: 100vw;
+  background-color: $color-black;
+
+  &__inner {
+    width: 75%;
+    min-height: 600px;
+    height: 50%;
+    max-width: 550px;
+    min-width: 340px;
+
+    box-shadow: $shadow-sssss;
+    overflow: hidden;
+    border-radius: 5px;
+    &_right {
+      width: 100%;
+      height: 100%;
+      background-color: #EEF1FF;
+
+      > img {
+        height: 64px;
+        width: 64px;
+        border-radius: 50px;
+        box-shadow: $shadow-ssss;
+      }
+
+      &-welcome {
+        font-size: $font-size-large;
+        text-transform: capitalize;
+        font-weight: 400px;
+        color: $color-secondary;
+      }
+      &-subwelcome {
+        font-size: $font-size-small;
+        text-transform: capitalize;
+        font-weight: 600px;
+        color: $color-primary;
+      }
+
+      > form {
+        width: 240px;
+        input, button {
+          height: 36px;
+          border-radius: 5px;
+          font-family: "Open Sans";
+          font-size: $font-size-small;
+        }
+
+        > input {
+          @include transition(all, 200ms);
+          width: 100%;
+          border: 1px solid white;
+          box-shadow: $shadow-sss;
+          outline: 0;
+          padding-left: 10px;
+          padding-right: 10px;
+          color: $color-secondary;
+          caret-color: $color-primary;
+          &:focus {
+            border: 1px solid $color-primary;
+          }
+          &::placeholder {
+            color: $color-primary-light;
+          }
+        }
+        > button {
+          @include transition(all, 200ms);
+          width: 100%;
+          background-color: $color-primary;
+          color: white;
+          border: none;
+          box-shadow: inset 0 -11px 12px 0 rgba(5,45,84,0.05);
+          transform: scale(1);
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+          }
+        }
+        > div {
+          > input {
+            @include transition(all, 200ms);
+            height: 36px;
+            border-radius: 5px;
+            font-family: "Open Sans";
+            font-size: $font-size-small;
+            width: calc(50%);
+            border: 1px solid white;
+            box-shadow: $shadow-sss;
+            outline: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: $color-secondary;
+            caret-color: $color-primary;
+            &:focus {
+              border: 1px solid $color-primary;
+            }
+            &::placeholder {
+              color: $color-primary-light;
+            }
+          }
+        }
+      }
+      &__error {
+        margin-top: 20px;
+        font-size: $font-size-small;
+        color: $color-red;
+      }
+    }
+  }
+}
+
+.signuplink {
+  font-size: $font-size-small;
+  color: $color-primary;
+  font-weight: 400;
+  text-decoration: none;
+  &:hover { cursor: pointer; }
+  &:active { opacity: .75 }
+}

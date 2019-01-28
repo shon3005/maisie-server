@@ -1,12 +1,19 @@
+textarea, select, input, button { outline: none; }
 .signin {
   width: 100vw;
   height: 100vh;
 
-  background-color: #FCFDFF;
+  background-color: #EEF1FF;
 
   > img {
     height: 64px;
     width: 64px;
+    border-radius: 50px;
+    box-shadow: $shadow-ssss;
+    -webkit-animation: rotating 75s infinite;
+    -moz-animation:    rotating 75s infinite;
+    -o-animation:      rotating 75s infinite;
+    animation:         rotating 75s infinite;
   }
 
   &-welcome {
@@ -34,7 +41,7 @@
     > input {
       @include transition(all, 200ms);
       width: 100%;
-      border: 1px solid $color-primary-lighter;
+      border: 1px solid white;
       box-shadow: $shadow-sss;
       outline: 0;
       padding-left: 10px;
@@ -61,6 +68,13 @@
         cursor: pointer;
         transform: scale(1.05);
       }
+    }
+    > a {
+      font-size: $font-size-tag-small;
+      color: $color-primary;
+      font-weight: 600;
+      &:hover { cursor: pointer; }
+      &:active { opacity: .75 }
     }
   }
   &__error {

@@ -23,6 +23,8 @@ export default () =>
       <button type="submit">
         Sign In
       </button>
+                  <div style={{height: 20}} />
+      <a>Forgot your password?</a>
     </form>
-    {/*<Error>Sample Error</Error>*/}
+    <Error></Error>
   </div>
