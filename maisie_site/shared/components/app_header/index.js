@@ -27,6 +27,7 @@ export default () =>
         <MainLinks />
         <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />
         <SideItemLarge text="Sign Out" img="" href="#" />
+        <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />
 
         <Link route={`circles`} as={`circles/001`} params={{id: "001"}}>
           <div className="appheader__user_drop-item large row-fs-c">
@@ -35,6 +36,7 @@ export default () =>
           </div>
         </Link>
         <SideItemLarge text="Sign In TEST" img="" href="signin" />
+        <SideItemLarge text="Sign Up TEST" img="" href="signup" />
       </div>
     </div>
   </div>
