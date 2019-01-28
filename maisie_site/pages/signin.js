@@ -24,5 +24,5 @@ export default () =>
         Sign In
       </button>
     </form>
-    <Error>Sample Error</Error>
+    {/*<Error>Sample Error</Error>*/}
   </div>
