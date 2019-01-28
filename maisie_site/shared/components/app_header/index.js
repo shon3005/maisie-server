@@ -19,7 +19,7 @@ export default () =>
       <div className="appheader__user_drop">
         <div className="appheader__user_drop-name col">
           <span>Matthew Kochakian</span>
-          <a>View Profile</a>
+          <a href="/profile">View Profile</a>
         </div>
         <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />
         <SideItemLarge text="Host Panel" img="../../../static/sidebar/circles.svg" href="host" />
