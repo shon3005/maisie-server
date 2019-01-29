@@ -14,8 +14,8 @@ export default class extends React.Component {
   render() {
     const toShow =
       this.state.inSignUpFlow
-      ? withPageNoSide( <div /> )
-      : withPageNoSide( <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} />, "home" )
+      ? <div />
+      : <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} />
     return(
       <div>{toShow}</div>
     )

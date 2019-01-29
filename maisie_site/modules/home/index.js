@@ -1,19 +1,16 @@
 import JoinCircle from './components/join_circle_button.js';
 import FeaturedGroups from './components/featured_groups/index.js';
-
-let WELCOME_POSITION = 0 // Determines what the welcome widget should say
-  // set equal to 0 for normal window
-  // set equal to 1 for unfinished questions
-  // set equal to 2 for waiting to hear back from us
+import Header from '../../shared/components/app_header/index.js';
+import Card from './components/card.js';
 
 export default (props) =>
   <div className="discover col-fs-c">
-
-    <FeaturedGroups />
+    <Header />
+    <div className="discover__content col-fs-c">
+      <span className="discover__content-title">Welcome to Maisie</span>
+      <span className="discover__content-desc">Browse available Circles below</span>
+      <div className="discover__content_browse row-c">
+        <Card />
+      </div>
+    </div>
   </div>
-
-
-  // <div className="discover__cta row-sb-c">
-  //   <span>Welcome back, Wayne.</span>
-  //   <JoinCircle pos={WELCOME_POSITION} onSignUpFlowPress={props.onSignUpFlowPress} />
-  // </div>
