@@ -4,7 +4,6 @@ export default (
   apolloClient,
   file,
 ) => {
-    console.log(file);
   apolloClient
     .mutate({
       mutation: gql`

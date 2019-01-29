@@ -8,7 +8,7 @@ export default (
   password,
   passwordConfirmation,
   zip
-) =>
+) => {
   apolloClient
     .mutate({
       mutation: gql`
@@ -20,3 +20,4 @@ export default (
       `,
       variables: { firstName, lastName, email, password, passwordConfirmation, zip },
     })
+  }

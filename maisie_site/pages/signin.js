@@ -1,21 +1,39 @@
 import React, { Component } from "react";
 import { ApolloConsumer } from 'react-apollo';
 import cookie from 'cookie';
+import getUser from '../shared/services/get-user';
 import loginUser from '../shared/services/login-user';
+import redirect from '../shared/services/redirect';
+import { withRouter } from 'next/router'
 
 const Error = (props) => <div className="signin__error">{props.children}</div>
 
-export default class extends Component {
+class Signin extends Component {
+  static async getInitialProps (context) {
+    const { userDetails } = await getUser(context.apolloClient);
+
+    if (userDetails.id) {
+      redirect(context, '/home')
+    }
+
+    return {}
+  }
+
   state = {
     email: '',
     password: ''
   }
 
   signinUser = async (client) => {
-    const response = await loginUser(client, this.state.email, this.state.password);
-    document.cookie = cookie.serialize('token', response.data.loginUser.token, {
-      maxAge: 30 * 24 * 60 * 60 // 30 days
-    })
+    try {
+      const { data } = await loginUser(client, this.state.email, this.state.password);
+      document.cookie = data ? cookie.serialize('token', data.loginUser.token, {
+        maxAge: 30 * 24 * 60 * 60 // 30 days
+      }) : null;
+      this.props.router.push('/home')
+    } catch (e) {
+      // show custom error
+    }
   }
   
   handleSubmit = async (client) => {
@@ -68,3 +86,5 @@ export default class extends Component {
     )
   }
 }
+
+export default withRouter(Signin);

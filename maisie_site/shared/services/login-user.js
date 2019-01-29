@@ -15,4 +15,7 @@ export default (
         }
       `,
       variables: { email, password },
+    }).catch((err) => {
+      // Fail gracefully
+      return {}
     })

@@ -13,6 +13,9 @@ services:
       context: ./nginx
     ports:
       - "8080:80"
+    depends_on:
+      - api
+      - client
   api:
     build:
       dockerfile: Dockerfile.dev
@@ -38,5 +41,7 @@ services:
     volumes:
       - /app/node_modules
       - ./maisie_site:/app
+    depends_on:
+      - api
 volumes:
   postgres-data:

@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export default apolloClient => {
+export default apolloClient => 
   apolloClient
     .query({
       query: gql`
@@ -12,12 +12,9 @@ export default apolloClient => {
       `
     })
     .then(({data}) => {
-      console.log(data);
       return { userDetails: data.getUser }
     })
-    .catch((err) => {
+    .catch((_) => {
       // Fail gracefully
-      console.log(err);
       return { userDetails: {} }
     })
-  }

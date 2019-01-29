@@ -1,13 +1,8 @@
-// import { ApolloClient, InMemoryCache } from 'apollo-boost'
-import ApolloClient from 'apollo-client';
-import { ApolloLink } from 'apollo-link';
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import { createHttpLink, HttpLink } from 'apollo-link-http'
+import { createLink } from 'apollo-absinthe-upload-link'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
-import { createLink } from 'apollo-absinthe-upload-link'
-import { onError } from 'apollo-link-error';
-import { createUploadLink } from 'apollo-upload-client'
 
 let apolloClient = null
 
@@ -16,26 +11,17 @@ if (!process.browser) {
   global.fetch = fetch
 }
 
-function create (initialState, { getToken }) {
+function create (initialState, { getToken, graphql_url }) {
   // const httpLink = createHttpLink({
   //   uri: 'http://localhost:8080/api/graphql',
   //   credentials: 'same-origin'
   // })
-  const httpLink = new HttpLink({
-    uri: '/api/graphql',
-    credentials: 'same-origin'
-  })
-
-  // const uploadLink = createUploadLink({
-  //   uri: '/api/graphql',
-  //   credentials: 'same-origin'
-  // })
 
   const uploadLink = createLink({
-    uri: 'http://localhost:8080/api/graphql',
+    uri: graphql_url,
     credentials: 'same-origin'
   })
-        // authorization: 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYWlzaWVfYXBpIiwiZXhwIjoxNTUxMDQzNTQ2LCJpYXQiOjE1NDg2MjQzNDYsImlzcyI6Im1haXNpZV9hcGkiLCJqdGkiOiI5N2E4MTU4Yi1mYzU5LTQ3Y2UtYmIwMS1mM2ZjMTdlNjg3ZWYiLCJuYmYiOjE1NDg2MjQzNDUsInN1YiI6IjEiLCJ0eXAiOiJhY2Nlc3MifQ.B8RXtf1AIGvsQXoQ5JnUSiYqhQ-1RgpG3KjqnGCrMtk-mp6HZnBGlKdioBX8Hk7XBLrrWBJNkVAjyGZJ1HZ6AQ'
+
   const authLink = setContext((_, { headers }) => {
     const token = getToken()
     return {
@@ -46,13 +32,10 @@ function create (initialState, { getToken }) {
     }
   })
 
-  // console.log(createUploadLink(authLink.concat(httpLink)))
-  // console.log(authLink.concat(httpLink));
-  // link: ApolloLink.from([ authLink, httpLink ]),
   return new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    link: ApolloLink.from([ authLink, uploadLink ]),
+    link: authLink.concat(uploadLink),
     cache: new InMemoryCache().restore(initialState || {})
   })
 }

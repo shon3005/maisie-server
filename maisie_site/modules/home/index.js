@@ -16,7 +16,6 @@ const handleCreateCircle = async (file, createCircle) => {
         file
       },
     });
-    console.log(response);
   } catch(e) {
 
   }
