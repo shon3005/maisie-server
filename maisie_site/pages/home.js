@@ -1,7 +1,7 @@
 import withPage from '../shared/withPage';
 import withPageNoSide from '../shared/withPageNoSide';
 import Home from '../modules/home/index';
-import React, { Component } from 'react';
+import React from 'react';
 
 export default class extends React.Component {
   constructor(props) {

@@ -15,7 +15,7 @@ export default () =>
   <div className="appheader row-sb-c">
     <a href="/home"><img src="../../static/header/logo_nocircle.svg" /></a>
     <div className="appheader__user row-fe-c">
-      <div className="appheader__user-thumb" />
+      <div className="appheader__user-thumb"><img src="../../../static/shared/matthew.png" /></div>
       <div className="appheader__user_drop">
         <div className="appheader__user_drop-name col">
           <span>Matthew Kochakian</span>

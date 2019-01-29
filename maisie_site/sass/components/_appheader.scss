@@ -34,11 +34,15 @@
       margin-right: 10px;
     }
     &-thumb {
-      height: 30px;
-      width: 30px;
+      height: 36px;
+      width: 36px;
       border-radius: 50px;
-      border: 1px solid $color-primary;
       background-color: $color-primary-light;
+      overflow: hidden;
+      > img {
+        height: 100%;
+        width: 100%;
+      }
     }
 
 
