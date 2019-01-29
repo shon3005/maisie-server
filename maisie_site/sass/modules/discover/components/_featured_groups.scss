@@ -1,34 +1,84 @@
 .featured_groups {
-  height: 25vw;
+  height: 300px;
   width: 100%;
-  min-height: 200px;
   position: relative;
-  background-color: white;
-  border-radius: 5px 5px 0px 0px;
-  box-shadow: $shadow-ss;
+  border-radius: 5px;
+  box-shadow: $shadow-ssss;
   overflow: hidden;
+  z-index: 2;
 
-  > img {
-    z-index: 1;
+  &__imgfeat {
     position: absolute;
+    z-index: 3;
     width: 100%;
-    min-width: 100%;
-    min-height: 100%;
+    flex: 1;
+    overflow: hidden;
+    > img {
+      width: 100%;
+      margin-top: -375px;
+    }
   }
 
   &__buttons {
-    z-index: 998;
-    width: 95%;
-
+    width: 100%;
+    flex: 1;
     > div {
-      width: 50px;
-      height: 50px;
-      border-radius: 50px;
+      z-index: 998;
+      width: 95%;
+
+      > div {
+        @include transition(all, 200ms);
+        @include user-select(none);
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: white;
+        font-size: 20px;
+        color: $color-primary;
+        box-shadow: inset 0 -11px 20px 0 rgba(5,45,84,0.05), $shadow-sssss;
+        font-weight: 600;
+
+        &:hover { cursor: pointer; }
+        &:active { opacity: .75; }
+      }
+    }
+  }
+  &__choices {
+    z-index: 4;
+    width: 100%;
+    height: 100px;
+    // background-color: white;
+    &-choice {
+      @include transition(all, 200ms);
+      position: relative;
       background-color: white;
-      font-size: 20px;
-      color: $color-primary;
-      box-shadow: $shadow-sssss;
-      font-weight: 600;
+      height: 100%;
+      width: 25%;
+      > a {
+        @include user-select(none);
+        line-height: 100%;
+        width: 100%;
+        text-align: center;
+        color: $color-secondary;
+        font-size: $font-size-reg;
+      }
+      > div {
+        @include transition(all, 200ms);
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: $color-primary-lightest;
+        > div {
+          background-color: $color-primary;
+        }
+      }
+      &:active {
+        box-shadow: inset 0 -11px 20px 0 rgba(5,45,84,0.05);
+      }
     }
   }
 
