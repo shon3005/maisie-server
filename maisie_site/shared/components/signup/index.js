@@ -15,7 +15,7 @@ export default class extends Component {
   signUpUser = async (credentials, client) => {
     try {
       const result = await registerUser(client, credentials.firstName, credentials.lastName, credentials.email, credentials.password, credentials.passwordConfirmation, credentials.zip);
-      this.setState({ submitted: "submitted" })
+      this.setState({ submitted: "submitted" });
     } catch(e) {
       const errors = {}
       e.graphQLErrors ?

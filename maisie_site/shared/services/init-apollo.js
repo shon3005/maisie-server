@@ -1,5 +1,5 @@
 import { ApolloClient, InMemoryCache } from 'apollo-boost'
-import { createHttpLink, HttpLink } from 'apollo-link-http'
+import { onError } from "apollo-link-error";
 import { createLink } from 'apollo-absinthe-upload-link'
 import { setContext } from 'apollo-link-context'
 import fetch from 'isomorphic-unfetch'
@@ -32,10 +32,21 @@ function create (initialState, { getToken, graphql_url }) {
     }
   })
 
+  const errorLink = onError(({ graphQLErrors, networkError }) => {
+    if (graphQLErrors)
+      graphQLErrors.map(({ message, locations, path }) =>
+        console.log(
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
+        ),
+      );
+  
+    if (networkError) console.log(`[Network error]: ${networkError}`);
+  });
+
   return new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
-    link: authLink.concat(uploadLink),
+    link: errorLink.concat(authLink).concat(uploadLink),
     cache: new InMemoryCache().restore(initialState || {})
   })
 }

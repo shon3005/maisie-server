@@ -189,7 +189,7 @@
   }
 }
 
-button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel {
+button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel, button.signup__main_in-button {
   @include transition(all, 200ms);
   height: 40px !important;
   width: 100%;
