@@ -25,7 +25,7 @@ export default class extends React.Component {
     const phone = this.state.phonePopUp ? <PhoneEntry click={this.handlePhoneEntrySubmit} /> : null
     const overlay = this.state.phonePopUp ? <Overlay click={this.handleOverlayHit} /> : null
     return(
-      <div ref={node => this.node = node} className="support col-fs-c">
+      <div className="support col-fs-c">
         <div className="support__top row-c-c">
           <div className="support__top_box col-c-c">
             <img src="../../static/support/text.svg" />
@@ -48,6 +48,13 @@ export default class extends React.Component {
             <button type="button" style={{display: this.state.successMessage ? 'none' : 'auto'}} onClick={this.handleOverlayHit}>Talk to us</button>
             {phone} {overlay}
           </div>
+        </div>
+        <div className="spacever" />
+        <div className="support__community row-sb-c">
+          <div>
+            
+          </div>
+          <a><button>Join the community</button></a>
         </div>
       </div>
     )

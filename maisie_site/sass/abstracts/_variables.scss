@@ -32,8 +32,8 @@ $shadow-sssss: 0 5px 5px 0 rgba(2,22,41,0.02), 0 5px 30px 0 rgba(2,22,41,0.10);
 $shadow-ssssss: 0 5px 5px 0 rgba(2,22,41,0.03), 0 5px 30px 0 rgba(2,22,41,0.10);
 
 // SPACING
-$border-padding: 3vw;
-$border-padding-inner: 2vw;
+$border-padding: calc(1vw + 10px);
+$border-padding-inner: 1vw;
 
 // FONT VARIABLES
 $font-primary: 'Open Sans', sans-serif;
