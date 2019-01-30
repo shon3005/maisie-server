@@ -51,10 +51,15 @@ export default class extends React.Component {
         </div>
         <div className="spacever" />
         <div className="support__community row-sb-c">
-          <div>
-            
+          <div className="support__community_left col-fe">
+            <div className="support__community_left-tag col-c-c">for hosts</div>
+            <div className="support__community_left-text col-c">
+              <p>Join our community</p>
+              <span>Ask questions, make connections, and meet other hosts.</span>
+            </div>
           </div>
-          <a><button>Join the community</button></a>
+          <a><button>Visit now</button></a>
+          <img src="../../static/support/meet.png" />
         </div>
       </div>
     )
