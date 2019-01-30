@@ -28,12 +28,6 @@ export default class extends Component {
         {furtherSignUp}
         <div className="landing container">
             <FrontPage onEmailEntry={this.handleEmailEntry} />
-            <WhyCommunity />
-            <HowItWorks onEmailEntry={this.handleEmailEntry} />
-            <div className="landing__content col-c-c">
-              <Details onEmailEntry={this.handleEmailEntry} />
-            </div>
-            <DoubleWindow />
             <Footer />
         </div>
       </div>

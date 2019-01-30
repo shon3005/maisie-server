@@ -13,8 +13,7 @@
     z-index: 9999;
     position: absolute;
     top: 0;
-    width: 90%;
-    left: 5%;
+    width: 100%;
   }
   &__background {
     z-index: 2;
@@ -35,6 +34,37 @@
     z-index: 3;
     height: 90%;
     width: 100%;
+    &-prompt_cta {
+      margin-bottom: 25%;
+      > a {
+        @include transition(all,200ms);
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-radius: 50px;
+        border: none;
+        transform: scale(1);
+
+        box-shadow: $shadow-ssss;
+        font-size: $font-size-reg;
+        font-weight: 500;
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: $shadow-sssss;
+          transform: scale(1.05);
+        }
+      }
+      > a.one {
+        background-color: white;
+        color: $color-secondary;
+      }
+      > a.two {
+        background-color: $color-primary;
+        color: white;
+      }
+    }
     &_in {
       margin-top: calc(75px + 5%);
       text-align: center;
@@ -66,7 +96,7 @@
         text-shadow: 0px 0px 15px $color-primary-light;
         font-weight: Bold;
         letter-spacing: -1px;
-        font-size: calc(20pt + 3vw);
+        font-size: calc(20pt + 4vw);
       }
       &-desc {
         font-weight: 500;
