@@ -13,7 +13,7 @@ const MainLinks = (props) => LOGIC_MAIN.map((x, index) =>
 
 export default () =>
   <div className="appheader row-sb-c">
-    <a href="/home"><img src="../../static/header/logo_nocircle.svg" /></a>
+    <a href="/"><img src="../../static/header/logo_nocircle.svg" /></a>
     <div className="appheader__user row-fe-c">
       <div className="appheader__user-thumb"><img src="../../../static/shared/matthew.png" /></div>
       <div className="appheader__user_drop">

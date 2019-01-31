@@ -10,3 +10,10 @@
   color: $color-secondary;
   text-align: center;
 }
+
+span.lim_one_line {
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}

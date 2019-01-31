@@ -6,6 +6,7 @@ import HowItWorks from './components/howitworks.js';
 import Details from './components/details.js';
 import DoubleWindow from './components/doublewindow/index.js';
 import Footer from '../../shared/components/footer.js';
+import FeaturedRow from './components/featuredrow.js';
 
 export default class extends Component {
   constructor(props) {
@@ -28,6 +29,8 @@ export default class extends Component {
         {furtherSignUp}
         <div className="landing container">
             <FrontPage onEmailEntry={this.handleEmailEntry} />
+            <FeaturedRow />
+            <div style={{height: 1000}} />
             <Footer />
         </div>
       </div>
