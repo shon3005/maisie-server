@@ -23,7 +23,7 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:end, :datetime)
         field(:space_type, :string)
         field(:location, :string)
-        # field(:file, non_null(:upload))
+        field(:file, :upload)
     end
 
     input_object :circle_get_type do

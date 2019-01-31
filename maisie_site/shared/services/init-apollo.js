@@ -1,4 +1,6 @@
-import { ApolloClient, InMemoryCache } from 'apollo-boost'
+// import { ApolloClient, InMemoryCache } from 'apollo-boost'
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from "apollo-link-error";
 import { createLink } from 'apollo-absinthe-upload-link'
 import { setContext } from 'apollo-link-context'
@@ -12,11 +14,6 @@ if (!process.browser) {
 }
 
 function create (initialState, { getToken, graphql_url }) {
-  // const httpLink = createHttpLink({
-  //   uri: 'http://localhost:8080/api/graphql',
-  //   credentials: 'same-origin'
-  // })
-
   const uploadLink = createLink({
     uri: graphql_url,
     credentials: 'same-origin'
