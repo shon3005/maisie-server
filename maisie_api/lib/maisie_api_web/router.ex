@@ -10,6 +10,8 @@ defmodule MaisieApiWeb.Router do
   scope "/" do
     pipe_through :api
 
+    resources "/upload", MaisieApiWeb.UploadController, only: [:create]
+    
     forward("/graphql", Absinthe.Plug, schema: MaisieApiWeb.Schema)
 
     if Mix.env() == :dev do

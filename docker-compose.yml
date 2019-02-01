@@ -29,7 +29,7 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
       - GUARDIAN_SECRET=8IW0WCEymrsSAXKoRpyEzZwx5FLEHQx2BepmCo9d9JoY8dsuBh8942muHr7NhIca
-      - MAISIE_ORIGIN=http://client:3000
+      - MAISIE_ORIGIN=http://localhost:8080
       - SECRET_KEY_BASE=nTt+ZjxSBg7tGy0swaERVpA1LfRcXCn5eMMTKxSQYep8kMGPZEUSEFdlPWLEqglJ
   client:
     build:

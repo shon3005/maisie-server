@@ -14,7 +14,7 @@ export default App => {
   return class WithData extends React.Component {
     static displayName = `WithData(${App.displayName})`
     static propTypes = {
-      apolloState: PropTypes.object.isRequired
+      apolloState: PropTypes.object.isRequired,
     }
 
     static async getInitialProps (ctx) {
@@ -23,10 +23,12 @@ export default App => {
         router,
         ctx: { req, res }
       } = ctx
+
       const apollo = initApollo(
         {},
         {
-          getToken: () => parseCookies(req).token
+          getToken: () => parseCookies(req).token,
+          graphql_url: 'http://api:4000/graphql'
         }
       )
 
@@ -84,7 +86,8 @@ export default App => {
       this.apolloClient = initApollo(props.apolloState, {
         getToken: () => {
           return parseCookies().token
-        }
+        },
+        graphql_url: '/api/graphql'
       })
     }
 

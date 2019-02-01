@@ -1,20 +1,21 @@
-import Head from 'next/head'
+import App, { Container } from 'next/app';
+import React from 'react';
+import { ApolloProvider } from 'react-apollo';
+import withApollo from '../shared/services/with-apollo';
+
+import Head from 'next/head';
 import '../sass/main.scss';
-import App, { Container } from 'next/app'
-import React from 'react'
-import withApollo from '../shared/services/with-apollo'
-import { ApolloProvider } from 'react-apollo'
 
 class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
-    let pageProps = {}
+  // static async getInitialProps({ Component, router, ctx }) {
+  //   let pageProps = {}
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
+  //   if (Component.getInitialProps) {
+  //     pageProps = await Component.getInitialProps(ctx)
+  //   }
 
-    return { pageProps }
-  }
+  //   return { pageProps }
+  // }
 
   render () {
     const {Component, pageProps, apolloClient} = this.props

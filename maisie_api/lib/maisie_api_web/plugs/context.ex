@@ -7,6 +7,7 @@ defmodule MaisieApiWeb.Plugs.Context do
 
     def call(conn, _) do
         context = build_context(conn)
+        conn = %{conn | assigns: Map.merge(conn.assigns, %{"context" => context})}
         Absinthe.Plug.put_options(conn, context: context)
     end
 
