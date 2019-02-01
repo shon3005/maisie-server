@@ -16,13 +16,14 @@ defmodule MaisieApi.Services.Circle do
     field :end, :utc_datetime
     field :space_type, :string
     field :location, :string
+    field :image_url, :string
     belongs_to :user, User
 
     timestamps()
   end
 
-  def changeset(user, attrs) do
-    user
+  def changeset(circle, attrs) do
+    circle
     |> cast(attrs, [:name, :description, :price, :day, :time, :duration, :program_length, :start, :end, :space_type, :location, :user_id])
     |> validate_required([
       :name,
@@ -38,5 +39,10 @@ defmodule MaisieApi.Services.Circle do
       :location,
       :user_id
     ])
+  end
+
+  def update_circle_changeset(circle, attrs) do
+    circle
+    |> cast(attrs, [:image_url])
   end
 end

@@ -12,6 +12,7 @@ defmodule MaisieApi.Repo.Migrations.AddCircleProperties do
       add :end, :utc_datetime
       add :space_type, :string
       add :location, :string
+      add :image_url, :string
     end
   end
 end
