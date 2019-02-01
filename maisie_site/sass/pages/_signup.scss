@@ -123,3 +123,8 @@
   &:hover { cursor: pointer; }
   &:active { opacity: .75 }
 }
+
+.signupfull_error {
+  font-size: $font-size-tag-small;
+  color: $color-red;
+}
