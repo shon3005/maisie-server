@@ -8,7 +8,6 @@ defmodule MaisieApi.Accounts.User do
     field :email, :string, unique: true
     field :first_name, :string
     field :last_name, :string
-    field :zip, :string
     field :password_hash, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
@@ -21,7 +20,7 @@ defmodule MaisieApi.Accounts.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation, :role, :zip])
+    |> cast(attrs, [:first_name, :last_name, :email, :password, :password_confirmation, :role])
     |> validate_required([
       :first_name,
       :last_name,
@@ -29,7 +28,6 @@ defmodule MaisieApi.Accounts.User do
       :password,
       :password_confirmation,
       :role,
-      :zip
     ])
     |> validate_format(:email, ~r/@/)
     |> update_change(:email, &String.downcase(&1))
