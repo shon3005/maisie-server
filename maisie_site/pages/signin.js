@@ -35,7 +35,7 @@ class Signin extends Component {
       // show custom error
     }
   }
-  
+
   handleSubmit = async (client) => {
     event.preventDefault()
     this.signinUser(client);
@@ -53,7 +53,7 @@ class Signin extends Component {
       <ApolloConsumer>
         {client => (
           <div className="signin col-c-c">
-            <img src="../static/shared/newlogo.svg"/>
+            <a href="/"><img src="../static/shared/newlogo.svg"/></a>
                           <div style={{height: 20}} />
             <span className="signin-welcome">welcome back</span>
             <span className="signin-subwelcome">please sign in</span>
