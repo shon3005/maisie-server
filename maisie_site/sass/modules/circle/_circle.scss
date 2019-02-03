@@ -2,6 +2,9 @@
   height: 100%;
   width: 100%;
   min-width: 750px;
+  max-width: 1040px;
+  margin: 0 auto;
+  margin-top: $border-padding;
 
   &_l {
     color: $color-secondary;
@@ -25,6 +28,16 @@
     font-weight: 600;
     margin-bottom: 10px;
   }
+}
+
+.circleimg {
+  max-width: 1040px;
+  min-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .circleback {

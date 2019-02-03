@@ -4,7 +4,8 @@
     position: fixed;
     min-height: 40px;
     bottom: 0;
-    width: 100%;
+    left: 0 !important;
+    width: 100% !important;
     background-color: $color-black;
     padding-left: 5%;
     padding-right: 5%;
@@ -55,10 +56,12 @@
       }
     }
   }
-  @include mobile {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  @include tabletandmobile {
+    margin-top: $border-padding;
+    bottom: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
     background-color: $color-black;
     &__drawer {
       height: 100%;
@@ -75,7 +78,7 @@
     }
   }
   &__logos {
-    @include mobile {
+    @include tabletandmobile {
       margin-top: 25px;
       width: 100%;
       flex-direction: row !important;
@@ -87,11 +90,11 @@
     z-index: 3;
     &-logo {
       @include transition(all, 200ms);
-      @include mobile { display: none; }
+      @include tabletandmobile { display: none; }
     }
     &-social {
       @include transition(all, 200ms);
-      @include mobile {
+      @include tabletandmobile {
         width: 50%;
         flex-direction: row !important;
         justify-content: space-around !important;
@@ -103,7 +106,7 @@
       }
       & img {
         @include desktop { width: 25px; }
-        @include mobile { width: 50px; }
+        @include tabletandmobile { width: 50px; }
         border-radius: 50px;
       }
       & a {
@@ -118,7 +121,7 @@
     }
   }
   &__more {
-    @include mobile {
+    @include tabletandmobile {
       display: none !important;
     }
     @include transition(all, 200ms);
@@ -138,7 +141,7 @@
       font-size: $font-size-small;
     }
   }
-  @include mobile {
+  @include tabletandmobile {
     width: 100%;
     opacity: 1;
     align-items: center !important;

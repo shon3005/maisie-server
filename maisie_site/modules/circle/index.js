@@ -31,6 +31,7 @@ export default () => {
         <img src={'../../static/shared/back.svg'} />
         <span>Back</span>
       </div>
+      <div className="circleimg" style={{backgroundImage: "url('https://www.simplehealthsl.com/wp-content/uploads/walk-talk-health-coaching-cover.jpg')", backgroundSize: "cover", backgroundPosition: "center"}} />
       <div className="circle row">
         <div className="circle_l">
           <div className="circle_l-title">{x.title}</div>

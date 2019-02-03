@@ -23,7 +23,7 @@ img.center-child { @include img-center; } // call this on the img element you wi
 @mixin mobile { @media (max-width: 600px) { @content; }}
 
 // NOT DESKTOP
-@mixin tabletandmobile { @media (max-width: 920px) { @content; }}
+@mixin tabletandmobile { @media (max-width: 850px) { @content; }}
 
 // DESKTOP
 @mixin desktop { @media (min-width: 850px) { @content; }}
