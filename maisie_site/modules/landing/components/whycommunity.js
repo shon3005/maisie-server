@@ -23,7 +23,7 @@ const Cards = (props) => u.map((v, index) =>
 
 export default () =>
   <div className="whycommunity col-fs-c">
-    <span className="whycommunity-title h-large">Why join a group?</span>
+    <span className="whycommunity-title h-large">Why join a Circle?</span>
     <div className="whycommunity__content row-sa">
       <Cards />
     </div>

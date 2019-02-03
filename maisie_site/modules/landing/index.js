@@ -11,25 +11,28 @@ import FeaturedRow from './components/featuredrow.js';
 export default class extends Component {
   constructor(props) {
     super(props)
-    this.state = { email: "", showSignup: false }
-    this.handleEmailEntry = this.handleEmailEntry.bind(this)
-    this.handleButton = this.handleButton.bind(this)
   }
-  handleEmailEntry = (email) => {
-    this.setState({email: email, showSignup: email ? true : false});
-  }
-  handleButton() {
-    this.setState({email: "", showSignup: false})
-  }
-
   render() {
-    const furtherSignUp = this.state.showSignup ? <SignUp email={this.state.email} onCancel={this.handleButton} handleButton={this.handleButton} /> : null
     return(
       <div>
-        {furtherSignUp}
         <div className="landing container">
-            <FrontPage onEmailEntry={this.handleEmailEntry} />
+            <FrontPage />
             <FeaturedRow />
+            <div className="landing-grow row-sb-c">
+              <img src="../../static/shared/campfire_o.png" />
+              <div className="landing-grow_cont col">
+                <img src="../../static/shared/campfire.svg" />
+                <span className="landing-grow_cont-text">
+                  At Maisie, we believe that everyone should be able to exercise their mind as they would their body.
+                  We also believe that humans have a natural need for connection. Our mission at Maisie is to give customers
+                  both of these things in a way that works for us all.
+                </span>
+                <div className="row">
+                  <a className="one" href="home">Explore Maisie</a>
+                  <a className="two" href="mailto:say@heymaisie.com">Ask a question</a>
+                </div>
+              </div>
+            </div>
             <WhyCommunity />
             <HowItWorks />
             <DoubleWindow />
@@ -39,3 +42,6 @@ export default class extends Component {
     )
   }
 }
+
+
+// <span className="landing-grow_cont-title">We were meant to grow <span className="purple">together</span></span>
