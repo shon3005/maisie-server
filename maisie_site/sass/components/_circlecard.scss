@@ -25,10 +25,10 @@
     &__img { height: 14vw; }
   }
   @include size-five {
-    width: 18%;
-    margin: 1%;
+    width: 18.5%;
+    margin: .75%;
 
-    &__img { height: 10vw; }
+    &__img { height: 11vw; }
   }
 
   transform: scale(1);

@@ -30,7 +30,9 @@ export default class extends Component {
         <div className="landing container">
             <FrontPage onEmailEntry={this.handleEmailEntry} />
             <FeaturedRow />
-            <div style={{height: 1000}} />
+            <WhyCommunity />
+            <HowItWorks />
+            <DoubleWindow />
             <Footer />
         </div>
       </div>

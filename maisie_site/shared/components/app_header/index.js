@@ -11,8 +11,8 @@ const MainLinks = (props) => LOGIC_MAIN.map((x, index) =>
   />
 )
 
-export default () =>
-  <div className="appheader row-sb-c">
+export default (props) =>
+  <div className="appheader row-sb-c" style={ props.noheader ? {} : {backgroundColor: "rgba(255,255,255,1)", boxShadow: "0px 0px 2px rgba(5,45,84,.10)"}}>
     <a href="/"><img src="../../static/header/logo_nocircle.svg" /></a>
     <div className="appheader__user row-fe-c">
       <div className="appheader__user-thumb"><img src="../../../static/shared/matthew.png" /></div>

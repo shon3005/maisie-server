@@ -1,5 +1,5 @@
 .whycommunity {
-  background: linear-gradient(to bottom, $color-primary-lighter, $color-primary-lighte);
+  background: linear-gradient(to bottom, $color-primary-lightest, $color-primary-lighter);
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -34,8 +34,8 @@
   box-shadow: $shadow-ssss;
   border-radius: 10px;
   padding: 20px;
-  width: 30%;
-  font-size: $font-size-small;
+  width: 31%;
+  font-size: $font-size-reg;
   color: $color-secondary;
   &-title {
     font-weight: 600;
