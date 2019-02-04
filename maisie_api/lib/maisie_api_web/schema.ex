@@ -33,6 +33,12 @@ defmodule MaisieApiWeb.Schema do
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.CircleResolver.get_circle_by_id/3)
         end
+
+        @desc "Redirect to Stripe to set up payments"
+        field :stripe_authorize, type: :user_type do
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.StripeConnectResolver.set_up_payments/3)
+        end
     end
 
     mutation do
