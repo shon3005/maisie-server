@@ -9,11 +9,14 @@
     &__inner {
       width: 100%;
       padding-bottom: 40px;
-
+      &.lim-height {
+        height: calc(100vh - 64px) !important;
+        min-height: 500px;
+      }
       &-content {
         width: 100%;
+        height: 100%;
         padding: $border-padding;
-        overflow-y: auto;
       }
     }
   }

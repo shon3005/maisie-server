@@ -20,7 +20,7 @@
       }
     }
     span {
-      font-size: 10pt;
+      font-size: $font-size-reg;
       font-weight: 400;
     }
 
@@ -138,7 +138,7 @@
   @include transition(all, 200ms);
   @include desktop {
     & span, a {
-      font-size: $font-size-small;
+      font-size: $font-size-reg;
     }
   }
   @include tabletandmobile {
