@@ -34,10 +34,10 @@ export default (props) =>
     <div className="howitworks__content col-fs-c">
       <span className="howitworks__content-title h-large">How does it work?</span>
       <Steps />
-      <div className="howitworks__content-cta row-c-c">
+      <div className="howitworks__content-cta row-sa-c">
         <div className="howitworks__content-cta-1 col-c">
-          <span className="howitworks__content-cta-1-1">Affordable counseling</span>
-          <span className="howitworks__content-cta-1-2">It's here. Ready to give it a try? </span>
+          <span className="howitworks__content-cta-1-1">Spin class for the mind (but more fun).</span>
+          <span className="howitworks__content-cta-1-2">Ready to give it a try?</span>
         </div>
         <a href="/signup" className="howitworks__content-cta-2 col-c-c">Get Started</a>
       </div>
