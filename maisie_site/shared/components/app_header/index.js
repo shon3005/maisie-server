@@ -23,7 +23,7 @@ export default (props) =>
           <a href="/profile">View Profile</a>
         </div>
         <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />
-        <SideItemLarge text="Host Panel" img="../../../static/sidebar/circles.svg" href="host" />
+        <SideItemLarge text="Host Panel" img="../../../static/sidebar/circles.svg" href="panel" />
         <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />
         <MainLinks />
         <div style={{width: '100%', height: 1, backgroundColor: 'rgba(5,45,84,.05)'}} />

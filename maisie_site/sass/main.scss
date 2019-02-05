@@ -39,11 +39,13 @@
 
 @import "modules/schedule/schedule";
 
+@import "modules/panel/host";
+@import "modules/panel/components/hostpayments";
+@import "modules/panel/components/hostschedule";
+@import "modules/panel/components/hosthistory";
+@import "modules/panel/components/hosttransaction";
+
 @import "modules/host/host";
-@import "modules/host/components/hostpayments";
-@import "modules/host/components/hostschedule";
-@import "modules/host/components/hosthistory";
-@import "modules/host/components/hosttransaction";
 
 @import "modules/settings/settings";
 
