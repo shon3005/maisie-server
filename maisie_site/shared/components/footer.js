@@ -1,6 +1,6 @@
-let LINKS_COLUMN_ONE = [["For Consumers", "https://heymaisie.com"],["For Providers", "mailto:providers@heymaisie.com?subject=Inquiring about Maisie for Providers"],["Common Q's", ""]],
-    LINKS_COLUMN_TWO = [/*["Our Values", ""],["Why Maisie?", ""],*/["Work at Maisie", "https://angel.co/maisie-1"]],
-    LINKS_COLUMN_THREE = [["Product Help", "support@heymaisie.com"],["Contact Us", "say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
+let LINKS_COLUMN_ONE = [["How it works", "/"], ["Browse Circles", "/home"], ["Why Host?", "/host"]],
+    LINKS_COLUMN_TWO = [["Values and Mission", ""],["Careers at Maisie", "https://angel.co/maisie-1"]],
+    LINKS_COLUMN_THREE = [["Product Support", "support@heymaisie.com"],["Contact Us", "say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
 
 
 function Links(props) {
