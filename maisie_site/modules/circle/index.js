@@ -6,6 +6,7 @@ import Divider from './components/divider.js';
 import Location from './components/location.js';
 import Host from './components/host.js';
 import Join from './components/join.js';
+import Socials from './components/socials.js';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
 import getCircle from '../../shared/services/get-circle';
@@ -80,7 +81,10 @@ export default () => {
         </div>
         <div className="circle_r">
           <Join price={x.price} />
+          <div style={{height: 10}} />
+          <Socials />
         </div>
+
       </div>
     </div>
   )
