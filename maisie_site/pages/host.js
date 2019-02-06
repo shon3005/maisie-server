@@ -23,7 +23,7 @@ export default () => {
   )
   return(
     <div className="whyhost-f">
-      <div className="whyhost-f__head"><Header whitelogo={true} noheader={true} /></div>
+      <div className="whyhost-f__head"><Header whitelogo={true} noheader={true} non_app={true} /></div>
       <div className="whyhost-f__front" style={{backgroundImage: "url('../../static/shared/plantsncouch.png')", backgroundSize: "cover", backgroundPosition: "center"}} />
       <div className="whyhost-f-title col-c-c">
         <div />

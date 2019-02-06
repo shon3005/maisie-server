@@ -6,7 +6,7 @@ import EmailCapture from '../../../shared/components/emailCapture.js';
 export default (props) =>
   <div className="front col-c-c">
     <div className="front__header">
-      <Header noheader={true} />
+      <Header noheader={true} non_app={true} />
     </div>
     <div className="front__content col-sb-c">
       <div className="front__content_in">
