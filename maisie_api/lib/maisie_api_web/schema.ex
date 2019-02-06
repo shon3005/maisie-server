@@ -35,9 +35,9 @@ defmodule MaisieApiWeb.Schema do
         end
 
         @desc "Redirect to Stripe to set up payments"
-        field :stripe_authorize, type: :user_type do
+        field :stripe_authorize, type: :string do
            middleware(Middleware.Authorize, :any)
-           resolve(&Resolvers.StripeConnectResolver.set_up_payments/3)
+           resolve(&Resolvers.PaymentResolver.set_up_payments/3)
         end
     end
 
@@ -66,6 +66,13 @@ defmodule MaisieApiWeb.Schema do
            arg(:input, non_null(:circle_input_type))
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.CircleResolver.create_circle/3)
+        end
+
+        @desc "Connect the new Stripe account to the Maisie account"
+        field :sync_payment_account, type: :user_type do
+           arg(:input, non_null(:payment_input_type))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.PaymentResolver.sync_payment_account/3)
         end
     end
 

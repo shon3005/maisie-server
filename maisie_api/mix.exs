@@ -55,7 +55,8 @@ defmodule MaisieApi.MixProject do
       {:ex_aws_s3, "~> 2.0"},
       {:uuid, "~> 1.1"},
       {:hackney, "~> 1.9"},
-      {:stripity_stripe, "~> 2.0.0"}
+      {:stripity_stripe, "~> 2.0.0"},
+      {:httpotion, "~> 3.1.0"}
     ]
   end
 

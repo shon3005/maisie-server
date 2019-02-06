@@ -6,12 +6,17 @@ import redirect from '../shared/services/redirect'
 
 export default class extends Component {
   static async getInitialProps (context) {
-    const { userDetails } = await getUser(context.apolloClient);
+    if (context.req.headers.cookie) {
+      try {
+        const { data } = await getUser(context.apolloClient);
 
-    // if (userDetails.id) {
-    //   redirect(context, '/')
-    // }
-
+        if (data.getUser && data.getUser.id) {
+          redirect(context, '/')
+        }
+      } catch(e) {
+        console.log(e)
+      }
+    }
     return {}
   }
 
