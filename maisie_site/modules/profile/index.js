@@ -52,6 +52,7 @@ export default () =>
         <option value="other">Other</option>
       </select>
     </Field>
+    <Disclaimer>We use this to help you discover new Circles and won't share it with anyone.</Disclaimer>
     <Field title="Where You Live">
       <select id="location" style={{width: 150}}>
         <option value="nyc">New York City</option>
@@ -59,7 +60,22 @@ export default () =>
         <option value="other">Somewhere Else</option>
       </select>
     </Field>
-    <Disclaimer>We use this to help you discover new Circles and won't share it with anyone.</Disclaimer>
+    <Spacer height={50} />
+    <Header>Optional</Header>
+    <Field title="School" private={true}>
+      <input
+        type="text"
+        defaultValue="New York University"
+        id="school"
+      />
+    </Field>
+    <Field title="Work" private={true}>
+      <input
+        type="text"
+        defaultValue="Front-end Engineer"
+        id="work"
+      />
+    </Field>
     <Field title="Bio">
       <textarea rows={6} defaultValue="CEO at Maisie, recent grad from NYU Stern. Originally from Boston, but now go back and forth between NYC and SF.">
       </textarea>
@@ -69,7 +85,7 @@ export default () =>
       help hosts learn more about you before you meet. Feel free to include your interests,
       goals, and background.
     </Disclaimer>
-    <Spacer height={50} />
-    <Header>Billing</Header>
-
+    <button>
+      Save
+    </button>
   </div>

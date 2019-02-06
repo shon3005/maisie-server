@@ -88,4 +88,32 @@
       }
     }
   }
+
+  > button {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 175px;
+    margin-top: 25px;
+
+    border-radius: 50px;
+    border: none;
+    outline: 0;
+
+    background-color: $color-primary;
+    color: white;
+    font-family: "Open Sans";
+    font-size: $font-size-reg;
+    font-weight: 600;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    &:active { opacity: .75 }
+  }
 }
