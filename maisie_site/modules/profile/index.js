@@ -11,8 +11,24 @@ const Header = (props) => <span className="profile-header col">{props.children}<
 const Disclaimer = (props) => <div className="profile-disclaimer">{props.children}</div>
 const Spacer = (props) => <div style={{height: props.height}} />
 
+function handlePress(e) {
+  e.preventDefault()
+  var firstname = document.getElementById("firstname").value;
+  var lastname = document.getElementById("lastname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+  // var name = document.getElementById("firstname").value;
+
+  console.log(firstname,lastname)
+}
+
 export default () =>
-  <div className="profile col">
+  <form className="profile col">
     <span className="profile-title col">Edit Profile</span>
     <Spacer height={25} />
     <Header>General</Header>
@@ -62,14 +78,14 @@ export default () =>
     </Field>
     <Spacer height={50} />
     <Header>Optional</Header>
-    <Field title="School" private={true}>
+    <Field title="School">
       <input
         type="text"
         defaultValue="New York University"
         id="school"
       />
     </Field>
-    <Field title="Work" private={true}>
+    <Field title="Work">
       <input
         type="text"
         defaultValue="Front-end Engineer"
@@ -85,7 +101,7 @@ export default () =>
       help hosts learn more about you before you meet. Feel free to include your interests,
       goals, and background.
     </Disclaimer>
-    <button>
+    <button type="submit" onClick={(e) => handlePress(e)}>
       Save
     </button>
-  </div>
+  </form>
