@@ -15,16 +15,13 @@ function handlePress(e) {
   e.preventDefault()
   var firstname = document.getElementById("firstname").value;
   var lastname = document.getElementById("lastname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-  // var name = document.getElementById("firstname").value;
-
-  console.log(firstname,lastname)
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+  var gender = document.getElementById("gender").value;
+  var location = document.getElementById("location").value;
+  var school = document.getElementById("school").value;
+  var work = document.getElementById("work").value;
+  var bio = document.getElementById("bio").value;
 }
 
 export default () =>
@@ -93,7 +90,7 @@ export default () =>
       />
     </Field>
     <Field title="Bio">
-      <textarea rows={6} defaultValue="CEO at Maisie, recent grad from NYU Stern. Originally from Boston, but now go back and forth between NYC and SF.">
+      <textarea id="bio" rows={6} defaultValue="CEO at Maisie, recent grad from NYU Stern. Originally from Boston, but now go back and forth between NYC and SF.">
       </textarea>
     </Field>
     <Disclaimer>

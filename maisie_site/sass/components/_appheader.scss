@@ -41,6 +41,13 @@
       @include transition(all, 200ms);
       @include user-select(none);
 
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-radius: 50px;
+      box-shadow: $shadow-ss;
+
       font-weight: 600;
       font-size: $font-size-reg;
       text-shadow: 0px 0px 20px rgba(5,45,84,.05);
@@ -48,6 +55,14 @@
       &:hover {
         cursor: pointer;
         transform: scale(1.05);
+        box-shadow: $shadow-sssss;
+      }
+      &:active { opacity: .75 }
+      &.white {
+        background-color: $color-primary;
+      }
+      &.purple {
+        background-color: white;
       }
     }
     &_drop {

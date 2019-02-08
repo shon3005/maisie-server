@@ -25,7 +25,7 @@ export default class extends React.Component {
     const phone = this.state.phonePopUp ? <PhoneEntry click={this.handlePhoneEntrySubmit} /> : null
     const overlay = this.state.phonePopUp ? <Overlay click={this.handleOverlayHit} /> : null
     return(
-      <div className="support col-fs-c">
+      <div className="support col-c-c">
         <div className="support__top row-c-c">
           <div className="support__top_box col-c-c">
             <img src="../../static/support/text.svg" />
@@ -49,6 +49,7 @@ export default class extends React.Component {
             {phone} {overlay}
           </div>
         </div>
+        {/*
         <div className="spacever" />
         <div className="support__community row-sb-c">
           <div className="support__community_left col-fe">
@@ -61,6 +62,7 @@ export default class extends React.Component {
           <a><button>Visit now</button></a>
           <img src="../../static/support/meet.png" />
         </div>
+        */}
       </div>
     )
   }

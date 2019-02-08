@@ -1,4 +1,5 @@
 import Header from '../../shared/components/app_header/index.js';
+import Footer from '../../shared/components/footer.js';
 import FeaturedRow from '../landing/components/featuredrow.js';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag'
@@ -61,7 +62,7 @@ const onChange = async (e, createCircle) => {
             programLength: 12,
             location: "Williamsburg",
             time: "3:40"
-          } 
+          }
         }
       );
       console.log(response);
@@ -94,4 +95,5 @@ export default (props) =>
         return <input type="file" onChange={e => onChange(e, createCircle)} />;
       }}
     </Mutation>
+    <Footer />
   </div>
