@@ -10,4 +10,8 @@ defmodule MaisieApiWeb.Schema.Types.PaymentType do
         field(:state, :string)
         field(:code, :string)
     end
+
+    input_object :stripe_customer_type do
+        field(:source, :string)
+    end
 end

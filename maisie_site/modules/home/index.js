@@ -80,20 +80,24 @@ const onChange = async (e, createCircle) => {
   }
 }
 
-export default (props) =>
-  <div className="discover col-fs-c">
-    <Header />
-    <div className="discover__content col-fs-c">
-      <FeaturedRow />
-    </div>
+export default (props) => {
+  console.log(document.cookie);
+  return (
+    <div className="discover col-fs-c">
+      <Header />
+      <div className="discover__content col-fs-c">
+        <FeaturedRow />
+      </div>
 
-    {/*<span className="discover__content-title">Welcome to Maisie</span>
-    <span className="discover__content-desc">Browse available Circles below</span>*/}
-    <Mutation
-      mutation={mutation}>
-      {createCircle => {
-        return <input type="file" onChange={e => onChange(e, createCircle)} />;
-      }}
-    </Mutation>
-    <Footer />
-  </div>
+      {/*<span className="discover__content-title">Welcome to Maisie</span>
+      <span className="discover__content-desc">Browse available Circles below</span>*/}
+      <Mutation
+        mutation={mutation}>
+        {createCircle => {
+          return <input type="file" onChange={e => onChange(e, createCircle)} />;
+        }}
+      </Mutation>
+      <Footer />
+    </div>
+  );
+}

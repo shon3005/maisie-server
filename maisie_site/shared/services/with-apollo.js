@@ -92,7 +92,9 @@ export default App => {
     }
 
     render () {
-      return <App {...this.props} apolloClient={this.apolloClient} />
+      return (
+        <App {...this.props} apolloClient={this.apolloClient} />
+      );
     }
   }
 }

@@ -1,6 +1,24 @@
 defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     alias MaisieApi.{Accounts, Guardian}
 
+    def create_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        Stripe.Customer.create(%{
+            "email": current_user.email,
+            "source": input.source
+        })
+        |> handler(current_user)
+    end
+
+    def update_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        Stripe.Customer.retrieve()
+        |> update_handler(current_user)
+        # Stripe.Customer.update(%{
+        #     "email": "shon3005@gmail.com",
+        #     "source": input.source
+        # })
+        {:ok, "SUCCESS!"}
+    end
+
     def set_up_payments(_, _, %{context: %{current_user: current_user}}) do
         url = %{
             state: UUID.uuid4(:hex),
@@ -20,6 +38,14 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     def sync_payment_account(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Stripe.Connect.OAuth.token(input.code)
         |> handler(current_user)
+    end
+
+    defp update_handler({:error, %Stripe.Error{} = error}, current_user) do
+        format_errors(error)
+    end
+
+    defp update_handler({:ok, %{ stripe_user_id: stripe_id }} = response, current_user) do
+        
     end
 
     defp handler({:error, %Stripe.Error{} = error}, current_user) do

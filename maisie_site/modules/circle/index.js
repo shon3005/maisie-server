@@ -21,13 +21,13 @@ export default () => {
   const x = DUMMY_DATA
   return(
     <div className="col">
-      <ApolloConsumer>
+      {/* <ApolloConsumer>
         {client => (
           <div>
             {getCircleDetails(1, client)}
           </div>
         )}
-      </ApolloConsumer>
+      </ApolloConsumer> */}
       <div onClick={() => Router.back()} className="circleback row-fs-c">
         <img src={'../../static/shared/back.svg'} />
         <span>Back</span>
@@ -89,63 +89,3 @@ export default () => {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// import CircleHost from './components/circlehost';
-// import MeetingTime from './components/meetingtime';
-// import { ApolloConsumer } from 'react-apollo';
-// import getCircle from '../../shared/services/get-circle';
-
-// const getCircleDetails = (circleId, client) => {
-//   getCircle(circleId, client);
-// }
-
-// export default () =>
-//   <ApolloConsumer>
-//     {client => (
-//       <div>
-//         {getCircleDetails(1, client)}
-//       </div>
-//     )}
-//   </ApolloConsumer>
-
-// GENERAL STUFF
-//   circle name
-//   host name + qualification
-//   description
-//
-// CATEGORICAL STUFF
-//   tags (categories)
-//   "goals" (ie: "clear your mind", "solve problems", "build relationships")
-//
-// LOGISTICAL STUFF
-//   price
-//   meeting time
-//   head count + cap
-//   address / neighborhood
-//   location type (shared, office, community center)
-//   number of sessions
-//   cancellation / absence policy
-//   new members policy
-
-
-// export default () =>
-//   <div className="circle row-sb">
-//     <div className="circle__cent col">
-//       <span>Testy Testers</span>
-//     </div>
-//     <div className="circle__side col">
-//       <CircleHost />
-//       <MeetingTime />
-//     </div>
-//   </div>

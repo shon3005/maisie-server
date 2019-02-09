@@ -74,6 +74,20 @@ defmodule MaisieApiWeb.Schema do
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.PaymentResolver.sync_payment_account/3)
         end
+
+        @desc "Create a Stripe customer"
+        field :create_customer, type: :string do
+           arg(:input, non_null(:stripe_customer_type))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.PaymentResolver.create_customer/3)
+        end
+
+         @desc "Update a Stripe customer card"
+        field :update_customer, type: :string do
+         #   arg(:input, non_null(:stripe_customer_type))
+         #   middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.PaymentResolver.update_customer/3)
+        end
     end
 
     # subscription do
