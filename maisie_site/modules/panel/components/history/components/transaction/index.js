@@ -31,8 +31,6 @@ export default (props) => {
           <span className="two">{DATE}</span>
           <span className="one">{NAME}</span>
         </div>
-        <div style={{width: 15}} />
-        <a className="ht__cont_atts-manage" href="circles/001">Manage Circle</a>
       </div>
       <div className="ht__cont row">
 
@@ -43,6 +41,7 @@ export default (props) => {
           <span>{FEE*100 + "% = $" + BASE*NUM_ATTS*FEE}</span>
           {/*<span className="tag">Net revenue</span>
           <span className="bold">{"$" + TOTAL}</span>*/}
+          <a className="ht__cont_atts-manage" href="circles/001">Manage Circle</a>
         </div>
         <div className="ht__cont_atts">
           <span>attendees</span>

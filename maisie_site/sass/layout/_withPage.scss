@@ -8,13 +8,11 @@
 
     &__inner {
       width: 100%;
-      padding-bottom: 40px;
       &.lim-height {
-        height: calc(100vh - 64px) !important;
+        height: calc(100vh - 104px);
       }
       &-content {
         width: 100%;
-        min-height: calc(100vh - 104px);
         height: 100%;
         padding: $border-padding;
       }
