@@ -19,13 +19,13 @@
     color: $color-secondary;
     font-size: $font-size-large;
 
-    > button {
+    > a {
       @include transition(all, 200ms);
       @include user-select(none);
 
       height: 36px;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
       border-radius: 50px;
 
       background-color: $color-primary;
@@ -34,7 +34,7 @@
 
       font-family: "Open Sans";
       font-size: $font-size-small;
-      font-weight: 500;
+      font-weight: 600;
       color: white;
 
       &:hover {
