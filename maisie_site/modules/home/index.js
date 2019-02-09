@@ -81,7 +81,6 @@ const onChange = async (e, createCircle) => {
 }
 
 export default (props) => {
-  console.log(document.cookie);
   return (
     <div className="discover col-fs-c">
       <Header />

@@ -10,13 +10,12 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     end
 
     def update_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
-        Stripe.Customer.retrieve()
+        Stripe.Customer.retrieve(current_user.stripe_id)
         |> update_handler(current_user)
         # Stripe.Customer.update(%{
         #     "email": "shon3005@gmail.com",
         #     "source": input.source
         # })
-        {:ok, "SUCCESS!"}
     end
 
     def set_up_payments(_, _, %{context: %{current_user: current_user}}) do
