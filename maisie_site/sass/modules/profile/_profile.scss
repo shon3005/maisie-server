@@ -5,7 +5,7 @@
   max-width: 850px;
   margin-top: $border-padding;
   padding-bottom: 50px;
-  
+
   &-title {
     font-size: $font-size-large;
     font-weight: 600;
@@ -36,6 +36,15 @@
     }
     &_input {
       flex: 1;
+      input, select, textarea {
+        &::placeholder {
+          font-size: $font-size-reg;
+          color: $color-secondary-20;
+          font-weight: 400;
+          font-family: "Open Sans";
+        }
+      }
+
       > input {
         @include transition(all, 200ms);
 
@@ -52,7 +61,7 @@
         color: $color-secondary;
         font-family: "Open Sans";
         font-weight: 400;
-        &:focus { border: 1px solid $color-secondary-25; }
+        &:focus { border: 1px solid $color-secondary-50; }
       }
 
       > select {
@@ -67,7 +76,7 @@
 
         background-color: white;
         border: 1px solid $color-secondary-10;
-        &:focus { border: 1px solid $color-secondary-25; }
+        &:focus { border: 1px solid $color-secondary-50; }
       }
 
       > textarea {
@@ -85,7 +94,7 @@
         color: $color-secondary;
         font-family: "Open Sans";
         font-weight: 400;
-        &:focus { border: 1px solid $color-secondary-25; }
+        &:focus { border: 1px solid $color-secondary-50; }
       }
     }
   }

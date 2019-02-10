@@ -9,17 +9,30 @@
   > img {
     height: 22px;
   }
+
+  &-barrier {
+    height: 50%;
+    width: 2px;
+    background-color: $color-secondary-10;
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  > span {
+    font-size: $font-size-small;
+    font-weight: 500;
+    color: $color-secondary-75;
+  }
 }
 
 .header_progress {
   width: 100%;
-  height: 6px;
+  height: 4px;
   background-color: $color-secondary-05;
 
   > div {
     width: 5%;
     height: 100%;
-    border-radius: 0px 5px 5px 0px;
     background-color: $color-primary;
   }
 }
@@ -27,20 +40,46 @@
 .create {
   height: 100vh;
   width: 100vw;
+  background-color: $color-primary-lightest;
 
   &__inner {
     flex: 1;
+    height: 100%;
     width: 100%;
-
     &_cont {
+      z-index: 5;
+      overflow-y: auto;
+      height: auto;
       flex: 1;
+      padding-left: 10%;
+      padding-right: 10%;
+      padding-top: 40px;
+      padding-bottom: 40px;
       width: 100%;
+      &-largetext {
+        font-size: 40px;
+        font-weight: 500;
+        color: $color-secondary;
+      }
+      &-smalltext {
+        font-size: $font-size-med;
+        margin-top: -5px;
+        margin-bottom: 40px;
+        margin-left: 2px;
+        font-weight: 500;
+        color: $color-primary;
+      }
     }
 
     &_brow {
-      height: 20%;
+      z-index: 10;
+      height: 15%;
+      min-height: 80px;
+      background-color: white;
       width: 100%;
-      margin-bottom: 40px;
+      @include desktop {
+        margin-bottom: 40px;
+      }
 
       box-shadow: 0px -2px 10px $color-secondary-05;
 
@@ -58,15 +97,146 @@
 
         &:hover { cursor: pointer; }
         &:active { opacity: .75; }
-      }
-      > div.back {
-        color: $color-primary;
-      }
-      > div.next {
-        background-color: $color-primary;
-        color: white;
-        &:hover { transform: scale(1.05); }
+        &.back {
+          color: $color-primary;
+        }
+        &.next {
+          background-color: $color-primary;
+          color: white;
+          &:hover { transform: scale(1.05); }
+        }
       }
     }
+  }
+  &__hostinfo {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid $color-secondary-05;
+    > div {
+      height: 40px;
+      width: 40px;
+      overflow: hidden;
+      border-radius: 50px;
+      > img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    > span {
+      font-size: $font-size-reg;
+      margin-left: 10px;
+    }
+  }
+  &-disclaimer {
+    font-size: $font-size-small;
+    color: $color-secondary-25;
+    margin-top: 10px;
+    margin-left: calc(115px + 5%);
+  }
+  &__field {
+    width: 100%;
+    margin-top: 25px;
+    &_text {
+      width: calc(80px + 5%);
+      margin-right: 25px;
+      > span.tag {
+        font-size: $font-size-tag-small;
+        margin-top: -5px;
+        color: $color-primary;
+        font-weight: 600;
+      }
+    }
+    &_input {
+      flex: 1;
+      input, select, textarea {
+        &::placeholder {
+          font-size: $font-size-reg;
+          color: $color-secondary-20;
+          font-weight: 400;
+          font-family: "Open Sans";
+        }
+      }
+
+      > input {
+        @include transition(all, 200ms);
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: "Open Sans";
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+
+      > select {
+        @include transition(all, 200ms);
+
+        position: relative;
+        font-family: "Open Sans";
+        font-size: $font-size-small;
+        color: $color-secondary;
+        padding-left: 20px;
+        height: 50px;
+
+        background-color: white;
+        border: 1px solid $color-secondary-10;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+
+      > textarea {
+        @include transition(all, 200ms);
+        resize: none;
+
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+        height: auto;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: "Open Sans";
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+    }
+  }
+
+  > button {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 175px;
+    margin-top: 25px;
+
+    border-radius: 50px;
+    border: none;
+    outline: 0;
+
+    background-color: $color-primary;
+    color: white;
+    font-family: "Open Sans";
+    font-size: $font-size-reg;
+    font-weight: 600;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    &:active { opacity: .75 }
   }
 }
