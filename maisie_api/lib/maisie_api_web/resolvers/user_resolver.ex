@@ -2,7 +2,8 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     alias MaisieApi.{Accounts, Guardian}
 
     def user(_, _, %{context: %{current_user: current_user}}) do
-        {:ok, Accounts.get_user!(current_user.id)};
+        Accounts.get_user(current_user.id)
+        |> get_user_handler()
     end
 
     def users(_,_, %{context: _context}) do
@@ -12,6 +13,14 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     def register_user(_, %{input: input}, _) do
         Accounts.create_user(input)
         |> handler(input)
+    end
+
+    defp get_user_handler({:error, %Ecto.Changeset{} = changeset}) do
+        {:error, %{message: "get-user", details: "USER NOT FOUND"}}
+    end
+
+    defp get_user_handler(response) do
+        {:ok, response}
     end
 
     defp handler({:error, %Ecto.Changeset{} = changeset}, _input) do

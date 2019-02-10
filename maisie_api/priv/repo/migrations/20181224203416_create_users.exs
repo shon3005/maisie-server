@@ -8,6 +8,7 @@ defmodule MaisieApi.Repo.Migrations.CreateUsers do
       add :email, :string
       add :password_hash, :string
       add :role, :string
+      add :stripe_id, :string
 
       timestamps()
     end

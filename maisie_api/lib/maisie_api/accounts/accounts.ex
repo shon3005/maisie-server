@@ -37,7 +37,7 @@ defmodule MaisieApi.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Creates a user.
@@ -99,7 +99,7 @@ defmodule MaisieApi.Accounts do
   """
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.update_user_changeset(attrs)
     |> Repo.update()
   end
 

@@ -6,11 +6,11 @@ import Head from 'next/head'
 
 import initApollo from './init-apollo'
 
-function parseCookies (req, options = {}) {
+export const parseCookies = (req, options = {}) => {
   return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
 }
 
-export default App => {
+export const withApollo = App => {
   return class WithData extends React.Component {
     static displayName = `WithData(${App.displayName})`
     static propTypes = {
@@ -92,7 +92,9 @@ export default App => {
     }
 
     render () {
-      return <App {...this.props} apolloClient={this.apolloClient} />
+      return (
+        <App {...this.props} apolloClient={this.apolloClient} />
+      );
     }
   }
 }

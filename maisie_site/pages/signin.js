@@ -10,12 +10,15 @@ const Error = (props) => <div className="signin__error">{props.children}</div>
 
 class Signin extends Component {
   static async getInitialProps (context) {
-    const { userDetails } = await getUser(context.apolloClient);
+    try {
+      const { data } = await getUser(context.apolloClient);
 
-    if (userDetails.id) {
-      redirect(context, '/')
+      if (data.getUser && data.getUser.id) {
+        redirect(context, '/')
+      }
+    } catch(e) {
+      console.log(e);
     }
-
     return {}
   }
 

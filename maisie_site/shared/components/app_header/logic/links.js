@@ -2,7 +2,7 @@ const LOGIC_MAIN = [
   {
     "text": "home",
     "img": "../../../static/sidebar/home.svg",
-    "href": "home",
+    "href": "/",
   },
   // {
   //   "text": "messages",

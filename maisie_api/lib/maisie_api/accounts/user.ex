@@ -12,6 +12,7 @@ defmodule MaisieApi.Accounts.User do
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
     field :role, :string, default: "user"
+    field :stripe_id, :string, unique: true
     has_one :host, Host
 
     timestamps()
@@ -35,6 +36,11 @@ defmodule MaisieApi.Accounts.User do
     |> validate_confirmation(:password)
     |> unique_constraint(:email)
     |> hash_password
+  end
+
+  def update_user_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:stripe_id])
   end
 
   defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do

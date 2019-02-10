@@ -7,14 +7,11 @@ export default apolloClient =>
         {
           getUser {
             id
+            firstName
+            lastName
+            email
+            role
           }
         }
       `
-    })
-    .then(({data}) => {
-      return { userDetails: data.getUser }
-    })
-    .catch((_) => {
-      // Fail gracefully
-      return { userDetails: {} }
     })

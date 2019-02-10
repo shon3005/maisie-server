@@ -11,7 +11,7 @@ defmodule MaisieApiWeb.UploadController do
   end
 
   defp upload_file(true, conn, image_params, %{"id" => circle_id} = upload_params) do
-    file_uuid = UUID.uuid4(:hex)   
+    file_uuid = UUID.uuid4(:hex)
     image_filename = image_params.filename
     unique_filename = "#{file_uuid}-#{image_filename}"
     {:ok, image_binary} = File.read(image_params.path)

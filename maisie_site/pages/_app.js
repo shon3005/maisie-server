@@ -1,7 +1,8 @@
 import App, { Container } from 'next/app';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
-import withApollo from '../shared/services/with-apollo';
+import { StripeProvider } from 'react-stripe-elements-universal';
+import {withApollo} from '../shared/services/with-apollo';
 
 import Head from 'next/head';
 import '../sass/main.scss';
@@ -37,9 +38,12 @@ class MyApp extends App {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-config" content="https://s3.amazonaws.com/maisie-files/shared/browserconfig.xml" />
           <meta name="theme-color" content="#ffffff" />
+          <script src="https://js.stripe.com/v3/"></script>
         </Head>
         <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
+          <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+            <Component {...pageProps} />
+          </StripeProvider>
         </ApolloProvider>
       </Container>
     )
