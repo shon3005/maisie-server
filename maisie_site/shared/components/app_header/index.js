@@ -46,8 +46,10 @@ const LoggedInApp = (props) => {
   );
 }
 
+const LoggedOut = () => <div />
+
 export default (props) => {
-  const rightside = props.non_app ? <LoggedInNonApp whitelogo={props.whitelogo} /> : <LoggedInApp user={props.user} />;
+  const rightside = props.loggedIn ? props.non_app ? <LoggedInNonApp whitelogo={props.whitelogo} /> : <LoggedInApp user={props.user} /> : <LoggedOut /> ;
   return(
   <div className="appheader row-sb-c" style={ props.noheader ? {} : {backgroundColor: "rgba(255,255,255,1)", boxShadow: "0px 0px 2px rgba(5,45,84,.10)"}}>
     <a href={props.non_app ? "/" : "/"}>
