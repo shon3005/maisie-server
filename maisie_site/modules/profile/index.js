@@ -21,7 +21,7 @@ function handlePress(e) {
   var location = document.getElementById("location").value;
   var school = document.getElementById("school").value;
   var work = document.getElementById("work").value;
-  var bio = document.getElementById("bio").value;
+  var bio = document.getElementById("bio").value; 
 }
 
 export default () =>

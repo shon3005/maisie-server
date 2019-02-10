@@ -31,7 +31,6 @@
   background-color: $color-secondary-05;
 
   > div {
-    width: 5%;
     height: 100%;
     background-color: $color-primary;
   }
@@ -51,8 +50,12 @@
       overflow-y: auto;
       height: auto;
       flex: 1;
-      padding-left: 10%;
-      padding-right: 10%;
+      @include tabletandmobile {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      padding-left: 18%;
+      padding-right: 18%;
       padding-top: 40px;
       padding-bottom: 40px;
       width: 100%;
@@ -94,11 +97,20 @@
 
         border-radius: 50px;
         font-weight: 600;
+        &.no_display {
+          display: none !important;
+        }
 
         &:hover { cursor: pointer; }
         &:active { opacity: .75; }
         &.back {
           color: $color-primary;
+
+          &.fade {
+            opacity: .25;
+            &:hover { cursor: default; }
+            &:active { opacity: .25; }
+          }
         }
         &.next {
           background-color: $color-primary;
@@ -113,7 +125,7 @@
     background-color: white;
     border-radius: 5px;
     border: 1px solid $color-secondary-05;
-    > div {
+    &-img {
       height: 40px;
       width: 40px;
       overflow: hidden;
@@ -126,6 +138,19 @@
     > span {
       font-size: $font-size-reg;
       margin-left: 10px;
+    }
+    &-tag {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-left: 10px;
+
+      border-radius: 5px;
+      background-color: $color-primary;
+      color: white;
+      font-size: $font-size-tag;
+      text-transform: uppercase;
     }
   }
   &-disclaimer {
