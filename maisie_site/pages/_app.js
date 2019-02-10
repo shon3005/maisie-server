@@ -2,7 +2,7 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements-universal';
-import withApollo from '../shared/services/with-apollo';
+import {withApollo} from '../shared/services/with-apollo';
 
 import Head from 'next/head';
 import '../sass/main.scss';

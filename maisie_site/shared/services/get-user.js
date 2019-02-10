@@ -7,6 +7,10 @@ export default apolloClient =>
         {
           getUser {
             id
+            firstName
+            lastName
+            email
+            role
           }
         }
       `

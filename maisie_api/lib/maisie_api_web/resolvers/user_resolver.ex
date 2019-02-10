@@ -20,7 +20,7 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     end
 
     defp get_user_handler(response) do
-        {:ok, "user logged in"}
+        {:ok, response}
     end
 
     defp handler({:error, %Ecto.Changeset{} = changeset}, _input) do
