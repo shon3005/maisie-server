@@ -65,6 +65,12 @@ export default class extends React.Component {
     this.setState({ slidetoShow: this.state.slidetoShow === 0 ? 0 : this.state.slidetoShow - 1 })
   }
   handleForwardPress() {
+    if (this.state.slidetoShow === 0) {
+      var title = document.getElementById("title").value;
+      title.length == 0 ? title.className += "red" : null;
+      var description = document.getElementById("description").value;
+    }
+
     this.setState({ slidetoShow: this.state.slidetoShow + 1 })
   }
   render() {

@@ -156,6 +156,9 @@
           font-weight: 400;
           font-family: "Open Sans";
         }
+        &.red {
+          border: 1px solid $color-red !important;
+        }
       }
 
       > input {
