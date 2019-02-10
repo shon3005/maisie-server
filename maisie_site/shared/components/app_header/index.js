@@ -15,7 +15,7 @@ const MainLinks = (props) => LOGIC_MAIN.map((x, index) =>
 
 const LoggedInNonApp = (props) =>
   <div className="appheader__user row-fe-c">
-      <a href="/home"><span className={classNames({
+      <a href="/"><span className={classNames({
         "purple": !props.whitelogo,
         "white": props.whitelogo,
         "appheader__user-nonApp": true,
@@ -48,7 +48,7 @@ export default (props) => {
   const rightside = props.non_app ? <LoggedInNonApp whitelogo={props.whitelogo} /> : <LoggedInApp />;
   return(
   <div className="appheader row-sb-c" style={ props.noheader ? {} : {backgroundColor: "rgba(255,255,255,1)", boxShadow: "0px 0px 2px rgba(5,45,84,.10)"}}>
-    <a href={props.non_app ? "/" : "/home"}>
+    <a href={props.non_app ? "/" : "/"}>
       <img
         src={props.whitelogo ? "../../static/header/logo_nocircle_white.svg" : "../../static/header/logo_nocircle.svg"}
         style={props.whitelogo ? {marginTop: -18, marginLeft: -20} : {}}

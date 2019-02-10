@@ -18,7 +18,7 @@ export default (props) =>
         <div className="front__content-prompt_cta row-c-c">
           <a href="signup" className="one col-c-c">Sign Up</a>
           <div style={{width: 20}} />
-          <a href="home" className="two col-c-c">Browse Circles</a>
+          <a href="/" className="two col-c-c">Browse Circles</a>
         </div>
         <div style={{height: 50}} />
         <div className="socialbuttons row-sb-c"><SocialButtons /></div>

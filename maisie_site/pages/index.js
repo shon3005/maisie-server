@@ -8,9 +8,9 @@ export default class extends Component {
   static async getInitialProps (context) {
     const { userDetails } = await getUser(context.apolloClient);
 
-    if (userDetails.id) {
-      redirect(context, '/home')
-    }
+    // if (userDetails.id) {
+    //   redirect(context, '/')
+    // }
 
     return {}
   }

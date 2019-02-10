@@ -59,7 +59,7 @@ class Signup extends Component {
       document.cookie = data ? cookie.serialize('token', data.registerUser.token, {
         maxAge: 30 * 24 * 60 * 60 // 30 days
       }) : null;
-      this.props.router.push('/home')
+      this.props.router.push('/')
     } catch (e) {
       // show custom error
       e.graphQLErrors ?

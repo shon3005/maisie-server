@@ -13,7 +13,7 @@ class Signin extends Component {
     const { userDetails } = await getUser(context.apolloClient);
 
     if (userDetails.id) {
-      redirect(context, '/home')
+      redirect(context, '/')
     }
 
     return {}
@@ -30,7 +30,7 @@ class Signin extends Component {
       document.cookie = data ? cookie.serialize('token', data.loginUser.token, {
         maxAge: 30 * 24 * 60 * 60 // 30 days
       }) : null;
-      this.props.router.push('/home')
+      this.props.router.push('/')
     } catch (e) {
       // show custom error
     }
