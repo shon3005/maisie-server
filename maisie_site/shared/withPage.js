@@ -1,4 +1,4 @@
-import Header from '../shared/components/app_header/index.js';
+import Header from '../shared/components/header/index.js';
 import SideBar from '../shared/components/sidebar/index.js';
 
 export default (page, side, id) =>

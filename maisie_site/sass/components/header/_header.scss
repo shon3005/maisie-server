@@ -1,0 +1,31 @@
+.header {
+  &:not(.trnsp) {
+    background-color: white;
+    box-shadow: 0px 2px 2px $color-secondary-05;
+  }
+  height: 50px;
+  width: 100%;
+  padding-left: calc(20px + 1%);
+  padding-right: calc(20px + 1%);
+
+  &_l {
+    > a > img {
+      height: 22px;
+      margin-top: 7px;
+    }
+
+    &-barrier {
+      height: 50%;
+      width: 2px;
+      background-color: $color-secondary-10;
+      margin-left: 25px;
+      margin-right: 25px;
+    }
+
+    > span {
+      font-size: $font-size-small;
+      font-weight: 500;
+      color: $color-secondary-75;
+    }
+  }
+}

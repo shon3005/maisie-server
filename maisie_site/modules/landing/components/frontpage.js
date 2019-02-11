@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from '../../../shared/components/header3/index.js';
+import Header from '../../../shared/components/header/index.js';
 import SocialButtons from '../../../shared/components/socialButtons.js';
 import EmailCapture from '../../../shared/components/emailCapture.js';
 

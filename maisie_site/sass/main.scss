@@ -13,14 +13,15 @@
 
 // COMPONENTS
 @import "components/footer";
-@import "components/header";
 @import "components/emailCapture";
 @import "components/socialButtons";
 @import "components/signup";
-@import "components/appheader";
 @import "components/sidebar";
 @import "components/circlecard";
-@import "components/header3";
+
+@import "components/header/header";
+@import "components/header/loggedIn";
+@import "components/header/loggedOut";
 
 // MODULES
 @import "modules/landing/frontpage";

@@ -1,0 +1,36 @@
+.headerLoggedOut {
+  height: 100%;
+  > div {
+    color: $color-secondary-25;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  > a {
+    @include user-select(none);
+    @include transition(all, 200ms);
+
+    position: relative;
+    height: 100%;
+    font-weight: 600;
+    color: $color-secondary-75;
+
+    > div {
+      @include transition(all, 200ms);
+
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: $color-primary;
+      opacity: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+      > div { opacity: 1; }
+    }
+    &:active {
+      > span { opacity: .5; }
+    }
+  }
+}
