@@ -1,0 +1,59 @@
+.hostcard {
+  @include transition(all, 200ms);
+  @include user-select(none);
+
+  padding: 20px;
+  &__cont {
+    &-img {
+      height: 65px;
+      width: 75px;
+      border-radius: 2px;
+    }
+    &_text {
+      height: 100%;
+      flex: 1;
+      margin-left: 10px;
+      > span {
+        font-size: $font-size-small;
+        text-transform: capitalize;
+      }
+      &-title {
+        font-weight: 600;
+        color: $color-secondary;
+      }
+      &-date {
+        color: $color-secondary-50;
+      }
+      &-eco {
+        color: $color-secondary-50;
+        > .price {
+          color: $color-primary;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  &-pending {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 5px;
+    background-color: $color-secondary-05;
+
+    font-size: $font-size-small;
+    color: $color-secondary-25;
+    font-weight: 600;
+
+    &.hide {
+      display: none !important;
+    }
+  }
+  &:not(.non-click) {
+    &:hover { cursor: pointer; }
+    &:active { opacity: .75; }
+  }
+  &:hover {
+    background-color: $color-secondary-03;
+  }
+}

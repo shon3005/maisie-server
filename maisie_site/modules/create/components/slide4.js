@@ -7,7 +7,7 @@ var classNames = require('classnames');
 
 export default (props) =>
     <div className="create__inner_cont">
-      <SmallText>Price</SmallText>
+      <SmallText>Economics</SmallText>
       <Field title="Price">
         <span>$</span>
         <input
@@ -21,4 +21,19 @@ export default (props) =>
           })}
         />
       </Field>
+      <Field title="Minimum">
+        <select
+          id="min"
+          style={{width: 100}}
+          defaultValue={props.min ? props.min : 3}
+        >
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+        </select>
+      </Field>
+      <Disclaimer>What is the lowest number of people you need for the group to start?</Disclaimer>
     </div>

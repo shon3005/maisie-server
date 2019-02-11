@@ -34,4 +34,5 @@ export default (props) =>
       <Field private={true} title="Address"><span className="create__field_input-textbox" style={{textTransform: "capitalize"}}>{props.address}</span></Field>
       <Divider />
       <Field title="Price"><span className="create__field_input-textbox">{"$" + props.price}</span></Field>
+      <Field title="Minimum"><span className="create__field_input-textbox">{props.min + " people"}</span></Field>
     </div>

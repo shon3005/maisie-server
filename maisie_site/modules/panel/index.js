@@ -1,5 +1,5 @@
 import Top from './components/top.js';
-import Activity from './components/activity.js';
+import Activity from './components/activity/index.js';
 import History from './components/history/index.js';
 
 export default () =>
