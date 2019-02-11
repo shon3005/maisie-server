@@ -1,4 +1,4 @@
-import Header from './components/app_header/index.js';
+import Header from './components/header3/index.js';
 import Footer from './components/footer.js';
 
 var classNames = require('classnames');

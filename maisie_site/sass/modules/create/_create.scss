@@ -1,29 +1,4 @@
-.newheader {
-  height: 50px;
-  width: 100%;
-  padding-left: calc(20px + 1%);
-  padding-right: calc(20px + 1%);
-  background-color: white;
-  box-shadow: 0px 2px 2px $color-secondary-05;
 
-  > img {
-    height: 22px;
-  }
-
-  &-barrier {
-    height: 50%;
-    width: 2px;
-    background-color: $color-secondary-10;
-    margin-left: 25px;
-    margin-right: 25px;
-  }
-
-  > span {
-    font-size: $font-size-small;
-    font-weight: 500;
-    color: $color-secondary-75;
-  }
-}
 
 .header_progress {
   width: 100%;

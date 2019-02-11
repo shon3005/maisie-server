@@ -1,6 +1,6 @@
 import Footer from '../../shared/components/footer.js';
 import Progress from './components/progressBar.js';
-import NewHeader from './components/newHeader.js';
+import Header from '../../shared/components/header3/index.js';
 import LargeText from './components/largeText.js';
 import SmallText from './components/smallText.js';
 import progressLogic from './utils/progressLogic.js';
@@ -112,7 +112,7 @@ export default class extends React.Component {
     }
     return(
       <div className="create col-fs-c">
-        <NewHeader status={progressLogic[this.state.slideToShow]["msg"]} />
+        <Header status={progressLogic[this.state.slideToShow]["msg"]} />
         <Progress status={progressLogic[this.state.slideToShow]["percent"]} />
         <div className="create__inner col-fs-c">
           {slideToShow()}

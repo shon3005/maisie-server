@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Header from '../../../shared/components/app_header/index.js';
+import Header from '../../../shared/components/header3/index.js';
 import SocialButtons from '../../../shared/components/socialButtons.js';
 import EmailCapture from '../../../shared/components/emailCapture.js';
 
 export default (props) =>
   <div className="front col-c-c">
     <div className="front__header">
-      <Header noheader={true} non_app={true} />
+      <Header trnsp />
     </div>
     <div className="front__content col-sb-c">
       <div className="front__content_in">
