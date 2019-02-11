@@ -22,6 +22,7 @@
         text-transform: capitalize;
       }
       &-title {
+        font-size: $font-size-med;
         font-weight: 600;
         color: $color-secondary;
       }
