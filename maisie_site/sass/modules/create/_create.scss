@@ -174,6 +174,18 @@
     }
     &_input {
       flex: 1;
+
+      &-textbox {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: $color-secondary-05;
+        color: $color-secondary-50;
+        border-radius: 5px;
+        display:block;
+        white-space: pre-wrap;
+      }
       input, select, textarea {
         &::placeholder {
           font-size: $font-size-reg;
@@ -210,7 +222,7 @@
 
         position: relative;
         font-family: "Open Sans";
-        font-size: $font-size-small;
+        font-size: $font-size-reg;
         color: $color-secondary;
         padding-left: 20px;
         height: 50px;
