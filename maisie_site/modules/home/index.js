@@ -1,4 +1,4 @@
-import Header from '../../shared/components/app_header/index.js';
+import Header from '../../shared/components/header/index.js';
 import Footer from '../../shared/components/footer.js';
 import FeaturedRow from '../landing/components/featuredrow.js';
 import { Mutation } from 'react-apollo';

@@ -3,7 +3,7 @@
     background-color: white;
     box-shadow: 0px 2px 2px $color-secondary-05;
   }
-  height: 50px;
+  height: $header-height;
   width: 100%;
   padding-left: calc(20px + 1%);
   padding-right: calc(20px + 1%);

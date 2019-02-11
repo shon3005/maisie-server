@@ -1,5 +1,4 @@
 import Top from './components/top.js';
-import Activity from './components/activity/index.js';
 import History from './components/history/index.js';
 
 export default () =>
@@ -7,8 +6,6 @@ export default () =>
     <Top />
     <div className="hostpanel-spacever" />
     <div className="hostpanel__bottom row">
-      <Activity />
-      <div className="hostpanel-spacehor" />
       <History />
     </div>
   </div>

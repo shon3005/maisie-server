@@ -1,8 +1,10 @@
-import withPageNoSide from '../shared/withPageNoSide.js';
-import Circle from '../modules/circle/index.js';
+import Circles from '../modules/circles/index.js';
+import Footer from '../shared/components/footer.js';
+import Header from '../shared/components/header/index.js';
 
-export default function Circles({query}) { return withPageNoSide(<Circle />, "circle", query.id ? query.id : "", false);}
-
-Circles.getInitialProps = async ({query}) => {
-  return {query}
-}
+export default () =>
+  <div className="mycircles col-fs-c">
+    <Header />
+    <Circles />
+    <Footer />
+  </div>

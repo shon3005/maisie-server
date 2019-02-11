@@ -7,6 +7,6 @@ module.exports = routes()                           // ----   ----   -----
 .add('messages')
 .add('schedule')
 .add('support')
-.add('circles', '/circles/:id')
+.add('circle', '/circle/:id')
 .add('signup')
 .add('signin')

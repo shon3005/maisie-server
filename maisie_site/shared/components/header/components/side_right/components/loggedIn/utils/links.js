@@ -1,9 +1,9 @@
 const LOGIC_MAIN = [
-  {
-    "text": "home",
-    "img": "../../../static/sidebar/home.svg",
-    "href": "/",
-  },
+  // {
+  //   "text": "home",
+  //   "img": "../../../static/sidebar/home.svg",
+  //   "href": "/",
+  // },
   // {
   //   "text": "messages",
   //   "img": "../../../static/sidebar/messages.svg",
@@ -13,11 +13,12 @@ const LOGIC_MAIN = [
     "text": "settings",
     "img": "../../../static/sidebar/settings.svg",
     "href": "settings",
-  }, {
-    "text": "support",
-    "img": "../../../static/sidebar/support.svg",
-    "href": "support",
   },
+  // {
+  //   "text": "support",
+  //   "img": "../../../static/sidebar/support.svg",
+  //   "href": "support",
+  // },
 ]
 
 export default LOGIC_MAIN

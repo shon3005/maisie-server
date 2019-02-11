@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cabin:600|Open+Sans:300,400,500,600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
 
 // ABSTRACTS
 @import "abstracts/functions";
@@ -42,12 +42,14 @@
 
 @import "modules/schedule/schedule";
 
+@import "modules/circles/circles";
+@import "modules/circles/mcblank";
+@import "modules/circles/card";
+
 @import "modules/panel/host";
 @import "modules/panel/components/hostpayments";
 @import "modules/panel/components/hosthistory";
 @import "modules/panel/components/hosttransaction";
-@import "modules/panel/components/hostactivity";
-@import "modules/panel/components/hostcard";
 
 @import "modules/host/host";
 

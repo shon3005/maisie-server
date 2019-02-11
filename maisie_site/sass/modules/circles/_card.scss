@@ -1,20 +1,24 @@
-.hostcard {
+.mycirclescard {
   @include transition(all, 200ms);
   @include user-select(none);
 
-  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 0px 1px 1px $color-secondary-05;
+
   &__cont {
     &-img {
-      height: 65px;
-      width: 75px;
-      border-radius: 2px;
+      height: 80px;
+      width: 100px;
+      border-radius: 5px;
     }
     &_text {
       height: 100%;
       flex: 1;
-      margin-left: 10px;
+      margin-left: 20px;
       > span {
-        font-size: $font-size-small;
         text-transform: capitalize;
       }
       &-title {
@@ -39,21 +43,32 @@
     padding-left: 8px;
     padding-right: 8px;
     border-radius: 5px;
-    background-color: $color-secondary-05;
 
-    font-size: $font-size-small;
-    color: $color-secondary-25;
+    font-size: $font-size-reg;
     font-weight: 600;
+    display: none;
 
-    &.hide {
-      display: none !important;
+    &.pending, &.host, &.member {
+      display: flex !important;
+    }
+    &.pending {
+      background-color: $color-secondary-05;
+      color: $color-secondary-25;
+      margin-right: 10px;
+    }
+    &.host {
+      background-color: $color-primary-light;
+      color: $color-primary;
+      display: flex;
+    }
+    &.member {
+      background-color: transparent;
+      color: $color-primary;
     }
   }
   &:not(.non-click) {
     &:hover { cursor: pointer; }
     &:active { opacity: .75; }
   }
-  &:hover {
-    background-color: $color-secondary-03;
-  }
+  &:hover { background-color: $color-secondary-03; }
 }
