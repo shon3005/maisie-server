@@ -1,0 +1,122 @@
+.circles_reqs {
+  @include transition(all, 200ms);
+  @include user-select(none);
+  position: relative;
+  margin-right: 25px;
+
+  &-cta {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: $font-size-reg;
+    color: $color-secondary-75;
+    z-index: 999999;
+    &:not(.clicked) {
+      &:hover  {
+        cursor: pointer;
+        box-shadow: 0px 0px 30px $color-secondary-10;
+      }
+    }
+    &:active {
+      opacity: .75;
+    }
+  }
+  &.hide {
+    display: none !important;
+  }
+
+  &__drop {
+    @include transition(all, 200ms);
+    @include user-select(none);
+    right: -10px;
+    top: -10px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999998;
+    background-color: #FCFDFF;
+    box-shadow: 0px 0px 30px $color-secondary-10;
+
+    opacity: 0;
+    visibility: hidden;
+
+    &_inner {
+      margin-top: 60px;
+      max-height: 300px;
+      overflow-y: auto;
+
+    }
+    &-visible {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+}
+
+.circles_req {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+
+  &-title {
+    font-size: $font-size-reg;
+    font-weight: 600;
+    color: $color-secondary-25;
+    text-transform: capitalize;
+    box-shadow: 0px 1px 0px $color-secondary-05;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  &__ind {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    &_l {
+      flex: 1;
+      width: 100%;
+      &-name {
+        font-weight: 500;
+        white-space: nowrap
+      }
+      > a {
+        color: $color-primary;
+        font-weight: 600;
+        font-size: $font-size-small;
+        white-space: nowrap
+      }
+    }
+    &_r {
+      > div {
+        height: 30px;
+        width: 30px;
+        border-radius: 50px;
+      }
+      > div.email {
+        margin-left: 25px;
+        background-color: $color-secondary-05;
+      }
+      > div.accept {
+        margin-left: 10px;
+        background-color: $color-green;
+      }
+      > div.deny {
+        margin-left: 10px;
+        background-color: $color-red;
+      }
+      > div, > a {
+        @include transition(all, 200ms);
+        &:hover { cursor: pointer; }
+        &:active { opacity: .5; }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none !important;
+}
