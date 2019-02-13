@@ -12,13 +12,11 @@ import '../sass/main.scss';
 import rootReducer from '../shared/services/reducers';
 import { loadState, saveState } from '../shared/services/local-storage';
 
-const persistedState = process.browser ? loadState() : null;
+const persistedState = loadState();
 
-const store = process.browser ?
-  createStore(rootReducer, persistedState, applyMiddleware(thunk)) :
-  createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
 
-if (process.browser) store.subscribe(() => { saveState(store.getState()); });
+store.subscribe(() => { saveState(store.getState()); });
 
 class MyApp extends App {
   render () {
