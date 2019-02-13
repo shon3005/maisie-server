@@ -64,13 +64,8 @@
 @import "modules/create/create";
 
 @import "modules/circle/circle";
-@import "modules/circle/components/hostabb";
-@import "modules/circle/components/tags";
-@import "modules/circle/components/details";
-@import "modules/circle/components/location";
-@import "modules/circle/components/host";
-@import "modules/circle/components/join";
-@import "modules/circle/components/socials";
+@import "modules/circle/circle_left";
+@import "modules/circle/circle_right";
 
 // LAYOUT
 @import "layout/flex";

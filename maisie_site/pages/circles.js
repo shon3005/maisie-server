@@ -17,7 +17,7 @@ export default () =>
         position: "absolute",
         height: "100vh",
         width: "100vw",
-        zIndex: 999997,
+        zIndex: 99997,
       }}
     />
     <Circles />

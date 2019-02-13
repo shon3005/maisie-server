@@ -1,52 +1,47 @@
 .circle {
-  height: 100%;
-  width: 100%;
-  min-width: 750px;
-  max-width: 1040px;
-  margin: 0 auto;
-  margin-top: $border-padding;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $color-primary-lightest;
+  @include desktop {
+    padding-bottom: 40px;
+  }
+  &__inner {
+    position: relative;
 
-  &_l {
-    color: $color-secondary;
-    &-title {
-      font-size: $font-size-title;
-      font-weight: 500;
+    &-img {
+      height: 55vh;
+      min-height: 400px;
+      width: 100%;
     }
-    &-text {
-      font-weight: 400;
-      font-size: $font-size-small;
+    &_cont {
+      position: absolute;
+      top: 42vh;
+      width: 80%;
+      &-spcr {
+        width: calc(20px + 1vw);
+      }
     }
   }
-  &_r {
-
-  }
-
-  &__subhead {
-    font-size: $font-size-tag;
-    color: $color-primary;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-}
-
-.circleimg {
-  max-width: 1040px;
-  min-width: 750px;
-  width: 100%;
-  margin: 0 auto;
-  height: 350px;
-  overflow: hidden;
-  border-radius: 5px;
 }
 
 .circleback {
   @include transition(all, 200ms);
   @include user-select(none);
-  margin-bottom: $border-padding-inner;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+
+  > span {
+    color: white;
+    font-size: $font-size-med;
+    font-weight: 600;
+    text-shadow: 0px 0px 10px $color-secondary-25;
+
+  }
   &:hover {
     cursor: pointer;
     opacity: .75;
+    transform: scale(1.05);
   }
   &:active {
     opacity: .5;
