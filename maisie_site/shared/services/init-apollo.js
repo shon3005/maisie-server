@@ -1,11 +1,10 @@
-import { ApolloClient, InMemoryCache } from 'apollo-boost'
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
 import { ApolloLink } from "apollo-link";
-// import { ApolloClient } from 'apollo-client';
-// import { InMemoryCache } from 'apollo-cache-inmemory';
 import { onError } from "apollo-link-error";
-import { createLink } from 'apollo-absinthe-upload-link'
-import { setContext } from 'apollo-link-context'
-import fetch from 'isomorphic-unfetch'
+import { createLink } from 'apollo-absinthe-upload-link';
+import { setContext } from 'apollo-link-context';
+import fetch from 'isomorphic-unfetch';
 
 let apolloClient = null
 
@@ -14,7 +13,7 @@ if (!process.browser) {
   global.fetch = fetch
 }
 
-function create (initialState, { getToken, graphql_url }) {
+const create = (initialState, { getToken, graphql_url }) => {
   const uploadLink = createLink({
     uri: graphql_url,
     credentials: 'same-origin'
@@ -41,15 +40,18 @@ function create (initialState, { getToken, graphql_url }) {
     if (networkError) console.log(`[Network error]: ${networkError}`);
   });
 
+  // Set up Cache
+  const cache = new InMemoryCache();
+
   return new ApolloClient({
     connectToDevTools: process.browser,
     ssrMode: !process.browser, // Disables forceFetch on the server (so queries are only run once)
     link: ApolloLink.from([errorLink, authLink, uploadLink]),
-    cache: new InMemoryCache().restore(initialState || {})
-  })
+    cache: cache.restore(initialState || {}),
+  });
 }
 
-export default function initApollo (initialState, options) {
+export default (initialState, options) => {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (!process.browser) {
@@ -61,5 +63,5 @@ export default function initApollo (initialState, options) {
     apolloClient = create(initialState, options)
   }
 
-  return apolloClient
+  return apolloClient;
 }

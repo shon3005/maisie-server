@@ -65,13 +65,11 @@ const onChange = async (e, createCircle) => {
           }
         }
       );
-      console.log(response);
       bodyFormData.append('id', response.data.createCircle.id);
       const response2 = await axios.post('http://localhost:8080/api/upload', bodyFormData, { headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJtYWlzaWVfYXBpIiwiZXhwIjoxNTUxMzk4NTQxLCJpYXQiOjE1NDg5NzkzNDEsImlzcyI6Im1haXNpZV9hcGkiLCJqdGkiOiIwYmY0OTI0NS0xNGU5LTQwZjctOWIwOC0yOWQ4MmNhYmM0YjIiLCJuYmYiOjE1NDg5NzkzNDAsInN1YiI6IjEiLCJ0eXAiOiJhY2Nlc3MifQ.n3k4ZI8xlKuOS_LkO2aMPhH4728EsHxKpty8Hvg7WMyFv6BgOw9fpVWWO3Rgy6_tCWrWbKXJl81RMkYCfnXNdA`
       }});
-      console.log(response2);
     } else {
       console.log('not valid');
     }
@@ -87,15 +85,12 @@ export default (props) => {
       <div className="discover__content col-fs-c">
         <FeaturedRow />
       </div>
-
-      {/*<span className="discover__content-title">Welcome to Maisie</span>
-      <span className="discover__content-desc">Browse available Circles below</span>*/}
-      <Mutation
+      {/* <Mutation
         mutation={mutation}>
         {createCircle => {
           return <input type="file" onChange={e => onChange(e, createCircle)} />;
         }}
-      </Mutation>
+      </Mutation> */}
       <Footer />
     </div>
   );

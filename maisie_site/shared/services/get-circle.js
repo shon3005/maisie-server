@@ -14,7 +14,6 @@ export default (circleId, apolloClient) =>
       variables: {id: circleId}
     })
     .then(({ data }) => {
-        console.log(data)
       return { circleDetails: data }
     })
     .catch((err) => {

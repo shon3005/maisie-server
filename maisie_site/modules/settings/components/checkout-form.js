@@ -3,52 +3,40 @@ import React from 'react';
 import {injectStripe} from 'react-stripe-elements-universal';
 import CardSection from './card-section';
 import createCustomer from '../../../shared/services/create-customer';
-import updateCustomer from '../../../shared/services/update-customer';
+import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
 
 class CheckoutForm extends React.Component {
-  handleSubmit = (client) => (ev) => {
+  handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
-
-    // Within the context of `Elements`, this call to createToken knows which Element to
-    // tokenize, since there's only one in this group.
-    // this.props.stripe.createToken({name: 'Shaun Chua'}).then(({token}) => {
-    //   console.log('Received Stripe token:', token);
-    // });
-
-    // However, this line of code will do the same thing:
-    //
-    // this.props.stripe.createToken({type: 'card', name: 'Jenny Rosen'});
-
-    // You can also use createSource to create Sources. See our Sources
-    // documentation for more: https://stripe.com/docs/stripe-js/reference#stripe-create-source
-    //
-    this.props.stripe.createSource({type: 'card', owner: {
-      name: 'Shaun Chua'
-    }}).then(({source}) => {
-        createCustomer(client, source.id);
-    });
+    try {
+      const { source } = await this.props.stripe.createSource({type: 'card', owner: {
+        name: 'Shaun Chua'
+      }});
+      await createCustomer(client, source.id);
+      this.proceedToIndex(props);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
-  handleUpdate = (client) => (ev) => {
-    ev.preventDefault();
-    this.props.stripe.createSource({type: 'card', owner: {
-      name: 'Shaun Chua'
-    }}).then(({source}) => {
-        updateCustomer(client, source.id);
-    });
-  };
+  proceedToIndex = () => {
+    Router.push('/');
+  }
 
   render() {
     return (
         <ApolloConsumer>
             {client => (
+              <div>
                 <form onSubmit={this.handleSubmit(client)} style={{width: "100%"}}>
                     <div className="settings__inner-payments">
                       <CardSection />
                     </div>
                     <div className="settings__inner-submit row-fe-c"><button>Add Card</button></div>
                 </form>
+                <button style={{width: "50%"}} onClick={this.proceedToIndex}>I'll Add It Later</button>
+              </div>
             )}
         </ApolloConsumer>
     );

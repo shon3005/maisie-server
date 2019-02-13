@@ -49,20 +49,6 @@ export default class extends React.Component {
             {phone} {overlay}
           </div>
         </div>
-        {/*
-        <div className="spacever" />
-        <div className="support__community row-sb-c">
-          <div className="support__community_left col-fe">
-            <div className="support__community_left-tag col-c-c">for hosts</div>
-            <div className="support__community_left-text col-c">
-              <p>Join our community</p>
-              <span>Ask questions, make connections, and meet other hosts.</span>
-            </div>
-          </div>
-          <a><button>Visit now</button></a>
-          <img src="../../static/support/meet.png" />
-        </div>
-        */}
       </div>
     )
   }
