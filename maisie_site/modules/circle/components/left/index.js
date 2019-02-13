@@ -5,7 +5,7 @@ import Tags from './components/tags.js';
 import Location from './components/location.js';
 import Details from './components/details.js';
 
-const Sub = (props) => <div className="circle__subhead">{props.children}</div>
+const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 
 export default (props) =>
   <div className="circle_left">
@@ -18,7 +18,7 @@ export default (props) =>
     </div>
     <Divider />
     <Sub>description</Sub>
-    <div className="circle_l-text">{props.d.description}</div>
+    <div className="circle_left-text">{props.d.description}</div>
     <Divider />
     <Sub>details</Sub>
     <div style={{height: 10}} />
