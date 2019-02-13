@@ -2,7 +2,7 @@
   @include transition(all, 200ms);
   @include user-select(none);
   position: relative;
-  margin-right: 25px;
+  margin-right: 50px;
 
   &-cta {
     @include transition(all, 200ms);
@@ -20,11 +20,12 @@
     &:not(.clicked) {
       &:hover  {
         cursor: pointer;
+        background-color: white;
         box-shadow: 0px 0px 30px $color-secondary-10;
       }
-    }
-    &:active {
-      opacity: .75;
+      &:active {
+        opacity: .75;
+      }
     }
   }
   &.hide {
@@ -40,7 +41,7 @@
     border-radius: 10px;
     position: absolute;
     z-index: 999998;
-    background-color: #FCFDFF;
+    background-color: white;
     box-shadow: 0px 0px 30px $color-secondary-10;
 
     opacity: 0;
@@ -60,13 +61,13 @@
 }
 
 .circles_req {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100%;
 
   &-title {
-    font-size: $font-size-reg;
-    font-weight: 600;
+    font-size: $font-size-small;
+    font-weight: 400;
     color: $color-secondary-25;
     text-transform: capitalize;
     box-shadow: 0px 1px 0px $color-secondary-05;
@@ -75,7 +76,7 @@
   }
   &__ind {
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
     &_l {
       flex: 1;
       width: 100%;
