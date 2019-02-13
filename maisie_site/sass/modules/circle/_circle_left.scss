@@ -5,7 +5,18 @@
   background-color: white;
   padding: 40px;
   border-radius: 5px;
-  
+
+  &_tags {
+    color: $color-secondary;
+    &-title {
+      font-size: $font-size-title;
+      font-weight: 500;
+    }
+    &-text {
+      font-weight: 400;
+      font-size: $font-size-small;
+    }
+  }
 }
 
 .hostabb {
