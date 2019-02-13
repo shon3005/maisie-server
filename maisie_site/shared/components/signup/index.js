@@ -7,6 +7,7 @@ import { ApolloConsumer } from 'react-apollo';
 import cookie from 'cookie';
 import { connect } from 'react-redux';
 import * as actions from '../../services/actions';
+import Back from '../../../modules/circle/components/back.js';
 
 class Signup extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class Signup extends Component {
       <ApolloConsumer>
         {client => (
           <div className="signup col-c-c">
+            <Back />
             <div className="signup__main col-c-c">
               {/* <SlideThree handleButton={this.props.handleButton} /> */}
               {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}

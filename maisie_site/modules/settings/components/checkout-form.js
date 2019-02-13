@@ -35,7 +35,7 @@ class CheckoutForm extends React.Component {
                     </div>
                     <div className="settings__inner-submit row-fe-c"><button>Add Card</button></div>
                 </form>
-                <button style={{width: "50%"}} onClick={this.proceedToIndex}>I'll Add It Later</button>
+                <button className="settings__inner-addlater col-c-c" style={{width: "100%"}} onClick={this.proceedToIndex}>I'll Add It Later</button>
               </div>
             )}
         </ApolloConsumer>

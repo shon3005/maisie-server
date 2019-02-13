@@ -14,7 +14,8 @@
   left: 0;
   overflow: hidden;
 
-  background-color: rgba(2,22,41,.90);
+  background-color: $color-black;
+
 
   @include mobile {
     &__main {
