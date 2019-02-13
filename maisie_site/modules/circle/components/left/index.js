@@ -22,7 +22,14 @@ export default (props) =>
     <Divider />
     <Sub>details</Sub>
     <div style={{height: 10}} />
-    <Details d={props.d} />
+    <Details
+      day={props.d.day}
+      start={props.d.start}
+      time={props.d.time}
+      length={props.d.program_length}
+      type={props.d.space_type}
+      neighborhood={props.d.neighborhood}
+    />
     <div style={{height: 10}} />
     <Divider />
     <Sub>about the host</Sub>
