@@ -1,152 +1,152 @@
 .col {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(flex-start);
 }
 .col-fs-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(center);
 }
 .col-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(flex-start);
 }
 .col-c-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include align-items(center);
 }
 .col-sa {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-around);
+  @include align-items(flex-start);
 }
 .col-sa-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-around);
+  @include align-items(center);
 }
 .col-sb {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  @include align-items(flex-start);
 }
 .col-sb-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  @include align-items(center);
 }
 .col-se {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-evenly);
+  @include align-items(flex-start);
 }
 .col-se-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-evenly);
+  @include align-items(center);
 }
 .col-fe {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-end);
+  @include align-items(flex-start);
 }
 .col-fe-c {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-end);
+  @include align-items(center);
 }
 .col-fs-fe {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(flex-start);
+  @include align-items(flex-end);
 }
 
 
 .row {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(flex-start);
 }
 .row-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(flex-start);
 }
 .row-c-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(center);
+  @include align-items(center);
 }
 .row-fs-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(flex-start);
+  @include align-items(center);
 }
 .row-sa {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-around);
+  @include align-items(flex-start);
 }
 .row-sa-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-around);
+  @include align-items(center);
 }
 .row-sb {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-between);
+  @include align-items(flex-start);
 }
 .row-sb-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-between);
+  @include align-items(center);
 }
 .row-se {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-evenly);
+  @include align-items(flex-start);
 }
 .row-se-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-evenly);
+  @include align-items(center);
 }
 .row-fe {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-start;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(flex-end);
+  @include align-items(flex-start);
 }
 .row-fe-c {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(flex-end);
+  @include align-items(center);
 }
