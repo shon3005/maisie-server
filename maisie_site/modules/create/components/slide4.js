@@ -1,7 +1,7 @@
-import Disclaimer from './disclaimer.js';
-import Field from './field.js';
-import LargeText from './largeText.js';
-import SmallText from './smallText.js';
+import Disclaimer from '../../../shared/components/text/disclaimer.js';
+import Field from '../../../shared/components/text/field.js';
+import LargeText from '../../../shared/components/text/largeText.js';
+import SmallText from '../../../shared/components/text/smallText.js';
 
 var classNames = require('classnames');
 

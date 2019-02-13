@@ -1,8 +1,8 @@
 import Footer from '../../shared/components/footer.js';
 import Progress from './components/progressBar.js';
 import Header from '../../shared/components/header/index.js';
-import LargeText from './components/largeText.js';
-import SmallText from './components/smallText.js';
+import LargeText from '../../shared/components/text/largeText.js';
+import SmallText from '../../shared/components/text/smallText.js';
 import progressLogic from './utils/progressLogic.js';
 
 import Router from 'next/router';
