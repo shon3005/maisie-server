@@ -44,7 +44,9 @@ class CheckoutForm extends React.Component {
         <ApolloConsumer>
             {client => (
                 <form onSubmit={this.handleSubmit(client)} style={{width: "100%"}}>
-                    <CardSection />
+                    <div className="settings__inner-payments">
+                      <CardSection />
+                    </div>
                     <div className="settings__inner-submit row-fe-c"><button>Add Card</button></div>
                 </form>
             )}

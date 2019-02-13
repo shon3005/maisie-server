@@ -48,5 +48,12 @@
         &:active { opacity: .75; }
       }
     }
+    &-payments {
+      width: 100%;
+      padding: 17px;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid $color-secondary-10;
+    }
   }
 }
