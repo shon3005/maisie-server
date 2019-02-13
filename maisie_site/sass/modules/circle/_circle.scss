@@ -1,10 +1,13 @@
 .circle {
-  min-height: 100vh;
   width: 100vw;
+  height: 100%;
   background-color: $color-primary-lightest;
   @include desktop {
     padding-bottom: 40px;
   }
+  padding-bottom: 40px;
+  position: relative;
+
   &__inner {
     position: relative;
 
@@ -14,8 +17,8 @@
       width: 100%;
     }
     &_cont {
-      position: absolute;
-      top: 42vh;
+      position: relative;
+      margin-top: -10vh;
       width: 80%;
       &-spcr {
         width: calc(20px + 1vw);

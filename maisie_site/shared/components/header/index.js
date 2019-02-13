@@ -6,12 +6,8 @@ import Left from './components/side_left.js';
 import Right from './components/side_right/index.js';
 var classNames = require('classnames');
 
-export default (props) => {
-  console.log(props.user)
-  return(
-    <div className={classNames(["header", "row-sb-c", { "trnsp": props.trnsp }])}>
-      <Left />
-      <Right user={props.user} u={"loggedIn"} />
-    </div>
-  )
-}
+export default (props) =>
+  <div className={classNames(["header", "row-sb-c", { "trnsp": props.trnsp }])}>
+    <Left />
+    <Right user={props.user} u={"loggedIn"} />
+  </div>

@@ -1,8 +1,49 @@
 .circle_right {
-  box-shadow: 0px 2px 30px $color-secondary-05;
 
-  height: 300px;
-  width: 260px;
-  background-color: white;
-  border-radius: 5px;
+  &__inner {
+    height: 300px;
+    width: 260px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 30px $color-secondary-10;
+  }
+}
+
+.circlesocials {
+  width: 240px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  > span {
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-primary;
+    font-size: $font-size-small;
+  }
+
+  &__in {
+    margin-top: 10px;
+    width: 100%;
+    &_social {
+      @include transition(all, 200ms);
+      @include user-select(none);
+
+      height: 40px;
+      width: 40px;
+      border-radius: 50px;
+      background-color: $color-secondary-05;
+      box-shadow: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        box-shadow: 0px 0px 30px $color-secondary-10;
+      }
+      &:active {
+        opacity: .5;
+      }
+    }
+  }
 }

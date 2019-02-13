@@ -22,7 +22,6 @@ export default class extends React.Component {
     var old_pass = document.getElementById("old_pass").value;
     var new_pass = document.getElementById("new_pass").value;
     var confirm_pass = document.getElementById("confirm_pass").value;
-    console.log(old_pass)
     !old_pass.length ? this.setState({old_pass: ""}) : this.setState({old_pass: true });
     !new_pass.length ? this.setState({new_pass: ""}) : this.setState({new_pass: true });
     !confirm_pass.length ? this.setState({confirm_pass: ""}) : this.setState({confirm_pass: true });
