@@ -55,7 +55,7 @@ defmodule MaisieApi.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-    |> to_send_email(Mix.env())
+    # |> to_send_email(Mix.env())
   end
 
   defp to_send_email({:ok, details}=user, :prod) do

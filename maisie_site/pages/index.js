@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import Landing from '../modules/landing/index.js';
 import Home from '../modules/home/index';
-import getUser from '../shared/services/get-user';
+import { connect } from 'react-redux';
+import cookie from 'cookie';
 
-export default class extends Component {
+class Index extends Component {
   static async getInitialProps (context) {
-    if (context.req.headers.cookie) {
-      try {
-        const { data } = await getUser(context.apolloClient);
-
-        if (data.getUser && data.getUser.id) {
-          return { user: data.getUser };
+    try {
+      if (context.req) {
+        const cookies = cookie.parse(context.req.headers.cookie || '');
+        if (cookies.userServer) {
+          return { user: cookies.userServer };
         }
-      } catch(e) {
-        console.log(e);
       }
+    } catch(e) {
+      console.log(e);
     }
     return { user: undefined };
   }
@@ -23,15 +23,22 @@ export default class extends Component {
     super(props)
     this.state = { inSignUpFlow: false }
   }
+
   handleSignUpToggle() {
     this.setState({ inSignUpFlow: !this.state.inSignUpFlow })
   }
 
   render() {
     return (
-      <div>
-        {this.props.user ? <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user}/> : <Landing />}
-      </div>
+      this.props.user ? <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user}/> : <Landing />
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return process.browser ? 
+    { user: state.user.user } :
+    {};
+}
+
+export default connect(mapStateToProps)(Index);

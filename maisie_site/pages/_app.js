@@ -2,22 +2,25 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements-universal';
-import {withApollo} from '../shared/services/with-apollo';
+import { withApollo } from '../shared/services/with-apollo';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import Head from 'next/head';
 import '../sass/main.scss';
+import rootReducer from '../shared/services/reducers';
+import { loadState, saveState } from '../shared/services/local-storage';
+
+const persistedState = process.browser ? loadState() : null;
+
+const store = process.browser ?
+  createStore(rootReducer, persistedState, applyMiddleware(thunk)) :
+  createStore(rootReducer, applyMiddleware(thunk));
+
+if (process.browser) store.subscribe(() => { saveState(store.getState()); });
 
 class MyApp extends App {
-  // static async getInitialProps({ Component, router, ctx }) {
-  //   let pageProps = {}
-
-  //   if (Component.getInitialProps) {
-  //     pageProps = await Component.getInitialProps(ctx)
-  //   }
-
-  //   return { pageProps }
-  // }
-
   render () {
     const {Component, pageProps, apolloClient} = this.props
     return (
@@ -40,14 +43,16 @@ class MyApp extends App {
           <meta name="theme-color" content="#ffffff" />
           <script src="https://js.stripe.com/v3/"></script>
         </Head>
-        <ApolloProvider client={apolloClient}>
-          <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
-            <Component {...pageProps} />
-          </StripeProvider>
-        </ApolloProvider>
+        <Provider store={store}>
+          <ApolloProvider client={apolloClient}>
+            <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+              <Component {...pageProps} />
+            </StripeProvider>
+          </ApolloProvider>
+        </Provider>
       </Container>
     )
   }
 }
 
-export default withApollo(MyApp)
+export default withApollo(MyApp);

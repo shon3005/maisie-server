@@ -5,8 +5,7 @@ import syncPaymentAccount from '../shared/services/sync-payment';
 export default class extends React.Component {
   static async getInitialProps({ query, apolloClient }) {
     if (query.code && query.state) {
-      const response = await syncPaymentAccount(apolloClient, query.state, query.code);
-      console.log(response);
+      await syncPaymentAccount(apolloClient, query.state, query.code);
     }
     return {};
   }
