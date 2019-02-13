@@ -19,26 +19,26 @@ export default (props) => {
     {
       "img": "../../../static/circle/day.svg",
       "tag": "day",
-      "text": moment(props.d.start).format("dddd"),
+      "text": moment(props.start).format("dddd").toString(),
     }, {
       "img": "../../../static/circle/time.svg",
       "tag": "time",
-      "text": moment(props.d.start).format("h:mm A"),
+      "text": moment(props.start).format("h:mm A").toString(),
     }, {
       "img": "../../../static/circle/length.svg",
       "tag": "length",
-      "text": props.d.length + " weeks",
+      "text": props.length.toString() + " weeks",
     }
   ]
   const ren2 = [
     {
-      "img": obj[props.d.type]["img"],
+      "img": obj[props.type]["img"],
       "tag": "type",
-      "text": obj[props.d.type]["text"],
+      "text": obj[props.type]["text"],
     }, {
       "img": "../../../static/circle/location.svg",
       "tag": "location",
-      "text": props.d.neighborhood,
+      "text": props.neighborhood,
     }, {
       "img": "../../../static/circle/outdoors.svg",
       "tag": "length",
