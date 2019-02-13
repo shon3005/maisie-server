@@ -81,16 +81,16 @@ const onChange = async (e, createCircle) => {
 export default (props) => {
   return (
     <div className="discover col-fs-c">
-      <Header user={props.user}/>
+      <Header user={props.user} loggedIn={"loggedIn"}/>
       <div className="discover__content col-fs-c">
         <FeaturedRow />
       </div>
-      {/* <Mutation
+      <Mutation
         mutation={mutation}>
         {createCircle => {
           return <input type="file" onChange={e => onChange(e, createCircle)} />;
         }}
-      </Mutation> */}
+      </Mutation>
       <Footer />
     </div>
   );

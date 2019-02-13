@@ -1,10 +1,18 @@
-import Support from '../modules/support/index.js';
+import SupportModule from '../modules/support/index.js';
 import Header from '../shared/components/header/index.js';
 import Footer from '../shared/components/footer.js';
 
-export default () =>
+const Support = () =>
 <div className="support col-fs-c">
   <Header />
-  <Support />
+  <SupportModule />
   <Footer />
 </div>
+
+const mapStateToProps = (state) => {
+  return process.browser ? 
+    { user: state.user.user } :
+    {};
+}
+  
+export default connect(mapStateToProps)(Support);

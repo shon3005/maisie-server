@@ -5,6 +5,7 @@ import CardSection from './card-section';
 import createCustomer from '../../../shared/services/create-customer';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
+import { connect } from 'react-redux';
 
 class CheckoutForm extends React.Component {
   handleSubmit = (client) => async (ev) => {
@@ -26,21 +27,33 @@ class CheckoutForm extends React.Component {
 
   render() {
     return (
-        <ApolloConsumer>
-            {client => (
-              <div>
-                <form onSubmit={this.handleSubmit(client)} style={{width: "100%"}}>
-                    <div className="settings__inner-payments">
-                      <CardSection />
-                    </div>
-                    <div className="settings__inner-submit row-fe-c"><button>Add Card</button></div>
-                </form>
-                <button className="settings__inner-addlater col-c-c" style={{width: "100%"}} onClick={this.proceedToIndex}>I'll Add It Later</button>
+      <ApolloConsumer>
+        {client => (
+          <div>
+            <form onSubmit={this.handleSubmit(client)} style={{width: "100%"}}>
+              <div className="settings__inner-payments">
+                <CardSection />
               </div>
-            )}
-        </ApolloConsumer>
+              <div className="settings__inner-submit row-fe-c">
+                <button>Add Card</button>
+              </div>
+            </form>
+            {
+              this.props.router === '/signup' ? 
+                <button className="settings__inner-addlater col-c-c" type="button" onClick={this.proceedToIndex}>I'll Add It Later</button> :
+                null
+            }
+          </div>
+        )}
+      </ApolloConsumer>
     );
   }
 }
 
-export default injectStripe(CheckoutForm);
+const mapStateToProps = (_) => {
+  return process.browser ? 
+    { router: Router.route } :
+    {};
+}
+
+export default connect(mapStateToProps)(injectStripe(CheckoutForm));

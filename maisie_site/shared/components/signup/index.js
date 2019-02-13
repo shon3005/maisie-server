@@ -67,7 +67,6 @@ class Signup extends Component {
           <div className="signup col-c-c">
             <Back />
             <div className="signup__main col-c-c">
-              {/* <SlideThree handleButton={this.props.handleButton} /> */}
               {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
             </div>
           </div>
@@ -76,10 +75,5 @@ class Signup extends Component {
     )
   }
 }
-
-// const mapStateToProps = (state) => {
-//   console.log(state);
-//   return { user: state.user.user }
-// }
 
 export default connect(null, actions)(Signup);

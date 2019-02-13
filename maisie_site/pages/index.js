@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import cookie from 'cookie';
 
 class Index extends Component {
-  static async getInitialProps (context) {
+  static getInitialProps (context) {
     try {
       if (context.req) {
         const cookies = cookie.parse(context.req.headers.cookie || '');
