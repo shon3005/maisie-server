@@ -116,3 +116,51 @@
     }
   }
 }
+
+.circlelocation {
+  font-size: $font-size-reg;
+  font-weight: 500;
+  > img {
+    max-width: 24px;
+    max-height: 24px;
+    width: 100%;
+  }
+  &-location {
+    > div {
+      height: 24px;
+      width: 24px;
+    }
+    margin-top: 10px;
+  }
+  > div {
+    > span {
+      margin-left: 15px;
+      text-transform: capitalize;
+    }
+  }
+}
+.circledetails {
+  flex-wrap: wrap;
+  &__item {
+    width: 25%;
+    > img {
+      width: 24px;
+    }
+    font-weight: 400;
+
+    > div {
+      margin-left: 15px;
+      > span.tag {
+        color: $color-secondary-25;
+        font-size: $font-size-small;
+      }
+      > span.text {
+        margin-top: -5px;
+        color: $color-secondary;
+        font-size: $font-size-reg;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+    }
+  }
+}
