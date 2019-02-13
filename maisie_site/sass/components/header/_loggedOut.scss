@@ -24,6 +24,7 @@
       position: absolute;
       bottom: -2px;
       height: 2px;
+      z-index: 99999;
       width: 100%;
       background-color: $color-primary;
       opacity: 0;

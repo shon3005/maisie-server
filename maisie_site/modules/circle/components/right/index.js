@@ -3,6 +3,10 @@ import Dots from './components/dots.js';
 
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 
+function handleClick() {
+  document.getElementById("askmodal").classList.remove('hide');
+}
+
 export default (props) =>
   <div className="circle_right col-fs-c">
     <div className="circle_right__inner col-fs-c">
@@ -21,7 +25,7 @@ export default (props) =>
         <div className="circle_right__inner_cont-join">
           <div className="col-c-c">Request to join</div>
         </div>
-        <div className="circle_right__inner_cont-ask col-c-c">Ask a question</div>
+        <div onClick={handleClick} className="circle_right__inner_cont-ask col-c-c">Ask a question</div>
       </div>
       <div className="col-fs-c"><Socials /></div>
     </div>

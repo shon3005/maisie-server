@@ -8,6 +8,66 @@
   padding-bottom: 40px;
   position: relative;
 
+  &_askmodal {
+    position: absolute;
+    z-index: 9999999;
+    height: 100vh;
+    width: 100vw;
+    background-color: $color-black-95;
+    > div {
+      padding: 20px;
+      border-radius: 5px;
+      margin: 0 auto;
+      background-color: #FCFDFF;
+      > textarea {
+        &::placeholder {
+          font-size: $font-size-reg;
+          color: $color-secondary-20;
+          font-weight: 400;
+          font-family: "Open Sans";
+        }
+        @include transition(all, 200ms);
+        resize: none;
+        margin-top: -25px;
+        padding: 10px;
+        width: 90vw;
+        max-width: 450px;
+        height: 200px;
+        background-color: white;
+
+        border-radius: 5px;
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: "Open Sans";
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+      .btn {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 15px;
+        border-radius: 5px;
+
+        &.send {
+          background-color: $color-primary;
+          color: white;
+        }
+        &.cancel {
+          color: $color-primary;
+        }
+        &:hover { cursor: pointer; }
+        &:active { opacity: .75; }
+      }
+    }
+  }
+
   &__inner {
     position: relative;
 
@@ -18,10 +78,11 @@
     }
     &_cont {
       position: relative;
-      margin-top: -10vh;
+      margin-top: -13vh;
       width: 80%;
       &-spcr {
-        width: calc(20px + 1vw);
+
+        width: $border-padding;
       }
     }
   }
