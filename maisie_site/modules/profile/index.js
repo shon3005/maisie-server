@@ -1,14 +1,8 @@
-const Field = (props) =>
-  <div className="profile__field row-sb-c">
-    <div className="profile__field_text col-fs-fe">
-      <span>{props.title}</span>
-      <span className="tag">{props.private ? "Private" : null}</span>
-    </div>
-    <div className="profile__field_input">{props.children}</div>
-  </div>
+import LargeText from '../../shared/components/text/largeText.js';
+import SmallText from '../../shared/components/text/smallText.js';
+import Field from '../../shared/components/text/field.js';
+import Disclaimer from '../../shared/components/text/disclaimer.js';
 
-const Header = (props) => <span className="profile-header col">{props.children}</span>
-const Disclaimer = (props) => <div className="profile-disclaimer">{props.children}</div>
 const Spacer = (props) => <div style={{height: props.height}} />
 
 function handlePress(e) {
@@ -21,14 +15,14 @@ function handlePress(e) {
   var location = document.getElementById("location").value;
   var school = document.getElementById("school").value;
   var work = document.getElementById("work").value;
-  var bio = document.getElementById("bio").value; 
+  var bio = document.getElementById("bio").value;
 }
 
 export default () =>
-  <form className="profile col">
-    <span className="profile-title col">Edit Profile</span>
-    <Spacer height={25} />
-    <Header>General</Header>
+  <form className="profile__inner col">
+    <span className="profile__inner-title col">Edit Profile</span>
+    <Spacer height={50} />
+    <SmallText>General</SmallText>
     <Field title="First Name">
       <input
         type="text"
@@ -73,8 +67,8 @@ export default () =>
         <option value="other">Somewhere Else</option>
       </select>
     </Field>
-    <Spacer height={50} />
-    <Header>Optional</Header>
+    <Spacer height={100} />
+    <SmallText>Optional</SmallText>
     <Field title="School">
       <input
         type="text"
