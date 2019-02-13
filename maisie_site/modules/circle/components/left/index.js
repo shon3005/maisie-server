@@ -8,7 +8,10 @@ export default (props) =>
     <LargeText>{props.d.title}</LargeText>
     <div style={{height: 10}} />
     <Hosted host={props.d.host} abb />
-    <Tags tags={props.d.tags} />
+    <div style={{height: 10}} />
+    <div className="circle_left_tags row">
+      <Tags tags={props.d.tags} />
+    </div>
     <Divider />
     <Hosted host={props.d.host} />
   </div>
