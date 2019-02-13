@@ -32,6 +32,9 @@ export default (props) =>
     />
     <div style={{height: 10}} />
     <Divider />
+    <Sub>who should join this circle?</Sub>
+    <div className="circle_left-text">{props.d.who_should_join}</div>
+    <Divider />
     <Sub>about the host</Sub>
     <Hosted host={props.d.host} />
   </div>

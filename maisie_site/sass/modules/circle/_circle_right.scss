@@ -1,5 +1,4 @@
 .circle_right {
-
   &__inner {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -8,33 +7,88 @@
     border-radius: 10px;
     box-shadow: 0px 2px 30px $color-secondary-10;
 
-    &_cont {
-      width: 100%;
+    &-joined {
+      padding-top: 10px;
+      padding-bottom: 10px;
       padding-left: 20px;
       padding-right: 20px;
+      border-radius: 5px;
+      border: 1px solid $color-secondary-10;
+      background-color: $color-secondary-05;
+      font-size: $font-size-small;
+      font-weight: 600;
+      color: $color-secondary-25;
+
+      > div {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
+        max-width: 180px;
+        flex-wrap: wrap;
+        > div {
+          box-shadow: $shadow-s;
+          height: 12px;
+          width: 12px;
+          border-radius: 50px;
+          border: 2px solid $color-primary-light;
+
+          &:not(.unfilled) {
+            background-color: $color-primary;
+          }
+          .unfilled {
+            background-color: white;
+          }
+        }
+      }
+    }
+    &_cont {
+      width: 100%;
+      &-ask {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: $font-size-small;
+        font-weight: 600;
+        color: $color-primary;
+
+        &:hover { cursor: pointer; }
+        &:active { opacity: .5; }
+      }
       &-price {
+        padding-left: 20px;
+        padding-right: 20px;
         margin-top: -10px;
         font-size: $font-size-reg;
+        font-weight: 500;
         .large {
           font-size: $font-size-large;
         }
       }
       &-join {
-        @include transition(all, 200ms);
-        @include user-select(none);
-
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
         width: 100%;
 
-        border-radius: 50px;
-        background-color: $color-primary;
-        color: white;
-        font-weight: 600;
+        > div {
+          @include transition(all, 200ms);
+          @include user-select(none);
 
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.05);
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          border-radius: 50px;
+          background-color: $color-primary;
+          color: white;
+          font-weight: 600;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+          }
         }
       }
     }
@@ -43,8 +97,8 @@
 
 .circlesocials {
   width: 240px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 
   > span {
     width: 100%;
