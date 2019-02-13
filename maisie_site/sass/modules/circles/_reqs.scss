@@ -2,7 +2,7 @@
   @include transition(all, 200ms);
   @include user-select(none);
   position: relative;
-  margin-right: 50px;
+  margin-right: 30px;
 
   &-cta {
     @include transition(all, 200ms);
@@ -16,7 +16,7 @@
     font-weight: 600;
     font-size: $font-size-reg;
     color: $color-secondary-75;
-    z-index: 999999;
+    z-index: 99999;
     &:not(.clicked) {
       &:hover  {
         cursor: pointer;
@@ -40,7 +40,7 @@
     padding-bottom: 20px;
     border-radius: 10px;
     position: absolute;
-    z-index: 999998;
+    z-index: 99998;
     background-color: white;
     box-shadow: 0px 0px 30px $color-secondary-10;
 
