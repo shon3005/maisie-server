@@ -2,7 +2,7 @@ import Socials from './components/socials.js';
 import Dots from './components/dots.js';
 
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
-
+var classNames= require('classnames')
 function handleClick() {
   document.getElementById("askmodal").classList.remove('hide');
 }
@@ -23,7 +23,17 @@ export default (props) =>
         </div>
         <div style={{height: 25}} />
         <div className="circle_right__inner_cont-join">
-          <div className="col-c-c">Request to join</div>
+          <div className={classNames({
+            "requested": props.status === "requested",
+            "joined": props.status === "joined",
+            "col-c-c": true,
+          })}>{
+            props.status === "requested"
+              ? "Requested"
+              : props.status === "joined"
+                ? "Already joined"
+                : "Request to join"
+          }</div>
         </div>
         <div onClick={handleClick} className="circle_right__inner_cont-ask col-c-c">Ask a question</div>
       </div>

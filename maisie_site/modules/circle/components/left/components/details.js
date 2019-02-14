@@ -40,9 +40,9 @@ export default (props) => {
       "tag": "location",
       "text": props.neighborhood,
     }, {
-      "img": "../../../static/circle/outdoors.svg",
-      "tag": "length",
-      "text": "outdoors",
+      "img": "",
+      "tag": "",
+      "text": "",
     },
   ]
 

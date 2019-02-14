@@ -22,6 +22,6 @@ export default (props) =>
     <div className="circle__inner_cont row-c">
       <Left d={props.d} />
       <div className="circle__inner_cont-spcr" />
-      <Right d={props.d} />
+      <Right d={props.d} status={"requested"} />
     </div>
   </div>

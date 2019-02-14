@@ -85,13 +85,24 @@
           padding-bottom: 10px;
 
           border-radius: 50px;
-          background-color: $color-primary;
           color: white;
           font-weight: 600;
-
-          &:hover {
-            cursor: pointer;
-            transform: scale(1.05);
+          &:not(.requested) {
+            &:not(.joined) {
+              background-color: $color-primary;
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+              }
+            }
+          }
+          &.joined {
+            color: $color-primary;
+            border: 2px solid $color-primary;
+          }
+          &.requested {
+            background-color: $color-primary-light;
+            pointer-events: none;
           }
         }
       }
