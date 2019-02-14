@@ -16,12 +16,8 @@ const deleteSession = (event) => {
 }
 
 const handleDelete = () => {
-  document.cookie = cookie.serialize('token', '', {
+  document.cookie = cookie.serialize('user', '', {
     maxAge: -1
   });
-  document.cookie = cookie.serialize('userServer', '', {
-    maxAge: -1
-  });
-  localStorage.clear();
   location.reload(true);
 }

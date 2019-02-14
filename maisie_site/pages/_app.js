@@ -12,15 +12,36 @@ import '../sass/main.scss';
 import rootReducer from '../shared/services/reducers';
 import { loadState, saveState } from '../shared/services/local-storage';
 
-const persistedState = loadState();
+let store;
+if (process.browser) {
+  const persistedState = loadState(document.cookie);
 
-const store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
-
-store.subscribe(() => { saveState(store.getState()); });
+  store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+  
+  store.subscribe(() => { saveState(store.getState()); });
+}
 
 class MyApp extends App {
+  static getInitialProps(ctx) {
+    const {
+      ctx: { req }
+    } = ctx;
+
+    let store;
+    if (req && req.headers) {
+      const persistedState = loadState(req.headers.cookie);
+
+      store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+      
+      store.subscribe(() => { saveState(store.getState()); });
+    }
+
+    return { storeGIP: store };
+  }
+
   render () {
-    const {Component, pageProps, apolloClient} = this.props
+    const {Component, pageProps, apolloClient, storeGIP} = this.props;
+
     return (
       <Container>
         <Head>
@@ -42,7 +63,7 @@ class MyApp extends App {
           <script src="https://js.stripe.com/v3/"></script>
         </Head>
         <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
-          <Provider store={store}>
+          <Provider store={store || storeGIP}>
             <ApolloProvider client={apolloClient}>
               <Component {...pageProps} />
             </ApolloProvider>
