@@ -9,7 +9,7 @@ export default function CirclePage({query}) {
   return(
     <div className="circle">
       <Question />
-      <Header />
+      <Header circle />
       <Circle d={DATA} />
       <Footer />
     </div>

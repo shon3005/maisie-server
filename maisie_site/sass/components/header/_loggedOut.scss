@@ -17,6 +17,12 @@
       line-height: $header-height;
       font-weight: 600;
       color: $color-secondary-75;
+
+      &.circle_page {
+        color: white;
+        font-weight: 600;
+        text-shadow: 0px 0px 10px $color-secondary-25;
+      }
     }
     > div {
       @include transition(all, 200ms);

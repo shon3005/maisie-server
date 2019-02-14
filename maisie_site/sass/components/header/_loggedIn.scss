@@ -24,6 +24,10 @@
     box-shadow: 0 5px 5px 0 rgba(2,22,41,0.03), 0 3px 3px 0 rgba(2,22,41,0.05), 0px 10px 10px 0 rgba(2,22,41,0.02);
     border-radius: 0px 0px 5px 5px;
 
+    &.circle_page {
+      border-radius: 5px;
+    }
+
     &-name {
       padding: 20px;
       font-size: $font-size-reg;
