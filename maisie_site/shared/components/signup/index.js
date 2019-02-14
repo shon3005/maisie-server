@@ -75,4 +75,10 @@ class Signup extends Component {
   }
 }
 
-export default connect(null, actions)(Signup);
+const mapStateToProps = (state) => {
+  return process.browser ? 
+    { user: state.user.user } :
+    {};
+}
+
+export default connect(mapStateToProps, actions)(Signup);

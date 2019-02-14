@@ -66,7 +66,7 @@ export default class extends React.Component {
 
         <div style={{height: 25}} />
         <SmallText>Billing</SmallText>
-        <AddPayment/>
+        <AddPayment user={this.props.user}/>
       </div>
     )
   }
