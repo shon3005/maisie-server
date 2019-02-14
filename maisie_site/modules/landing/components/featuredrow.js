@@ -18,7 +18,7 @@ export default () => {
       "title": "Weekly Walk and Talk",
       "price": 25,
       "img": "https://www.simplehealthsl.com/wp-content/uploads/walk-talk-health-coaching-cover.jpg",
-      "href": "circles/001",
+      "href": "circle/001",
       "low": 4,
       "high": 6,
       "spots": 2,
