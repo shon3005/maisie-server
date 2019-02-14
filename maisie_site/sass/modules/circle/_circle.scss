@@ -75,8 +75,35 @@
       height: 55vh;
       min-height: 400px;
       width: 100%;
+      position: relative;
+      &-filter, &-img {
+        height: 55vh;
+        min-height: 400px;
+        width: 100%;
+      }
+      &-shadow {
+        background: linear-gradient($color-black-10, transparent);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        height: 40%;
+        width: 100%;
+      }
+      &-filter {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(118, 146, 255, 0.10);
+        z-index: 2;
+      }
+      &-img {
+        z-index: 1;
+      }
     }
     &_cont {
+      z-index: 3;
+
       position: relative;
       margin-top: -13vh;
       width: 80%;

@@ -18,7 +18,11 @@ export default (props) =>
         </div>
       )}
     </ApolloConsumer> */}
-    <div className="circle__inner-img" style={{backgroundImage: `url(${props.d.img})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+    <div className="circle__inner-img">
+      <div className="circle__inner-img-shadow" />
+      <div className="circle__inner-img-filter" />
+      <div className="circle__inner-img-img" style={{backgroundImage: `url(${props.d.img})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+    </div>
     <div className="circle__inner_cont row-c">
       <Left d={props.d} />
       <div className="circle__inner_cont-spcr" />
