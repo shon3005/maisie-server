@@ -36,8 +36,7 @@ class Signup extends Component {
         id: data.registerUser.user.id,
         firstName: data.registerUser.user.firstName,
         lastName: data.registerUser.user.lastName,
-        email: data.registerUser.user.email,
-        role: data.registerUser.user.role
+        email: data.registerUser.user.email
       });
 
       this.setState({ submitted: "submitted" });
@@ -67,7 +66,7 @@ class Signup extends Component {
           <div className="signup col-c-c">
             <Back />
             <div className="signup__main col-c-c">
-              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
+              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton} />)}
             </div>
           </div>
         )}

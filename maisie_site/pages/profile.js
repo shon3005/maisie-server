@@ -3,10 +3,11 @@ import Header from '../shared/components/header/index.js';
 import Footer from '../shared/components/footer.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';
+import redirect from '../shared/services/redirect';
 
 const Profile = () => 
   <div className="profile">
-    <Header />
+    <Header loggedIn="loggedIn"/>
     <ProfileModule />
     <Footer />
   </div>

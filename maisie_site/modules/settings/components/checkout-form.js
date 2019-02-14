@@ -11,11 +11,11 @@ class CheckoutForm extends React.Component {
   handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
     try {
-      const { source } = await this.props.stripe.createSource({type: 'card', owner: {
-        name: 'Shaun Chua'
+      const {source} = await this.props.stripe.createSource({type: 'card', owner: {
+        name: this.props.user.firstName + ' ' + this.props.user.lastName
       }});
       await createCustomer(client, source.id);
-      this.proceedToIndex(props);
+      this.proceedToIndex();
     } catch (e) {
       console.log(e);
     }
@@ -56,4 +56,4 @@ const mapStateToProps = (_) => {
     {};
 }
 
-export default connect(mapStateToProps)(injectStripe(CheckoutForm));
+export default injectStripe(connect(mapStateToProps)(CheckoutForm));

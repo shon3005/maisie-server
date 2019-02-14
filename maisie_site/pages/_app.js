@@ -41,13 +41,13 @@ class MyApp extends App {
           <meta name="theme-color" content="#ffffff" />
           <script src="https://js.stripe.com/v3/"></script>
         </Head>
-        <Provider store={store}>
-          <ApolloProvider client={apolloClient}>
-            <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+        <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+          <Provider store={store}>
+            <ApolloProvider client={apolloClient}>
               <Component {...pageProps} />
-            </StripeProvider>
-          </ApolloProvider>
-        </Provider>
+            </ApolloProvider>
+          </Provider>
+        </StripeProvider>
       </Container>
     )
   }

@@ -4,7 +4,9 @@ import cookie from 'cookie';
 import getUser from '../shared/services/get-user';
 import loginUser from '../shared/services/login-user';
 import redirect from '../shared/services/redirect';
-import { withRouter } from 'next/router'
+import Router from 'next/router'
+import { connect } from 'react-redux';
+import * as actions from '../shared/services/actions';
 
 const Error = (props) => <div className="signin__error">{props.children}</div>
 
@@ -30,16 +32,29 @@ class Signin extends Component {
   signinUser = async (client) => {
     try {
       const { data } = await loginUser(client, this.state.email, this.state.password);
+
       document.cookie = data ? cookie.serialize('token', data.loginUser.token, {
         maxAge: 30 * 24 * 60 * 60 // 30 days
       }) : null;
-      this.props.router.push('/')
+      document.cookie = data ? cookie.serialize('userServer', JSON.stringify(data.loginUser.user), {
+        maxAge: 30 * 24 * 60 * 60 // 30 days
+      }) : null;
+
+      await this.props.updateUser({
+        id: data.loginUser.user.id,
+        firstName: data.loginUser.user.firstName,
+        lastName: data.loginUser.user.lastName,
+        email: data.loginUser.user.email
+      });
+
+      Router.push('/')
     } catch (e) {
       // show custom error
+      console.log(e);
     }
   }
 
-  handleSubmit = async (client) => {
+  handleSubmit = (client) => {
     event.preventDefault()
     this.signinUser(client);
   }
@@ -90,4 +105,4 @@ class Signin extends Component {
   }
 }
 
-export default withRouter(Signin);
+export default connect(null, actions)(Signin);
