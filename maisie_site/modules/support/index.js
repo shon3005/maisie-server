@@ -25,23 +25,23 @@ export default class extends React.Component {
     const phone = this.state.phonePopUp ? <PhoneEntry click={this.handlePhoneEntrySubmit} /> : null
     const overlay = this.state.phonePopUp ? <Overlay click={this.handleOverlayHit} /> : null
     return(
-      <div className="support col-c-c">
-        <div className="support__top row-c-c">
-          <div className="support__top_box col-c-c">
+      <div className="settings__inner col-fs-c">
+        <div className="support__inner__top row-c-c">
+          <div className="support__inner__top_box col-c-c">
             <img src="../../static/support/text.svg" />
             <div style={{height: 10}} />
-            <span className="support__top_box-title">Email us</span>
-            <span className="support__top_box-desc">We'll respond as soon as possible</span>
+            <span className="support__inner__top_box-title">Email us</span>
+            <span className="support__inner__top_box-desc">We'll respond as soon as possible</span>
             <div style={{height: 20}} />
             <a href="mailto:support@heymaisie.com"><button type="button">Send an email</button></a>
           </div>
-                        <div className="support__top-space" />
-          <div className="support__top_box col-c-c">
+                        <div className="support__inner__top-space" />
+          <div className="support__inner__top_box col-c-c">
             <img src="../../static/support/phone.svg" />
             <div style={{height: 10}} />
-            <span className="support__top_box-title">Have us call you</span>
+            <span className="support__inner__top_box-title">Have us call you</span>
             <span className={classNames({
-              "support__top_box-desc": true,
+              "support__inner__top_box-desc": true,
               "success": this.state.successMessage,
             })}>{this.state.successMessage ? "Success. We'll call you shortly!" : "Available 10am-6pm EST"}</span>
             <div style={{height: this.state.successMessage ? 50 : 20}} />
