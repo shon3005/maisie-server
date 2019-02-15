@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ApolloConsumer } from 'react-apollo';
-import cookie from 'cookie';
 import getUser from '../shared/services/get-user';
 import loginUser from '../shared/services/login-user';
 import redirect from '../shared/services/redirect';
@@ -33,19 +32,14 @@ class Signin extends Component {
     try {
       const { data } = await loginUser(client, this.state.email, this.state.password);
 
-      document.cookie = data ? cookie.serialize('token', data.loginUser.token, {
-        maxAge: 30 * 24 * 60 * 60 // 30 days
-      }) : null;
-      document.cookie = data ? cookie.serialize('userServer', JSON.stringify(data.loginUser.user), {
-        maxAge: 30 * 24 * 60 * 60 // 30 days
-      }) : null;
-
       await this.props.updateUser({
         id: data.loginUser.user.id,
         firstName: data.loginUser.user.firstName,
         lastName: data.loginUser.user.lastName,
         email: data.loginUser.user.email
       });
+
+      await this.props.updateToken(data.loginUser.token);
 
       Router.push('/')
     } catch (e) {

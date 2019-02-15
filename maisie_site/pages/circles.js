@@ -3,8 +3,6 @@ import CirclesModule from '../modules/circles/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
-import cookie from 'cookie';
-import redirect from '../shared/services/redirect';
 
 function handleClick() {
   document.getElementById("requests_drop").classList.remove('circles_reqs__drop-visible')
@@ -13,27 +11,10 @@ function handleClick() {
 }
 
 class Circles extends Component {
-  static getInitialProps(context) {
-    try {
-      if (context.req) {
-        const cookies = cookie.parse(context.req.headers.cookie || '');
-        if (!cookies.token) {
-          redirect(context, '/')
-        }
-        if (cookies.userServer) {
-          return { user: cookies.userServer };
-        }
-      }
-    } catch(e) {
-      console.log(e);
-    }
-    return { user: undefined };
-  }
-
   render() {
     return (
       <div className="mycircles col-fs-c">
-        <Header />
+        <Header loggedIn="loggedIn"/>
         <div className="circles_overlay hide" id="circles_overlay"
           onClick={() => handleClick()}
           style={{
@@ -51,9 +32,7 @@ class Circles extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return process.browser ? 
-    { user: state.user.user } :
-    {};
+  return { user: state.user.user}
 }
 
 export default connect(mapStateToProps)(Circles);
