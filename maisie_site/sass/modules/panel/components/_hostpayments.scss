@@ -20,7 +20,7 @@
     outline: 0;
 
     color: white;
-    border-radius: 5px;
+    @include border-radius(5px);
     font-size: $font-size-small;
     font-family: "Open Sans";
 

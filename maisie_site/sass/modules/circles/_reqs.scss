@@ -12,7 +12,7 @@
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 50px;
+    @include border-radius(50px);
     font-weight: 600;
     font-size: $font-size-reg;
     color: $color-secondary-75;
@@ -38,7 +38,7 @@
     right: -10px;
     top: -10px;
     padding-bottom: 20px;
-    border-radius: 10px;
+    @include border-radius(10px);
     position: absolute;
     z-index: 99998;
     background-color: white;
@@ -95,7 +95,7 @@
       > div {
         height: 30px;
         width: 30px;
-        border-radius: 50px;
+        @include border-radius(50px);
       }
       > div.email {
         margin-left: 25px;

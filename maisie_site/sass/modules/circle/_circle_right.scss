@@ -8,7 +8,7 @@
     padding-bottom: 25px;
     width: 260px;
     background-color: white;
-    border-radius: 10px;
+    @include border-radius(10px);
     box-shadow: 0px 2px 30px $color-secondary-10;
 
     &.dark_theme {
@@ -21,7 +21,7 @@
       padding-bottom: 10px;
       padding-left: 20px;
       padding-right: 20px;
-      border-radius: 5px;
+      @include border-radius(5px);
       // border: 1px solid $color-secondary-10;
       background-color: $color-secondary-05;
       font-size: $font-size-small;
@@ -40,7 +40,7 @@
           box-shadow: $shadow-s;
           height: 12px;
           width: 12px;
-          border-radius: 50px;
+          @include border-radius(50px);
           border: 2px solid $color-primary-light;
 
           &:not(.unfilled) {
@@ -89,7 +89,7 @@
           padding-top: 10px;
           padding-bottom: 10px;
 
-          border-radius: 50px;
+          @include border-radius(50px);
           color: white;
           font-weight: 600;
           &:not(.requested) {
@@ -137,7 +137,7 @@
 
       height: 40px;
       width: 40px;
-      border-radius: 50px;
+      @include border-radius(50px);
       background-color: $color-secondary-05;
       box-shadow: none;
 

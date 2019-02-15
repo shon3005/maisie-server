@@ -8,7 +8,7 @@ textarea, select, input, button { outline: none; }
   > a > img {
     height: 64px;
     width: 64px;
-    border-radius: 50px;
+    @include border-radius(50px);
     box-shadow: $shadow-ssss;
     -webkit-animation: rotating 100s infinite;
     -moz-animation:    rotating 100s infinite;
@@ -33,7 +33,7 @@ textarea, select, input, button { outline: none; }
     width: 240px;
     input, button {
       height: 36px;
-      border-radius: 5px;
+      @include border-radius(5px);
       font-family: "Open Sans";
       font-size: $font-size-small;
     }

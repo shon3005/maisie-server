@@ -47,7 +47,7 @@
           display: none;
       }
     }
-    border-radius: 50px;
+    @include border-radius(50px);
     > span {
       text-overflow: ellipsis;
       flex: 1;
@@ -64,7 +64,7 @@
       width: 5px;
       background-color: $color-primary;
       left: -2.5px;
-      border-radius: 50px;
+      @include border-radius(50px);
       box-shadow: 0px 0px 10px $color-primary;
       &:not(.active) {
         display: none;
@@ -86,7 +86,7 @@
       &-imgc {
         height: 20px;
         width: 20px;
-        border-radius: 50px;
+        @include border-radius(50px);
         background-color: $color-primary-light;
       }
     }
@@ -104,7 +104,7 @@
     &-imgc {
       height: 20px;
       width: 20px;
-      border-radius: 50px;
+      @include border-radius(50px);
       background-color: $color-primary-light;
       border: 1px solid $color-primary;
     }

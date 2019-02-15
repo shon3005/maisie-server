@@ -20,7 +20,7 @@
     max-width: 90vw;
     min-width: 320px;
 
-    border-radius: 10px;
+    @include border-radius(10px);
     background-color: white;
     box-shadow: $shadow-ssss;
 
@@ -36,6 +36,8 @@
       flex: 1;
 
       border-radius: 10px 10px 0px 0px;
+      -webkit-border-radius: 10px 10px 0px 0px;
+      -moz-border-radius: 10px 10px 0px 0px;
       background-color: $color-primary;
 
       &-tag {

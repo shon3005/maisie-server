@@ -5,7 +5,7 @@
   &-thumb {
     height: 30px;
     width: 30px;
-    border-radius: 50px;
+    @include border-radius(50px);
   }
 
   &__drop {
@@ -23,9 +23,11 @@
     background-color: white;
     box-shadow: 0 5px 5px 0 rgba(2,22,41,0.03), 0 3px 3px 0 rgba(2,22,41,0.05), 0px 10px 10px 0 rgba(2,22,41,0.02);
     border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
 
     &.circle_page {
-      border-radius: 5px;
+      @include border-radius(5px);
     }
 
     &-name {
@@ -70,7 +72,7 @@
         width: 5px;
         background-color: $color-primary;
         left: -2.5px;
-        border-radius: 50px;
+        @include border-radius(50px);
         box-shadow: 0px 0px 10px $color-primary;
         &:not(.active) {
           display: none;
@@ -96,7 +98,7 @@
       &-imgc {
         height: 20px;
         width: 20px;
-        border-radius: 50px;
+        @include border-radius(50px);
         background-color: $color-primary-light;
         border: 1px solid $color-primary;
       }

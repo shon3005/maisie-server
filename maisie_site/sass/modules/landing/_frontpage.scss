@@ -42,7 +42,7 @@
         padding-right: 25px;
         padding-top: 15px;
         padding-bottom: 15px;
-        border-radius: 50px;
+        @include border-radius(50px);
         border: none;
         transform: scale(1);
 
@@ -78,7 +78,7 @@
           padding-left: 20px;
           padding-top: 5px;
           padding-bottom: 5px;
-          border-radius: 50px;
+          @include border-radius(50px);
           background-color: $color-primary-light;
           margin-top: 20px;
 

@@ -29,7 +29,7 @@
         max-width: 40px;
         max-height: 40px;
         width: 7vw;
-        border-radius: 50px;
+        @include border-radius(50px);
         background-color: $color-primary;
         margin-right: 20px;
 
@@ -92,7 +92,7 @@
         padding-left: 30px;
         padding-right: 30px;
 
-        border-radius: 50px;
+        @include border-radius(50px);
         background-color: $color-secondary;
         opacity: 1;
 

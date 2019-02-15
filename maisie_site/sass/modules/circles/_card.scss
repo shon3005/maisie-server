@@ -19,7 +19,7 @@
     &-img {
       height: 80px;
       width: 100px;
-      border-radius: 5px;
+      @include border-radius(5px);
     }
     &_text {
       height: 100%;
@@ -50,7 +50,7 @@
     padding-bottom: 2px;
     padding-left: 8px;
     padding-right: 8px;
-    border-radius: 5px;
+    @include border-radius(5px);
 
     font-size: $font-size-reg;
     font-weight: 600;

@@ -48,14 +48,14 @@
         padding-bottom: 25px;
       }
       flex: 3;
-      background: linear-gradient(to bottom, rgba(255,255,255,.75), white), linear-gradient(to bottom right, white, $color-primary-light);
+      @include linear-gradient(white, $color-primary-lighter);
       padding-top: 100px;
       padding-bottom: 150px;
       &-num {
         height: 40px;
         width: 40px;
         background-color: $color-primary;
-        border-radius: 50px;
+        @include border-radius(50px);
 
         color: white;
         font-weight: 600;

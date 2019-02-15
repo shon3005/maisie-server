@@ -39,7 +39,7 @@
     padding-left: 30px;
     padding-right: 30px;
     background-color: $color-primary;
-    border-radius: 50px;
+    @include border-radius(50px);
 
     color: white;
     font-size: $font-size-med;

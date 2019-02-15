@@ -35,6 +35,30 @@ img.center-child { @include img-center; } // call this on the img element you wi
 @mixin size-four { @media (min-width: 950px) and (max-width: 1100px) { @content; }}
 @mixin size-five { @media (min-width: 1100px) { @content; }}
 
+// // // // // // // // // // // // // //
+// // // // // // // // // // // // // //
+// // Cross Browser Compatibilities // //
+// // // // // // // // // // // // // //
+// // // // // // // // // // // // // //
+
+// Linear Gradients
+@mixin linear-gradient($start, $end, $direction: to bottom) {
+/* fall-back color */                   background-color: $start;
+/* C10-25, S5.1-6, iOS -6.1, A-4.3 */   background: -webkit-linear-gradient($direction, $start, $end);
+/* Fx3.6-15 */                          background: -moz-linear-gradient($direction, $start, $end);
+/* Op11.10-12.02 */                     background: -o-linear-gradient($direction, $start, $end);
+/* S4+, C1-9 */                         background: linear-gradient($direction, $start, $end);
+/* IE8-9 */                             -ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorStr=$start, EndColorStr=$end );
+}
+
+// Border Radius
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -khtml-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
+}
+
 // Flexbox presets
 @mixin flexbox {
   display: -webkit-box;

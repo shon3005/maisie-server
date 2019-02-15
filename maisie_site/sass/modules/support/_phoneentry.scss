@@ -4,7 +4,7 @@
   background-color: #FCFDFF;
   padding: 10px;
   box-shadow: $shadow-sssss;
-  border-radius: 5px;
+  @include border-radius(5px);
   z-index: 1097;
   &-tri {
     position: relative;
@@ -13,7 +13,7 @@
     transform: rotate(45deg);
     background-color: #FCFDFF;
     margin-top: -16px;
-    border-radius: 3px;
+    @include border-radius(3px);
     z-index: 1098;
   }
   > form {
@@ -22,7 +22,7 @@
     > input, button {
       height: 36px;
       width: 100%;
-      border-radius: 5px;
+      @include border-radius(5px);
       @include transition(all, 200ms);
       font-family: "Open Sans";
       font-size: $font-size-small;

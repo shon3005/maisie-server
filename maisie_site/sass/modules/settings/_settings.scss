@@ -33,7 +33,7 @@
         padding-right: 25px;
         width: auto;
 
-        border-radius: 50px;
+        @include border-radius(50px);
         font-weight: 600;
         border: none;
         outline: 0;
@@ -58,7 +58,7 @@
       padding-bottom: 10px;
       width: auto;
 
-      border-radius: 50px;
+      @include border-radius(50px);
       font-weight: 600;
       border: none;
       outline: 0;
@@ -75,7 +75,7 @@
       width: 100%;
       padding: 17px;
       background-color: white;
-      border-radius: 5px;
+      @include border-radius(5px);
       border: 1px solid $color-secondary-10;
     }
   }

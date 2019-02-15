@@ -65,7 +65,7 @@ class Signup extends Component {
       <ApolloConsumer>
         {client => (
           <div className="signup col-c-c">
-            <Back />
+            <div className="signup-back"><Back /></div>
             <div className="signup__main col-c-c">
               {/* <SlideThree handleButton={this.props.handleButton} /> */}
               {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
