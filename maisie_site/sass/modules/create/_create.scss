@@ -1,4 +1,4 @@
-#create_slide1_imageupload {
+#create_slide1_imageupload,#profile_imageupload {
   display: none;
   +label {
     @include transition(all, 200ms);
