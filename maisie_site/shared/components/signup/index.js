@@ -7,6 +7,7 @@ import { ApolloConsumer } from 'react-apollo';
 import { connect } from 'react-redux';
 import * as actions from '../../services/actions';
 import Back from '../../../modules/circle/components/back.js';
+import cookie from 'cookie';
 
 class Signup extends Component {
   constructor(props) {
@@ -24,11 +25,16 @@ class Signup extends Component {
     try {
       const { data } = await registerUser(client, form.firstName, form.lastName, form.email, form.password, form.passwordConfirmation);
 
+      document.cookie = cookie.serialize('token', data.registerUser.token, {
+        maxAge: 30 * 24 * 60 * 60 // 30 days
+      });
+
       await this.props.updateUser({
         id: data.registerUser.user.id,
         firstName: data.registerUser.user.firstName,
         lastName: data.registerUser.user.lastName,
-        email: data.registerUser.user.email
+        email: data.registerUser.user.email,
+        role: data.registerUser.user.role
       });
 
       await this.props.updateToken(data.registerUser.token);
@@ -70,9 +76,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return process.browser ? 
-    { user: state.user.user } :
-    {};
+  return state.user.user;
 }
 
 export default connect(mapStateToProps, actions)(Signup);

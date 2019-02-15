@@ -81,11 +81,12 @@ export const withApollo = App => {
 
     constructor (props) {
       super(props)
+      // console.log(props.cookie);
       // `getDataFromTree` renders the component first, the client is passed off as a property.
       // After that rendering is done using Next's normal rendering pipeline
       this.apolloClient = initApollo(props.apolloState, {
         getToken: () => {
-          return parseCookies().token
+          return parseCookies().token;
         },
         graphql_url: '/api/graphql'
       })

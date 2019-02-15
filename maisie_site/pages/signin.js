@@ -6,6 +6,7 @@ import redirect from '../shared/services/redirect';
 import Router from 'next/router'
 import { connect } from 'react-redux';
 import * as actions from '../shared/services/actions';
+import cookie from 'cookie';
 
 const Error = (props) => <div className="signin__error">{props.children}</div>
 
@@ -32,11 +33,16 @@ class Signin extends Component {
     try {
       const { data } = await loginUser(client, this.state.email, this.state.password);
 
+      document.cookie = cookie.serialize('token', data.loginUser.token, {
+        maxAge: 30 * 24 * 60 * 60 // 30 days
+      });
+
       await this.props.updateUser({
         id: data.loginUser.user.id,
         firstName: data.loginUser.user.firstName,
         lastName: data.loginUser.user.lastName,
-        email: data.loginUser.user.email
+        email: data.loginUser.user.email,
+        role: data.loginUser.user.role
       });
 
       await this.props.updateToken(data.loginUser.token);

@@ -81,7 +81,7 @@ const onChange = async (e, createCircle) => {
 export default (props) => {
   return (
     <div className="discover col-fs-c">
-      <Header user={props.user} loggedIn={"loggedIn"}/>
+      <Header loggedIn={"loggedIn"}/>
       <div className="discover__content col-fs-c">
         <FeaturedRow />
       </div>

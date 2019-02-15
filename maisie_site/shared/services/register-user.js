@@ -19,6 +19,7 @@ export default (
               firstName
               lastName
               email
+              role
             }
           }
         }
