@@ -1,11 +1,11 @@
-export const loadState = () => {
+import cookie from 'cookie';
+
+export const loadState = (cookies) => {
   try {
-    // return cookie.parse(document.cookie || '');
-    const serializedState = localStorage.getItem('state');
-    if (serializedState === null) {
-      return undefined;
+    const user = cookie.parse(cookies || '');
+    return {
+      user: JSON.parse(user.user)
     }
-    return JSON.parse(serializedState);
   } catch(e) {
     return undefined;
   }
@@ -13,11 +13,9 @@ export const loadState = () => {
 
 export const saveState = (state) => {
   try {
-    // document.cookie = cookie.serialize('state', JSON.stringify(state), {
-    //   maxAge: 30 * 24 * 60 * 60 // 30 days
-    // });
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem('state', serializedState);
+    document.cookie = cookie.serialize('user', JSON.stringify(state.user), {
+      maxAge: 30 * 24 * 60 * 60 // 30 days
+    });
   } catch(e) {
     return undefined
   }

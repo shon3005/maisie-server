@@ -10,5 +10,5 @@ var classNames = require('classnames');
 export default (props) =>
   <div className={classNames(["header", "row-sb-c", { "circle_page": props.circle, "trnsp": props.trnsp }])}>
     <Left circle={props.circle} />
-    <Right circle={props.circle} user={props.user} u={"loggedIn"} />
+    <Right circle={props.circle} user={props.user} u={props.loggedIn} />
   </div>

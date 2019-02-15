@@ -11,6 +11,12 @@ export default (
         mutation loginUser($email: String!, $password: String!) {
           loginUser(input: {email: $email, password: $password}) {
             token
+            user {
+              id
+              firstName
+              lastName
+              email
+            }
           }
         }
       `,

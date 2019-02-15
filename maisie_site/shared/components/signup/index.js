@@ -4,7 +4,6 @@ import SlideTwo from "./components/slide2.js";
 import SlideThree from "./components/slide3.js";
 import registerUser from '../../services/register-user';
 import { ApolloConsumer } from 'react-apollo';
-import cookie from 'cookie';
 import { connect } from 'react-redux';
 import * as actions from '../../services/actions';
 import Back from '../../../modules/circle/components/back.js';
@@ -25,20 +24,14 @@ class Signup extends Component {
     try {
       const { data } = await registerUser(client, form.firstName, form.lastName, form.email, form.password, form.passwordConfirmation);
 
-      document.cookie = data ? cookie.serialize('token', data.registerUser.token, {
-        maxAge: 30 * 24 * 60 * 60 // 30 days
-      }) : null;
-      document.cookie = data ? cookie.serialize('userServer', JSON.stringify(data.registerUser.user), {
-        maxAge: 30 * 24 * 60 * 60 // 30 days
-      }) : null;
-
       await this.props.updateUser({
         id: data.registerUser.user.id,
         firstName: data.registerUser.user.firstName,
         lastName: data.registerUser.user.lastName,
-        email: data.registerUser.user.email,
-        role: data.registerUser.user.role
+        email: data.registerUser.user.email
       });
+
+      await this.props.updateToken(data.registerUser.token);
 
       this.setState({ submitted: "submitted" });
 
@@ -67,8 +60,7 @@ class Signup extends Component {
           <div className="signup col-c-c">
             <div className="signup-back"><Back /></div>
             <div className="signup__main col-c-c">
-              {/* <SlideThree handleButton={this.props.handleButton} /> */}
-              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree handleButton={this.props.handleButton} />)}
+              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton} />)}
             </div>
           </div>
         )}
@@ -77,9 +69,10 @@ class Signup extends Component {
   }
 }
 
-// const mapStateToProps = (state) => {
-//   console.log(state);
-//   return { user: state.user.user }
-// }
+const mapStateToProps = (state) => {
+  return process.browser ? 
+    { user: state.user.user } :
+    {};
+}
 
-export default connect(null, actions)(Signup);
+export default connect(mapStateToProps, actions)(Signup);
