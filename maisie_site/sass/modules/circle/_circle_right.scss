@@ -11,6 +11,11 @@
     border-radius: 10px;
     box-shadow: 0px 2px 30px $color-secondary-10;
 
+    &.dark_theme {
+      margin-top: 100px;
+      background-color: #021B33;
+      box-shadow: none;
+    }
     &-joined {
       padding-top: 10px;
       padding-bottom: 10px;

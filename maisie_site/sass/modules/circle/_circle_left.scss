@@ -1,6 +1,10 @@
 .circle_left {
   box-shadow: 0px 2px 30px $color-secondary-10;
   flex: 1;
+  &.dark_theme {
+    background-color: transparent;
+    box-shadow: none;
+  }
   background-color: white;
   padding: 40px;
   border-radius: 10px;

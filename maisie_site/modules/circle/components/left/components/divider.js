@@ -1,5 +1,5 @@
 export default () =>
-  <div
+  <div className="dark_theme_spacer"
     style={{
       height: 2,
       width: '100%',

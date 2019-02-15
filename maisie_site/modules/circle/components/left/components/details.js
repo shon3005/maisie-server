@@ -51,8 +51,8 @@ export default (props) => {
       <div className="circledetails__item row-fs-c" key={index}>
         <img src={item.img} />
         <div className="col">
-          <span className="tag">{item.tag}</span>
-          <span className="text">{item.text}</span>
+          <span className="tag dark_theme_tag_text">{item.tag}</span>
+          <span className="text dark_theme_primary_text">{item.text}</span>
         </div>
       </div>
     )

@@ -6,9 +6,9 @@ import Location from './components/location.js';
 import Details from './components/details.js';
 
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
-
+var classNames = require('classnames')
 export default (props) =>
-  <div className="circle_left">
+  <div className={classNames(["circle_left", {"dark_theme": props.dark}])}>
     <LargeText>{props.d.title}</LargeText>
     <div style={{height: 10}} />
     <Hosted host={props.d.host} abb />
@@ -18,7 +18,7 @@ export default (props) =>
     </div>
     <Divider />
     <Sub>description</Sub>
-    <div className="circle_left-text">{props.d.description}</div>
+    <div className="circle_left-text dark_theme_primary_text">{props.d.description}</div>
     <Divider />
     <Sub>details</Sub>
     <div style={{height: 10}} />
@@ -33,7 +33,7 @@ export default (props) =>
     <div style={{height: 10}} />
     <Divider />
     <Sub>who should join this circle?</Sub>
-    <div className="circle_left-text">{props.d.who_should_join}</div>
+    <div className="dark_theme_primary_text circle_left-text">{props.d.who_should_join}</div>
     <Divider />
     <Sub>about the host</Sub>
     <Hosted host={props.d.host} />
