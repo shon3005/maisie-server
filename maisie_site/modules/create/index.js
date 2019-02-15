@@ -17,6 +17,7 @@ var classNames = require('classnames');
 
 import { ApolloConsumer } from 'react-apollo';
 import createCircle from '../../shared/services/create-circle';
+import axios from 'axios';
 
 export default class extends React.Component {
   constructor(props) {
@@ -98,13 +99,14 @@ export default class extends React.Component {
         minute: this.state.minute,
         ampm: this.state.ampm
       });
-      // let bodyFormData = new FormData();
-      // bodyFormData.append('image', files[0]);
-      // bodyFormData.append('id', response.data.createCircle.id);
-      // const response2 = await axios.post('http://localhost:8080/api/upload', bodyFormData, { headers: {
-      //   'Content-Type': 'multipart/form-data',
-      //   'Authorization': `Bearer ${this.props.}`
-      // }});
+      let bodyFormData = new FormData();
+      bodyFormData.append('image', files[0]);
+      bodyFormData.append('id', response.data.createCircle.id);
+      const response2 = await axios.post('/api/upload', bodyFormData, { headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${this.props.token}`
+      }});
+      console.log(response2);
     }
   }
   render() {

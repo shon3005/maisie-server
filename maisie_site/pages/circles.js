@@ -24,7 +24,7 @@ class Circles extends Component {
             zIndex: 99997,
           }}
         />
-        <CirclesModule />
+        <CirclesModule token={this.props.token}/>
         <Footer />
       </div>
     );
@@ -32,7 +32,10 @@ class Circles extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { user: state.user.user}
+  return {
+    user: state.user.user,
+    token: state.user.token
+  }
 }
 
 export default connect(mapStateToProps)(Circles);
