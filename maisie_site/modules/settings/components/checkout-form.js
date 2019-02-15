@@ -50,10 +50,11 @@ class CheckoutForm extends React.Component {
   }
 }
 
-const mapStateToProps = (_) => {
-  return process.browser ? 
-    { router: Router.route } :
-    {};
+const mapStateToProps = (state) => {
+  return { 
+    router: Router.route,
+    user: state.user.user
+  }
 }
 
 export default injectStripe(connect(mapStateToProps)(CheckoutForm));

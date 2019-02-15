@@ -15,6 +15,8 @@ import SlideFive from './components/slide5.js';
 
 var classNames = require('classnames');
 
+import { ApolloConsumer } from 'react-apollo';
+import createCircle from '../../shared/services/create-circle';
 
 export default class extends React.Component {
   constructor(props) {
@@ -43,8 +45,7 @@ export default class extends React.Component {
     var image = document.getElementById("create_slide1_imageupload").value;
     this.setState({image: image});
   }
-  handleForwardPress() {
-    let proceed = false
+  async handleForwardPress(client) {
     if (this.state.slideToShow === 0) {
       var title = document.getElementById("title").value;
       var image = this.state.image ? this.state.image : document.getElementById("create_slide1_imageupload").value;
@@ -82,6 +83,28 @@ export default class extends React.Component {
       !price.length || parseInt(price, 10) == false ? this.setState({price: 0}) : this.setState({price: price, min: min, slideToShow: this.state.slideToShow + 1 });
     } else if (this.state.slideToShow === 4) {
       this.setState({slideToShow: this.state.slideToShow + 1 });
+      const resp = await createCircle(client, {
+        day: this.state.day,
+        description: this.state.description,
+        title: this.state.title,
+        frequency: this.state.frequency,
+        length: this.state.length,
+        location_type: this.state.location_type,
+        neighborhood: this.state.neighborhood,
+        address: this.state.address,
+        price: this.state.price,
+        min: this.state.min,
+        hour: this.state.hour,
+        minute: this.state.minute,
+        ampm: this.state.ampm
+      });
+      // let bodyFormData = new FormData();
+      // bodyFormData.append('image', files[0]);
+      // bodyFormData.append('id', response.data.createCircle.id);
+      // const response2 = await axios.post('http://localhost:8080/api/upload', bodyFormData, { headers: {
+      //   'Content-Type': 'multipart/form-data',
+      //   'Authorization': `Bearer ${this.props.}`
+      // }});
     }
   }
   render() {
@@ -126,7 +149,11 @@ export default class extends React.Component {
         </div>
         <div className="create__inner_brow row-sa-c">
           <div className={classNames(["back", {"fade": this.state.slideToShow === 0, "no_display": this.state.slideToShow === 5}])} onClick={this.handleBackPress.bind(this)}>Back</div>
-          <div className={classNames(["next", {"no_display": this.state.slideToShow === 5}])} onClick={this.handleForwardPress.bind(this)}>{this.state.slideToShow < 4 ? "Next" : "Submit"}</div>
+          <ApolloConsumer>
+            {(client) => (
+              <div className={classNames(["next", {"no_display": this.state.slideToShow === 5}])} onClick={this.handleForwardPress.bind(this, client)}>{this.state.slideToShow < 4 ? "Next" : "Submit"}</div>
+            )}
+          </ApolloConsumer>
           <div className={classNames(["next", {"no_display": this.state.slideToShow != 5}])} onClick={() => Router.back()}>Finish</div>
         </div>
         <Footer />
