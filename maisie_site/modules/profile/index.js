@@ -44,6 +44,9 @@ export default () =>
         id="email"
       />
     </Field>
+    <Field title="Profile Picture" nostretch>
+      <div className="create__inner_cont-imgadd col-c-c">Upload image</div>
+    </Field>
     <Field title="Phone Number" private={true}>
       <input
         type="num"
