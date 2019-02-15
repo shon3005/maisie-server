@@ -15,6 +15,7 @@ import SlideFive from './components/slide5.js';
 
 var classNames = require('classnames');
 
+
 export default class extends React.Component {
   constructor(props) {
     super(props)
@@ -38,14 +39,20 @@ export default class extends React.Component {
   handleBackPress() {
     this.setState({ slideToShow: this.state.slideToShow === 0 ? 0 : this.state.slideToShow - 1 })
   }
+  handleAddImage() {
+    var image = document.getElementById("create_slide1_imageupload").value;
+    this.setState({image: image});
+  }
   handleForwardPress() {
     let proceed = false
     if (this.state.slideToShow === 0) {
       var title = document.getElementById("title").value;
+      var image = this.state.image ? this.state.image : document.getElementById("create_slide1_imageupload").value;
       var description = document.getElementById("description").value;
       !title.length ? this.setState({title: ""}) : this.setState({title: title });
+      image === false ? this.setState({image: ""}) : this.setState({image: image });
       !description.length ? this.setState({description: ""}) : this.setState({description: description });
-      title.length && description.length ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
+      title.length && description.length && image ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
     } else if (this.state.slideToShow === 1) {
       var day = document.getElementById("day").value;
       var frequency = document.getElementById("frequency").value;
@@ -79,7 +86,7 @@ export default class extends React.Component {
   }
   render() {
     const slideToShow = () => {
-      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} /> }
+      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image} addedImage={this.handleAddImage.bind(this)} /> }
       else if (this.state.slideToShow == 1) { return <SlideTwo day={this.state.day} frequency={this.state.frequency} length={this.state.length} hour={this.state.hour} minute={this.state.minute} ampm={this.state.ampm} /> }
       else if (this.state.slideToShow == 2) { return <SlideThree location_type={this.state.location_type} neighborhood={this.state.neighborhood} address={this.state.address} /> }
       else if (this.state.slideToShow == 3) { return <SlideFour price={this.state.price} min={this.state.min} /> }
