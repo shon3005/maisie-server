@@ -34,6 +34,20 @@
       padding-top: 40px;
       padding-bottom: 40px;
       width: 100%;
+      &-imgadd {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: white;
+        @include border-radius(50px);
+        background-color: $color-secondary;
+        &:hover { cursor: pointer; }
+        &:active { opacity: .75; }
+      }
       &-largetext {
         font-size: 40px;
         font-weight: 500;
@@ -149,6 +163,9 @@
     }
     &_input {
       flex: 1;
+      &.field_nostretch {
+        flex: none;
+      }
 
       &-textbox {
         padding-top: 10px;

@@ -21,6 +21,9 @@ export default (props) =>
         />
       </Field>
       <Disclaimer>This title is the first thing about your Circle that users will see. Choose something creative!</Disclaimer>
+      <Field title="Image" nostretch>
+        <div className="create__inner_cont-imgadd col-c-c">Upload image</div>
+      </Field>
       <Field title="Description">
         <textarea
           id="description"
