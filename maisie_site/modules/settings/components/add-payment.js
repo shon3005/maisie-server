@@ -8,7 +8,7 @@ class AddPayment extends React.Component {
   render() {
     return (
       <Elements>
-        <InjectedCheckoutForm />
+        <InjectedCheckoutForm user={this.props.user} />
       </Elements>
     );
   }

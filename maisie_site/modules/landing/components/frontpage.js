@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from '../../../shared/components/header/index.js';
 import SocialButtons from '../../../shared/components/socialButtons.js';
-import EmailCapture from '../../../shared/components/emailCapture.js';
 
 export default (props) =>
   <div className="front col-c-c">
     <div className="front__header">
-      <Header trnsp />
+      <Header trnsp loggedIn="loggedOut"/>
     </div>
     <div className="front__content col-sb-c">
       <div className="front__content_in">
@@ -26,6 +25,3 @@ export default (props) =>
     </div>
     <div className="front__background col-c-c"><img src="https://s3.amazonaws.com/maisie-files/landing/back.png" /></div>
   </div>
-
-
-  // <EmailCapture color={1} onEmailEntry={(email) => props.onEmailEntry(email)} />

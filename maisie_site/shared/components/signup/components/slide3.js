@@ -6,5 +6,5 @@ export default (props) =>
   <div className="signup__addpayment col-c-c">
     <LargeText>Billing</LargeText>
     <SmallText>Please add a payment method</SmallText>
-    <AddPayment />
+    <AddPayment user={props.user} />
   </div>
