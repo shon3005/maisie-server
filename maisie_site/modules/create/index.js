@@ -19,7 +19,7 @@ import { ApolloConsumer } from 'react-apollo';
 import createCircle from '../../shared/services/create-circle';
 import axios from 'axios';
 
-export default class extends React.Component {
+class Create extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,19 +42,23 @@ export default class extends React.Component {
   handleBackPress() {
     this.setState({ slideToShow: this.state.slideToShow === 0 ? 0 : this.state.slideToShow - 1 })
   }
-  handleAddImage() {
-    var image = document.getElementById("create_slide1_imageupload").value;
-    this.setState({image: image});
+  handleAddImage(e) {
+    const {
+      currentTarget: { files }
+    } = e;
+    
+    var image_url = document.getElementById("create_slide1_imageupload").value;
+    this.setState({image_url, image: files[0]});
   }
   async handleForwardPress(client) {
     if (this.state.slideToShow === 0) {
       var title = document.getElementById("title").value;
-      var image = this.state.image ? this.state.image : document.getElementById("create_slide1_imageupload").value;
+      var image_url = this.state.image_url ? this.state.image_url : document.getElementById("create_slide1_imageupload").value;
       var description = document.getElementById("description").value;
       !title.length ? this.setState({title: ""}) : this.setState({title: title });
-      image === false ? this.setState({image: ""}) : this.setState({image: image });
+      image_url === false ? this.setState({image_url: ""}) : this.setState({image_url});
       !description.length ? this.setState({description: ""}) : this.setState({description: description });
-      title.length && description.length && image ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
+      title.length && description.length && image_url ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
     } else if (this.state.slideToShow === 1) {
       var day = document.getElementById("day").value;
       var frequency = document.getElementById("frequency").value;
@@ -100,18 +104,17 @@ export default class extends React.Component {
         ampm: this.state.ampm
       });
       let bodyFormData = new FormData();
-      bodyFormData.append('image', files[0]);
-      bodyFormData.append('id', response.data.createCircle.id);
-      const response2 = await axios.post('/api/upload', bodyFormData, { headers: {
+      bodyFormData.append('image', this.state.image);
+      bodyFormData.append('id', resp.data.createCircle.id);
+      await axios.post('/api/upload', bodyFormData, { headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${this.props.token}`
       }});
-      console.log(response2);
     }
   }
   render() {
     const slideToShow = () => {
-      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image} addedImage={this.handleAddImage.bind(this)} /> }
+      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} /> }
       else if (this.state.slideToShow == 1) { return <SlideTwo day={this.state.day} frequency={this.state.frequency} length={this.state.length} hour={this.state.hour} minute={this.state.minute} ampm={this.state.ampm} /> }
       else if (this.state.slideToShow == 2) { return <SlideThree location_type={this.state.location_type} neighborhood={this.state.neighborhood} address={this.state.address} /> }
       else if (this.state.slideToShow == 3) { return <SlideFour price={this.state.price} min={this.state.min} /> }
@@ -163,3 +166,5 @@ export default class extends React.Component {
     )
   }
 }
+
+export default Create;

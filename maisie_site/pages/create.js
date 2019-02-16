@@ -1,3 +1,12 @@
-import Create from '../modules/create/index.js';
+import CreateModule from '../modules/create/index.js';
+import { connect } from 'react-redux';
 
-export default () => <Create />
+const Create = (props) => <CreateModule token={props.token} />
+
+const mapStateToProps = (state) => {
+    return {
+      token: state.user.token
+    }
+  }
+  
+export default connect(mapStateToProps)(Create);
