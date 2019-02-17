@@ -13,7 +13,7 @@ export default function CirclePage({query}) {
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
-      <Header circle />
+      <Header circle loggedIn="loggedIn" />
       <Circle dark={PREFER_DARK_THEME} d={DATA} />
       <Footer />
     </div>
