@@ -11,12 +11,6 @@
 div.center-parent { position: relative; } // call this on the parent of the image you wish to center
 img.center-child { @include img-center; } // call this on the img element you wish to center
 
-// adds browser support for removing ability to select text
-@mixin user-select($what: none) { -webkit-user-select: $what; -moz-user-select: $what; -ms-user-select: $what; -o-user-select: $what; user-select: $what; }
-
-// adds browser support for transitions
-@mixin transition($what: all, $time: 0.2s) { -webkit-transition: $what $time; -moz-transition: $what $time; -ms-transition: $what $time; -o-transition: $what $time; transition: $what $time; }
-
 // SCREENS
 
 // MOBILE
@@ -40,6 +34,12 @@ img.center-child { @include img-center; } // call this on the img element you wi
 // // Cross Browser Compatibilities // //
 // // // // // // // // // // // // // //
 // // // // // // // // // // // // // //
+
+// adds browser support for removing ability to select text
+@mixin user-select($what: none) { -webkit-user-select: $what; -moz-user-select: $what; -ms-user-select: $what; -o-user-select: $what; user-select: $what; }
+
+// adds browser support for transitions
+@mixin transition($what: all, $time: 0.2s) { -webkit-transition: $what $time; -moz-transition: $what $time; -ms-transition: $what $time; -o-transition: $what $time; transition: $what $time; }
 
 // Linear Gradients
 @mixin linear-gradient($start, $end, $direction: to bottom) {
