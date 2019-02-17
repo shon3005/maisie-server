@@ -10,5 +10,5 @@ export default (props) =>
         <a href="/create" className="col-c-c">Start a Circle</a>
       </div>
     </div>
-    <Cards />
+    <Cards/>
   </div>

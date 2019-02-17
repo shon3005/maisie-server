@@ -27,11 +27,18 @@ defmodule MaisieApiWeb.Schema do
            resolve(&Resolvers.CircleResolver.circles/3)
         end
 
-         @desc "Get a circle by ID"
+        @desc "Get a circle by ID"
         field :circle, type: :circle_type do
           arg(:input, non_null(:circle_get_type))
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.CircleResolver.get_circle_by_id/3)
+        end
+
+        @desc "Get a circles by user ID"
+        field :user_circles, type: list_of(:circle_type) do
+          arg(:user_id, non_null(:string))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.CircleResolver.get_circles_by_user_id/3)
         end
 
         @desc "Redirect to Stripe to set up payments"

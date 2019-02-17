@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query circle($id: ID!) {
-    circle(input: {id: $id}) {
+  query userCircles($userId: ID!) {
+    userCircles(userId: $userId) {
       id
       title
       description
@@ -18,6 +18,9 @@ export default gql`
       locationType
       min
       image_url
+      user {
+        id
+      }
     }
   }
 `

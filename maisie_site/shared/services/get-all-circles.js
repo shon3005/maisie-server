@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query circle($id: ID!) {
-    circle(input: {id: $id}) {
+  query circles {
+    circles {
       id
       title
       description

@@ -19,5 +19,8 @@ const handleDelete = () => {
   document.cookie = cookie.serialize('user', '', {
     maxAge: -1
   });
+  document.cookie = cookie.serialize('token', '', {
+    maxAge: -1
+  });
   location.reload(true);
 }

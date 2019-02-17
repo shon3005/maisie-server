@@ -3,23 +3,32 @@
 const PREFER_DARK_THEME = false
 // Caution: this should be used for featured circles only.
 //
-import Circle from '../modules/circle/index.js';
+import CircleModule from '../modules/circle/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import Question from '../modules/circle/components/question.js';
 import DATA from '../modules/circle/dummy_data.js';
+import { connect } from 'react-redux';
+import Router from 'next/router';
+
 var classNames = require('classnames')
-export default function CirclePage({query}) {
+function Circle(props) {
+  let id;
+  if (process.browser) {
+    id = Router.query.id
+  }
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
       <Header circle loggedIn="loggedIn" />
-      <Circle dark={PREFER_DARK_THEME} d={DATA} />
+      <CircleModule dark={PREFER_DARK_THEME} d={DATA} user={props.user} id={id} />
       <Footer />
     </div>
   )
 }
 
-CirclePage.getInitialProps = async ({query}) => {
-  return {query}
+const mapStateToProps = (state) => {
+  return { user: state.user.user };
 }
+
+export default connect(mapStateToProps)(Circle);
