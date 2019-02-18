@@ -6,7 +6,7 @@ export default (props) => {
       "img": "../../../static/circle/private.svg",
       "text": "private space",
     },
-    "shared_space": {
+    "shared space": {
       "img": "../../../static/circle/shared.svg",
       "text": "shared space",
     },
@@ -23,7 +23,7 @@ export default (props) => {
     }, {
       "img": "../../../static/circle/time.svg",
       "tag": "time",
-      "text": props.time,
+      "text": moment(props.time).format("h:mm A").toString(),
     }, {
       "img": "../../../static/circle/length.svg",
       "tag": "length",
@@ -34,7 +34,7 @@ export default (props) => {
     {
       "img": obj[props.type || 'private space']["img"],
       "tag": "type",
-      "text": props.type,
+      "text": obj[props.type || 'private space']["text"],
     }, {
       "img": "../../../static/circle/location.svg",
       "tag": "location",
@@ -52,7 +52,7 @@ export default (props) => {
         <img src={item.img} />
         <div className="col">
           <span className="tag dark_theme_tag_text">{item.tag}</span>
-          <span className="dark_theme_primary_text">{item.text}</span>
+          <span className="text dark_theme_primary_text">{item.text}</span>
         </div>
       </div>
     )

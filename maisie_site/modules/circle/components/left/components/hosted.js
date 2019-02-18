@@ -1,6 +1,6 @@
 const Full = (props) =>
   <div className="circlehost row-c">
-    <div className="circlehost-img col-c-c"><img src={props.host.thumb} /></div>
+    <div className="circlehost-img col-c-c"><img src={props.host.imageUrl} /></div>
     <div className="circlehost__inner col">
       <div className="circlehost__inner_name row-fs-c">
         <span className="dark_theme_title_text">{props.host.name}</span>
@@ -16,7 +16,7 @@ const Full = (props) =>
 
 const Abb = (props) =>
   <div className="hostabb row">
-    <div className="hostabb__thumb" style={{backgroundImage: `url(${props.host.thumb})`, backgroundSize: "cover", backgroundPosition:"center"}} />
+    <img src={props.host.imageUrl} className="hostabb__thumb" style={{ backgroundSize: "cover", backgroundPosition:"center"}} />
     <div className="hostabb__text col">
       <span className="hostabb__text-tag dark_theme_tag_text">hosted by</span>
       <span className="hostabb__text-name dark_theme_primary_text">{props.host.name}</span>

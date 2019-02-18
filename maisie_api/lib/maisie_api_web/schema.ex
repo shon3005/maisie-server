@@ -23,7 +23,6 @@ defmodule MaisieApiWeb.Schema do
 
         @desc "Get a list of all circles"
         field :circles, list_of(:circle_type) do
-           middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.CircleResolver.circles/3)
         end
 

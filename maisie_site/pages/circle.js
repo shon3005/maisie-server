@@ -10,6 +10,8 @@ import Question from '../modules/circle/components/question.js';
 import DATA from '../modules/circle/dummy_data.js';
 import { connect } from 'react-redux';
 import Router from 'next/router';
+import getCircle from '../shared/services/get-circle';
+import { Query } from 'react-apollo';
 
 var classNames = require('classnames')
 function Circle(props) {
@@ -21,7 +23,11 @@ function Circle(props) {
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
       <Header circle loggedIn="loggedIn" />
-      <CircleModule dark={PREFER_DARK_THEME} d={DATA} user={props.user} id={id} />
+      <Query query={getCircle} variables={{id}}>
+        {getCircle => {
+          return <CircleModule dark={PREFER_DARK_THEME} d={DATA} user={props.user} id={id} circle={getCircle.data.circle}/>
+        }}
+      </Query>
       <Footer />
     </div>
   )

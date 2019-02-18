@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 const Cards = (props) => {
   return <Query query={getCircles} variables={{ userId: props.user.id }}>
     {getCircles => {
-        return getCircles.data.userCircles.map((c, index) => <Card user={props.user} data={c} key={index} /> )
+        const userCircles = getCircles.data && getCircles.data.userCircles ? getCircles.data.userCircles : null;
+        return userCircles ? userCircles.map((c, index) => <Card user={props.user} data={c} key={index} /> ) : null;
       }
     }
   </Query>

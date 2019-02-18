@@ -1,7 +1,6 @@
 var classNames = require('classnames');
 
 export default (props) => {
-  console.log(props);
   return (
     <a href={!props.data.pending ? 'circle/' + props.data.id : null} className={classNames(["mycirclescard", "row-sb-c", { "non-click": props.data.pending }])}>
       <div className="mycirclescard__cont row-fs-c">

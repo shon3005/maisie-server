@@ -7,8 +7,8 @@ function handleClick() {
   document.getElementById("askmodal").classList.remove('hide');
 }
 
-export default (props) =>
-  <div className="circle_right col-fs-c">
+export default (props) => {
+  return <div className="circle_right col-fs-c">
     <div className={classNames(["circle_right__inner", "col-fs-c", { "dark_theme": props.dark }])}>
       <div className="circle_right__inner_cont col-fs-c">
         <div className="circle_right__inner_cont-price col-fs-c dark_theme_primary_text">
@@ -40,3 +40,4 @@ export default (props) =>
       <div className="col-fs-c"><Socials dark={props.dark} /></div>
     </div>
   </div>
+}

@@ -12,15 +12,15 @@ const Error = (props) => <div className="signin__error">{props.children}</div>
 
 class Signin extends Component {
   static async getInitialProps (context) {
-    try {
-      const { data } = await getUser(context.apolloClient);
+    // try {
+    //   const { data } = await getUser(context.apolloClient);
 
-      if (data.getUser && data.getUser.id) {
-        redirect(context, '/')
-      }
-    } catch(e) {
-      console.log(e);
-    }
+    //   if (data.getUser && data.getUser.id) {
+    //     redirect(context, '/')
+    //   }
+    // } catch(e) {
+    //   console.log(e);
+    // }
     return {}
   }
 
@@ -42,7 +42,9 @@ class Signin extends Component {
         firstName: data.loginUser.user.firstName,
         lastName: data.loginUser.user.lastName,
         email: data.loginUser.user.email,
-        role: data.loginUser.user.role
+        role: data.loginUser.user.role,
+        host: data.loginUser.user.host,
+        circles: data.loginUser.user.circles
       });
 
       await this.props.updateToken(data.loginUser.token);

@@ -13,20 +13,21 @@ const Profile = () =>
   </div>
 
 Profile.getInitialProps = async (context) => {
-  try {
-    if (context.req) {
-      const cookies = cookie.parse(context.req.headers.cookie || '');
-      if (!cookies.token) {
-        redirect(context, '/')
-      }
-      if (cookies.userServer) {
-        return { user: cookies.userServer };
-      }
-    }
-  } catch(e) {
-    console.log(e);
-  }
-  return { user: undefined };
+  // try {
+  //   if (context.req) {
+  //     const cookies = cookie.parse(context.req.headers.cookie || '');
+  //     if (!cookies.token) {
+  //       redirect(context, '/')
+  //     }
+  //     if (cookies.userServer) {
+  //       return { user: cookies.userServer };
+  //     }
+  //   }
+  // } catch(e) {
+  //   console.log(e);
+  // }
+  // return { user: undefined };
+  return { user: undefined};
 }
   
   const mapStateToProps = (state) => {

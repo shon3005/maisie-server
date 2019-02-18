@@ -12,12 +12,22 @@ export default (props) => {
   return (
     <Query query={getCircle} variables={{ id: props.id }}>
       {getCircle => {
+        const day = getCircle.data.circle && getCircle.data.circle.day ? getCircle.data.circle.day : 'tuesday';
+        const minute = getCircle.data.circle && getCircle.data.circle.minute ? getCircle.data.circle.minute : 0;
+        let hour = getCircle.data.circle && getCircle.data.circle.hour ? getCircle.data.circle.hour : 0;
+        hour = getCircle.data.circle && getCircle.data.circle.ampm && getCircle.data.circle.ampm === 'am' ?
+          hour :
+          hour + 12;
+        const date = new Date();
+        date.setHours(hour);
+        date.setMinutes(minute);
         return (
           <div className={classNames(["circle_left", {"dark_theme": props.dark}])}>
             <LargeText>{getCircle.data.circle ? getCircle.data.circle.title : null}</LargeText>
             <div style={{height: 10}} />
             <Hosted host={{
-              name: props.user.firstName + ' ' + props.user.lastName
+              name: props.user.firstName + ' ' + props.user.lastName,
+              imageUrl: props.user.host.imageUrl
             }} abb />
             <div style={{height: 10}} />
             <div className="circle_left_tags row">
@@ -30,9 +40,8 @@ export default (props) => {
             <Sub>details</Sub>
             <div style={{height: 10}} />
             <Details
-              day={getCircle.data.circle ? getCircle.data.circle.day : null}
-              start={props.d.start}
-              time={getCircle.data.circle ? getCircle.data.circle.hour + ':' + getCircle.data.circle.minute + ' ' + getCircle.data.circle.ampm : null}
+              day={day}
+              time={date}
               length={getCircle.data.circle ? getCircle.data.circle.length : null}
               type={getCircle.data.circle ? getCircle.data.circle.locationType : null}
               neighborhood={getCircle.data.circle ? getCircle.data.circle.neighborhood : null}
@@ -44,7 +53,11 @@ export default (props) => {
             <Divider />
             <Sub>about the host</Sub>
             <Hosted host={{
-              name: props.user.firstName + ' ' + props.user.lastName
+              name: props.user.firstName + ' ' + props.user.lastName,
+              imageUrl: props.user.host.imageUrl,
+              description: props.user.host.description,
+              education: props.user.host.education,
+              license: props.user.host.license
             }} />
           </div>
         );

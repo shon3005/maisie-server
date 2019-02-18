@@ -20,10 +20,14 @@ class Index extends Component {
       this.props.user ?
         <Query query={getAllCircles}>
           {getAllCircles => {
-            return <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user} circles={getAllCircles.data.circles}/>
+            return <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user} circles={getAllCircles.data.circles || []}/>
           }}
         </Query> :
-        <Landing />
+        <Query query={getAllCircles}>
+          {getAllCircles => {
+            return <Landing circles={getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : null}/>
+          }}
+        </Query>
     )
   }
 }

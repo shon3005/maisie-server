@@ -9,6 +9,7 @@ defmodule MaisieApiWeb.Schema.Types.UserType do
         field(:email, :string)
         field(:role, :string)
         field(:circles, list_of(:circle_type), resolve: assoc(:circle))
+        field(:host, :host_type, resolve: assoc(:host))
     end
 
     input_object :user_input_type do

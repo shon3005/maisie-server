@@ -42,9 +42,9 @@ export default (props) =>
       <Disclaimer>Here's your chance to give readers more information about your circle. Who is this Circle meant for? What kinds of goals will you work towards? Who will be happy in this group?</Disclaimer>
       <Field title="Host">
         <div className="create__hostinfo row-fs-c">
-          <div className="create__hostinfo-img"><img src="../../static/shared/matthew.png" /></div>
-          <span>Chester Chzburger</span>
-          <div className="create__hostinfo-tag col-c-c">LCSW</div>
+          <div className="create__hostinfo-img"><img src={props.user.host.imageUrl} /></div>
+          <span>{props.user.firstName + ' ' + props.user.lastName}</span>
+          <div className="create__hostinfo-tag col-c-c">{props.user.host.license}</div>
         </div>
       </Field>
     </div>

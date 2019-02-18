@@ -114,7 +114,7 @@ class Create extends React.Component {
   }
   render() {
     const slideToShow = () => {
-      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} /> }
+      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} user={this.props.user}/> }
       else if (this.state.slideToShow == 1) { return <SlideTwo day={this.state.day} frequency={this.state.frequency} length={this.state.length} hour={this.state.hour} minute={this.state.minute} ampm={this.state.ampm} /> }
       else if (this.state.slideToShow == 2) { return <SlideThree location_type={this.state.location_type} neighborhood={this.state.neighborhood} address={this.state.address} /> }
       else if (this.state.slideToShow == 3) { return <SlideFour price={this.state.price} min={this.state.min} /> }

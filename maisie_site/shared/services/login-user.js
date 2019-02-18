@@ -17,6 +17,30 @@ export default (
               lastName
               email
               role
+              host {
+                id
+                description
+                license
+                imageUrl
+                education
+              }
+              circles {
+                address
+                ampm
+                day
+                description
+                frequency
+                hour
+                minute
+                min
+                imageUrl
+                title
+                price
+                neighborhood
+                locationType
+                length
+                id
+              }
             }
           }
         }
