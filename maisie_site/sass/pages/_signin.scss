@@ -33,13 +33,13 @@ textarea, select, input, button { outline: none; }
     width: 240px;
     input, button {
       height: 36px;
-      @include border-radius(5px);
       font-family: "Open Sans";
       font-size: $font-size-small;
     }
 
     > input {
       @include transition(all, 200ms);
+      @include border-radius(5px);
       width: 100%;
       border: 1px solid white;
       box-shadow: $shadow-sss;
@@ -54,6 +54,9 @@ textarea, select, input, button { outline: none; }
       &::placeholder {
         color: $color-primary-light;
       }
+      &.red {
+        border: 1px solid $color-red;
+      }
     }
     > button {
       @include transition(all, 200ms);
@@ -63,10 +66,17 @@ textarea, select, input, button { outline: none; }
       border: none;
       box-shadow: inset 0 -11px 12px 0 rgba(5,45,84,0.05);
       transform: scale(1);
-
+      font-weight: 600;
+      @include border-radius(50px);
       &:hover {
         cursor: pointer;
         transform: scale(1.05);
+      }
+      &:active { opacity: .75; }
+      &:not(.active) {
+        pointer-events: none;
+        opacity: .25;
+        &:hover { cursor: pointer; }
       }
     }
     > a {

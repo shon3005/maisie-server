@@ -34,6 +34,17 @@ export default class extends React.Component {
         <span className="profile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
+        <div className="profile__picture" style={{backgroundImage: "url('../../static/shared/example_prof.svg')"}}></div>
+        <Field title="Profile Picture">
+          <input
+            type="file"
+            id="profile_imageupload" name="profpic"
+            accept="image/png, image/jpeg"
+            onChange={this.handleUploadImage.bind(this)}
+          />
+            <label htmlFor="profile_imageupload"><span>Choose a file</span></label>
+            <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
+        </Field>
         <Field title="First Name">
           <input
             type="text"
@@ -54,16 +65,6 @@ export default class extends React.Component {
             defaultValue="chester@heymaisie.com"
             id="email"
           />
-        </Field>
-        <Field title="Profile Picture">
-          <input
-            type="file"
-            id="profile_imageupload" name="profpic"
-            accept="image/png, image/jpeg"
-            onChange={this.handleUploadImage.bind(this)}
-          />
-            <label htmlFor="profile_imageupload">Choose a file</label>
-            <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
         </Field>
         <Field title="Phone Number" private={true}>
           <input

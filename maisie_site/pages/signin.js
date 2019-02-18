@@ -26,7 +26,8 @@ class Signin extends Component {
 
   state = {
     email: '',
-    password: ''
+    password: '',
+    error: false,
   }
 
   signinUser = async (client) => {
@@ -52,7 +53,7 @@ class Signin extends Component {
       Router.push('/')
     } catch (e) {
       // show custom error
-      console.log(e);
+      this.setState({error: e.message ? true : false})
     }
   }
 
@@ -60,14 +61,24 @@ class Signin extends Component {
     event.preventDefault()
     this.signinUser(client);
   }
-
+  handleChange() {
+    let email = document.getElementById("signin_email"), pass = document.getElementById("signin_password"), submit = document.getElementById("signin_submit")
+    email.value && pass.value ? submit.classList.add('active') : submit.classList.remove('active')
+  }
   handleEmailChange = (e) => {
+    this.handleChange()
     this.setState({email: e.target.value});
   }
   handlePasswordChange = (e) => {
+    this.handleChange()
     this.setState({password: e.target.value});
   }
+  handleEnterPress() {
+    let email = document.getElementById("signin_email"), pass = document.getElementById("signin_password")
+    email.value ? null : email.classList.add('red');
+    pass.value ? null : pass.classList.add('red');
 
+  }
   render() {
     return (
       <ApolloConsumer>
@@ -81,6 +92,7 @@ class Signin extends Component {
             <form className="col-fs-c" onSubmit={(_) => this.handleSubmit(client)}>
               <input
                 required
+                id="signin_email"
                 placeholder="email address"
                 type="text"
                 value={this.state.email} onChange={this.handleEmailChange}
@@ -88,18 +100,19 @@ class Signin extends Component {
                           <div style={{height: 10}} />
               <input
                 required
+                id="signin_password"
                 placeholder="password"
                 type="password"
                 value={this.state.password} onChange={this.handlePasswordChange}
               />
-                          <div style={{height: 20}} />
-              <button type="submit">
+              <Error>{this.state.error ? "Error: incorrect user credentials" : ""}</Error>
+              <div style={{height: 20}} />
+              <button onClick={this.handleEnterPress} id="signin_submit" type="submit">
                 Sign In
               </button>
               <div style={{height: 20}} />
               <a>Forgot your password?</a>
             </form>
-            <Error></Error>
           </div>
         )}
       </ApolloConsumer>

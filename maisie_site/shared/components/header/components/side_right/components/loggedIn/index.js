@@ -18,7 +18,7 @@ const LoggedIn = (props) =>
       <Name user={props.user} />
       <Spacer circle={false} />
       {
-        props.user.role === 'host' ?
+        props.user && props.user.role === 'host' ?
           <div>
             <Item text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel/dash" />
             <Spacer circle={false} />
