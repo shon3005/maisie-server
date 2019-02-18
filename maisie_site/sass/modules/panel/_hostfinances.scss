@@ -1,0 +1,80 @@
+.hostfinances {
+  height: auto;
+  width: 100%;
+  > a {
+    margin: 0 auto;
+    color: $color-secondary-50;
+    font-size: $font-size-small;
+    &:hover { cursor: pointer; }
+    &:active { opacity: .75; }
+  }
+
+  &__top {
+    @include user-select(none);
+    width: 100%;
+    margin-bottom: 25px;
+    &-cta {
+      @include transition(all, 200ms);
+      @include user-select(none);
+      margin-right: -15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 15px;
+      padding-right: 15px;
+      @include border-radius(50px);
+      font-weight: 600;
+      font-size: $font-size-reg;
+      color: $color-secondary-75;
+      z-index: 99999;
+      > img {
+        height: 12px;
+        width: 12px;
+        margin-left: 10px;
+      }
+      &:hover  {
+        cursor: pointer;
+        background-color: white;
+        box-shadow: 0px 0px 30px $color-secondary-10;
+      }
+      &:active {
+        opacity: .75;
+      }
+    }
+  }
+  &__card {
+    margin-top: 10px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid $color-secondary-10;
+    @include border-radius(5px);
+    > div {
+      > div.thumb {
+        margin-right: 20px;
+        height: 50px;
+        width: 50px;
+        @include border-radius(50px);
+        background-color: $color-primary;
+      }
+      > div.in {
+        > span {
+          &.title {
+            font-weight: 600;
+          }
+          &.date {
+            opacity: .25;
+          }
+        }
+      }
+    }
+    > div > span {
+      &.value {
+        font-size: $font-size-med;
+        font-weight: 600;
+      }
+      &.subvalue {
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

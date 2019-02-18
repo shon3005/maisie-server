@@ -15,7 +15,7 @@ export default (props) =>
       <Spacer circle={false} />
       <Name user={props.user ? props.user : { "firstname": "Wayne", "lastname": "Tables", }} />
       <Spacer circle={false} />
-      <Item text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel" />
+      <Item text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel/dash" />
       {/*{props.user.role === 'host' ? <SideItemLarge text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel" /> : null}*/}
       <Spacer circle={false} />
       <Links />
