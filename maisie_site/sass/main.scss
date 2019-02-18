@@ -48,9 +48,12 @@
 @import "modules/circles/reqs";
 
 @import "modules/panel/host";
+@import "modules/panel/hostheader";
 @import "modules/panel/components/hostpayments";
 @import "modules/panel/components/hosthistory";
 @import "modules/panel/components/hosttransaction";
+@import "modules/panel/panel";
+@import "modules/panel/hostfinances";
 
 @import "modules/host/host";
 

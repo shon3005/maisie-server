@@ -1,4 +1,40 @@
-import withPageNoSide from '../shared/withPageNoSide.js';
-import Panel from '../modules/panel/index.js';
+import Footer from '../shared/components/footer.js';
+import Header from '../shared/components/header/index.js';
+import HostHeader from '../modules/panel/hostheader/index.js';
+import Dash from '../modules/panel/dash/index.js';
+import Finances from '../modules/panel/finances/index.js';
+import Circles from '../modules/panel/circles/index.js';
+import Inbox from '../modules/panel/inbox/index.js';
+import Profile from '../modules/panel/profile/index.js';
 
-export default () => withPageNoSide(<Panel />, "panel", false, true);
+export default class extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: "finances"
+    }
+  }
+  render() {
+    const p = this.state.page
+    const activePage =
+      p === "dash"
+        ? <Dash />
+        : p === "finances"
+          ? <Finances />
+          : p === "circles"
+            ? <Circles />
+            : p === "inbox"
+              ? <Inbox />
+              : p === "profile"
+                ? <Profile />
+                : <span>An error has occured</span>
+    return(
+      <div className="panel">
+        <Header loggedIn="loggedIn"/>
+        <HostHeader page={this.state.page} renderHeader={(page) => this.setState({page: page})} />
+        <div className="panel__inner">{activePage}</div>
+        <Footer />
+      </div>
+    )
+  }
+}
