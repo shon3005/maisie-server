@@ -5,7 +5,7 @@ export default (props) =>
   <div className="hostfinances col">
     <div className="hostfinances__top row-sb-c">
       <LargeText>Recent Transactions</LargeText>
-      <a href="https://www.stripe.com" className="hostfinances__top-cta">Stripe Dashboard</a>
+      <a href="https://www.stripe.com" className="hostfinances__top-cta row-c-c"><span>Stripe Dashboard</span><img src="../../../static/shared/external_lightblue.svg" /></a>
     </div>
     <Card />
     <Card />

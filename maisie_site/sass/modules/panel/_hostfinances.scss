@@ -26,6 +26,11 @@
       font-size: $font-size-reg;
       color: $color-secondary-75;
       z-index: 99999;
+      > img {
+        height: 12px;
+        width: 12px;
+        margin-left: 10px;
+      }
       &:hover  {
         cursor: pointer;
         background-color: white;
@@ -37,7 +42,7 @@
     }
   }
   &__card {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     padding: 20px;
     background-color: white;
