@@ -1,12 +1,15 @@
 defmodule MaisieApiWeb.Schema.Types.SessionType do
     use Absinthe.Schema.Notation
-
+    use Absinthe.Ecto, repo: MaisieApi.Repo
+    
     object :user_type do
         field(:id, :id)
         field(:first_name, :string)
         field(:last_name, :string)
         field(:email, :string)
         field(:role, :string)
+        field(:circles, list_of(:circle_type), resolve: assoc(:circle))
+        field(:host, :host_type, resolve: assoc(:host))
     end
 
     object :session_type do

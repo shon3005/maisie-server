@@ -14,11 +14,11 @@ const HostCta = () =>
     <a href="/host" className="landing-hostcta-cta col-c-c">Explore hosting →</a>
   </div>
 
-export default () =>
+export default (props) =>
   <div>
     <div className="landing container">
         <FrontPage />
-        <FeaturedRow />
+        {props.circles ? <FeaturedRow circles={props.circles} /> : null}
         <WhyCommunity />
         <HowItWorks />
         <GrowTogether />

@@ -22,10 +22,13 @@ if (process.browser) {
 }
 
 class MyApp extends App {
-  static getInitialProps(ctx) {
-    const {
-      ctx: { req }
-    } = ctx;
+  static async getInitialProps({Component, ctx}) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps({ ctx })
+    }
+    const { req } = ctx;
 
     let store;
     if (req && req.headers) {
@@ -36,7 +39,10 @@ class MyApp extends App {
       store.subscribe(() => { saveState(store.getState()); });
     }
 
-    return { storeGIP: store };
+    return {
+      storeGIP: store,
+      pageProps
+    };
   }
 
   render () {

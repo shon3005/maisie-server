@@ -1,4 +1,23 @@
-import DUMMY_DATA from './components/DUMMY_DATA.js';
 import Card from './components/card.js';
+import { Query } from 'react-apollo';
+import getCircles from '../../../../../../shared/services/get-circles';
+import { connect } from 'react-redux';
 
-export default () => DUMMY_DATA.map((c, index) => <Card status={"member"} data={c} key={index} /> )
+const Cards = (props) => {
+  return <Query query={getCircles} variables={{ userId: props.user.id }}>
+    {getCircles => {
+        const userCircles = getCircles.data && getCircles.data.userCircles ? getCircles.data.userCircles : null;
+        return userCircles ? userCircles.map((c, index) => <Card user={props.user} data={c} key={index} /> ) : null;
+      }
+    }
+  </Query>
+}
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user.user
+  }
+}
+
+export default connect(mapStateToProps)(Cards);
+

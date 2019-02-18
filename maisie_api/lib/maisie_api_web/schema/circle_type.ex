@@ -6,23 +6,37 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
 
     object :circle_type do
         field(:id, :id)
-        field(:name, :string)
+        field(:title, :string)
         field(:description, :string)
+        field(:price, :string)
+        field(:frequency, :string)
+        field(:day, :string)
+        field(:hour, :string)
+        field(:minute, :string)
+        field(:ampm, :string)
+        field(:length, :string)
+        field(:neighborhood, :string)
+        field(:address, :string)
+        field(:location_type, :string)
+        field(:min, :string)
+        field(:image_url, :string)
         field(:user, :user_type, resolve: assoc(:user))
     end
 
     input_object :circle_input_type do
-        field(:name, :string)
+        field(:title, :string)
         field(:description, :string)
-        field(:price, :float)
+        field(:price, :string)
+        field(:frequency, :string)
         field(:day, :string)
-        field(:time, :string)
-        field(:duration, :integer)
-        field(:program_length, :integer)
-        field(:start, :datetime)
-        field(:end, :datetime)
-        field(:space_type, :string)
-        field(:location, :string)
+        field(:hour, :string)
+        field(:minute, :string)
+        field(:ampm, :string)
+        field(:length, :string)
+        field(:neighborhood, :string)
+        field(:address, :string)
+        field(:location_type, :string)
+        field(:min, :string)
     end
 
     input_object :circle_get_type do

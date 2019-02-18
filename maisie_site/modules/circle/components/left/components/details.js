@@ -2,11 +2,11 @@ var moment = require('moment');
 
 export default (props) => {
   const obj = {
-    "private_space": {
+    "private space": {
       "img": "../../../static/circle/private.svg",
       "text": "private space",
     },
-    "shared_space": {
+    "shared space": {
       "img": "../../../static/circle/shared.svg",
       "text": "shared space",
     },
@@ -19,22 +19,22 @@ export default (props) => {
     {
       "img": "../../../static/circle/day.svg",
       "tag": "day",
-      "text": moment(props.start).format("dddd").toString(),
+      "text": props.day,
     }, {
       "img": "../../../static/circle/time.svg",
       "tag": "time",
-      "text": moment(props.start).format("h:mm A").toString(),
+      "text": moment(props.time).format("h:mm A").toString(),
     }, {
       "img": "../../../static/circle/length.svg",
       "tag": "length",
-      "text": props.length.toString() + " weeks",
+      "text": props.length === 'continuous' ? props.length : props.length + 'weeks',
     }
   ]
   const ren2 = [
     {
-      "img": obj[props.type]["img"],
+      "img": obj[props.type || 'private space']["img"],
       "tag": "type",
-      "text": obj[props.type]["text"],
+      "text": obj[props.type || 'private space']["text"],
     }, {
       "img": "../../../static/circle/location.svg",
       "tag": "location",
@@ -48,11 +48,13 @@ export default (props) => {
 
   const elements = [ren1, ren2].map((arr, index) =>
     arr.map((item, index) =>
-      <div className="circledetails__item row-fs-c" key={index}>
-        <img src={item.img} />
-        <div className="col">
-          <span className="tag dark_theme_tag_text">{item.tag}</span>
-          <span className="text dark_theme_primary_text">{item.text}</span>
+      <div key={index}>
+        <div className="circledetails__item row-fs-c" key={index}>
+          <img src={item.img} />
+          <div className="col">
+            <span className="tag dark_theme_tag_text">{item.tag}</span>
+            <span className="text dark_theme_primary_text">{item.text}</span>
+          </div>
         </div>
       </div>
     )

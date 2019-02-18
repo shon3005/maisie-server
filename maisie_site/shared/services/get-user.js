@@ -10,6 +10,7 @@ export default apolloClient =>
             firstName
             lastName
             email
+            role
           }
         }
       `

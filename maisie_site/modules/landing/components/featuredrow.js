@@ -1,37 +1,26 @@
 import Card from "../../../shared/components/card/index.js";
 
-export default () => {
+export default (props) => {
   const MapCards = (props) => props.children.map((b, index) =>
     <Card
       title={b.title}
       price={b.price}
-      img={b.img}
-      href={b.href}
-      low={b.low}
-      high={b.high}
-      spots={b.spots}
+      image_url={b.image_url}
+      href={`circle/${b.id}`}
+      low={b.min}
+      high={"12"}
+      spots={"12"}
       key={index}
     />
   )
-  const DATA = [
-    {
-      "title": "Weekly Walk and Talk",
-      "price": 25,
-      "img": "https://www.simplehealthsl.com/wp-content/uploads/walk-talk-health-coaching-cover.jpg",
-      "href": "circle/001",
-      "low": 4,
-      "high": 6,
-      "spots": 2,
-    },
-  ]
   return(
     <div className="featuredrow col-c-c">
       <div className="featuredrow_i col-sb-c">
         <div className="featuredrow_i__h row">
-          <span>Circles in New York City</span>
+          <span>Circles in San Francisco</span>
         </div>
         <div className="featuredrow_i__cont row-fs-c">
-          <MapCards>{DATA}</MapCards>
+          <MapCards>{props.circles}</MapCards>
         </div>
         <div className="featuredrow_i-divider" />
       </div>

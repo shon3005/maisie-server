@@ -10,7 +10,6 @@ const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
   (!user || !JSON.parse(user.user).token) && (route.page !== '/signup' && route.page !== '/signin') ?
     res.redirect('/') :
     null;
-    console.log(query)
   app.render(req, res, route.page, query)
 });
 

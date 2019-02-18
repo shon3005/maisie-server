@@ -3,23 +3,39 @@
 const PREFER_DARK_THEME = false
 // Caution: this should be used for featured circles only.
 //
-import Circle from '../modules/circle/index.js';
+import CircleModule from '../modules/circle/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import Question from '../modules/circle/components/question.js';
 import DATA from '../modules/circle/dummy_data.js';
+import { connect } from 'react-redux';
+import Router from 'next/router';
+import getCircle from '../shared/services/get-circle';
+import { Query } from 'react-apollo';
+
 var classNames = require('classnames')
-export default function CirclePage({query}) {
+function Circle(props) {
+  const id = props.query.id;
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
       <Header circle loggedIn="loggedIn" />
-      <Circle dark={PREFER_DARK_THEME} d={DATA} />
+      <Query query={getCircle} variables={{id}}>
+        {getCircle => {
+          return <CircleModule dark={PREFER_DARK_THEME} d={DATA} user={props.user} id={id} circle={getCircle.data.circle}/>
+        }}
+      </Query>
       <Footer />
     </div>
   )
 }
 
-CirclePage.getInitialProps = async ({query}) => {
-  return {query}
+Circle.getInitialProps = async (context) => {
+  return {query: context.ctx.query};
 }
+
+const mapStateToProps = (state) => {
+  return { user: state.user.user };
+}
+
+export default connect(mapStateToProps)(Circle);

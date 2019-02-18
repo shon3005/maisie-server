@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Landing from '../modules/landing/index.js';
 import Home from '../modules/home/index';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import getAllCircles from '../shared/services/get-all-circles';
+import { Query } from 'react-apollo';
 
 class Index extends Component {
   constructor(props) {
@@ -15,7 +17,17 @@ class Index extends Component {
 
   render() {
     return (
-      this.props.user ? <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user}/> : <Landing />
+      this.props.user ?
+        <Query query={getAllCircles}>
+          {getAllCircles => {
+            return <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user} circles={getAllCircles.data.circles || []}/>
+          }}
+        </Query> :
+        <Query query={getAllCircles}>
+          {getAllCircles => {
+            return <Landing circles={getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : null}/>
+          }}
+        </Query>
     )
   }
 }

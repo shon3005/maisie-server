@@ -2,37 +2,41 @@ import gql from 'graphql-tag'
 
 export default (
   apolloClient,
-  file,
+  circleDetails
 ) => {
   return apolloClient
     .mutate({
       mutation: gql`
         mutation createCircle(
-          $day: String!,
+          $title: String!,
           $description: String!,
-          $duration: Int!,
-          $end: DateTime!,
-          $start: DateTime!,
-          $name: String!,
-          $price: Float!,
-          $spaceType: String!,
-          $programLength: Int!,
-          $location: String!,
-          $time: String!
+          $day: String!,
+          $frequency: String!,
+          $length: String!,
+          $hour: String!,
+          $minute: String!,
+          $ampm: String!,
+          $locationType: String!,
+          $neighborhood: String!,
+          $address: String!,
+          $price: String!,
+          $min: String!
         ) {
           createCircle(
             input: {
-              day: $day,
+              title: $title,
               description: $description,
-              duration: $duration,
-              end: $end,
-              start: $start,
-              name: $name,
+              day: $day,
+              frequency: $frequency,
+              length: $length,
+              hour: $hour,
+              minute: $minute,
+              ampm: $ampm,
+              locationType: $locationType,
+              neighborhood: $neighborhood,
+              address: $address,
               price: $price,
-              spaceType: $spaceType,
-              programLength: $programLength,
-              location: $location,
-              time: $time
+              min: $min
             }
           ) {
             id
@@ -41,18 +45,19 @@ export default (
       `,
       variables:
       {
-        file: file,
-        day: "Monday",
-        description: "Hello World",
-        duration: 60,
-        end: "2018-05-17T12:11:06.3684072Z",
-        start: "2018-05-17T12:11:06.3684072Z",
-        name: "Sample Group",
-        price: 45,
-        spaceType: "organization",
-        programLength: 12,
-        location: "Williamsburg",
-        time: "3:40"
+        title: circleDetails.title,
+        description: circleDetails.description,
+        day: circleDetails.day,
+        frequency: circleDetails.frequency,
+        length: circleDetails.length,
+        hour: circleDetails.hour,
+        minute: circleDetails.minute,
+        ampm: circleDetails.ampm,
+        locationType: circleDetails.location_type,
+        neighborhood: circleDetails.neighborhood,
+        address: circleDetails.address,
+        price: circleDetails.price,
+        min: circleDetails.min,
       }
     })
 }

@@ -21,6 +21,13 @@ defmodule MaisieApi.Services do
     Repo.all(Circle)
   end
 
+  def list_circles_by_user_id(id) do
+    query = from c in Circle,
+     select: c,
+     where: c.user_id == ^id
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single circle.
 

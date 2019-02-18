@@ -13,4 +13,8 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     def circles(_,_,%{context: _context}) do
         {:ok, Services.list_circles()}
     end
+
+    def get_circles_by_user_id(_, %{user_id: user_id}, _) do
+        {:ok, Services.list_circles_by_user_id(user_id)}
+    end
 end

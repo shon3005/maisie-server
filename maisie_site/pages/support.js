@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Support = () =>
 <div className="support col-fs-c">
-  <Header />
+  <Header loggedIn="loggedIn"/>
   <SupportModule />
   <Footer />
 </div>

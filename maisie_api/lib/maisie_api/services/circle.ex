@@ -5,17 +5,19 @@ defmodule MaisieApi.Services.Circle do
   alias MaisieApi.Accounts.User
 
   schema "circles" do
+    field :title, :string
     field :description, :string
-    field :name, :string
-    field :price, :float
+    field :price, :string
     field :day, :string
-    field :time, :string
-    field :duration, :integer
-    field :program_length, :integer
-    field :start, :utc_datetime
-    field :end, :utc_datetime
-    field :space_type, :string
-    field :location, :string
+    field :frequency, :string
+    field :length, :string
+    field :location_type, :string
+    field :neighborhood, :string
+    field :address, :string
+    field :hour, :string
+    field :minute, :string
+    field :ampm, :string
+    field :min, :string
     field :image_url, :string
     belongs_to :user, User
 
@@ -24,19 +26,21 @@ defmodule MaisieApi.Services.Circle do
 
   def changeset(circle, attrs) do
     circle
-    |> cast(attrs, [:name, :description, :price, :day, :time, :duration, :program_length, :start, :end, :space_type, :location, :user_id])
+    |> cast(attrs, [:title, :description, :price, :day, :frequency, :length, :location_type, :neighborhood, :address, :hour, :minute, :ampm, :min, :user_id])
     |> validate_required([
-      :name,
+      :title,
       :description,
       :price,
       :day,
-      :time,
-      :duration,
-      :program_length,
-      :start,
-      :end,
-      :space_type,
-      :location,
+      :frequency,
+      :length,
+      :location_type,
+      :neighborhood,
+      :address,
+      :hour,
+      :minute,
+      :ampm,
+      :min,
       :user_id
     ])
   end
