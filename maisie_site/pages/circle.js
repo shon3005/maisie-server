@@ -15,10 +15,7 @@ import { Query } from 'react-apollo';
 
 var classNames = require('classnames')
 function Circle(props) {
-  let id;
-  if (process.browser) {
-    id = Router.query.id
-  }
+  const id = props.query.id;
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
@@ -31,6 +28,10 @@ function Circle(props) {
       <Footer />
     </div>
   )
+}
+
+Circle.getInitialProps = async (context) => {
+  return {query: context.ctx.query};
 }
 
 const mapStateToProps = (state) => {

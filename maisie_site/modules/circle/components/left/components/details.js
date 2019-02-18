@@ -48,11 +48,13 @@ export default (props) => {
 
   const elements = [ren1, ren2].map((arr, index) =>
     arr.map((item, index) =>
-      <div className="circledetails__item row-fs-c" key={index}>
-        <img src={item.img} />
-        <div className="col">
-          <span className="tag dark_theme_tag_text">{item.tag}</span>
-          <span className="text dark_theme_primary_text">{item.text}</span>
+      <div key={index}>
+        <div className="circledetails__item row-fs-c" key={index}>
+          <img src={item.img} />
+          <div className="col">
+            <span className="tag dark_theme_tag_text">{item.tag}</span>
+            <span className="text dark_theme_primary_text">{item.text}</span>
+          </div>
         </div>
       </div>
     )

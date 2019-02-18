@@ -12,11 +12,11 @@ export default (props) => {
     <div className={classNames(["circle_right__inner", "col-fs-c", { "dark_theme": props.dark }])}>
       <div className="circle_right__inner_cont col-fs-c">
         <div className="circle_right__inner_cont-price col-fs-c dark_theme_primary_text">
-          <span><span className="large">{"$" + props.d.price}</span> per session</span>
+          <span><span className="large">{"$" + props.circle.price}</span> per session</span>
         </div>
         <div style={{height: 20}} />
         <div className="dark_theme_dark_back circle_right__inner-joined col-c-c">
-          <span className="dark_theme_tag_text">{props.d.num_joined + " joined (" + (props.d.needed_to_start - props.d.num_joined) + " more needed)"}</span>
+          <span className="dark_theme_tag_text">{props.d.num_joined + " joined (" + (props.circle.min - props.d.num_joined) + " more needed)"}</span>
           <div className="row-sa-c">
             <Dots d={props.d} />
           </div>
