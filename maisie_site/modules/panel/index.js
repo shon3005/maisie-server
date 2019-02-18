@@ -1,6 +1,5 @@
 import Top from './components/top.js';
 import History from './components/history/index.js';
-
 export default () =>
   <div className="hostpanel col-fs-fe">
     <Top />

@@ -22,12 +22,12 @@ export default (props) =>
           <div />
         </div>
       </Link>
-      <Link as="/panel/inbox" href="/panel/inbox">
+      {/*<Link as="/panel/inbox" href="/panel/inbox">
         <div className={classNames(["col-c-c", {"selected": props.page === "inbox"}])}>
           <span>Inbox</span>
           <div />
         </div>
-      </Link>
+      </Link> */}
       <Link as="/panel/profile" href="/panel/profile">
         <div className={classNames(["col-c-c", {"selected": props.page === "profile"}])}>
           <span>Profile</span>

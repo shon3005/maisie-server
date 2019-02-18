@@ -12,7 +12,6 @@ function handleClick() {
 
 class Circles extends Component {
   render() {
-    console.log(this.props.user.circles)
     return (
       <div className="mycircles col-fs-c">
         <Header loggedIn="loggedIn"/>
