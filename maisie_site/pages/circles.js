@@ -12,6 +12,7 @@ function handleClick() {
 
 class Circles extends Component {
   render() {
+    console.log(this.props.user.circles)
     return (
       <div className="mycircles col-fs-c">
         <Header loggedIn="loggedIn"/>
@@ -24,7 +25,7 @@ class Circles extends Component {
             zIndex: 99997,
           }}
         />
-        <CirclesModule token={this.props.token} />
+        <CirclesModule token={this.props.token} blank={this.props.user.circles ? false : true} />
         <Footer />
       </div>
     );
