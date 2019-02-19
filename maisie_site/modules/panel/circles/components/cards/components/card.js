@@ -2,9 +2,9 @@ var classNames = require('classnames');
 
 export default (props) => {
   return (
-    <a href={!props.data.pending ? 'circle/' + props.data.id : null} className={classNames(["mycirclescard", "row-sb-c", { "non-click": props.data.pending }])}>
+    <a href={!props.data.pending ? '/circle/' + props.data.id : null} className={classNames(["mycirclescard", "row-sb-c", { "non-click": props.data.pending }])}>
       <div className="mycirclescard__cont row-fs-c">
-        <img src={props.data.image_url} className="mycirclescard__cont-img" style={{backgroundSize: "cover", backgroundPosition: "center"}} />
+        <div className="mycirclescard__cont-img" style={{backgroundImage: `url(${props.data.image_url})`, backgroundSize: "cover", backgroundPosition: "center"}} />
         <div className="mycirclescard__cont_text col">
           <span className="mycirclescard__cont_text-title">{props.data.title}</span>
           <span className="mycirclescard__cont_text-date">{"every " + props.data.day + " at " + props.data.hour + ":" + props.data.minute + props.data.ampm}</span>

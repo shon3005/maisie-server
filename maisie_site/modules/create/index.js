@@ -49,7 +49,6 @@ class Create extends React.Component {
     const {
       currentTarget: { files }
     } = e;
-
     var image_url = document.getElementById("create_slide1_imageupload").value;
     this.setState({image_url, image: files[0]});
   }
@@ -121,29 +120,53 @@ class Create extends React.Component {
   }
   render() {
     const slideToShow = () => {
-      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} user={this.props.user} whoshouldjoin={this.props.whoshouldjoin} tags={this.props.tags} /> }
-      else if (this.state.slideToShow == 1) { return <SlideTwo day={this.state.day} frequency={this.state.frequency} length={this.state.length} hour={this.state.hour} minute={this.state.minute} ampm={this.state.ampm} /> }
-      else if (this.state.slideToShow == 2) { return <SlideThree location_type={this.state.location_type} neighborhood={this.state.neighborhood} address={this.state.address} /> }
-      else if (this.state.slideToShow == 3) { return <SlideFour price={this.state.price} min={this.state.min} /> }
-      else if (this.state.slideToShow == 4) {
-        return(
-          <SlideFive
-            title={this.state.title}
-            description={this.state.description}
-            day={this.state.day}
-            frequency={this.state.frequency}
-            length={this.state.length}
-            hour={this.state.hour}
-            minute={this.state.minute}
-            ampm={this.state.ampm}
-            location_type={this.state.location_type}
-            neighborhood={this.state.neighborhood}
-            address={this.state.address}
-            price={this.state.price}
-            min={this.state.min}
-          />
-        )
-      } else if (this.state.slideToShow == 5) {
+      if (this.state.slideToShow == 0) { return(
+        <SlideOne
+          title={this.state.title}
+          description={this.state.description}
+          image={this.state.image_url}
+          addedImage={this.handleAddImage.bind(this)}
+          user={this.props.user}
+          whoshouldjoin={this.state.whoshouldjoin}
+          tags={this.state.tags}
+        /> )}
+      else if (this.state.slideToShow == 1) { return(
+        <SlideTwo
+          day={this.state.day}
+          frequency={this.state.frequency}
+          length={this.state.length}
+          hour={this.state.hour}
+          minute={this.state.minute}
+          ampm={this.state.ampm}
+        /> )}
+      else if (this.state.slideToShow == 2) { return(
+        <SlideThree
+          location_type={this.state.location_type}
+          neighborhood={this.state.neighborhood}
+          address={this.state.address}
+        /> )}
+      else if (this.state.slideToShow == 3) { return(
+        <SlideFour
+          price={this.state.price}
+          min={this.state.min}
+        /> )}
+      else if (this.state.slideToShow == 4) { return(
+        <SlideFive
+          title={this.state.title}
+          description={this.state.description}
+          day={this.state.day}
+          frequency={this.state.frequency}
+          length={this.state.length}
+          hour={this.state.hour}
+          minute={this.state.minute}
+          ampm={this.state.ampm}
+          location_type={this.state.location_type}
+          neighborhood={this.state.neighborhood}
+          address={this.state.address}
+          price={this.state.price}
+          min={this.state.min}
+        /> )}
+      else if (this.state.slideToShow == 5) {
         return(
           <div className="col-c-c" style={{height: "100%", width: "100%"}}>
             <LargeText>Thank you for submitting!</LargeText>

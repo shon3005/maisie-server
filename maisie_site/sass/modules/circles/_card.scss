@@ -17,6 +17,7 @@
   }
   &__cont {
     &-img {
+      background-color: $color-primary;
       height: 80px;
       width: 100px;
       @include border-radius(5px);
