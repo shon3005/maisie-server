@@ -36,6 +36,7 @@
       > div {
         height: 14px;
         width: 14px;
+
         @include border-radius(50px);
       }
     }
