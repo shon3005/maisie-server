@@ -1,4 +1,4 @@
-#create_slide1_imageupload,#profile_imageupload {
+#create_slide1_imageupload,#profile_imageupload,#hostprofile_imageupload {
   display: none;
   +label {
     @include transition(all, 200ms);
@@ -116,12 +116,6 @@
         &:active { opacity: .75; }
         &.back {
           color: $color-primary;
-
-          &.fade {
-            opacity: .25;
-            &:hover { cursor: default; }
-            &:active { opacity: .25; }
-          }
         }
         &.next {
           background-color: $color-primary;
@@ -176,9 +170,9 @@
     &_text {
       width: calc(80px + 5%);
       margin-right: 25px;
+      text-align: right;
       > span.tag {
         font-size: $font-size-tag-small;
-        margin-top: -5px;
         color: $color-primary;
         font-weight: 600;
       }

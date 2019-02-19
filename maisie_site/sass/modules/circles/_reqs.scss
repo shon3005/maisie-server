@@ -28,9 +28,6 @@
       }
     }
   }
-  &.hide {
-    display: none !important;
-  }
 
   &__drop {
     @include transition(all, 200ms);
@@ -116,8 +113,4 @@
       }
     }
   }
-}
-
-.hide {
-  display: none !important;
 }
