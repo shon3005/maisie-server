@@ -3,6 +3,30 @@
   @include user-select(none);
   @include border-radius(50px);
 
+  &-spinner {
+    @include transition(all, 200ms);
+    > span {
+      margin-right: 10px;
+    }
+    > div {
+      transform: rotate(90deg);
+      -webkit-animation: rotating 1s ease-in-out infinite;
+      -moz-animation: rotating 1s ease-in-out infinite;
+      animation: rotating 1s ease-in-out infinite;
+
+      height: 24px;
+      width: 24px;
+      @include border-radius(50px);
+      background: conic-gradient(transparent, white);
+
+      > div {
+        background-color: $color-primary;
+        height: 16px;
+        width: 16px;
+        @include border-radius(50px);
+      }
+    }
+  }
 
   &.primary {
     height: 50px;

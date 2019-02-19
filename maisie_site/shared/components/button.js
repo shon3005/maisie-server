@@ -1,4 +1,13 @@
 var classNames = require('classnames');
+
+const Spinner = (props) =>
+  <div className="template_buttons-spinner row-c-c">
+    { props.saving ? <span>{props.saving}</span> : null}
+    <div className="col-c-c">
+      <div />
+    </div>
+  </div>
+
 export default (props) => {
   function a(props) {
     return(
@@ -7,8 +16,7 @@ export default (props) => {
         onClick={props.onClick ? props.onClick : null}
         className={classNames([ "template_buttons", "row-c-c", props.weight ? props.weight : console.warn("Warning: weight prop is missing from button component."), props.kind ? props.kind : console.warn("Warning: kind prop is missing from button component."), props.className ])}
         id={props.id ? props.id : null}
-      >{props.children}
-
+      >{props.saving ? <Spinner saving={props.saving} /> : props.children}
         {props.kind === "link"
           ? <svg width="12px" height="11px" viewBox="0 0 12 11">
               <g id="Web-V2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fillOpacity="1">
@@ -39,7 +47,7 @@ export default (props) => {
         onClick={props.onClick ? props.onClick : null}
         className={classNames([ "template_buttons", "row-c-c", props.weight ? props.weight : console.warn("Warning: weight prop is missing from button component."), props.kind ? props.kind : console.warn("Warning: kind prop is missing from button component."), props.className ])}
         id={props.id ? props.id : null}
-      >{props.children}</div>
+      >{props.saving ? <Spinner /> : props.children}</div>
     )
   }
   return props.href ? a(props) : b(props)
