@@ -20,7 +20,7 @@ const LoggedIn = (props) =>
       {
         props.user && props.user.role === 'host' ?
           <div>
-            <Item text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel/dash" />
+            <Item text="Host Dashboard" img="../../../../../static/sidebar/circles.svg" href="/panel" />
             <Spacer circle={false} />
           </div> :
           null
