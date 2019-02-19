@@ -1,5 +1,6 @@
 import PhoneEntry from './components/phoneEntry.js';
 import React from 'react';
+import Button from '../../shared/components/button.js';
 
 var classNames = require('classnames')
 
@@ -33,7 +34,7 @@ export default class extends React.Component {
             <span className="support__inner__top_box-title">Email us</span>
             <span className="support__inner__top_box-desc">We'll respond as soon as possible</span>
             <div style={{height: 20}} />
-            <a href="mailto:support@heymaisie.com"><button type="button">Send an email</button></a>
+            <Button kind="alt" weight="light" href="mailto:support@heymaisie.com">Send an email</Button>
           </div>
                         <div className="support__inner__top-space" />
           <div className="support__inner__top_box col-c-c">
@@ -45,10 +46,11 @@ export default class extends React.Component {
               "success": this.state.successMessage,
             })}>{this.state.successMessage ? "Success. We'll call you shortly!" : "Available 10am-6pm EST"}</span>
             <div style={{height: this.state.successMessage ? 50 : 20}} />
-            <button type="button" style={{display: this.state.successMessage ? 'none' : 'auto'}} onClick={this.handleOverlayHit}>Talk to us</button>
+            <Button kind="alt" weight="light" onClick={this.handleOverlayHit}>Talk to us</Button>
             {phone} {overlay}
           </div>
         </div>
+        <div style={{height: 40}} />
       </div>
     )
   }
