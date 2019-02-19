@@ -2,8 +2,6 @@ import ProfileModule from '../modules/profile/profile.js';
 import Header from '../shared/components/header/index.js';
 import Footer from '../shared/components/footer.js';
 import { connect } from 'react-redux';
-import cookie from 'cookie';
-import redirect from '../shared/services/redirect';
 import getUserProfile from '../shared/services/get-user-profile';
 import { Query } from 'react-apollo';
 
@@ -25,9 +23,9 @@ Profile.getInitialProps = async (context) => {
 }
 
 const mapStateToProps = (state) => {
-  return process.browser ?
-    { user: state.user.user } :
-    {};
+  return {
+    user: state.user.user
+  };
 }
 
 export default connect(mapStateToProps)(Profile);

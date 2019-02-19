@@ -34,7 +34,13 @@ class Signup extends Component {
         firstName: data.registerUser.user.firstName,
         lastName: data.registerUser.user.lastName,
         email: data.registerUser.user.email,
-        role: data.registerUser.user.role
+        role: data.registerUser.user.role,
+        image_url: data.registerUser.user.imageUrl,
+        phone: data.registerUser.user.phone,
+        neighborhood: data.registerUser.user.neighborhood,
+        school: data.registerUser.user.school,
+        work: data.registerUser.user.work,
+        bio: data.registerUser.user.bio,
       });
 
       await this.props.updateToken(data.registerUser.token);

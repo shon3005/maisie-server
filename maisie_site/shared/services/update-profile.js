@@ -2,15 +2,33 @@ import gql from 'graphql-tag'
 
 export default (
   apolloClient,
-  email,
-  password,
+  profile
 ) =>
   apolloClient
     .mutate({
       mutation: gql`
-        mutation loginUser($email: String!, $password: String!) {
-          loginUser(input: {email: $email, password: $password}) {
-            token
+        mutation updateProfile(
+          $firstName: String,
+          $lastName: String,
+          $email: String,
+          $phone: String,
+          $neighborhood: String,
+          $school: String,
+          $work: String,
+          $bio: String
+        ) {
+          updateProfile(
+            input: {
+              firstName: $firstName,
+              lastName: $lastName,
+              email: $email,
+              phone: $phone,
+              neighborhood: $neighborhood,
+              school: $school,
+              work: $work,
+              bio: $bio
+            }
+          ) {
             user {
               id
               firstName
@@ -22,6 +40,7 @@ export default (
               school
               work
               bio
+              imageUrl
               host {
                 id
                 description
@@ -50,8 +69,14 @@ export default (
           }
         }
       `,
-      variables: { email, password },
-    }).catch((err) => {
-      // Fail gracefully
-      return {}
-    })
+      variables: {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        email: profile.email,
+        phone: profile.phone,
+        neighborhood: profile.neighborhood,
+        school: profile.school,
+        work: profile.work,
+        bio: profile.bio
+      }
+    });

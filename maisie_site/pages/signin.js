@@ -44,6 +44,12 @@ class Signin extends Component {
         lastName: data.loginUser.user.lastName,
         email: data.loginUser.user.email,
         role: data.loginUser.user.role,
+        image_url: data.loginUser.user.imageUrl,
+        phone: data.loginUser.user.phone,
+        neighborhood: data.loginUser.user.neighborhood,
+        school: data.loginUser.user.school,
+        work: data.loginUser.user.work,
+        bio: data.loginUser.user.bio,
         host: data.loginUser.user.host,
         circles: data.loginUser.user.circles
       });
