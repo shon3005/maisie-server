@@ -1,0 +1,80 @@
+.hostprofile {
+  &__modal {
+    max-width: 600px;
+    min-width: 300px;
+    width: 100vw;
+    height: auto;
+    overflow-y: auto;
+    &-img {
+      height: 50px;
+      width: 50px;
+      @include border-radius(50px);
+      margin-left: 140px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    &-top {
+      width: 100%;
+      margin-bottom: -30px;
+      margin-top: 20px;
+    }
+    &_brow {
+      margin-top: 25px;
+      > div {
+        @include transition(all, 200ms);
+        @include user-select(none);
+        &:hover {
+          transform: scale(1.05);
+          cursor: pointer;
+        }
+        &:active { opacity: .75; }
+      }
+      &-cancel {
+        margin-right: 25px;
+        font-size: $font-size-small;
+        font-weight: 600;
+        color: $color-secondary-75;
+        margin-bottom: 7px;
+      }
+      &-submit {
+        margin-bottom: 7px;
+        margin-right: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: $color-primary;
+        color: white;
+        @include border-radius(50px);
+        font-size: $font-size-small;
+        font-weight: 600;
+        box-shadow: inset 0 -11px 12px 0 rgba(5, 45, 84, 0.05);
+      }
+    }
+  }
+  &__edit {
+    > div {
+      @include transition(all, 200ms);
+      font-weight: 600;
+      font-size: $font-size-reg;
+      color: $color-secondary-75;
+      @include border-radius(50px);
+
+      &:hover  {
+        cursor: pointer;
+      }
+      &:active {
+        opacity: .75;
+      }
+    }
+  }
+  &__hosted {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: -10px;
+    padding-bottom: 20px;
+    background-color: white;
+    @include border-radius(5px);
+    border: 1px solid $color-secondary-10;
+  }
+}

@@ -45,3 +45,24 @@ a {
   height: 100%;
   width: 100%;
 }
+.modal {
+  position: absolute;
+  z-index: 9999999;
+  height: 100vh;
+  width: 100vw;
+  background-color: $color-black-90;
+
+  > div {
+    padding: 20px;
+    @include border-radius(5px);
+    margin: 0 auto;
+    background-color: #FCFDFF;
+  }
+}
+.hide {
+  display: none !important;
+}
+.fade {
+  opacity: .25 !important;
+  &:hover { pointer-events: none; transform: none !important;}
+}

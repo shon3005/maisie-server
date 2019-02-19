@@ -3,9 +3,17 @@ import SmallText from '../../../shared/components/text/smallText.js';
 import Hosted from '../../circle/components/left/components/hosted.js';
 
 export default (props) =>
-  <div>
-    <LargeText>Profile</LargeText>
-    <SmallText>Here's what users will see:</SmallText>
+  <div className="hostprofile">
+    <div className="row-sb-c">
+      <div className="col">
+        <LargeText>Profile</LargeText>
+        <SmallText>Here's what users will see:</SmallText>
+      </div>
+      <div className="hostprofile__edit col">
+        <div onClick={() => document.getElementById("profile_modal").classList.remove("hide")}>Edit Information</div>
+      </div>
+    </div>
+    <div className="hostprofile__hosted">
     <Hosted host={{
       name: props.user.firstName + ' ' + props.user.lastName,
       imageUrl: props.user.host.imageUrl,
@@ -13,4 +21,5 @@ export default (props) =>
       education: props.user.host.education,
       license: props.user.host.license
     }} />
+    </div>
   </div>
