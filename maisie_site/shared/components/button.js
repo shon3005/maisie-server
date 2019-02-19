@@ -2,17 +2,12 @@ var classNames = require('classnames');
 
 const Spinner = (props) =>
   <div className="template_buttons-spinner row-c-c">
-<<<<<<< HEAD
     { props.saving && props.kind != "link" && props.kind != "ext" ? <span>{props.saving}</span> : null}
     <div className={classNames(["col-c-c", {
       "purple": props.weight === "purple",
       "dark": props.weight === "dark",
       "light": props.weight === "light"
     }])}>
-=======
-    { props.saving ? <span>{props.saving}</span> : null}
-    <div className="col-c-c">
->>>>>>> 76942e0b277317cca6d082cd8e1fba267a777267
       <div />
     </div>
   </div>
@@ -32,11 +27,7 @@ export default (props) => {
           props.className
         ])}
         id={props.id ? props.id : null}
-<<<<<<< HEAD
       >{props.saving && props.kind != "link" && props.kind != "ext" ? <Spinner saving={props.saving} weight={props.weight} /> : props.children}
-=======
-      >{props.saving ? <Spinner saving={props.saving} /> : props.children}
->>>>>>> 76942e0b277317cca6d082cd8e1fba267a777267
         {props.kind === "link"
           ? <svg width="12px" height="11px" viewBox="0 0 12 11">
               <g id="Web-V2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fillOpacity="1">
@@ -74,11 +65,7 @@ export default (props) => {
           props.className
         ])}
         id={props.id ? props.id : null}
-<<<<<<< HEAD
       >{props.saving && props.kind != "link" && props.kind != "ext" ? <Spinner saving={props.saving} weight={props.weight} /> : props.children}</div>
-=======
-      >{props.saving ? <Spinner /> : props.children}</div>
->>>>>>> 76942e0b277317cca6d082cd8e1fba267a777267
     )
   }
   return props.href ? a(props) : b(props)
