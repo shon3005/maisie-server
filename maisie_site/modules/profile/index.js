@@ -6,8 +6,8 @@ import updateProfile from '../../shared/services/update-profile';
 import { ApolloConsumer } from 'react-apollo';
 import * as actions from '../../shared/services/actions';
 import { connect } from 'react-redux';
-import Router from 'next/router';
 import axios from 'axios';
+
 
 const Spacer = (props) => <div style={{height: props.height}} />
 
@@ -17,13 +17,15 @@ class Profile extends React.Component {
     this.state = {
       image: false,
       saveMessage: "Save Profile",
+      image_url: '',
     }
   }
   handleUploadImage(e) {
     const {
       currentTarget: { files }
     } = e;
-    this.setState({image: files[0]});
+    const image_url = document.getElementById("profile_imageupload").value;
+    this.setState({image_url, image: files[0]});
   }
   handlePress = async (e, client) => {
     e.preventDefault()
@@ -75,7 +77,7 @@ class Profile extends React.Component {
       host: user.host,
       circles: user.circles
     });
-    // Router.push('/');
+    location.reload(true);
   }
   render() {
     return(
@@ -83,7 +85,7 @@ class Profile extends React.Component {
         <span className="profile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
-        <div className="profile__picture" style={{backgroundImage: "url('../../static/shared/example_prof.svg')"}}></div>
+        <img src={this.props.user.image_url} className="profile__picture" />
         <Field title="Profile Picture">
           <input
             type="file"
@@ -92,7 +94,7 @@ class Profile extends React.Component {
             onChange={this.handleUploadImage.bind(this)}
           />
             <label htmlFor="profile_imageupload"><span>Choose a file</span></label>
-            <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
+            <span>{ this.state.image_url ? "Uploaded: " + this.state.image_url : null}</span>
         </Field>
         <Field title="First Name">
           <input

@@ -5,6 +5,7 @@ var classNames = require('classnames')
 import { connect } from 'react-redux';
 import {Link} from '../../../../../../../routes';
 import cookie from 'cookie';
+import Router from 'next/router';
 
 const LoggedIn = (props) =>
 <div className="row-fe-c">
@@ -75,8 +76,7 @@ const handleDelete = () => {
   document.cookie = cookie.serialize('token', '', {
     maxAge: -1
   });
-  location.reload(true);
-  console.log(cookie)
+  Router.push('/');
 }
 
 const mapStateToProps = (state) => {
