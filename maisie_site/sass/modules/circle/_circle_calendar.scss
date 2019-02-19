@@ -2,11 +2,18 @@ $grid_wh: calc(.5vw + 30px);
 
 .circlecal {
   @include user-select(none);
+  padding-left: 5%;
+  padding-right: 5%;
   @include tabletandmobile {
+    padding-left: 0px;
+    padding-right: 0px;
     @include flex-direction(column !important);
   }
   &__left {
     height: 250px;
+    &.loc {
+      height: 180px;
+    }
   }
   &__in {
     margin-top: 10px;
@@ -60,5 +67,12 @@ $grid_wh: calc(.5vw + 30px);
         }
       }
     }
+  }
+  &__location {
+    height: 200px;
+    width: 300px;
+    background-color: $color-secondary-05;
+    color: $color-secondary-25;
+    @include border-radius(5px);
   }
 }

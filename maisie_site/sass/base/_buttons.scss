@@ -3,6 +3,44 @@
   @include user-select(none);
   @include border-radius(50px);
 
+  &-spinner {
+    @include transition(all, 200ms);
+    > span {
+      text-transform: capitalize;
+      margin-right: 10px;
+      opacity: .5;
+    }
+    > div {
+      transform: rotate(90deg);
+      -webkit-animation: rotating 1s ease-in-out infinite;
+      -moz-animation: rotating 1s ease-in-out infinite;
+      animation: rotating 1s ease-in-out infinite;
+
+      height: 20px;
+      width: 20px;
+      @include border-radius(50px);
+      background: conic-gradient(transparent, white);
+
+      &.purple {
+        background: conic-gradient(transparent, white);
+        > div { background-color: $color-primary; }
+      }
+      &.dark {
+        background: conic-gradient(transparent, white);
+        > div { background-color: $color-secondary; }
+      }
+      &.light {
+        background: conic-gradient(transparent, $color-secondary-25);
+        > div { background-color: white; }
+      }
+
+      > div {
+        height: 14px;
+        width: 14px;
+        @include border-radius(50px);
+      }
+    }
+  }
 
   &.primary {
     height: 50px;
@@ -67,24 +105,28 @@
     color: white;
   }
   &:hover {
-    cursor: pointer;
-    &.primary {
-      &.purple, &.dark { transform: scale(1.05); }
-      &.light { box-shadow: 0px 0px 30px $color-secondary-10; }
+    &.button_active {
+      cursor: pointer;
+      &.primary {
+        &.purple, &.dark { transform: scale(1.05); }
+        &.light { box-shadow: 0px 0px 30px $color-secondary-10; }
+      }
+      &.alt {
+        box-shadow: 0 5px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10), inset 0 -11px 12px 0 rgba(5,45,84,0.05);
+        &.purple { background-color: #839DFF; }
+        &.dark { background-color: #20457D; }
+        &.light { background-color: #F8F9FF; }
+      }
+      &.link {
+        color: $color-primary;
+        > svg > g > g { fill: $color-primary; }
+      }
+      &.ext { box-shadow: 0px 0px 30px $color-secondary-10; }
     }
-    &.alt {
-      box-shadow: 0 5px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10), inset 0 -11px 12px 0 rgba(5,45,84,0.05);
-      &.purple { background-color: #839DFF; }
-      &.dark { background-color: #20457D; }
-      &.light { background-color: #F8F9FF; }
-    }
-    &.link {
-      color: $color-primary;
-      > svg > g > g { fill: $color-primary; }
-    }
-    &.ext { box-shadow: 0px 0px 30px $color-secondary-10; }
   }
   &:active {
-    opacity: .75;
+    &.button_active {
+      opacity: .75;
+    }
   }
 }

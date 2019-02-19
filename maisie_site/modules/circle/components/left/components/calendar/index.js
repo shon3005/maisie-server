@@ -11,7 +11,7 @@ export default (props) => {
   // creates array where first value is day as a number, second is day as a number with example "st" or "nd" after, third is day of the week as a string, fourth is day of the week as a number
   const this_day = [moment(props.date).format("DD"), moment(props.date).format("Do"), moment(props.date).format("ddd"), moment(props.date).format("e")]
   return(
-    <div className="circlecal row-sa-c">
+    <div className="circlecal row-sb-c">
       <div className="circlecal__left col-sa">
         <div className="circledetails__item row-fs-c">
           <img src="../../../static/circle/day.svg" />
