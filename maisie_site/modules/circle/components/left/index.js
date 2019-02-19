@@ -3,6 +3,7 @@ import Hosted from './components/hosted.js';
 import Divider from './components/divider.js';
 import Tags from './components/tags.js';
 import Details from './components/details.js';
+import Calendar from './components/calendar/index.js';
 
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 var classNames = require('classnames')
@@ -32,16 +33,8 @@ export default (props) => {
       <Sub>description</Sub>
       <div className="circle_left-text dark_theme_primary_text">{props.circle ? props.circle.description : null}</div>
       <Divider />
-      <Sub>details</Sub>
-      <div style={{height: 10}} />
-      <Details
-        day={day}
-        time={date}
-        length={props.circle ? props.circle.length : null}
-        type={props.circle ? props.circle.locationType : null}
-        neighborhood={props.circle ? props.circle.neighborhood : null}
-      />
-      <div style={{height: 10}} />
+      <Sub>scheduling</Sub>
+      <Calendar date={"2019-04-20"} time={props.circle ? props.d.time : null} length={props.circle ? props.circle.length : null} />
       <Divider />
       <Sub>who should join this circle?</Sub>
       <div className="dark_theme_primary_text circle_left-text">{props.d.who_should_join}</div>

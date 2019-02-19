@@ -1,0 +1,64 @@
+$grid_wh: calc(.5vw + 30px);
+
+.circlecal {
+  @include user-select(none);
+  @include tabletandmobile {
+    @include flex-direction(column !important);
+  }
+  &__left {
+    height: 250px;
+  }
+  &__in {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &-gridheaders {
+      width: 100%;
+      color: $color-secondary-75;
+      font-weight: 600;
+      font-size: $font-size-small;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      box-shadow: 0px 2px 0px $color-secondary-03;
+      > div {
+        width: auto;
+        height: $grid_wh;
+        width: $grid_wh;
+      }
+    }
+    &-gridtitle {
+      color: $color-secondary-75;
+      font-weight: 500;
+      font-size: $font-size-med;
+    }
+    &_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      justify-items: center;
+      align-items: center;
+
+      > div {
+        height: $grid_wh;
+        width: $grid_wh;
+        @include border-radius(50px);
+        font-weight: 600;
+        font-size: $font-size-small;
+        &:not(.inMonth) {
+          color: $color-primary-light;
+        }
+        &.inMonth {
+          &.active {
+            background-color: $color-primary;
+            color: white;
+          }
+          &:not(.active) {
+            background-color: $color-primary-lighter;
+            color: $color-primary;
+          }
+        }
+      }
+    }
+  }
+}

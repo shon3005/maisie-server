@@ -162,24 +162,25 @@
 .circledetails {
   flex-wrap: wrap;
   &__item {
-    width: 25%;
     > img {
       width: 24px;
     }
     font-weight: 400;
 
     > div {
-      margin-left: 15px;
       > span.tag {
-        color: $color-secondary-25;
-        font-size: $font-size-small;
+        color: $color-secondary-50;
+        font-weight: 600;
+        font-size: $font-size-tag-small;
+        text-transform: uppercase;
+        margin-left: 15px;
       }
       > span.text {
-        margin-top: -5px;
         color: $color-secondary;
         font-size: $font-size-reg;
         text-transform: capitalize;
         font-weight: 500;
+        margin-left: 15px;
       }
     }
   }
