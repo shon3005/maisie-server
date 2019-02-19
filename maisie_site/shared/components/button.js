@@ -16,7 +16,7 @@ export default (props) => {
   function a(props) {
     return(
       <a
-        href={props.href && (props.kind == "link" || props.kind == "ext" ) ? props.href : null}
+        href={props.href && !props.saving ? props.href : null}
         onClick={props.onClick ? props.onClick : null}
         className={classNames([
           "template_buttons",
