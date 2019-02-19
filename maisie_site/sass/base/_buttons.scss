@@ -15,7 +15,6 @@
       -webkit-animation: rotating 1s ease-in-out infinite;
       -moz-animation: rotating 1s ease-in-out infinite;
       animation: rotating 1s ease-in-out infinite;
-
       height: 20px;
       width: 20px;
       @include border-radius(50px);
@@ -37,6 +36,7 @@
       > div {
         height: 14px;
         width: 14px;
+
         @include border-radius(50px);
       }
     }
