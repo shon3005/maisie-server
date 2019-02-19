@@ -11,15 +11,10 @@ export default (props) =>
       <div className="front__content_in">
         <span className="front__content_in-title">Meet Maisie.</span><br />
         <span className="front__content_in-desc">Find and host meaningful group therapy experiences</span>
-        <div className="col-c-c"><div>AVAILABLE IN NEW YORK CITY</div></div>
+        <div className="col-c-c"><div>AVAILABLE IN NYC AND SF</div></div>
+        <div className="front__content_in_cta row-c-c"><a href="signup">Sign Up</a></div>
       </div>
       <div className="front__content-prompt col-sb-c">
-        <div className="front__content-prompt_cta row-c-c">
-          <a href="signup" className="one col-c-c">Sign Up</a>
-          <div style={{width: 20}} />
-          <a href="/" className="two col-c-c">Browse Circles</a>
-        </div>
-        <div style={{height: 50}} />
         <div className="socialbuttons row-sb-c"><SocialButtons /></div>
       </div>
     </div>

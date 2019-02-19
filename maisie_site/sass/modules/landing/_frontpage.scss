@@ -34,41 +34,36 @@
     z-index: 3;
     height: 90%;
     width: 100%;
-    &-prompt_cta {
-      margin-bottom: 25%;
-      > a {
-        @include transition(all,200ms);
-        padding-left: 25px;
-        padding-right: 25px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        @include border-radius(50px);
-        border: none;
-        transform: scale(1);
 
-        box-shadow: $shadow-ssss;
-        font-size: $font-size-reg;
-        font-weight: 500;
-
-        &:hover {
-          cursor: pointer;
-          box-shadow: $shadow-sssss;
-          transform: scale(1.05);
-        }
-      }
-      > a.one {
-        background-color: white;
-        color: $color-secondary;
-      }
-      > a.two {
-        background-color: $color-primary;
-        color: white;
-      }
-    }
     &_in {
       margin-top:75px;
       text-align: center;
       width: 90%;
+      &_cta {
+        > a {
+          @include transition(all,200ms);
+          margin-top: 25px;
+          padding-left: 25px;
+          padding-right: 25px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          @include border-radius(50px);
+          border: none;
+          transform: scale(1);
+          background-color: $color-primary;
+          color: white;
+
+          box-shadow: $shadow-ssss;
+          font-size: $font-size-reg;
+          font-weight: 600;
+
+          &:hover {
+            cursor: pointer;
+            box-shadow: $shadow-sssss;
+            transform: scale(1.05);
+          }
+        }
+      }
       > div {
         width: 100%;
         margin-top: 10px;
