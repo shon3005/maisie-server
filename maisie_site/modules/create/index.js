@@ -26,6 +26,8 @@ class Create extends React.Component {
       slideToShow: 0,
       title: false,
       description: false,
+      whoshouldjoin: false,
+      tags: false,
       day: "",
       frequency: "",
       length: "",
@@ -46,26 +48,30 @@ class Create extends React.Component {
     const {
       currentTarget: { files }
     } = e;
-    
+
     var image_url = document.getElementById("create_slide1_imageupload").value;
     this.setState({image_url, image: files[0]});
   }
   async handleForwardPress(client) {
     if (this.state.slideToShow === 0) {
-      var title = document.getElementById("title").value;
-      var image_url = this.state.image_url ? this.state.image_url : document.getElementById("create_slide1_imageupload").value;
-      var description = document.getElementById("description").value;
+      var title = document.getElementById("title").value,
+          image_url = this.state.image_url ? this.state.image_url : document.getElementById("create_slide1_imageupload").value,
+          description = document.getElementById("description").value,
+          whoshouldjoin = document.getElementById("whoshouldjoin").value,
+          tags = document.getElementById("tags").value;
       !title.length ? this.setState({title: ""}) : this.setState({title: title });
       image_url === false ? this.setState({image_url: ""}) : this.setState({image_url});
       !description.length ? this.setState({description: ""}) : this.setState({description: description });
+      !whoshouldjoin.length ? this.setState({whoshouldjoin: ""}) : this.setState({whoshouldjoin: whoshouldjoin });
+      !tags.length ? this.setState({tags: ""}) : this.setState({tags: tags });
       title.length && description.length && image_url ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
     } else if (this.state.slideToShow === 1) {
-      var day = document.getElementById("day").value;
-      var frequency = document.getElementById("frequency").value;
-      var length = document.getElementById("length").value;
-      var hour = document.getElementById("hour").value;
-      var minute = document.getElementById("minute").value;
-      var ampm = document.getElementById("ampm").value;
+      var day = document.getElementById("day").value,
+          frequency = document.getElementById("frequency").value,
+          length = document.getElementById("length").value,
+          hour = document.getElementById("hour").value,
+          minute = document.getElementById("minute").value,
+          ampm = document.getElementById("ampm").value;
       this.setState({
         day: day,
         frequency: frequency,
@@ -114,7 +120,7 @@ class Create extends React.Component {
   }
   render() {
     const slideToShow = () => {
-      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} user={this.props.user}/> }
+      if (this.state.slideToShow == 0) { return <SlideOne title={this.state.title} description={this.state.description} image={this.state.image_url} addedImage={this.handleAddImage.bind(this)} user={this.props.user} whoshouldjoin={this.props.whoshouldjoin} tags={this.props.tags} /> }
       else if (this.state.slideToShow == 1) { return <SlideTwo day={this.state.day} frequency={this.state.frequency} length={this.state.length} hour={this.state.hour} minute={this.state.minute} ampm={this.state.ampm} /> }
       else if (this.state.slideToShow == 2) { return <SlideThree location_type={this.state.location_type} neighborhood={this.state.neighborhood} address={this.state.address} /> }
       else if (this.state.slideToShow == 3) { return <SlideFour price={this.state.price} min={this.state.min} /> }

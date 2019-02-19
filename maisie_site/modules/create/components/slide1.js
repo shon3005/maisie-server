@@ -40,9 +40,30 @@ export default (props) =>
         />
       </Field>
       <Disclaimer>Here's your chance to give readers more information about your circle. Who is this Circle meant for? What kinds of goals will you work towards? Who will be happy in this group?</Disclaimer>
+      <Field title="Tags">
+        <input
+          type="text"
+          defaultValue={props.tags ? props.tags : ""}
+          placeholder="active, outdoors"
+          id="tags"
+          className={classNames({
+            "red": props.tags === ""
+          })}
+        />
+      </Field>
+      <Disclaimer>Separate with commas, please.</Disclaimer>
+      <Field title="Who should join this Circle?">
+        <textarea
+          id="whoshouldjoin"
+          rows={8}
+          className={classNames({"red": props.whoshouldjoin === ""})}
+          defaultValue={props.whoshouldjoin ? props.whoshouldjoin : ""}
+        />
+      </Field>
+      <Disclaimer>Maybe you don't want just anyone joining your Circle. Here is your place to tell the world who should join, and who should not.</Disclaimer>
       <Field title="Host">
         <div className="create__hostinfo row-fs-c">
-          <div className="create__hostinfo-img"><img src={props.user.host.imageUrl} /></div>
+          <div className="create__hostinfo-img" style={{backgroundImage: `url(${props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
           <span>{props.user.firstName + ' ' + props.user.lastName}</span>
           <div className="create__hostinfo-tag col-c-c">{props.user.host.license}</div>
         </div>
