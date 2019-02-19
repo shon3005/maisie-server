@@ -27,6 +27,7 @@ class Create extends React.Component {
       title: false,
       description: false,
       whoshouldjoin: false,
+      image_url: "",
       tags: false,
       day: "",
       frequency: "",
@@ -60,7 +61,7 @@ class Create extends React.Component {
           whoshouldjoin = document.getElementById("whoshouldjoin").value,
           tags = document.getElementById("tags").value;
       !title.length ? this.setState({title: ""}) : this.setState({title: title });
-      image_url === false ? this.setState({image_url: ""}) : this.setState({image_url});
+      document.getElementById("create_slide1_imageupload").value ? document.getElementById("create_slide1_imageupload_label").classList.remove('red') : document.getElementById("create_slide1_imageupload_label").classList.add('red');
       !description.length ? this.setState({description: ""}) : this.setState({description: description });
       !whoshouldjoin.length ? this.setState({whoshouldjoin: ""}) : this.setState({whoshouldjoin: whoshouldjoin });
       !tags.length ? this.setState({tags: ""}) : this.setState({tags: tags });

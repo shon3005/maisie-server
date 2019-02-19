@@ -28,7 +28,7 @@ export default (props) =>
           accept="image/png, image/jpeg"
           onChange={e => props.addedImage(e)}
         />
-          <label htmlFor="create_slide1_imageupload">Choose a file</label>
+          <label id="create_slide1_imageupload_label" htmlFor="create_slide1_imageupload">Choose a file</label>
           <span>{props.image ? "Uploaded: " + props.image : null}</span>
       </Field>
       <Field title="Description">

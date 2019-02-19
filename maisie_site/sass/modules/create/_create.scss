@@ -9,6 +9,9 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: $color-secondary;
+    &.red {
+      background-color: $color-red;
+    }
     @include border-radius(50px);
     color: white;
     &:hover { cursor: pointer; }
@@ -286,5 +289,10 @@
       cursor: pointer;
     }
     &:active { opacity: .75 }
+  }
+}
+label {
+  &.red {
+    background-color: $color-red !important;
   }
 }
