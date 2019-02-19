@@ -15,7 +15,7 @@ function Settings (props) {
   );
 }
 
-Settings.getInitialProps = async (ctx) => {
+Settings.getInitialProps = async ({ctx}) => {
   try {
     if (ctx.req) {
       const cookies = cookie.parse(ctx.req.headers.cookie || '');
@@ -32,9 +32,10 @@ Settings.getInitialProps = async (ctx) => {
 }
 
 const mapStateToProps = (state) => {
-  return process.browser ?
-    { user: state.user.user } :
-    {};
+  return {
+    user: state.user.user,
+    token: state.user.token
+  };
 }
 
 export default connect(mapStateToProps)(Settings);
