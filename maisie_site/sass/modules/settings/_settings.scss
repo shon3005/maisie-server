@@ -79,4 +79,9 @@
       border: 1px solid $color-secondary-10;
     }
   }
+  &__currentcard {
+    font-size: $font-size-small;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
 }

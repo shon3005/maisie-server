@@ -65,8 +65,11 @@ export default class extends React.Component {
         <div className="settings__inner-submit row-fe-c"><button onClick={this.handlePassSubmit.bind(this)}>Submit</button></div>
 
         <div style={{height: 25}} />
-        <SmallText>Billing</SmallText>
-        <AddPayment user={this.props.user}/>
+        <div className="row-sb-c">
+          <SmallText>Billing</SmallText>
+          <span className="settings__currentcard"><em>Current card ending in #0030</em></span>
+        </div>
+        <AddPayment user={this.props.user} route={this.props.route} />
       </div>
     )
   }

@@ -3,36 +3,36 @@ import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';
+import Router from 'next/router';
 
-function Settings () {
+function Settings (props) {
   return (
     <div className="settings">
       <Header loggedIn="loggedIn"/>
-      <SettingsModule />
+      <SettingsModule route={props.route} />
       <Footer />
     </div>
   );
 }
 
-Settings.getInitialProps = async (context) => {
-  // try {
-  //   if (context.req) {
-  //     const cookies = cookie.parse(context.req.headers.cookie || '');
-  //     if (!cookies.token) {
-  //       redirect(context, '/')
-  //     }
-  //     if (cookies.userServer) {
-  //       return { user: cookies.userServer };
-  //     }
-  //   }
-  // } catch(e) {
-  //   console.log(e);
-  // }
-  return { user: undefined };
+Settings.getInitialProps = async (ctx) => {
+  try {
+    if (ctx.req) {
+      const cookies = cookie.parse(ctx.req.headers.cookie || '');
+      if (!cookies.token) {
+        redirect(ctx, '/')
+      }
+      return { route: ctx.req.path }
+    } else {
+      return { route: Router.route }
+    }
+  } catch(e) {
+    console.log(e);
+  }
 }
 
 const mapStateToProps = (state) => {
-  return process.browser ? 
+  return process.browser ?
     { user: state.user.user } :
     {};
 }

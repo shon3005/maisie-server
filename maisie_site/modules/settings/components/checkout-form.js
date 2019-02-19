@@ -39,7 +39,7 @@ class CheckoutForm extends React.Component {
               </div>
             </form>
             {
-              this.props.router === '/signup' ? 
+              this.props.route === '/signup' ?
                 <button className="settings__inner-addlater col-c-c" type="button" onClick={this.proceedToIndex}>I'll Add It Later</button> :
                 null
             }
@@ -51,8 +51,7 @@ class CheckoutForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { 
-    router: Router.route,
+  return {
     user: state.user.user
   }
 }
