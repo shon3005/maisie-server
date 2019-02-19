@@ -8,6 +8,7 @@ export default (props) => {
       image_url={b.image_url}
       href={`circle/${b.id}`}
       low={b.min}
+      high={b.max}
       high={"12"}
       spots={"12"}
       key={index}
