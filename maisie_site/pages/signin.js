@@ -105,8 +105,7 @@ class Signin extends Component {
                 type="password"
                 value={this.state.password} onChange={this.handlePasswordChange}
               />
-              <Error>{this.state.error ? "Error: incorrect user credentials" : ""}</Error>
-              <div style={{height: 20}} />
+              <Error>{this.state.error ? "Error: incorrect user credentials" : null}</Error>
               <button onClick={this.handleEnterPress} id="signin_submit" type="submit">
                 Sign In
               </button>
