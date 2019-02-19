@@ -9,6 +9,8 @@ import Profile from '../modules/panel/profile/index.js';
 import Modal from '../shared/components/modal/index.js';
 import ProfileModal from '../modules/panel/profile/profilemodal.js';
 import Router from 'next/router';
+import cookie from 'cookie';
+import redirect from '../shared/services/redirect';
 import { connect } from 'react-redux';
 
 const ActivePage = (props) => {
@@ -31,7 +33,19 @@ function Panel(props) {
   )
 }
 
-Panel.getInitialProps = ({ctx}) => ctx.query
+Panel.getInitialProps = ({ctx}) => {
+  try {
+    if (ctx.req) {
+      const cookies = cookie.parse(ctx.req.headers.cookie || '');
+      if (!cookies.token) {
+        redirect(ctx, '/')
+      }
+    }
+  } catch(e) {
+    console.log(e)
+  }
+  return(ctx.query);
+}
 
 const mapStateToProps = (state) => {
   return {

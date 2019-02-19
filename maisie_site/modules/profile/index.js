@@ -10,6 +10,7 @@ export default class extends React.Component {
     super(props)
     this.state = {
       image: false,
+      saveMessage: "Save",
     }
   }
   handleUploadImage() {
@@ -18,6 +19,8 @@ export default class extends React.Component {
   }
   handlePress(e) {
     e.preventDefault()
+    document.getElementById("save_profile_button").classList.add("saving");
+    this.setState({saveMessage: "Saving..."});
     var firstname = document.getElementById("firstname").value;
     var lastname = document.getElementById("lastname").value;
     var email = document.getElementById("email").value;
@@ -114,8 +117,8 @@ export default class extends React.Component {
           help hosts learn more about you before you meet. Feel free to include your interests,
           goals, and background.
         </Disclaimer>
-        <button type="submit" onClick={(e) => this.handlePress(e)}>
-          Save
+        <button type="submit" id="save_profile_button" onClick={(e) => this.handlePress(e)}>
+          {this.state.saveMessage}
         </button>
       </form>
     )
