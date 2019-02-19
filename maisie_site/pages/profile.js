@@ -5,35 +5,31 @@ import { connect } from 'react-redux';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 
-const Profile = () => 
+const Profile = (props) => 
   <div className="profile">
     <Header loggedIn="loggedIn"/>
-    <ProfileModule />
+    <ProfileModule user={props.user} token={props.token}/>
     <Footer />
   </div>
 
-Profile.getInitialProps = async (context) => {
-  // try {
-  //   if (context.req) {
-  //     const cookies = cookie.parse(context.req.headers.cookie || '');
-  //     if (!cookies.token) {
-  //       redirect(context, '/')
-  //     }
-  //     if (cookies.userServer) {
-  //       return { user: cookies.userServer };
-  //     }
-  //   }
-  // } catch(e) {
-  //   console.log(e);
-  // }
-  // return { user: undefined };
-  return { user: undefined};
+Profile.getInitialProps = ({ctx}) => {
+  try {
+    if (ctx.req) {
+      const cookies = cookie.parse(ctx.req.headers.cookie || '');
+      if (!cookies.token) {
+        redirect(ctx, '/')
+      }
+    }
+  } catch(e) {
+    console.log(e);
+  }
 }
   
   const mapStateToProps = (state) => {
-    return process.browser ? 
-      { user: state.user.user } :
-      {};
+    return {
+      user: state.user.user,
+      token: state.user.token
+    };
   }
   
   export default connect(mapStateToProps)(Profile);

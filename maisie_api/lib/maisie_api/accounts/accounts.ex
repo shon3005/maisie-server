@@ -100,6 +100,18 @@ defmodule MaisieApi.Accounts do
   def update_user(%User{} = user, attrs) do
     user
     |> User.update_user_changeset(attrs)
+    |> Repo.update()  
+  end
+
+  def update_user_image(%User{} = user, attrs) do
+    user
+    |> User.update_user_image_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_payment(%User{} = user, attrs) do
+    user
+    |> User.update_payment_changeset(attrs)
     |> Repo.update()
   end
 
@@ -176,7 +188,6 @@ defmodule MaisieApi.Accounts do
 
   """
   def create_host(attrs \\ %{}) do
-    IO.inspect(attrs)
     %Host{}
     |> Host.changeset(attrs)
     |> Repo.insert()

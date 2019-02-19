@@ -75,7 +75,6 @@ defmodule MaisieApi.Services do
 
   """
   def update_circle(%Circle{} = circle, attrs) do
-    IO.inspect(attrs)
     circle
     |> Circle.update_circle_changeset(attrs)
     |> Repo.update()

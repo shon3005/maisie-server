@@ -44,16 +44,15 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     # end
 
     # defp update_handler({:ok, %{ stripe_user_id: stripe_id }} = response, current_user) do
-    #     Accounts.update_user(current_user, %{stripe_id: stripe_id})
+    #     Accounts.update_payment(current_user, %{stripe_id: stripe_id})
     # end
 
     defp handler({:ok, %Stripe.Customer{ id: stripe_id }} = response, current_user) do
-        Accounts.update_user(current_user, %{stripe_id: stripe_id})
+        Accounts.update_payment(current_user, %{stripe_id: stripe_id})
         {:ok, "SUCCESS"}
     end
 
     defp handler({:error, %Stripe.Error{} = error}, current_user) do
-        IO.inspect error
         format_errors(error)
     end
 

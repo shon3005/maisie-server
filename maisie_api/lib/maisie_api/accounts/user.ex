@@ -13,6 +13,12 @@ defmodule MaisieApi.Accounts.User do
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
     field :role, :string, default: "user"
+    field :image_url, :string
+    field :phone, :string
+    field :neighborhood, :string
+    field :school, :string
+    field :work, :string
+    field :bio, :string
     field :stripe_id, :string, unique: true
     has_one :host, Host
 
@@ -40,6 +46,24 @@ defmodule MaisieApi.Accounts.User do
   end
 
   def update_user_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:first_name, :last_name, :email, :phone, :neighborhood, :school, :work, :bio])
+    |> validate_required([
+      :first_name,
+      :last_name,
+      :email,
+    ])
+    |> validate_format(:email, ~r/@/)
+    |> update_change(:email, &String.downcase(&1))
+    |> unique_constraint(:email)
+  end
+
+  def update_user_image_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:image_url])
+  end
+
+  def update_payment_changeset(user, attrs) do
     user
     |> cast(attrs, [:stripe_id])
   end
