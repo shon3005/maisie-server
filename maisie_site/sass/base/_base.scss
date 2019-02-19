@@ -66,3 +66,12 @@ a {
   opacity: .25 !important;
   &:hover { pointer-events: none; transform: none !important;}
 }
+.saving {
+  background-color: $color-primary-light;
+  color: $color-primary;
+  &:hover {
+    transform: none;
+    pointer-events: none;
+    cursor: default;
+  }
+}
