@@ -25,7 +25,7 @@ export default (props) =>
         <select
           id="min"
           style={{width: 100}}
-          defaultValue={props.min ? props.min : 3}
+          defaultValue={props.min ? props.min : 4}
         >
           <option value={3}>3</option>
           <option value={4}>4</option>
@@ -35,5 +35,22 @@ export default (props) =>
           <option value={8}>8</option>
         </select>
       </Field>
-      <Disclaimer>What is the lowest number of people you need for the group to start?</Disclaimer>
+      <Disclaimer>What is the minimum number of people you need for the Circle to start?</Disclaimer>
+      <Field title="Maxium">
+        <select
+          id="max"
+          style={{width: 100}}
+          defaultValue={props.max ? props.max : 6}
+        >
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
+          <option value={7}>7</option>
+          <option value={8}>8</option>
+          <option value={8}>9</option>
+          <option value={8}>10</option>
+        </select>
+      </Field>
+      <Disclaimer>What is maximum number of people you would like to allow in this Circle? Keep in mind, this information is for users to see. You can always choose the exact number of people you want.</Disclaimer>
     </div>

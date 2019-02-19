@@ -40,6 +40,7 @@ class Create extends React.Component {
       address: false,
       price: false,
       min: 0,
+      max: 0,
     }
   }
   handleBackPress() {
@@ -91,7 +92,8 @@ class Create extends React.Component {
     } else if (this.state.slideToShow === 3) {
       var price = document.getElementById("price").value;
       var min = document.getElementById("min").value;
-      !price.length || parseInt(price, 10) == false ? this.setState({price: 0}) : this.setState({price: price, min: min, slideToShow: this.state.slideToShow + 1 });
+      var max = document.getElementById("max").value;
+      !price.length || parseInt(price, 10) == false ? this.setState({price: 0}) : this.setState({price: price, min: min, max: max, slideToShow: this.state.slideToShow + 1 });
     } else if (this.state.slideToShow === 4) {
       this.setState({slideToShow: this.state.slideToShow + 1 });
       const resp = await createCircle(client, {
@@ -105,6 +107,7 @@ class Create extends React.Component {
         address: this.state.address,
         price: this.state.price,
         min: this.state.min,
+        max: this.state.max,
         hour: this.state.hour,
         minute: this.state.minute,
         ampm: this.state.ampm
@@ -149,6 +152,7 @@ class Create extends React.Component {
         <SlideFour
           price={this.state.price}
           min={this.state.min}
+          max={this.state.max}
         /> )}
       else if (this.state.slideToShow == 4) { return(
         <SlideFive
