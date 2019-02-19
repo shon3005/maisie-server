@@ -6,9 +6,13 @@
   &-spinner {
     @include transition(all, 200ms);
     > span {
+<<<<<<< HEAD
       text-transform: capitalize;
       margin-right: 10px;
       opacity: .5;
+=======
+      margin-right: 10px;
+>>>>>>> 76942e0b277317cca6d082cd8e1fba267a777267
     }
     > div {
       transform: rotate(90deg);
@@ -16,6 +20,7 @@
       -moz-animation: rotating 1s ease-in-out infinite;
       animation: rotating 1s ease-in-out infinite;
 
+<<<<<<< HEAD
       height: 20px;
       width: 20px;
       @include border-radius(50px);
@@ -37,6 +42,17 @@
       > div {
         height: 14px;
         width: 14px;
+=======
+      height: 24px;
+      width: 24px;
+      @include border-radius(50px);
+      background: conic-gradient(transparent, white);
+
+      > div {
+        background-color: $color-primary;
+        height: 16px;
+        width: 16px;
+>>>>>>> 76942e0b277317cca6d082cd8e1fba267a777267
         @include border-radius(50px);
       }
     }
