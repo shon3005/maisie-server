@@ -67,7 +67,7 @@
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.025);
+    opacity: .75;
   }
   &:active {
     opacity: .95;
