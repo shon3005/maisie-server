@@ -34,7 +34,7 @@ export default class extends React.Component {
             <span className="support__inner__top_box-title">Email us</span>
             <span className="support__inner__top_box-desc">We'll respond as soon as possible</span>
             <div style={{height: 20}} />
-            <Button saving="saving" kind="primary" weight="purple" href="mailto:support@heymaisie.com">Send an email</Button>
+            <Button saving="saving" kind="alt" weight="light" href="mailto:support@heymaisie.com">Send an email</Button>
           </div>
                         <div className="support__inner__top-space" />
           <div className="support__inner__top_box col-c-c">
