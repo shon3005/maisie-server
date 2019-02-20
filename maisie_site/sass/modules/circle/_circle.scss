@@ -42,8 +42,19 @@
     z-index: 9999999;
     height: 100vh;
     width: 100vw;
-    background-color: $color-black-95;
+    background-color: $color-black-75;
+
+    &-text {
+      max-width: 40vw;
+      text-align: center;
+      font-weight: 500;
+      // background-color: $color-secondary-05;
+      margin-top: -20px;
+      margin-bottom: 20px;
+    }
+
     > div {
+      border: 2px solid $color-secondary-20;
       padding: 20px;
       @include border-radius(5px);
       margin: 0 auto;

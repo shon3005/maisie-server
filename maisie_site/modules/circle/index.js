@@ -25,6 +25,9 @@ export default (props) => {
           circle={props.circle}
           dark={props.dark} // sets color scheme
           d={props.d} // sets dummy data for component
+          //
+          //
+          // *** need to put logic for button status here ***
           status={""} // adjusts join button when status changes
         />
       </div>

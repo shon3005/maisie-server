@@ -7,6 +7,7 @@ import CircleModule from '../modules/circle/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import Question from '../modules/circle/components/question.js';
+import OnJoinModal from '../modules/circle/components/onjoinmodal.js';
 import DATA from '../modules/circle/dummy_data.js';
 import { connect } from 'react-redux';
 import Router from 'next/router';
@@ -19,6 +20,7 @@ function Circle(props) {
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
       <Question />
+      <OnJoinModal user={props.user} />
       <Header circle loggedIn="loggedIn" />
       <Query query={getCircle} variables={{id}}>
         {getCircle => {
