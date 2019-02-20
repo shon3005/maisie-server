@@ -15,21 +15,18 @@ defmodule MaisieApiWeb.UploadController do
     image_filename = image_params.filename
     unique_filename = "#{file_uuid}-#{image_filename}"
     {:ok, image_binary} = File.read(image_params.path)
-    IO.puts "saving to aws"
+
     bucket_name = System.get_env("BUCKET_NAME")
     image = 
       ExAws.S3.put_object(bucket_name, unique_filename, image_binary)          
       |> ExAws.request!
-    IO.inspect(image)
 
-    IO.puts "finished saving to aws"
     # build the image url and add to the params to be stored
     updated_params =
       upload_params          
       |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}" end)
     
     updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}")
-    IO.puts "syncing"
     sync_database(table, id, updated_params, conn)
   end
 
@@ -42,7 +39,6 @@ defmodule MaisieApiWeb.UploadController do
   defp sync_database("circle" = table, id, updated_params, conn) do
     case Services.update_circle(Services.get_circle!(id), updated_params) do
       {:ok, circle} ->
-        IO.puts "hello world"
         json(conn, %{success: "file saved, circle updated successfully"})
       {:error, changeset} ->
         conn
@@ -59,6 +55,17 @@ defmodule MaisieApiWeb.UploadController do
         conn
         |> put_status(400)
         |> json(%{"error": "file was not saved, user was not updated"})
+    end    
+  end
+
+  defp sync_database("host" = table, id, updated_params, conn) do
+    case Accounts.update_host_image(Accounts.get_host!(id), updated_params) do
+      {:ok, host} ->
+        json(conn, %{success: "file saved, host updated successfully"})
+      {:error, changeset} ->
+        conn
+        |> put_status(400)
+        |> json(%{"error": "file was not saved, host was not updated"})
     end    
   end
 

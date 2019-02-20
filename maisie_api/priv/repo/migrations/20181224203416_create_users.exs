@@ -16,6 +16,7 @@ defmodule MaisieApi.Repo.Migrations.CreateUsers do
       add :school, :string
       add :work, :string
       add :bio, :string
+      add :support,:boolean
 
       timestamps()
     end

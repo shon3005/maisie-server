@@ -21,4 +21,9 @@ defmodule MaisieApi.Accounts.Host do
     |> validate_required([:license, :education, :description, :image_url, :user_id])
     |> unique_constraint(:user_id)
   end
+
+  def update_host_image_changeset(host, attrs) do
+    host
+    |> cast(attrs, [:image_url])
+  end
 end

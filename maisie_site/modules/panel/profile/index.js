@@ -3,7 +3,7 @@ import SmallText from '../../../shared/components/text/smallText.js';
 import Button from '../../../shared/components/button.js';
 import Hosted from '../../circle/components/left/components/hosted.js';
 
-export default (props) =>
+export default (props) => 
   <div className="hostprofile">
     <div className="row-sb-c">
       <div className="col">

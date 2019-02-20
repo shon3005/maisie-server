@@ -48,10 +48,14 @@ class Profile extends React.Component {
       bodyFormData.append('image', this.state.image);
       bodyFormData.append('id', this.props.user.id);
       bodyFormData.append('table', 'user');
-      await axios.post('/api/upload', bodyFormData, { headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${this.props.token}`
-      }});
+      try {
+        await axios.post('/api/upload', bodyFormData, { headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${this.props.token}`
+        }});
+      } catch(e) {
+        console.log(e);
+      }
     }
 
     const firstName = document.getElementById("firstname").value;

@@ -21,6 +21,7 @@ defmodule MaisieApi.Accounts.User do
     field :school, :string
     field :work, :string
     field :bio, :string
+    field :support, :boolean
     field :stripe_id, :string, unique: true
     has_one :host, Host
     has_many :circles, Circle
@@ -83,6 +84,12 @@ defmodule MaisieApi.Accounts.User do
   def update_payment_changeset(user, attrs) do
     user
     |> cast(attrs, [:stripe_id, :last4])
+  end
+
+  def update_support_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:phone, :support])
+    |> validate_required([:support])
   end
 
   defp validate_old_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset, user) do

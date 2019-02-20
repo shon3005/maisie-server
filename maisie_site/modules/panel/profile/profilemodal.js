@@ -1,16 +1,53 @@
 import Field from '../../../shared/components/text/field.js';
 import SmallText from '../../../shared/components/text/smallText.js';
 import Button from '../../../shared/components/button.js';
+import { ApolloConsumer } from 'react-apollo';
+import updateHost from '../../../shared/services/update-host';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import * as actions from '../../../shared/services/actions';
 
-export default class extends React.Component {
+class ProfileModal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       image: false,
+      saveMessage: "Save",
     }
   }
-  handleSubmit() {
+  handleSubmit = async (client) => {
+    document.getElementById("hostprofile__modal_brow-cancel").classList.add('disabled');
+    document.getElementById("hostprofile__modal_brow-submit").classList.add('saving');
+    this.setState({saveMessage: "Saving..."});
     // add logic to submit info
+    let license = document.getElementById("hostprofilemodal_license").value,
+    education = document.getElementById("hostprofilemodal_education").value,
+    description = document.getElementById("hostprofilemodal_description").value,
+    image = document.getElementById("hostprofile_imageupload").files[0];
+
+    let bodyFormData = new FormData();
+    bodyFormData.append('image', image);
+    bodyFormData.append('id', this.props.user.host.id);
+    bodyFormData.append('table', 'host');
+    try {
+      await axios.post('/api/upload', bodyFormData, { headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${this.props.token}`
+      }});
+    } catch(e) {
+      console.log(e);
+    }
+
+    const {data: {updateHost: { user }}} = await updateHost(client, {
+      id: this.props.user.host.id,
+      license,
+      education,
+      description
+    });
+
+    await this.props.updateUser(user);
+    document.getElementById("hostprofile__modal_brow-cancel").classList.add('disabled');
+    document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
     document.getElementById("profile_modal").classList.add("hide")
   }
   handleUploadImage(x) {
@@ -27,45 +64,47 @@ export default class extends React.Component {
     license || education || description || image ? submit.classList.remove("fade") : submit.classList.add("fade")
   }
   render() {
-    if (this.props.user.host) {
-      return(
-        <div className="hostprofile__modal">
-          <div className="hostprofile__modal-top col-c-c">
-            <SmallText>Edit Information</SmallText>
+    return(
+      <ApolloConsumer>
+        {client =>
+          <div className="hostprofile__modal">
+            <div className="hostprofile__modal-top col-c-c">
+              <SmallText>Edit Information</SmallText>
+            </div>
+            <Field title="Certification">
+              <input onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_license" defaultValue={this.props.user.host.license} />
+            </Field>
+            <Field title="Education">
+              <input onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_education" defaultValue={this.props.user.host.education} />
+            </Field>
+            <Field title="Description">
+              <textarea onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_description" defaultValue={this.props.user.host.description} />
+            </Field>
+            <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+            <Field title="Profile Picture">
+              <input
+                type="file"
+                id="hostprofile_imageupload" name="hostprofpic"
+                accept="image/png, image/jpeg"
+                onChange={(x) => this.handleUploadImage(this.props.user.host)}
+              />
+                <label htmlFor="hostprofile_imageupload"><span>Choose a file</span></label>
+                <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
+            </Field>
+            <div className="hostprofile__modal_brow row-fe-c">
+              <Button kind="alt" weight="light" id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
+                Cancel
+              </Button>
+              <div style={{width: 10}}/>
+              <Button kind="alt" weight="purple" id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={() => this.handleSubmit(client)}>
+                {this.state.saveMessage}
+              </Button>
+            </div>
           </div>
-          <Field title="Certification">
-            <input onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_license" defaultValue={this.props.user.host.license ? this.props.user.host.license : null} />
-          </Field>
-          <Field title="Education">
-            <input onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_education" defaultValue={this.props.user.host.education ? this.props.user.host.education : null} />
-          </Field>
-          <Field title="Description">
-            <textarea onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_description" defaultValue={this.props.user.host.description ? this.props.user.host.description : null} />
-          </Field>
-          <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
-          <Field title="Profile Picture">
-            <input
-              type="file"
-              id="hostprofile_imageupload" name="hostprofpic"
-              accept="image/png, image/jpeg"
-              onChange={(x) => this.handleUploadImage(this.props.user.host)}
-            />
-              <label htmlFor="hostprofile_imageupload"><span>Choose a file</span></label>
-              <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
-          </Field>
-          <div className="hostprofile__modal_brow row-fe-c">
-            <Button kind="alt" weight="light" id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
-              Cancel
-            </Button>
-            <div style={{width: 10}}/>
-            <Button kind="alt" weight="purple" id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={this.handleSubmit}>
-              Save
-            </Button>
-          </div>
-        </div>
-      )
-    } else {
-      return null;
-    }
+        }
+      </ApolloConsumer>
+    )
   }
 }
+
+export default connect(null, actions)(ProfileModal);

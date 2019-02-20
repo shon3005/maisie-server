@@ -118,10 +118,14 @@ class Create extends React.Component {
       bodyFormData.append('image', this.state.image);
       bodyFormData.append('id', resp.data.createCircle.id);
       bodyFormData.append('table', 'circle');
-      await axios.post('/api/upload', bodyFormData, { headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${this.props.token}`
-      }});
+      try {
+        await axios.post('/api/upload', bodyFormData, { headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${this.props.token}`
+        }});
+      } catch(e) {
+        console.log(e);
+      }
       document.getElementById("create_circle_message").classList.remove('saving');
       this.setState({slideToShow: this.state.slideToShow + 1, createCircleMessage: 'Submit'});
     }

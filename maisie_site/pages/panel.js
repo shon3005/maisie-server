@@ -36,7 +36,7 @@ const Panel = (props) => {
       <Modal id="profile_modal">
         {
           props.user && props.user.host
-          ? <ProfileModal user={props.user} />
+          ? <ProfileModal user={props.user} token={props.token}/>
           : null
         }
       </Modal>
@@ -65,7 +65,6 @@ Panel.getInitialProps = ({ctx}) => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.user.user);
   return {
     user: state.user.user,
     token: state.user.token
