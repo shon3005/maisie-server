@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { ApolloConsumer } from 'react-apollo';
-import getUser from '../shared/services/get-user';
 import loginUser from '../shared/services/login-user';
-import redirect from '../shared/services/redirect';
 import Router from 'next/router'
 import { connect } from 'react-redux';
 import * as actions from '../shared/services/actions';

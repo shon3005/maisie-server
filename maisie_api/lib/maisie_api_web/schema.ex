@@ -108,6 +108,20 @@ defmodule MaisieApiWeb.Schema do
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.UserResolver.update_user_password/3)
         end
+
+        @desc "Update a host profile"
+        field :update_host, type: :host_type do
+          arg(:input, non_null(:host_input_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.HostResolver.update_host/3)
+        end
+
+        @desc "Update user support flag"
+        field :submit_support, type: :user_type do
+          arg(:input, non_null(:user_support_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.UserResolver.update_user_support/3)
+        end
     end
 
     # subscription do

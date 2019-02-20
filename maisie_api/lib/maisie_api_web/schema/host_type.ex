@@ -12,9 +12,9 @@ defmodule MaisieApiWeb.Schema.Types.HostType do
     end
 
     input_object :host_input_type do
+        field(:id, :id)
         field(:education, :string)
         field(:description, :string)
-        field(:image_url, :string)
         field(:license, :string)
     end
 end

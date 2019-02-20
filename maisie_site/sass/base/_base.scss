@@ -90,3 +90,11 @@ a {
   @include justify-content(center);
   @include align-items(flex-end);
 }
+.disabled {
+  pointer-events: none !important;
+  cursor: default !important;
+  &:hover {
+    pointer-events: none !important;
+    cursor: default !important;
+  }
+}

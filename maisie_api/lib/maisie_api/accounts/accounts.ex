@@ -121,6 +121,12 @@ defmodule MaisieApi.Accounts do
     |> Repo.update()
   end
 
+  def update_user_support(%User{} = user, attrs) do
+    user
+    |> User.update_support_changeset(attrs)
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a User.
 
@@ -214,6 +220,12 @@ defmodule MaisieApi.Accounts do
   def update_host(%Host{} = host, attrs) do
     host
     |> Host.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_host_image(%Host{} = host, attrs) do
+    host
+    |> Host.update_host_image_changeset(attrs)
     |> Repo.update()
   end
 

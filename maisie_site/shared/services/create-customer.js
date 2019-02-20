@@ -27,6 +27,7 @@ export default (
             bio
             last4
             imageUrl
+            support
             host {
               id
               description

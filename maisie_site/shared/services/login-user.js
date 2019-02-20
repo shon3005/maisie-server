@@ -23,6 +23,7 @@ export default (
               work
               bio
               imageUrl
+              support
               host {
                 id
                 description
