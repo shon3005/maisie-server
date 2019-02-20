@@ -3,19 +3,34 @@ import React from 'react';
 import {injectStripe} from 'react-stripe-elements-universal';
 import CardSection from './card-section';
 import createCustomer from '../../../shared/services/create-customer';
+import updateCustomer from '../../../shared/services/update-customer';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
 import { connect } from 'react-redux';
+import * as actions from '../../../shared/services/actions';
 
 class CheckoutForm extends React.Component {
+  state = {
+    addCardMessage: 'Add Card'
+  }
+
   handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
+    document.getElementById("submit_card_button").classList.add('saving');
+    this.setState({submitMessage: "Adding Card..."});
     try {
       const {source} = await this.props.stripe.createSource({type: 'card', owner: {
         name: this.props.user.firstName + ' ' + this.props.user.lastName
       }});
-      await createCustomer(client, source.id);
-      this.proceedToIndex();
+      const {data} = this.props.route === '/signup' ?
+        await createCustomer(client, source.id) :
+        await updateCustomer(client, source.id);
+      this.props.route === '/signup' ?
+        await this.props.updateUser(data.createCustomer) :
+        await this.props.updateUser(data.updateCustomer);
+      document.getElementById("submit_card_button").classList.remove('saving');
+      this.setState({addCardMessageMessage: 'Add Card'});
+      this.props.route === '/signup' ? this.proceedToIndex() : null;
     } catch (e) {
       console.log(e);
     }
@@ -35,7 +50,7 @@ class CheckoutForm extends React.Component {
                 <CardSection />
               </div>
               <div className="settings__inner-submit row-fe-c">
-                <button>Add Card</button>
+                <button id="submit_card_button">{this.state.addCardMessage}</button>
               </div>
             </form>
             {
@@ -56,4 +71,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default injectStripe(connect(mapStateToProps)(CheckoutForm));
+export default injectStripe(connect(mapStateToProps, actions)(CheckoutForm));

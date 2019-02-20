@@ -35,7 +35,7 @@ class Signup extends Component {
         lastName: data.registerUser.user.lastName,
         email: data.registerUser.user.email,
         role: data.registerUser.user.role,
-        image_url: data.registerUser.user.imageUrl,
+        imageUrl: data.registerUser.user.imageUrl,
         phone: data.registerUser.user.phone,
         neighborhood: data.registerUser.user.neighborhood,
         school: data.registerUser.user.school,
@@ -72,7 +72,7 @@ class Signup extends Component {
           <div className="signup col-c-c">
             <div className="signup-back"><Back /></div>
             <div className="signup__main col-c-c">
-              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton} />)}
+              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton} route={this.props.route}/>)}
             </div>
           </div>
         )}
@@ -82,7 +82,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return state.user.user;
+  return { user: state.user.user };
 }
 
 export default connect(mapStateToProps, actions)(Signup);

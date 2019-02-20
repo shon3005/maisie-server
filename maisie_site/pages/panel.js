@@ -65,6 +65,7 @@ Panel.getInitialProps = ({ctx}) => {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.user.user);
   return {
     user: state.user.user,
     token: state.user.token

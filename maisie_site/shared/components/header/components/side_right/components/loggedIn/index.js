@@ -73,9 +73,7 @@ const LoggedIn = (props) =>
   </div>
 </div>
 const handleDelete = () => {
-  document.cookie = cookie.serialize('token', '', {
-    maxAge: -1
-  });
+  document.cookie = 'token' + `=;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
   Router.push('/');
 }
 

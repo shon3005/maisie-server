@@ -4,12 +4,13 @@ import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';
 import Router from 'next/router';
+import redirect from '../shared/services/redirect';
 
 function Settings (props) {
   return (
     <div className="settings">
       <Header loggedIn="loggedIn"/>
-      <SettingsModule route={props.route} />
+      <SettingsModule route={props.route} user={props.user}/>
       <Footer />
     </div>
   );

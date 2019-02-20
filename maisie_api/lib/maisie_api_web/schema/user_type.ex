@@ -14,8 +14,9 @@ defmodule MaisieApiWeb.Schema.Types.UserType do
         field(:school, :string)
         field(:work, :string)
         field(:bio, :string)
-        field(:circles, list_of(:circle_type), resolve: assoc(:circle))
+        field(:last4, :string)
         field(:host, :host_type, resolve: assoc(:host))
+        field(:circles, list_of(:circle_type), resolve: assoc(:circles))
     end
 
     object :user_update_response_type do
@@ -39,5 +40,11 @@ defmodule MaisieApiWeb.Schema.Types.UserType do
         field(:school, :string)
         field(:work, :string)
         field(:bio, :string)
+    end
+
+    input_object :user_update_password_type do
+        field(:old_password, non_null(:string))
+        field(:password, non_null(:string))
+        field(:password_confirmation, non_null(:string))
     end
 end

@@ -89,17 +89,17 @@ defmodule MaisieApiWeb.Schema do
         end
 
         @desc "Create a Stripe customer"
-        field :create_customer, type: :string do
+        field :create_customer, type: :user_type do
            arg(:input, non_null(:stripe_customer_type))
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.PaymentResolver.create_customer/3)
         end
 
         @desc "Update a Stripe customer card"
-        field :update_customer, type: :string do
+        field :update_customer, type: :user_type do
            arg(:input, non_null(:stripe_customer_type))
            middleware(Middleware.Authorize, :any)
-           resolve(&Resolvers.PaymentResolver.create_customer/3)
+           resolve(&Resolvers.PaymentResolver.update_customer/3)
         end
 
         @desc "Update a user profile"
@@ -107,6 +107,13 @@ defmodule MaisieApiWeb.Schema do
           arg(:input, non_null(:user_update_type))
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.UserResolver.update_user/3)
+        end
+
+        @desc "Update a user password"
+        field :update_password, type: :string do
+          arg(:input, non_null(:user_update_password_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.UserResolver.update_user_password/3)
         end
     end
 

@@ -25,6 +25,11 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         |> update_user_handler()
     end
 
+    def update_user_password(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        Accounts.update_user_password(current_user, input)
+        |> update_user_password_handler()
+    end
+
     defp get_user_handler({:error, %Ecto.Changeset{} = changeset}) do
         {:error, %{message: "get-user", details: "USER NOT FOUND"}}
     end
@@ -39,6 +44,14 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
 
     defp update_user_handler({:ok, %MaisieApi.Accounts.User{} = user} = response) do
         {:ok, %{user: user}}
+    end
+
+    defp update_user_password_handler({:error, %Ecto.Changeset{} = changeset}) do
+        {:error, %{message: "update-user", details: "UPDATE USER PASSWORD FAILED"}}
+    end
+
+    defp update_user_password_handler({:ok, %MaisieApi.Accounts.User{} = user} = response) do
+        {:ok, "UPDATE USER PASSWORD SUCCESS"}
     end
 
     defp handler({:error, %Ecto.Changeset{} = changeset}, _input) do

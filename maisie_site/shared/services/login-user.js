@@ -22,6 +22,7 @@ export default (
               school
               work
               bio
+              imageUrl
               host {
                 id
                 description
