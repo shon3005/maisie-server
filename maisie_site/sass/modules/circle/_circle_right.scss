@@ -6,6 +6,8 @@
   &__inner {
     padding-top: 25px;
     padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 260px;
     background-color: white;
     @include border-radius(10px);
@@ -19,8 +21,6 @@
     &-joined {
       padding-top: 10px;
       padding-bottom: 10px;
-      padding-left: 20px;
-      padding-right: 20px;
       @include border-radius(5px);
       // border: 1px solid $color-secondary-10;
       background-color: $color-secondary-05;
@@ -31,8 +31,6 @@
       > div {
         margin-top: 10px;
         margin-bottom: 5px;
-        padding-left: 20px;
-        padding-right: 20px;
         width: 100%;
         max-width: 180px;
         flex-wrap: wrap;
@@ -71,15 +69,18 @@
         padding-left: 20px;
         padding-right: 20px;
         margin-top: -10px;
+        color: $color-secondary;
         font-size: $font-size-reg;
-        font-weight: 500;
+        font-weight: 600;
         .large {
           font-size: $font-size-large;
         }
+        .lower {
+          font-weight: 500;
+          opacity: .5
+        }
       }
       &-join {
-        padding-left: 20px;
-        padding-right: 20px;
         width: 100%;
 
         > div {

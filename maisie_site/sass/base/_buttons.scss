@@ -3,6 +3,12 @@
   @include user-select(none);
   @include border-radius(50px);
 
+  // reserved for circle page button
+  &.requested { background-color: $color-primary-light; }
+  &.joined { color: $color-primary; border: 2px solid $color-primary; }
+  //
+
+
   &-spinner {
     @include transition(all, 200ms);
     > span {
