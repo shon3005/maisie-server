@@ -19,7 +19,10 @@ const Abb = (props) =>
     <img src={props.host.imageUrl} className="hostabb__thumb" style={{ backgroundSize: "cover", backgroundPosition:"center"}} />
     <div className="hostabb__text col">
       <span className="hostabb__text-tag dark_theme_tag_text">hosted by</span>
-      <span className="hostabb__text-name dark_theme_primary_text">{props.host.name}</span>
+      <div className="circlehost__inner_name row-fs-c" style={{marginTop: 5}}>
+        <span className="dark_theme_title_text">{props.host.name}</span>
+        <div className="col-c-c"><span>{props.host.license}</span></div>
+      </div>
     </div>
   </div>
 

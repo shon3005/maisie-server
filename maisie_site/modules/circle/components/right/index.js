@@ -21,7 +21,7 @@ export default (props) => {
         </div>
         <div style={{height: 25}} />
         <div className="circle_right__inner_cont-join">
-          <Button className={classNames({
+          <Button kind="primary" weight="purple" className={classNames({
             "requested": props.status === "requested",
             "joined": props.status === "joined",
             "col-c-c": true, })}

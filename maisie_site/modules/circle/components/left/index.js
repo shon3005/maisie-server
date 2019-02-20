@@ -26,6 +26,7 @@ export default (props) => {
       <div style={{height: 20}} />
       <Hosted host={{
         name: props.user.firstName + ' ' + props.user.lastName,
+        license: props.user.host.license,
         imageUrl: props.user.host.imageUrl
       }} abb />
       <div style={{height: 20}} />
