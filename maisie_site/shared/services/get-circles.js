@@ -17,7 +17,7 @@ export default gql`
       address
       locationType
       min
-      image_url
+      imageUrl
       user {
         id
       }

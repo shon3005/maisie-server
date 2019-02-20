@@ -5,7 +5,7 @@ export default (props) => {
     <Card
       title={b.title}
       price={b.price}
-      image_url={b.image_url}
+      image_url={b.imageUrl}
       href={`circle/${b.id}`}
       low={b.min}
       high={b.max}

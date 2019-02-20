@@ -41,6 +41,7 @@ class Create extends React.Component {
       price: false,
       min: 0,
       max: 0,
+      createCircleMessage: 'Submit'
     }
   }
   handleBackPress() {
@@ -95,7 +96,8 @@ class Create extends React.Component {
       var max = document.getElementById("max").value;
       !price.length || parseInt(price, 10) == false ? this.setState({price: 0}) : this.setState({price: price, min: min, max: max, slideToShow: this.state.slideToShow + 1 });
     } else if (this.state.slideToShow === 4) {
-      this.setState({slideToShow: this.state.slideToShow + 1 });
+      document.getElementById("create_circle_message").classList.add("saving");
+      this.setState({createCircleMessage: 'Submitting...' });
       const resp = await createCircle(client, {
         day: this.state.day,
         description: this.state.description,
@@ -115,10 +117,13 @@ class Create extends React.Component {
       let bodyFormData = new FormData();
       bodyFormData.append('image', this.state.image);
       bodyFormData.append('id', resp.data.createCircle.id);
+      bodyFormData.append('table', 'circle');
       await axios.post('/api/upload', bodyFormData, { headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${this.props.token}`
       }});
+      document.getElementById("create_circle_message").classList.remove('saving');
+      this.setState({slideToShow: this.state.slideToShow + 1, createCircleMessage: 'Submit'});
     }
   }
   render() {
@@ -190,10 +195,14 @@ class Create extends React.Component {
           <div className={classNames(["back", {"fade": this.state.slideToShow === 0, "no_display": this.state.slideToShow === 5}])} onClick={this.handleBackPress.bind(this)}>Back</div>
           <ApolloConsumer>
             {(client) => (
-              <div className={classNames(["next", {"no_display": this.state.slideToShow === 5}])} onClick={this.handleForwardPress.bind(this, client)}>{this.state.slideToShow < 4 ? "Next" : "Submit"}</div>
+              <div id="create_circle_message" className={classNames(["next", {"no_display": this.state.slideToShow === 5}])} onClick={this.handleForwardPress.bind(this, client)}>
+                {
+                  this.state.slideToShow < 4 ? "Next" : this.state.createCircleMessage
+                }
+              </div>
             )}
           </ApolloConsumer>
-          <div className={classNames(["next", {"no_display": this.state.slideToShow != 5}])} onClick={() => Router.back()}>Finish</div>
+          <div className={classNames(["next", {"no_display": this.state.slideToShow != 5}])} onClick={() => Router.push('/panel/circles')}>Finish</div>
         </div>
         <Footer />
       </div>

@@ -10,7 +10,7 @@ export default (props) => {
         <div className="circle__inner-img-shadow" />
         {props.dark ? <div className="circle__inner-img-bshadow" /> : null}
         <div className="circle__inner-img-filter" />
-        {props.circle && props.circle.image_url ? <div className="circle__inner-img-img" style={{backgroundImage: `url(${props.circle.image_url})`, backgroundSize: "cover", backgroundPosition: "center"}} /> : null}
+        {props.circle && props.circle.imageUrl ? <div className="circle__inner-img-img" style={{backgroundImage: `url(${props.circle.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} /> : null}
       </div>
       <div className={classNames(["circle__inner_cont", "row-c", {"dark_theme": props.dark}])}>
         <Left

@@ -12,6 +12,8 @@ defmodule MaisieApi.Accounts.User do
     field :password_hash, :string
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+    field :old_password, :string, virtual: true
+    field :last4, :string
     field :role, :string, default: "user"
     field :image_url, :string
     field :phone, :string
@@ -21,6 +23,7 @@ defmodule MaisieApi.Accounts.User do
     field :bio, :string
     field :stripe_id, :string, unique: true
     has_one :host, Host
+    has_many :circles, Circle
 
     timestamps()
   end
@@ -58,6 +61,20 @@ defmodule MaisieApi.Accounts.User do
     |> unique_constraint(:email)
   end
 
+  def update_user_password_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:old_password, :password, :password_confirmation])
+    |> validate_required([
+      :old_password,
+      :password,
+      :password_confirmation
+    ])
+    |> validate_length(:password, min: 6, max: 100)
+    |> validate_confirmation(:password)
+    |> validate_old_password(user)
+    |> hash_password
+  end
+
   def update_user_image_changeset(user, attrs) do
     user
     |> cast(attrs, [:image_url])
@@ -65,7 +82,16 @@ defmodule MaisieApi.Accounts.User do
 
   def update_payment_changeset(user, attrs) do
     user
-    |> cast(attrs, [:stripe_id])
+    |> cast(attrs, [:stripe_id, :last4])
+  end
+
+  defp validate_old_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset, user) do
+    Comeonin.Argon2.check_pass(user, password)
+    changeset
+  end
+
+  defp validate_old_password(changeset, _user) do
+    changeset
   end
 
   defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do

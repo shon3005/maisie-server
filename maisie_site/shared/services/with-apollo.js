@@ -21,7 +21,7 @@ export const withApollo = App => {
       const {
         Component,
         router,
-        ctx: { req, res }
+        ctx: { req, res, query }
       } = ctx
 
       const apollo = initApollo(
@@ -36,7 +36,7 @@ export const withApollo = App => {
 
       let appProps = {}
       if (App.getInitialProps) {
-        appProps = await App.getInitialProps(ctx)
+        appProps = await App.getInitialProps(ctx);
       }
 
       if (res && res.finished) {
@@ -81,7 +81,6 @@ export const withApollo = App => {
 
     constructor (props) {
       super(props)
-      // console.log(props.cookie);
       // `getDataFromTree` renders the component first, the client is passed off as a property.
       // After that rendering is done using Next's normal rendering pipeline
       this.apolloClient = initApollo(props.apolloState, {

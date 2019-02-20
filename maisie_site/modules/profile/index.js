@@ -20,11 +20,23 @@ class Profile extends React.Component {
       image_url: '',
     }
   }
+
+  onload = (imgtag) => (event) => {
+    imgtag.src = event.target.result;
+  };
+
   handleUploadImage(e) {
     const {
       currentTarget: { files }
     } = e;
     const image_url = document.getElementById("profile_imageupload").value;
+    const reader = new FileReader();
+    const imgtag = document.getElementById("profilePic");
+    imgtag.title = files[0].name;
+
+    reader.onload = this.onload(imgtag);
+    reader.readAsDataURL(files[0]);
+
     this.setState({image_url, image: files[0]});
   }
   handlePress = async (e, client) => {
@@ -62,22 +74,9 @@ class Profile extends React.Component {
       bio
     });
 
-    await this.props.updateUser({
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      role: user.role,
-      image_url: user.imageUrl,
-      phone: user.phone,
-      neighborhood: user.neighborhood,
-      school: user.school,
-      work: user.work,
-      bio: user.bio,
-      host: user.host,
-      circles: user.circles
-    });
-    location.reload(true);
+    await this.props.updateUser(user);
+    document.getElementById("save_profile_button").classList.remove('saving');
+    this.setState({saveMessage: 'Save'});
   }
   render() {
     return(
@@ -85,7 +84,7 @@ class Profile extends React.Component {
         <span className="profile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
-        <img src={this.props.user.image_url} className="profile__picture" />
+        <img id="profilePic" src={this.props.user.imageUrl} className="profile__picture" />
         <Field title="Profile Picture">
           <input
             type="file"

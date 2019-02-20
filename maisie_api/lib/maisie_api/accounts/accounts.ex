@@ -103,6 +103,12 @@ defmodule MaisieApi.Accounts do
     |> Repo.update()  
   end
 
+  def update_user_password(%User{} = user, attrs) do
+    user
+    |> User.update_user_password_changeset(attrs)
+    |> Repo.update()
+  end
+
   def update_user_image(%User{} = user, attrs) do
     user
     |> User.update_user_image_changeset(attrs)

@@ -4,8 +4,19 @@ import Home from '../modules/home/index';
 import { connect } from 'react-redux'
 import getAllCircles from '../shared/services/get-all-circles';
 import { Query } from 'react-apollo';
+import cookie from 'cookie';
 
 class Index extends Component {
+  static getInitialProps({ctx}) {
+    let cookies;
+    if (ctx.req) {
+      cookies = cookie.parse(ctx.req.headers.cookie || '');
+    } else {
+      cookies = cookie.parse(document.cookie || '');
+    }
+    return {token: cookies.token};
+  }
+
   constructor(props) {
     super(props)
     this.state = { inSignUpFlow: false }
@@ -17,7 +28,7 @@ class Index extends Component {
 
   render() {
     return (
-      this.props.user ?
+      this.props.token ?
         <Query query={getAllCircles}>
           {getAllCircles => {
             const circles = getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : [];
