@@ -50,7 +50,7 @@ export default class extends React.Component {
             </div>
             <div onClick={this.handleClick} className="circle_right__inner_cont-ask col-c-c">Ask a question</div>
           </div>
-          <div className="col-fs-c"><Socials dark={this.props.dark} /></div>
+          {/* can't use this now -> <div className="col-fs-c"><Socials dark={this.props.dark} /></div>*/}
         </div>
       </div>
     )
