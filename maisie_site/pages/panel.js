@@ -8,17 +8,27 @@ import Inbox from '../modules/panel/inbox/index.js';
 import Profile from '../modules/panel/profile/index.js';
 import Modal from '../shared/components/modal/index.js';
 import ProfileModal from '../modules/panel/profile/profilemodal.js';
+import SetUpStripePrompt from '../modules/panel/setupstripeprompt.js';
 import Router from 'next/router';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 import { connect } from 'react-redux';
 
+//
+//
+const setupstripeprompt = true
+const availableBalance = "500.00"
+//
+//
+
 const ActivePage = (props) => {
   let p = props.p
-  return p == "dash" ? <Dash /> : p == "finances" ? <Finances /> : p == "circles" ? <Circles /> : p == "inbox" ? <Inbox /> : p == "profile" ? <Profile user={props.user} /> : null
+  return setupstripeprompt
+    ? p == "dash" ? <Dash /> : p == "finances" ? <Finances availableBalance={props.availableBalance} /> : p == "circles" ? <Circles /> : p == "inbox" ? <Inbox /> : p == "profile" ? <Profile user={props.user} /> : null
+    : <SetUpStripePrompt />
 }
 
-function Panel(props) {
+const Panel = (props) => {
   let sub = props.sub ? props.sub : "finances"
   return(
     <div className="panel">
@@ -32,7 +42,7 @@ function Panel(props) {
       <Header loggedIn="loggedIn"/>
       <HostHeader page={sub} />
       <div className="panel__inner">
-        <ActivePage p={sub} user={props.user} />
+        <ActivePage p={sub} user={props.user} availableBalance={availableBalance} />
       </div>
       <Footer />
     </div>

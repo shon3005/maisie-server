@@ -26,7 +26,6 @@ export default class extends React.Component {
     license || education || description || image ? submit.classList.remove("fade") : submit.classList.add("fade")
   }
   render() {
-    console.log(this.props.user);
     if (this.props.user.host) {
       return(
         <div className="hostprofile__modal">

@@ -1,7 +1,7 @@
 export default (props) =>
   <div className="hostfinances__card row-sb-c">
-    <div className="row">
-      <div className="thumb" />
+    <div className="row-fs-c">
+      <img src="../../../../static/shared/creditcard.svg" />
       <div className="in col">
         <span className="title">Example Circle</span>
         <span className="date">example date</span>
