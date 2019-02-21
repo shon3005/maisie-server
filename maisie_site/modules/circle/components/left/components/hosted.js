@@ -15,8 +15,8 @@ const Full = (props) =>
   </div>
 
 const Abb = (props) =>
-  <div className="hostabb row">
-    <img src={props.host.imageUrl} className="hostabb__thumb" style={{ backgroundSize: "cover", backgroundPosition:"center"}} />
+  <div className="hostabb row-fs-c">
+    <div className="hostabb__thumb" style={{backgroundImage: `url(${props.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
     <div className="hostabb__text col">
       <span className="hostabb__text-tag dark_theme_tag_text">hosted by</span>
       <div className="circlehost__inner_name row-fs-c" style={{marginTop: 5}}>

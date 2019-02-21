@@ -26,40 +26,45 @@ export default class extends React.Component {
     license || education || description || image ? submit.classList.remove("fade") : submit.classList.add("fade")
   }
   render() {
-    return(
-      <div className="hostprofile__modal">
-        <div className="hostprofile__modal-top col-c-c">
-          <SmallText>Edit Information</SmallText>
-        </div>
-        <Field title="Certification">
-          <input onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_license" defaultValue={this.props.user.host.license} />
-        </Field>
-        <Field title="Education">
-          <input onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_education" defaultValue={this.props.user.host.education} />
-        </Field>
-        <Field title="Description">
-          <textarea onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_description" defaultValue={this.props.user.host.description} />
-        </Field>
-        <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
-        <Field title="Profile Picture">
-          <input
-            type="file"
-            id="hostprofile_imageupload" name="hostprofpic"
-            accept="image/png, image/jpeg"
-            onChange={(x) => this.handleUploadImage(this.props.user.host)}
-          />
-            <label htmlFor="hostprofile_imageupload"><span>Choose a file</span></label>
-            <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
-        </Field>
-        <div className="hostprofile__modal_brow row-fe-c">
-          <div id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
-            Cancel
+    console.log(this.props.user);
+    if (this.props.user.host) {
+      return(
+        <div className="hostprofile__modal">
+          <div className="hostprofile__modal-top col-c-c">
+            <SmallText>Edit Information</SmallText>
           </div>
-          <div id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={this.handleSubmit}>
-            Save
+          <Field title="Certification">
+            <input onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_license" defaultValue={this.props.user.host.license ? this.props.user.host.license : null} />
+          </Field>
+          <Field title="Education">
+            <input onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_education" defaultValue={this.props.user.host.education ? this.props.user.host.education : null} />
+          </Field>
+          <Field title="Description">
+            <textarea onChange={(x) => this.changeField(this.props.user.host ? this.props.user.host : null)} id="hostprofilemodal_description" defaultValue={this.props.user.host.description ? this.props.user.host.description : null} />
+          </Field>
+          <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+          <Field title="Profile Picture">
+            <input
+              type="file"
+              id="hostprofile_imageupload" name="hostprofpic"
+              accept="image/png, image/jpeg"
+              onChange={(x) => this.handleUploadImage(this.props.user.host)}
+            />
+              <label htmlFor="hostprofile_imageupload"><span>Choose a file</span></label>
+              <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
+          </Field>
+          <div className="hostprofile__modal_brow row-fe-c">
+            <div id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
+              Cancel
+            </div>
+            <div id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={this.handleSubmit}>
+              Save
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return null;
+    }
   }
 }

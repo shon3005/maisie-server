@@ -22,7 +22,13 @@ function Panel(props) {
   let sub = props.sub ? props.sub : "finances"
   return(
     <div className="panel">
-      <Modal id="profile_modal"><ProfileModal user={props.user} /></Modal>
+      <Modal id="profile_modal">
+        {
+          props.user && props.user.host
+          ? <ProfileModal user={props.user} />
+          : null
+        }
+      </Modal>
       <Header loggedIn="loggedIn"/>
       <HostHeader page={sub} />
       <div className="panel__inner">

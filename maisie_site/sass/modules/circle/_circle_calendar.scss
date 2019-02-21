@@ -3,7 +3,10 @@ $grid_wh: calc(.5vw + 30px);
 .circlecal {
   @include user-select(none);
   padding-left: 5%;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-right: 5%;
+  background-color: $color-primary-lightest;
   @include tabletandmobile {
     padding-left: 0px;
     padding-right: 0px;
@@ -35,7 +38,7 @@ $grid_wh: calc(.5vw + 30px);
     }
     &-gridtitle {
       color: $color-secondary-75;
-      font-weight: 500;
+      font-weight: 600;
       font-size: $font-size-med;
     }
     &_grid {

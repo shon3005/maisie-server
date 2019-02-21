@@ -1,6 +1,6 @@
 .circle_left {
   box-shadow: 0px 2px 30px $color-secondary-10;
-  flex: 1;
+
   &.dark_theme {
     background-color: transparent;
     box-shadow: none;
@@ -14,13 +14,13 @@
   &-title {
     font-size: $font-size-title;
     font-weight: 500;
+    text-transform: capitalize;
   }
   &-text {
-    font-weight: 400;
-    font-size: $font-size-small;
+    font-weight: 500;
   }
   &__subhead {
-    font-size: $font-size-tag;
+    font-size: $font-size-reg;
     color: $color-primary;
     text-transform: uppercase;
     font-weight: 600;
@@ -66,7 +66,8 @@
 
     &-tag {
       color: $color-secondary-25;
-      font-size: $font-size-small;
+      font-weight: 500;
+      font-size: $font-size-reg;
     }
     &-name {
       margin-top: -5px;
@@ -172,13 +173,13 @@
       > span.tag {
         color: $color-secondary-50;
         font-weight: 600;
-        font-size: $font-size-tag-small;
+        font-size: $font-size-tag;
         text-transform: uppercase;
         margin-left: 15px;
       }
       > span.text {
         color: $color-secondary;
-        font-size: $font-size-reg;
+        font-size: $font-size-med;
         text-transform: capitalize;
         font-weight: 500;
         margin-left: 15px;

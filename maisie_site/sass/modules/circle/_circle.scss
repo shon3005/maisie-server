@@ -38,14 +38,13 @@
   position: relative;
 
   &_askmodal {
-    position: absolute;
+    position: fixed;
     z-index: 9999999;
     height: 100vh;
     width: 100vw;
     background-color: $color-black-75;
 
     &-text {
-      max-width: 40vw;
       text-align: center;
       font-weight: 500;
       // background-color: $color-secondary-05;
@@ -130,7 +129,7 @@
         width: 100%;
       }
       &-shadow {
-        @include linear-gradient($color-black-10, transparent)
+        @include linear-gradient($color-black-50, transparent)
         position: absolute;
         left: 0;
         top: 0;
@@ -154,12 +153,16 @@
       &.dark_theme {
         margin-top: -5vh;
       }
+      @include desktop {
+        width: 80%;
+      }
+      @include tabletandmobile {
+        width: 90%;
+      }
       position: relative;
-      margin-top: -13vh;
-      width: 80%;
+      margin-top: -15vh;
       &-spcr {
-
-        width: $border-padding;
+        width: calc(5vw + 50px);
       }
     }
   }

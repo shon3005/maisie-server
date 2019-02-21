@@ -31,7 +31,7 @@ export default (props) => {
           <img src="../../../static/circle/length.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">length</span>
-            <span className="text dark_theme_primary_text">{props.length === 'continuous' ? "ongoing each week" : props.length + 'weeks'}</span>
+            <span className="text dark_theme_primary_text">{props.length === 'continuous' ? "ongoing each week" : props.length + ' weeks'}</span>
           </div>
         </div>
       </div>
