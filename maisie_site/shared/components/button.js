@@ -21,7 +21,7 @@ export default (props) => {
         className={classNames([
           "template_buttons",
           "row-c-c",
-          props.weight ? props.weight : console.warn("Warning: weight prop is missing from button component."),
+          props.weight ? props.weight : !props.kind == "link" && !props.kind == "ext" ? console.warn("Warning: weight prop is missing from button component.") : null,
           props.kind ? props.kind : console.warn("Warning: kind prop is missing from button component."),
           {"button_active": !props.saving || (props.kind == "link" || props.kind == "ext")},
           props.className
@@ -59,7 +59,7 @@ export default (props) => {
         className={classNames([
           "template_buttons",
           "row-c-c",
-          props.weight ? props.weight : console.warn("Warning: weight prop is missing from button component."),
+          props.weight ? props.weight : !props.kind == "link" && !props.kind == "ext" ? console.warn("Warning: weight prop is missing from button component.") : null,
           props.kind ? props.kind : console.warn("Warning: kind prop is missing from button component."),
           {"button_active": !props.saving || (props.kind == "link" || props.kind == "ext")},
           props.className
