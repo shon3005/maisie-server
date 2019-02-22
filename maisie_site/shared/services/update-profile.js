@@ -42,6 +42,7 @@ export default (
               bio
               imageUrl
               support
+              last4
               host {
                 id
                 description

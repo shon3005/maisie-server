@@ -9,6 +9,7 @@ defmodule MaisieApi.Accounts.Host do
     field :education, :string
     field :image_url, :string
     field :license, :string
+    field :stripe_id, :string, unique: true
     belongs_to :user, User
 
     timestamps()
@@ -25,5 +26,10 @@ defmodule MaisieApi.Accounts.Host do
   def update_host_image_changeset(host, attrs) do
     host
     |> cast(attrs, [:image_url])
+  end
+
+  def update_host_payment_changeset(host, attrs) do
+    host
+    |> cast(attrs, [:stripe_id])
   end
 end

@@ -18,7 +18,10 @@ defmodule MaisieApi.Services.Circle do
     field :minute, :string
     field :ampm, :string
     field :min, :string
+    field :max, :string
     field :image_url, :string
+    field :who_should_join, :string
+    field :tags, {:array, :string}
     belongs_to :user, User
 
     timestamps()
@@ -26,7 +29,7 @@ defmodule MaisieApi.Services.Circle do
 
   def changeset(circle, attrs) do
     circle
-    |> cast(attrs, [:title, :description, :price, :day, :frequency, :length, :location_type, :neighborhood, :address, :hour, :minute, :ampm, :min, :user_id])
+    |> cast(attrs, [:title, :description, :price, :day, :frequency, :length, :location_type, :neighborhood, :address, :hour, :minute, :ampm, :min, :max, :tags, :who_should_join, :user_id])
     |> validate_required([
       :title,
       :description,
@@ -41,6 +44,9 @@ defmodule MaisieApi.Services.Circle do
       :minute,
       :ampm,
       :min,
+      :max,
+      :tags,
+      :who_should_join,
       :user_id
     ])
   end

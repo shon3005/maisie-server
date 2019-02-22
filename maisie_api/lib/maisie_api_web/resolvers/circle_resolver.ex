@@ -2,6 +2,7 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     alias MaisieApi.Services
 
     def create_circle(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        input = Map.replace(input, :tags, String.split(input.tags, ", "))
         circle_input = Map.merge(input, %{user_id: current_user.id})
         Services.create_circle(circle_input)
     end

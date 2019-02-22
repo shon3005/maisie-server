@@ -12,9 +12,67 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
     end
 
     def update_host(_, %{input: input}, %{context: %{current_user: current_user}}) do
-        IO.inspect(Accounts.get_host!(input.id))
         Accounts.update_host(Accounts.get_host!(input.id), input)
         |> update_host_handler()
+    end
+
+    def get_transactions(_, %{stripe_id: stripe_id}, %{context: %{current_user: current_user}}) do
+        Stripe.Transfer.list(%{destination: stripe_id, limit: 5})
+        |> transfer_handler()
+    end
+
+    def host_payout(_, %{host_id: host_id}, _current_user) do
+        Accounts.get_host!(host_id)
+        |> retrieve_balance()
+    end
+
+    def host_stripe_dashboard_url(_, %{host_id: host_id}, %{context: %{current_user: current_user}}) do
+        Accounts.get_host!(host_id)
+        |> create_account_link()
+    end
+
+    defp retrieve_balance(%Accounts.Host{stripe_id: stripe_id}) do
+        Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
+        |> create_payout(stripe_id)
+    end
+
+    defp create_payout({:ok, %{"available" => [%{"amount" => balance}], "pending" => [%{"amount" => pending_balance}]}}, stripe_id) do
+        Stripe.Payout.create(%{
+            amount: pending_balance,
+            currency: "usd"
+        },
+            connect_account: stripe_id
+        )
+        |> payout_handler()
+    end
+
+    defp create_account_link(%Accounts.Host{stripe_id: stripe_id}) do
+        Stripe.Account.create_login_link(stripe_id, %{})
+        |> dashboard_url_handler()
+    end
+
+    defp payout_handler({:ok, %Stripe.Payout{}}) do
+        {:ok, "payout success"}
+    end
+
+    defp payout_handler({:error, %Stripe.Error{} = error}) do
+        {:error, error.message}
+    end
+
+    defp dashboard_url_handler({:error, %Stripe.Error{} = error}) do
+        {:error, error.message}
+    end
+
+    defp dashboard_url_handler({:ok, %{url: url}}) do
+        {:ok, url}
+    end
+
+    defp transfer_handler({:error, %Stripe.Error{} = error}) do
+        {:error, error.message}
+    end
+
+    defp transfer_handler({:ok, %Stripe.List{data: transactions}}) do
+        {:ok, "transfers gotten"}
     end
 
     defp handler({:error, %Ecto.Changeset{} = changeset}) do

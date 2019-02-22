@@ -52,6 +52,27 @@ defmodule MaisieApiWeb.Schema do
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.PaymentResolver.set_up_payments/3)
         end
+
+        @desc "Retrive Host's last 5 transactions"
+        field :stripe_transactions, type: :string do
+           arg(:stripe_id, non_null(:string))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.HostResolver.get_transactions/3)
+        end
+
+        @desc "Retrieve Host Stripe Account URL"
+        field :host_stripe_dashboard_url, type: :string do
+           arg(:host_id, non_null(:string))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.HostResolver.host_stripe_dashboard_url/3)
+        end
+
+        @desc "Execute Host Payout"
+        field :host_payout, type: :string do
+           arg(:host_id, non_null(:string))
+           middleware(Middleware.Authorize, :any)
+           resolve(&Resolvers.HostResolver.host_payout/3)
+        end
     end
 
     mutation do
@@ -128,6 +149,13 @@ defmodule MaisieApiWeb.Schema do
           arg(:input, non_null(:user_support_type))
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.UserResolver.update_user_support/3)
+        end
+
+        @desc "Update user support flag"
+        field :charge_customer, type: :string do
+          arg(:input, non_null(:charge_input_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.PaymentResolver.charge_customer/3)
         end
     end
 

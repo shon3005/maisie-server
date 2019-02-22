@@ -7,6 +7,7 @@ defmodule MaisieApi.Repo.Migrations.CreateHosts do
       add :education, :string
       add :description, :text
       add :image_url, :string
+      add :stripe_id, :string
       add :user_id, references(:users, on_delete: :delete_all)
 
       timestamps()

@@ -11,6 +11,7 @@ import Router from 'next/router';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 import { connect } from 'react-redux';
+import syncPayment from '../shared/services/sync-payment';
 
 //
 //
@@ -56,6 +57,9 @@ Panel.getInitialProps = ({ctx}) => {
       const cookies = cookie.parse(ctx.req.headers.cookie || '');
       if (!cookies.token) {
         redirect(ctx, '/')
+      }
+      if (ctx.query && ctx.query.code && ctx.query.state) {
+        syncPayment(ctx.apolloClient, ctx.query.state, ctx.query.code, JSON.parse(cookies.user).user.host.id);
       }
     }
   } catch(e) {

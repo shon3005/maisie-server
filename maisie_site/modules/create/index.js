@@ -112,7 +112,9 @@ class Create extends React.Component {
         hour: this.state.hour,
         minute: this.state.minute,
         ampm: this.state.ampm,
-        start_date: this.state.start_date
+        start_date: this.state.start_date,
+        tags: this.state.tags,
+        whoshouldjoin: this.state.whoshouldjoin
       });
       let bodyFormData = new FormData();
       bodyFormData.append('image', this.state.image);

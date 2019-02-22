@@ -14,7 +14,10 @@ defmodule MaisieApi.Repo.Migrations.AddCircleProperties do
       add :minute, :string
       add :ampm, :string
       add :min, :string
+      add :max, :string
       add :image_url, :string
+      add :who_should_join, :text
+      add :tags, {:array, :string}
     end
   end
 end

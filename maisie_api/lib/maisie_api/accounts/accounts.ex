@@ -229,6 +229,12 @@ defmodule MaisieApi.Accounts do
     |> Repo.update()
   end
 
+  def update_host_payment(%Host{} = host, attrs) do
+    host
+    |> Host.update_host_payment_changeset(attrs)
+    |> Repo.update()
+  end
+
   @doc """
   Deletes a Host.
 
