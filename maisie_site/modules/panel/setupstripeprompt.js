@@ -1,4 +1,5 @@
 import Button from '../../shared/components/button.js';
+import stripeAuthorize from '../../shared/services/stripe-authorize';
 
 export default (props) =>
   <div className="hostfinances__setup col-c-c">
@@ -29,5 +30,14 @@ export default (props) =>
       </svg>
     </div>
     <span>You'll need to connect Maisie with Stripe to start hosting.</span>
-    <Button kind="link" href="https://www.stripe.com">Set up Stripe account</Button>
+    <Button kind="link" onClick={() => signUpConnectAccount(props.apolloClient)}>Set up Stripe account</Button>
   </div>
+
+const signUpConnectAccount = async (client) => {
+  try {
+    const {data: {stripeAuthorize: url}} = await stripeAuthorize(client);
+    window.open(url)
+  } catch(e) {
+    console.log(e);
+  }
+}
