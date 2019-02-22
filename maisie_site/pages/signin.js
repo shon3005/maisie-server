@@ -48,6 +48,8 @@ class Signin extends Component {
         school: data.loginUser.user.school,
         work: data.loginUser.user.work,
         bio: data.loginUser.user.bio,
+        support: data.loginUser.user.support,
+        last4: data.loginUser.user.last4,
         host: data.loginUser.user.host,
         circles: data.loginUser.user.circles
       });

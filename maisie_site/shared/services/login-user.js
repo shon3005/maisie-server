@@ -23,6 +23,7 @@ export default (
               work
               bio
               imageUrl
+              last4
               support
               host {
                 id

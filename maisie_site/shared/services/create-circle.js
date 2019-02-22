@@ -20,7 +20,10 @@ export default (
           $neighborhood: String!,
           $address: String!,
           $price: String!,
-          $min: String!
+          $min: String!,
+          $max: String!,
+          $tags: String!,
+          $whoShouldJoin: String!
         ) {
           createCircle(
             input: {
@@ -36,7 +39,10 @@ export default (
               neighborhood: $neighborhood,
               address: $address,
               price: $price,
-              min: $min
+              min: $min,
+              max: $max,
+              tags: $tags,
+              whoShouldJoin: $whoShouldJoin
             }
           ) {
             id
@@ -58,6 +64,9 @@ export default (
         address: circleDetails.address,
         price: circleDetails.price,
         min: circleDetails.min,
+        max: circleDetails.max,
+        tags: circleDetails.tags,
+        whoShouldJoin: circleDetails.whoshouldjoin
       }
     })
 }

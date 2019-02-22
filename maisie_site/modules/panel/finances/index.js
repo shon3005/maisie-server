@@ -1,6 +1,8 @@
 import LargeText from '../../../shared/components/text/largeText.js';
 import Button from '../../../shared/components/button.js';
 import Card from './components/card.js';
+import { ApolloConsumer } from 'react-apollo';
+import stripeAuthorize from '../../../shared/services/stripe-authorize';
 
 export default (props) =>
   <div className="hostfinances col">
