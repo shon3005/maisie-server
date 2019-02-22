@@ -30,7 +30,7 @@ export default (props) => {
       >{props.saving && props.kind != "link" && props.kind != "ext" ? <Spinner saving={props.saving} weight={props.weight} /> : props.children}
         {props.kind === "link"
           ? <svg width="12px" height="11px" viewBox="0 0 12 11">
-              <g id="Web-V2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fillOpacity="1">
+              <g id="Web-V2" stroke="none" strokeWidth="1" fillRule="evenodd" fillOpacity="1">
                   <g id="Group-45-Copy" transform="translate(-97.000000, -5.000000)" fillRule="nonzero">
                       <g id="Group-42-Copy">
                           <g id="external" transform="translate(97.000000, 5.000000)">
