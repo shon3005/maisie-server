@@ -8,11 +8,10 @@
   background-color: white;
   padding: 40px;
 
-  @include size-one { width: 100%; margin-bottom: 120px; }
-  @include size-two { width: 100%; margin-bottom: 120px; }
-  @include size-three { width: 100%; margin-bottom: 120px; }
-  @include size-four { width: 100%; @include border-radius(10px); margin-bottom: 140px; }
-  @include size-five { width: auto; @include border-radius(10px); margin-bottom: 40px; }
+  @include size-four { @include border-radius(10px); }
+  @include size-five { @include border-radius(10px); }
+  @include sizes(width, 100%, 100%, 100%, 100%, auto);
+  @include sizes(margin-bottom, 120px, 120px, 120px, 140px, 40px);
 
   color: $color-secondary;
   &-title {

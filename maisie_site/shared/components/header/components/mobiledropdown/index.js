@@ -11,7 +11,7 @@ const Links = () => [["Edit Profile", "/profile"],
                     ["Browse", "/"],
                     ["My Circles", "/circles"],
                     ["Settings", "/settings"],
-                    ["Help", "/support"]].map((x, index) => <a className="row-fs-c" href={x[1]}>{x[0]}</a> )
+                    ["Help", "/support"]].map((x, index) => <a key={index} className="row-fs-c" href={x[1]}>{x[0]}</a> )
 
 
 const MobileDropdown = (props) =>

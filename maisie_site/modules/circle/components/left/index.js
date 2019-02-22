@@ -31,7 +31,7 @@ export default (props) => {
       }} abb />
       <div style={{height: 20}} />
       <div className="circle_left_tags row">
-        <Tags tags={props.d.tags} />
+        <Tags tags={props.d.tags ? props.d.tags : null} />
       </div>
       <Divider />
       <Sub>description</Sub>

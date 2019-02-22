@@ -24,9 +24,14 @@
     }
     width: 100%;
     margin-bottom: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
     padding-bottom: 20px;
+    > div {
+      width: 100%;
+    }
+    &-btn {
+      margin-top: 10px;
+      width: 100%;
+    }
     &_right {
       @include desktop {
         @include flexbox;
@@ -41,8 +46,6 @@
         @include align-items(flex-start);
       }
       &-bal {
-        margin-bottom: 10px;
-        margin-top: 10px;
         > span {
           &.tag {
             font-size: $font-size-tag;

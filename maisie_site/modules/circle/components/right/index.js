@@ -1,7 +1,5 @@
 import React from 'react';
 import Socials from './components/socials.js';
-import Dots from './components/dots.js';
-import Divider from './components/divider.js';
 import Button from '../../../../shared/components/button.js';
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 var classNames= require('classnames')

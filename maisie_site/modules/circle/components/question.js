@@ -1,4 +1,5 @@
 import SmallText from '../../../shared/components/text/smallText.js';
+import Button from '../../../shared/components/button.js';
 
 function handleClick() {
   // send question
@@ -15,7 +16,9 @@ export default () =>
       <SmallText>Ask this host a question</SmallText>
       <textarea id="askmodal_textarea" rows={6} placeholder="Type your question here...">
       </textarea>
-      <div onClick={handleClick} className="btn send col-c-c">Send</div>
-      <div onClick={handleClick} className="btn cancel col-c-c">Cancel</div>
+      <div className="row-fe">
+        <Button kind="alt" weight="light" onClick={handleClick}>Cancel</Button>
+        <Button kind="alt" weight="purple" onClick={handleClick}>Send</Button>
+      </div>
     </div>
   </div>

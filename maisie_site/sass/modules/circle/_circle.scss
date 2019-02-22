@@ -1,44 +1,21 @@
 // use the following to set the dark theme
 .circle_left.dark_theme, .circle_right.dark_theme, .circle.dark_theme {
-  .dark_theme_title_text {
-    color: white;
-  }
-  .dark_theme_primary_text {
-    color: #BAC8FF;
-  }
-  .dark_theme_tag_text {
-    color: $color-primary-ligh;
-  }
-  .dark_theme_dark_back {
-    background-color: $color-secondary-25;
-  }
-  .dark_theme_social {
-    background-color: $color-secondary-50;
-    &:hover {
-      background-color: $color-secondary;
-      box-shadow: 0px 0px 20px $color-primary;
-    }
-  }
-  .dark_theme_spacer {
-    background-color: rgba(255,255,255,.05) !important;
-  }
+  .dark_theme_title_text { color: white; }
+  .dark_theme_primary_text { color: #BAC8FF; }
+  .dark_theme_tag_text { color: $color-primary-ligh; }
+  .dark_theme_dark_back { background-color: $color-secondary-25; }
+  .dark_theme_social { background-color: $color-secondary-50;
+    &:hover { background-color: $color-secondary; box-shadow: 0px 0px 20px $color-primary; }}
+  .dark_theme_spacer { background-color: rgba(255,255,255,.05) !important;}
 }
 
 .circle {
   width: 100vw;
   height: 100%;
   background-color: $color-primary-lightest;
-  &.dark_theme {
-    background-color: $color-black;
-  }
-  padding-bottom: 40px;
+  &.dark_theme { background-color: $color-black; }
   position: relative;
-
-  @include size-one { padding-bottom: 140; }
-  @include size-two { padding-bottom: 140; }
-  @include size-three { padding-bottom: 140;}
-  @include size-four { padding-bottom: 140; }
-  @include size-five { padding-bottom: 40; }
+  @include sizes(padding-bottom, 140px, 140px, 140px, 140px, 40px);
 
   &_askmodal {
     position: fixed;
@@ -46,16 +23,20 @@
     height: 100vh;
     width: 100vw;
     background-color: $color-black-75;
-
     &-text {
       text-align: center;
       font-weight: 500;
-      // background-color: $color-secondary-05;
       margin-top: -20px;
       margin-bottom: 20px;
     }
-
     > div {
+      > div {
+        margin-top: 10px;
+        width: 100%;
+        > div {
+          margin-left: 10px;
+        }
+      }
       border: 2px solid $color-secondary-20;
       padding: 20px;
       @include border-radius(5px);
@@ -86,26 +67,6 @@
         font-family: $font-primary;
         font-weight: 400;
         &:focus { border: 1px solid $color-secondary-50; }
-      }
-      .btn {
-        @include transition(all, 200ms);
-        @include user-select(none);
-
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-top: 15px;
-        @include border-radius(5px);
-
-        &.send {
-          background-color: $color-primary;
-          color: white;
-        }
-        &.cancel {
-          color: $color-primary;
-        }
-        &:hover { cursor: pointer; }
-        &:active { opacity: .75; }
       }
     }
   }
@@ -156,12 +117,9 @@
       &.dark_theme {
         margin-top: -5vh;
       }
-      @include size-one { width: 100%; }
-      @include size-two { width: 100%; }
-      @include size-three { width: 100%; }
-      @include size-four { width: 80%; max-width: 1200px; }
-      @include size-five { width: 80%; max-width: 1200px; }
-
+      @include size-four { max-width: 1200px; }
+      @include size-five { max-width: 1200px; }
+      @include sizes(width, 100%, 100%, 100%, 80%, 80%);
       position: relative;
       margin-top: -15vh;
       &-spcr {
@@ -174,14 +132,11 @@
 .circleback {
   @include transition(all, 200ms);
   @include user-select(none);
-
   margin-right: calc(20px + 1%);
-
   > span {
     color: white;
     font-weight: 600;
     text-shadow: 0px 0px 10px $color-secondary-25;
-
   }
   &:hover {
     cursor: pointer;

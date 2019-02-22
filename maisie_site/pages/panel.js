@@ -1,10 +1,8 @@
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import HostHeader from '../modules/panel/hostheader/index.js';
-import Dash from '../modules/panel/dash/index.js';
 import Finances from '../modules/panel/finances/index.js';
 import Circles from '../modules/panel/circles/index.js';
-import Inbox from '../modules/panel/inbox/index.js';
 import Profile from '../modules/panel/profile/index.js';
 import Modal from '../shared/components/modal/index.js';
 import ProfileModal from '../modules/panel/profile/profilemodal.js';
@@ -24,7 +22,7 @@ const availableBalance = "500.00"
 const ActivePage = (props) => {
   let p = props.p
   return setupstripeprompt
-    ? p == "dash" ? <Dash /> : p == "finances" ? <Finances availableBalance={props.availableBalance} /> : p == "circles" ? <Circles /> : p == "inbox" ? <Inbox /> : p == "profile" ? <Profile user={props.user} /> : null
+    ? p == "finances" ? <Finances availableBalance={props.availableBalance} /> : p == "circles" ? <Circles /> :  p == "profile" ? <Profile user={props.user} /> : null
     : <SetUpStripePrompt />
 }
 
