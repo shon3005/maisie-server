@@ -30,7 +30,7 @@ export default (props) =>
       </svg>
     </div>
     <span>You'll need to connect Maisie with Stripe to start hosting.</span>
-    <Button kind="link" onClick={() => signUpConnectAccount(props.apolloClient)}>Set up Stripe account</Button>
+    <Button kind="link" href="sd" onClick={() => signUpConnectAccount(props.apolloClient)}>Set up Stripe account</Button>
   </div>
 
 const signUpConnectAccount = async (client) => {
