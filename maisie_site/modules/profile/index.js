@@ -1,5 +1,6 @@
 import LargeText from '../../shared/components/text/largeText.js';
 import SmallText from '../../shared/components/text/smallText.js';
+import Button from '../../shared/components/button.js';
 import Field from '../../shared/components/text/field.js';
 import Disclaimer from '../../shared/components/text/disclaimer.js';
 
@@ -10,7 +11,7 @@ export default class extends React.Component {
     super(props)
     this.state = {
       image: false,
-      saveMessage: "Save",
+      saveMessage: "Save Profile",
     }
   }
   handleUploadImage() {
@@ -117,9 +118,9 @@ export default class extends React.Component {
           help hosts learn more about you before you meet. Feel free to include your interests,
           goals, and background.
         </Disclaimer>
-        <button type="submit" id="save_profile_button" onClick={(e) => this.handlePress(e)}>
-          {this.state.saveMessage}
-        </button>
+        <div className="r_cont">
+          <Button type="submit" kind="primary" id="save_profile_button" weight="purple" onClick={(e) => this.handlePress(e)}>{this.state.saveMessage}</Button>
+        </div>
       </form>
     )
   }

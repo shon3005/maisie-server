@@ -1,5 +1,6 @@
 import Field from '../../../shared/components/text/field.js';
 import SmallText from '../../../shared/components/text/smallText.js';
+import Button from '../../../shared/components/button.js';
 
 export default class extends React.Component {
   constructor(props) {
@@ -53,12 +54,13 @@ export default class extends React.Component {
               <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
           </Field>
           <div className="hostprofile__modal_brow row-fe-c">
-            <div id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
+            <Button kind="alt" weight="light" id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
               Cancel
-            </div>
-            <div id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={this.handleSubmit}>
+            </Button>
+            <div style={{width: 10}}/>
+            <Button kind="alt" weight="purple" id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={this.handleSubmit}>
               Save
-            </div>
+            </Button>
           </div>
         </div>
       )

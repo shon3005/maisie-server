@@ -19,15 +19,13 @@
   > form {
     width: 160px;
     z-index: 1099;
-    > input, button {
+    > input {
       height: 36px;
       width: 100%;
       @include border-radius(5px);
       @include transition(all, 200ms);
       font-family: $font-primary;
       font-size: $font-size-small;
-    }
-    > input {
       border: 1px solid white;
       box-shadow: $shadow-sss;
       outline: 0;
@@ -42,20 +40,6 @@
         font-family: "Open Sans";
         color: $color-secondary-25;
         font-size: $font-size-small;
-      }
-    }
-    > button {
-      margin-top: 10px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      background-color: $color-primary;
-      border: none;
-      outline: none;
-      color: white;
-      box-shadow: inset 0 -11px 12px 0 rgba(5,45,84,0.05);
-
-      &:hover {
-        cursor: pointer;
       }
     }
   }

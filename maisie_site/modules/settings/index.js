@@ -1,5 +1,6 @@
 import React from 'react';
 import AddPayment from './components/add-payment';
+import Button from '../../shared/components/button.js';
 import LargeText from '../../shared/components/text/largeText.js';
 import SmallText from '../../shared/components/text/smallText.js';
 import Field from '../../shared/components/text/field.js';
@@ -62,8 +63,9 @@ export default class extends React.Component {
           />
         </Field>
         <PassError />
-        <div className="settings__inner-submit row-fe-c"><button onClick={this.handlePassSubmit.bind(this)}>Submit</button></div>
-
+        <div className="r_cont">
+          <Button kind="primary" weight="purple" onClick={this.handlePassSubmit.bind(this)}>Submit</Button>
+        </div>
         <div style={{height: 25}} />
         <div className="row-sb-c">
           <SmallText>Billing</SmallText>

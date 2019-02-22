@@ -68,5 +68,5 @@ export default (props) => {
       >{props.saving && props.kind != "link" && props.kind != "ext" ? <Spinner saving={props.saving} weight={props.weight} /> : props.children}</div>
     )
   }
-  return props.kind == "link" || props.kind == "ext" ? a(props) : b(props)
+  return props.href || props.kind == "link" || props.kind == "ext" ? a(props) : b(props)
 };

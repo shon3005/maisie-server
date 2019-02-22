@@ -1,5 +1,6 @@
 import LargeText from '../../../shared/components/text/largeText.js';
 import SmallText from '../../../shared/components/text/smallText.js';
+import Button from '../../../shared/components/button.js';
 import Hosted from '../../circle/components/left/components/hosted.js';
 
 export default (props) =>
@@ -10,7 +11,7 @@ export default (props) =>
         <SmallText>Here's what users will see:</SmallText>
       </div>
       <div className="hostprofile__edit col">
-        <div onClick={() => document.getElementById("profile_modal").classList.remove("hide")}>Edit Information</div>
+        <Button kind="primary" weight="light" onClick={() => document.getElementById("profile_modal").classList.remove("hide")}>Edit Information</Button>
       </div>
     </div>
     <div className="hostprofile__hosted">
