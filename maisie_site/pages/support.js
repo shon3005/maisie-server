@@ -11,9 +11,9 @@ const Support = () =>
 </div>
 
 const mapStateToProps = (state) => {
-  return process.browser ? 
+  return process.browser ?
     { user: state.user.user } :
     {};
 }
-  
+
 export default connect(mapStateToProps)(Support);
