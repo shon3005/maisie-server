@@ -2,7 +2,10 @@
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: $border-padding;
-
+  @include size-four { display: none !important; }
+  @include size-three { display: none !important; }
+  @include size-two { display: none !important; }
+  @include size-one { display: none !important; }
   &__inner {
     padding-top: 25px;
     padding-bottom: 25px;

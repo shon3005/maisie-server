@@ -7,8 +7,12 @@
   }
   background-color: white;
   padding: 40px;
-  @include border-radius(10px);
-  margin-bottom: 100px;
+
+  @include size-one { width: 100%; margin-bottom: 120px; }
+  @include size-two { width: 100%; margin-bottom: 120px; }
+  @include size-three { width: 100%; margin-bottom: 120px; }
+  @include size-four { width: 100%; @include border-radius(10px); margin-bottom: 140px; }
+  @include size-five { width: auto; @include border-radius(10px); margin-bottom: 40px; }
 
   color: $color-secondary;
   &-title {

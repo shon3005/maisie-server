@@ -1,6 +1,6 @@
 import Left from './components/left/index.js';
 import Right from './components/right/index.js';
-
+import MobileRight from './components/mobile_right/index.js';
 var classNames = require('classnames');
 
 export default (props) => {
@@ -22,6 +22,15 @@ export default (props) => {
         />
         <div className="circle__inner_cont-spcr" />
         <Right
+          circle={props.circle}
+          dark={props.dark} // sets color scheme
+          d={props.d} // sets dummy data for component
+          //
+          //
+          // *** need to put logic for button status here ***
+          status={""} // adjusts join button when status changes
+        />
+        <MobileRight
           circle={props.circle}
           dark={props.dark} // sets color scheme
           d={props.d} // sets dummy data for component

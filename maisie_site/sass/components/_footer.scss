@@ -1,4 +1,15 @@
 .footer {
+  &.hidemobile {
+    @include size-three {
+      display: none !important;
+    }
+    @include size-two {
+      display: none !important;
+    }
+    @include size-one {
+      display: none !important;
+    }
+  }
   @include desktop {
     z-index: 9999;
     position: fixed;
@@ -9,6 +20,9 @@
     background-color: $color-black;
     padding-left: 5%;
     padding-right: 5%;
+
+
+
     &__drawer {
       flex: 1;
       position: relative;
@@ -59,7 +73,7 @@
   @include tabletandmobile {
     bottom: 0 !important;
     left: 0 !important;
-
+    z-index: 999;
     width: 100% !important;
     background-color: $color-black;
     &__drawer {
@@ -98,6 +112,7 @@
         flex-direction: row !important;
         justify-content: space-around !important;
         align-items: center !important;
+        display: none !important;
       }
       @include desktop {
         opacity: 0;

@@ -1,3 +1,4 @@
+var classNames = require('classnames')
 let LINKS_COLUMN_ONE = [["How it works", "/"], ["Browse Circles", "/"], ["Why Host?", "/host"]],
     LINKS_COLUMN_TWO = [["Values and Mission", ""],["Careers at Maisie", "https://angel.co/maisie-1"]],
     LINKS_COLUMN_THREE = [["Product Support", "support@heymaisie.com"],["Contact Us", "say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
@@ -29,8 +30,8 @@ function Drawer() {
   )
 }
 
-export default () =>
-  <div className="footer row-c-c">
+export default (props) =>
+  <div className={classNames(["footer", "row-c-c", {hidemobile: props.hidemobile}])}>
     <div className="footer__drawer row-sb-c">
       <Drawer />
       <Logos />

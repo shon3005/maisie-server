@@ -27,7 +27,7 @@ function Circle(props) {
           return <CircleModule dark={PREFER_DARK_THEME} d={DATA} user={props.user} id={id} circle={getCircle.data.circle}/>
         }}
       </Query>
-      <Footer />
+      <Footer hidemobile />
     </div>
   )
 }
