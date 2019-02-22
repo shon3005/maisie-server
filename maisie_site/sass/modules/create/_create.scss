@@ -203,7 +203,7 @@
           font-size: $font-size-reg;
           color: $color-secondary-20;
           font-weight: 400;
-          font-family: "Open Sans";
+          font-family: $font-primary;
         }
         &.red {
           border: 1px solid $color-red !important;
@@ -224,7 +224,7 @@
 
         font-size: $font-size-reg;
         color: $color-secondary;
-        font-family: "Open Sans";
+        font-family: $font-primary;
         font-weight: 400;
         &:focus { border: 1px solid $color-secondary-50; }
       }
@@ -233,7 +233,7 @@
         @include transition(all, 200ms);
 
         position: relative;
-        font-family: "Open Sans";
+        font-family: $font-primary;
         font-size: $font-size-reg;
         color: $color-secondary;
         padding-left: 20px;
@@ -257,7 +257,7 @@
 
         font-size: $font-size-reg;
         color: $color-secondary;
-        font-family: "Open Sans";
+        font-family: $font-primary;
         font-weight: 400;
         &:focus { border: 1px solid $color-secondary-50; }
       }

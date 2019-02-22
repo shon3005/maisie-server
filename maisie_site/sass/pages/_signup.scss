@@ -87,7 +87,7 @@
             @include transition(all, 200ms);
             height: 36px;
             @include border-radius(5px);
-            font-family: "Open Sans";
+            font-family: $font-primary;
             font-size: $font-size-small;
             width: calc(50%);
             border: 1px solid white;

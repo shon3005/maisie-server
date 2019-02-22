@@ -24,7 +24,7 @@
       width: 100%;
       @include border-radius(5px);
       @include transition(all, 200ms);
-      font-family: "Open Sans";
+      font-family: $font-primary;
       font-size: $font-size-small;
     }
     > input {
