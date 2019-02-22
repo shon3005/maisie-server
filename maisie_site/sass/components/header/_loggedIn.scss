@@ -2,6 +2,15 @@
   position: relative;
   height: $header-height;
   width: 50px;
+  @include size-one {
+    display: none !important;
+  }
+  @include size-two {
+    display: none !important;
+  }
+  @include size-three {
+    display: none !important;
+  }
   &-thumb {
     height: 30px;
     width: 30px;
@@ -113,5 +122,16 @@
       opacity: 1;
       height: auto;
     }
+  }
+}
+.receive_mobile_directions {
+  @include size-one {
+    display: none !important;
+  }
+  @include size-two {
+    display: none !important;
+  }
+  @include size-three {
+    display: none !important;
   }
 }

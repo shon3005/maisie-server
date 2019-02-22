@@ -5,10 +5,13 @@
 
 import Left from './components/side_left.js';
 import Right from './components/side_right/index.js';
+import MobileDropdown from './components/mobiledropdown/index.js';
+
 var classNames = require('classnames');
 
 export default (props) =>
   <div className={classNames(["header", "row-sb-c", { "circle_page": props.circle, "trnsp": props.trnsp }])}>
     <Left circle={props.circle} />
     <Right circle={props.circle} u={props.loggedIn} />
+    <MobileDropdown circle={props.circle} u={props.loggedIn} />
   </div>
