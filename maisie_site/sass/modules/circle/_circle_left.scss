@@ -8,10 +8,10 @@
   background-color: white;
   padding: 40px;
 
-  @include size-four { @include border-radius(10px); }
   @include size-five { @include border-radius(10px); }
-  @include sizes(width, 100%, 100%, 100%, 100%, auto);
-  @include sizes(margin-bottom, 120px, 120px, 120px, 140px, 40px);
+  width: 100%;
+  margin-bottom: 120px;
+  @include size-five { margin-bottom: 40px }
 
   color: $color-secondary;
   &-title {
