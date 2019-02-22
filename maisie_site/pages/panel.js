@@ -7,15 +7,15 @@ import Profile from '../modules/panel/profile/index.js';
 import Modal from '../shared/components/modal/index.js';
 import ProfileModal from '../modules/panel/profile/profilemodal.js';
 import SetUpStripePrompt from '../modules/panel/setupstripeprompt.js';
-import Router from 'next/router';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 import { connect } from 'react-redux';
 import syncPayment from '../shared/services/sync-payment';
+import { ApolloConsumer } from 'react-apollo';
 
 //
 //
-const setupstripeprompt = true
+const setupstripeprompt = false
 const availableBalance = "500.00"
 //
 //
@@ -33,21 +33,25 @@ const ActivePage = (props) => {
 const Panel = (props) => {
   let sub = props.sub ? props.sub : "finances"
   return(
-    <div className="panel">
-      <Modal id="profile_modal">
-        {
-          props.user && props.user.host
-          ? <ProfileModal user={props.user} token={props.token}/>
-          : null
-        }
-      </Modal>
-      <Header loggedIn="loggedIn"/>
-      <HostHeader page={sub} />
-      <div className="panel__inner">
-        <ActivePage p={sub} user={props.user} availableBalance={availableBalance} />
-      </div>
-      <Footer />
-    </div>
+    <ApolloConsumer>
+      {client =>
+        <div className="panel">
+          <Modal id="profile_modal">
+            {
+              props.user && props.user.host
+              ? <ProfileModal user={props.user} token={props.token}/>
+              : null
+            }
+          </Modal>
+          <Header loggedIn="loggedIn"/>
+          <HostHeader page={sub} />
+          <div className="panel__inner">
+            <ActivePage p={sub} user={props.user} availableBalance={availableBalance} apolloClient={client}/>
+          </div>
+          <Footer />
+        </div>
+      }
+    </ApolloConsumer>
   )
 }
 
