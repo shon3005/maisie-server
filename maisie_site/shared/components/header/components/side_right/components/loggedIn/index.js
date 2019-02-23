@@ -52,7 +52,7 @@ const LoggedIn = (props) =>
         </div>
       </Link>
       <Spacer circle={false} />
-      <Link route="">
+      <Link route="#">
         <div className="headerLoggedIn__drop-item large row-fs-c" onClick={handleDelete}>
           <svg className="so" viewBox="0 0 12 11">
               <g id="Web-V2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fillOpacity="1">
@@ -79,6 +79,7 @@ const handleDelete = () => {
     maxAge: -1
   });
   location.reload(true);
+  console.log(cookie)
 }
 
 const mapStateToProps = (state) => {

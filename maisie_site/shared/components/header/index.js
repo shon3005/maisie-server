@@ -13,12 +13,14 @@ var classNames = require('classnames');
 const Header = (props) =>
     <div className={classNames(["header", "row-sb-c", { "circle_page": props.circle, "trnsp": props.trnsp }])}>
       <Left circle={props.circle} />
+      <div>
       <Right circle={props.circle} u={props.loggedIn} />
       {
         props.user
           ? <MobileDropdown circle={props.circle} u={props.loggedIn} />
           : <div />
       }
+      </div>
     </div>
 
 const mapStateToProps = (state) => {
