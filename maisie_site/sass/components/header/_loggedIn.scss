@@ -76,6 +76,7 @@
         color: $color-secondary-75;
       }
       > svg {
+        @include transition(all, 200ms);
         &.so {
           width: 20px;
           height: 18px;
@@ -111,6 +112,7 @@
           margin-left: 15px;
         }
         > svg {
+          transform: scale(1.10);
           &.so {
             width: 20px;
             height: 18px;
