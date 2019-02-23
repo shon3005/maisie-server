@@ -52,8 +52,8 @@ const LoggedIn = (props) =>
         </div>
       </Link>
       <Spacer circle={false} />
-      <Link route="/">
-        <div className="headerLoggedIn__drop-item large row-fs-c" onClick={() => deleteSession(props.text)}>
+      <Link route="">
+        <div className="headerLoggedIn__drop-item large row-fs-c" onClick={handleDelete}>
           <svg className="so" viewBox="0 0 12 11">
               <g id="Web-V2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" fillOpacity="1">
                   <g id="Group-45-Copy" transform="translate(-97.000000, -5.000000)" fillRule="nonzero">
@@ -71,11 +71,6 @@ const LoggedIn = (props) =>
     </div>
   </div>
 </div>
-
-const deleteSession = (event) => {
-  if (process.browser && event === 'Sign Out') handleDelete()
-}
-
 const handleDelete = () => {
   document.cookie = cookie.serialize('user', '', {
     maxAge: -1
