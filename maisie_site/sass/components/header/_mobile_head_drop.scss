@@ -6,8 +6,8 @@
     display: none !important;
   }
   &_icon {
-    height: 30px;
-    width: 30px;
+    height: 36px;
+    width: 36px;
     @include border-radius(50px);
     &:hover {cursor: pointer;}
   }
