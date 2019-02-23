@@ -1,7 +1,7 @@
 var classNames = require('classnames')
-let LINKS_COLUMN_ONE = [["How it works", "/"], ["Browse Circles", "/"], ["Why Host?", "/host"]],
+let LINKS_COLUMN_ONE = [["How it works", "/"], ["Browse Circles", "/"] /*, ["Why Host?", "/"]*/],
     LINKS_COLUMN_TWO = [["Values and Mission", ""],["Careers at Maisie", "https://angel.co/maisie-1"]],
-    LINKS_COLUMN_THREE = [["Product Support", "support@heymaisie.com"],["Contact Us", "say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
+    LINKS_COLUMN_THREE = [["Product Support", "mailto:support@heymaisie.com"],["Contact Us", "mailto:say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
 
 
 function Links(props) {
