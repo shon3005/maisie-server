@@ -25,8 +25,7 @@
         width: $border-padding-inner;
       }
       &_box {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        height: 250px;
         flex: 2;
         background-color: white;
         @include border-radius(5px);
