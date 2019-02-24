@@ -34,8 +34,7 @@ Settings.getInitialProps = async ({ctx}) => {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.user,
-    token: state.user.token
+    user: state.user.user
   };
 }
 

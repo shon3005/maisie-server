@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 
-const Profile = (props) => 
-  <div className="profile">
+const Profile = (props) => {
+  return <div className="profile">
     <Header loggedIn="loggedIn"/>
     <ProfileModule user={props.user} token={props.token}/>
     <Footer />
   </div>
+}
 
 Profile.getInitialProps = ({ctx}) => {
   try {
@@ -19,6 +20,13 @@ Profile.getInitialProps = ({ctx}) => {
       if (!cookies.token) {
         redirect(ctx, '/')
       }
+      return {token: cookies.token}
+    } else {
+      const cookies = cookie.parse(document.cookie || '')
+      if (!cookies.token) {
+        redirect(ctx, '/')
+      }
+      return {token: cookies.token}
     }
   } catch(e) {
     console.log(e);
@@ -28,7 +36,6 @@ Profile.getInitialProps = ({ctx}) => {
   const mapStateToProps = (state) => {
     return {
       user: state.user.user,
-      token: state.user.token
     };
   }
   

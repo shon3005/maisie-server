@@ -16,9 +16,9 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         |> update_host_handler()
     end
 
-    def get_transactions(_, %{stripe_id: stripe_id}, %{context: %{current_user: current_user}}) do
-        Stripe.Transfer.list(%{destination: stripe_id, limit: 5})
-        |> transfer_handler()
+    def get_transactions(_, %{host_id: host_id}, %{context: %{current_user: current_user}}) do
+        Accounts.get_host!(host_id)
+        |> list_transfers()
     end
 
     def host_payout(_, %{host_id: host_id}, _current_user) do
@@ -31,6 +31,15 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         |> create_account_link()
     end
 
+    defp list_transfers(%Accounts.Host{stripe_id: stripe_id} = host) do
+        {:ok,
+        %{"available" => [%{"amount" => balance}],
+        "pending" => [%{"amount" => pending_balance}]}} = Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
+        {:ok, url} = create_account_link(host)
+        Stripe.Transfer.list(%{destination: stripe_id, limit: 5})
+        |> transfer_handler(balance, url)
+    end
+
     defp retrieve_balance(%Accounts.Host{stripe_id: stripe_id}) do
         Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
         |> create_payout(stripe_id)
@@ -38,7 +47,7 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
 
     defp create_payout({:ok, %{"available" => [%{"amount" => balance}], "pending" => [%{"amount" => pending_balance}]}}, stripe_id) do
         Stripe.Payout.create(%{
-            amount: pending_balance,
+            amount: balance,
             currency: "usd"
         },
             connect_account: stripe_id
@@ -67,12 +76,24 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         {:ok, url}
     end
 
-    defp transfer_handler({:error, %Stripe.Error{} = error}) do
+    defp transfer_handler({:error, %Stripe.Error{} = error}, _balance, _url) do
         {:error, error.message}
     end
 
-    defp transfer_handler({:ok, %Stripe.List{data: transactions}}) do
-        {:ok, "transfers gotten"}
+    defp transfer_handler({:ok, %Stripe.List{data: transactions}}, balance, url) do
+        new_transactions = Enum.map(transactions, fn transfer -> %{
+            amount: transfer.amount,
+            date: transfer.created,
+            circle_name: transfer.metadata["circle"]
+        } end)
+
+        transfers = %{
+            balance: balance,
+            transactions: new_transactions,
+            url: url
+        }
+
+        {:ok, transfers}
     end
 
     defp handler({:error, %Ecto.Changeset{} = changeset}) do

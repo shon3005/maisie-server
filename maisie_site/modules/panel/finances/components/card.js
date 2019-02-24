@@ -1,14 +1,19 @@
-export default (props) =>
-  <div className="hostfinances__card row-sb-c">
+export default (props) => {
+  const netAmount = props.transaction.amount / 100;
+  const fee = netAmount / 19;
+  const grossAmount = fee * 20;
+  const date = new Date(props.transaction.date).toLocaleDateString();
+  return <div className="hostfinances__card row-sb-c">
     <div className="row-fs-c">
       <img src="../../../../static/shared/creditcard.svg" />
       <div className="in col">
-        <span className="title">Example Circle</span>
-        <span className="date">example date</span>
+        <span className="title">{props.transaction.circleName}</span>
+        <span className="date">{date}</span>
       </div>
     </div>
     <div className="col-fs-fe">
-      <span className="value">+$228</span>
-      <span className="subvalue">$240 - $12 (Maisie 5% fee)</span>
+      <span className="value">+${netAmount}</span>
+      <span className="subvalue">${grossAmount} - ${fee} (Maisie 5% fee)</span>
     </div>
   </div>
+}

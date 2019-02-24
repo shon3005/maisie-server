@@ -47,8 +47,8 @@ defmodule MaisieApiWeb.Schema do
         end
 
         @desc "Retrive Host's last 5 transactions"
-        field :stripe_transactions, type: :string do
-           arg(:stripe_id, non_null(:string))
+        field :stripe_transactions, type: :transfer_type do
+           arg(:host_id, non_null(:string))
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.HostResolver.get_transactions/3)
         end
@@ -96,7 +96,7 @@ defmodule MaisieApiWeb.Schema do
         end
 
         @desc "Connect the new Stripe account to the Maisie account"
-        field :sync_payment_account, type: :user_type do
+        field :sync_payment_account, type: :host_type do
            arg(:input, non_null(:payment_input_type))
            middleware(Middleware.Authorize, :any)
            resolve(&Resolvers.PaymentResolver.sync_payment_account/3)
@@ -113,7 +113,7 @@ defmodule MaisieApiWeb.Schema do
         field :update_customer, type: :user_type do
            arg(:input, non_null(:stripe_customer_type))
            middleware(Middleware.Authorize, :any)
-           resolve(&Resolvers.PaymentResolver.update_customer/3)
+           resolve(&Resolvers.PaymentResolver.create_or_update_customer/3)
         end
 
         @desc "Update a user profile"

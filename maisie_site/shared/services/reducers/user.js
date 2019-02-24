@@ -8,12 +8,12 @@ const user = (state = [], action) => {
     case UPDATE_USER:
       return {
         ...state,
-        user: action.payload,
+        user: action.payload
       }
     case UPDATE_TOKEN:
       return {
         ...state,
-        token: action.payload,
+        token: action.payload
       }
     default:
       return state

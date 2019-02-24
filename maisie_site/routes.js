@@ -8,7 +8,7 @@ module.exports = routes()                           // ----   ----   -----      
 .add('support')
 .add('circles')
 .add('circle', '/circle/:id')
-.add('panel', '/panel/:sub')
+.add('panel', '/panel/:sub', 'panel')
 .add('create')
 .add('signup')
 .add('signin')

@@ -65,10 +65,4 @@ class CheckoutForm extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user.user
-  }
-}
-
-export default injectStripe(connect(mapStateToProps, actions)(CheckoutForm));
+export default injectStripe(connect(null, actions)(CheckoutForm));
