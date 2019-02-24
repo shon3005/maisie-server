@@ -8,6 +8,7 @@ defmodule MaisieApiWeb.Schema.Types.HostType do
         field(:description, :string)
         field(:image_url, :string)
         field(:license, :string)
+        field(:has_stripe_account, :boolean)
         field(:user, :user_type, resolve: assoc(:user))
     end
 

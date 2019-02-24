@@ -41,6 +41,7 @@ export default (
                 license
                 imageUrl
                 education
+                hasStripeAccount
               }
               circles {
                 address

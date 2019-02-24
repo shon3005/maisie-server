@@ -54,8 +54,6 @@ class Signin extends Component {
         circles: data.loginUser.user.circles
       });
 
-      await this.props.updateToken(data.loginUser.token);
-
       Router.push('/')
     } catch (e) {
       // show custom error

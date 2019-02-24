@@ -1,82 +1,43 @@
-import Footer from '../shared/components/footer.js';
-import Header from '../shared/components/header/index.js';
-import HostHeader from '../modules/panel/hostheader/index.js';
-import Finances from '../modules/panel/finances/index.js';
-import Circles from '../modules/panel/circles/index.js';
-import Profile from '../modules/panel/profile/index.js';
-import Modal from '../shared/components/modal/index.js';
-import ProfileModal from '../modules/panel/profile/profilemodal.js';
-import SetUpStripePrompt from '../modules/panel/setupstripeprompt.js';
+import React, {Component} from 'react';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 import { connect } from 'react-redux';
-import syncPayment from '../shared/services/sync-payment';
+import * as actions from '../shared/services/actions';
 import { ApolloConsumer } from 'react-apollo';
+import PanelModule from '../modules/panel';
 
-//
-//
-const setupstripeprompt = false
-const availableBalance = "500.00"
-//
-//
+class Panel extends Component {
+  state = {}
 
-const ActivePage = (props) => {
-  let p = props.p
-  return setupstripeprompt
-    ? p == "finances" ? <Finances availableBalance={props.availableBalance} /> :
-      p == "circles" ? <Circles requests={1} /> :  
-      p == "profile" ? <Profile user={props.user} /> :
-      null
-    : <SetUpStripePrompt />
-}
-
-const Panel = (props) => {
-  let sub = props.sub ? props.sub : "finances"
-  return(
-    <ApolloConsumer>
-      {client =>
-        <div className="panel">
-          <Modal id="profile_modal">
-            {
-              props.user && props.user.host
-              ? <ProfileModal user={props.user} token={props.token}/>
-              : null
-            }
-          </Modal>
-          <Header loggedIn="loggedIn"/>
-          <HostHeader page={sub} />
-          <div className="panel__inner">
-            <ActivePage p={sub} user={props.user} availableBalance={availableBalance} apolloClient={client}/>
-          </div>
-          <Footer />
-        </div>
-      }
-    </ApolloConsumer>
-  )
-}
-
-Panel.getInitialProps = ({ctx}) => {
-  try {
+  static getInitialProps = ({ctx}) => {
+    let cookies;
     if (ctx.req) {
-      const cookies = cookie.parse(ctx.req.headers.cookie || '');
+      cookies = cookie.parse(ctx.req.headers.cookie || '');
       if (!cookies.token) {
         redirect(ctx, '/')
       }
-      if (ctx.query && ctx.query.code && ctx.query.state) {
-        syncPayment(ctx.apolloClient, ctx.query.state, ctx.query.code, JSON.parse(cookies.user).user.host.id);
-      }
+    } else {
+      cookies = cookie.parse(document.cookie || '');
     }
-  } catch(e) {
-    console.log(e)
+    return {sub: ctx.query.sub, client: ctx.apolloClient, code: ctx.query.code, state: ctx.query.state, token: cookies.token};
   }
-  return(ctx.query);
+
+  render() {
+    let sub = this.props.sub ? this.props.sub : "finances";
+    return(
+      <ApolloConsumer>
+        {client =>
+          <PanelModule client={client} updateUser={this.props.updateUser} user={this.props.user} sub={sub} state={this.props.state} code={this.props.code}/>
+        }
+      </ApolloConsumer>
+    )
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.user,
-    token: state.user.token
+    user: state.user.user
   }
 }
 
-export default connect(mapStateToProps)(Panel);
+export default connect(mapStateToProps, actions)(Panel);

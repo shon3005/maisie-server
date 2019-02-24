@@ -1,6 +1,19 @@
 defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     alias MaisieApi.{Accounts, Guardian}
 
+    def create_or_update_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        Accounts.get_user(current_user.id)
+        |> user_has_stripe(%{input: input}, %{context: %{current_user: current_user}})
+    end
+
+    defp user_has_stripe(%Accounts.User{stripe_id: nil}, %{input: input}, %{context: %{current_user: current_user}}) do
+       create_customer(%Accounts.User{stripe_id: nil}, %{input: input}, %{context: %{current_user: current_user}})
+    end
+
+    defp user_has_stripe(%Accounts.User{stripe_id: stripe_id}, %{input: input}, %{context: %{current_user: current_user}}) do
+       update_customer(%Accounts.User{stripe_id: stripe_id}, %{input: input}, %{context: %{current_user: current_user}})
+    end
+
     def create_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Stripe.Customer.create(%{
             "email": current_user.email,
@@ -90,7 +103,7 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
 
     defp connect_handler({:ok, %{ stripe_user_id: stripe_id }} = response, current_user, host_id) do
         Stripe.Account.update(stripe_id, %{payout_schedule: %{interval: "manual"}})
-        Accounts.update_host_payment(Accounts.get_host!(host_id), %{stripe_id: stripe_id})
+        Accounts.update_host_payment(Accounts.get_host!(host_id), %{stripe_id: stripe_id, has_stripe_account: true})
     end
 
     defp connect_handler({:error, %Stripe.Error{} = error}, current_user, _host_id) do

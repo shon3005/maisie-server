@@ -6,6 +6,18 @@ defmodule MaisieApiWeb.Schema.Types.PaymentType do
         field(:user, :user_type)
     end
 
+    object :transaction_type do
+        field(:circle_name, :string)
+        field(:date, :integer)
+        field(:amount, :integer)
+    end
+
+    object :transfer_type do
+        field(:balance, :integer)
+        field(:transactions, list_of(:transaction_type))
+        field(:url, :string)
+    end
+
     input_object :payment_input_type do
         field(:state, :string)
         field(:code, :string)

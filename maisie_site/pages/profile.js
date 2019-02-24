@@ -11,15 +11,27 @@ const Profile = props => {
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserProfile} variables={{id}}>
-        { getUserProfile => { return <ProfileModule user={getUserProfile.data.user} /> }}
+        { getUserProfile => { return <ProfileModule user={getUserProfile.data.user} token={props.token} /> }}
       </Query>
       <Footer />
     </div>
   )
 }
 
-Profile.getInitialProps = async (context) => {
-  return { query: context.ctx.query };
+Profile.getInitialProps = (context) => {
+  let cookies;
+  if (ctx.req) {
+    cookies = cookie.parse(ctx.req.headers.cookie || '');
+    if (!cookies.token) {
+      redirect(ctx, '/')
+    }
+  } else {
+    cookies = cookie.parse(document.cookie || '')
+    if (!cookies.token) {
+      redirect(ctx, '/')
+    }
+  }
+  return { query: context.ctx.query, token: cookies.token };
 }
 
 const mapStateToProps = (state) => {

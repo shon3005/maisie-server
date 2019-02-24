@@ -43,8 +43,6 @@ class Signup extends Component {
         bio: data.registerUser.user.bio,
       });
 
-      await this.props.updateToken(data.registerUser.token);
-
       this.setState({ submitted: "submitted" });
 
     } catch (e) {

@@ -19,6 +19,7 @@ export default (props) => {
     return(
       <a
         href={props.href && !props.saving ? props.href : null}
+        target={props.target ? props.target : null}
         onClick={props.onClick ? props.onClick : null}
         className={classNames([
           "template_buttons",
