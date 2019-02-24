@@ -5,13 +5,13 @@ import stripeTransactions from '../../../shared/services/stripe-transactions';
 import hostPayout from '../../../shared/services/host-payout';
 import { Query, ApolloConsumer } from 'react-apollo';
 
-export default (props) =>
+export default (props) => {
   const finances = props.finances;
   // const stripeTransactionsResponse = stripeTransactions.data;
   const transactions = finances ? finances.transactions : null;
   const balance = finances ? finances.balance / 100 : null;
   const url = finances ? finances.url : null;
-  <div className="hostfinances col">
+  return <div className="hostfinances col">
     <div className="hostfinances__top col">
       <div className="row-sb-c">
         <LargeText>Recent Transactions</LargeText>
@@ -36,7 +36,8 @@ export default (props) =>
       <div style={{height: 20}} />
       <a href="mailto:providers@heymaisie.com">Something incorrect?</a>
     </div>
-)};
+  </div>
+};
 
 const payout = async (client, hostId) => {
   await hostPayout(client, hostId)

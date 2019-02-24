@@ -38,7 +38,7 @@ export default class PanelModule extends Component {
       const str = await stripeTransactionsResp;
       str && str.data && str.data.stripeTransactions && str.data.stripeTransactions ? 
         this.handleUpdateUser(this.props.updateUser, spr.data.syncPaymentAccount.user) : null;
-      Router.push('/panel/finances');
+      str && str.data && str.data.stripeTransactions ? this.setState({finances: str.data.stripeTransactions}) : null;
     }
   }
 

@@ -3,6 +3,8 @@ import CirclesModule from '../modules/circles/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
+import cookie from 'cookie';
+import redirect from '../shared/services/redirect';
 
 function handleClick() {
   document.getElementById("requests_drop").classList.remove('circles_reqs__drop-visible')
@@ -11,6 +13,17 @@ function handleClick() {
 }
 
 class Circles extends Component {
+  static getInitialProps({ctx}) {
+    if (ctx.req) {
+      const cookies = cookie.parse(ctx.req.headers.cookie || '');
+      if (!cookies.token) {
+        redirect(ctx, '/')
+      }
+      return { route: ctx.req.path }
+    } else {
+      return { route: Router.route }
+    }
+  }
   render() {
     return (
       <div className="mycircles col-fs-c">
