@@ -155,6 +155,9 @@
     }
     &-btn {
       margin-top: 8%;
+      @include size-five {
+        margin-top: 4%;
+      }
       @include flexbox;
       @include flex-direction(row);
       @include justify-content(center);
@@ -167,8 +170,8 @@
       > span {
         color: $color-secondary-75;
         font-weight: 600;
-        margin-top: 25px;
-        margin-bottom: 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
       > a {
         box-shadow: $shadow-sssss;
