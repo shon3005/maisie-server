@@ -19,7 +19,6 @@ export default (props) =>
   <div>
     <div className="landing container">
         <FrontPage />
-        {props.circles ? <FeaturedRow circles={props.circles} /> : null}
         <div className="landing-intro col-c-c">
           <span className="tag">Hey there. We're Maisie.</span>
           <span className="text">
@@ -38,6 +37,7 @@ export default (props) =>
           </div>
           <div className="col-c-c"><Button kind="primary" weight="purple">Join your first Circle</Button></div>
         </div>
+        {props.circles ? <FeaturedRow circles={props.circles} /> : null}
         <GrowTogether />
         <WhyCommunity />
         <HowItWorks />

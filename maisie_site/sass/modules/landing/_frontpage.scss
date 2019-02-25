@@ -1,109 +1,4 @@
 .front {
-  @include user-select(none);
-  @include mobile {
-    height: 800px;
-  }
-  background: $color-primary-lighter;
-  z-index: 1;
-  height: calc(100vh - 40px);
-  min-height: 640px;
-  width: 100%;
-  position: relative;
-  &__header {
-    z-index: 9999;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  &__background {
-    z-index: 2;
-    top: 0;
-    position: absolute;
-    flex: 1;
-    img {
-      @include mobile {
-        height: 800px;
-      }
-      min-width: 100vw;
-      height: calc(100vh - 40px);
-      min-height: 640px;
-      bottom: 0;
-    }
-  }
-  &__content {
-    z-index: 3;
-    height: 90%;
-    width: 100%;
-
-    &_in {
-      margin-top:75px;
-      text-align: center;
-      width: 90%;
-      &_cta {
-        > a {
-          @include transition(all,200ms);
-          margin-top: 25px;
-          padding-left: 25px;
-          padding-right: 25px;
-          padding-top: 15px;
-          padding-bottom: 15px;
-          @include border-radius(50px);
-          border: none;
-          transform: scale(1);
-          background-color: $color-primary;
-          color: white;
-
-          box-shadow: $shadow-ssss;
-          font-size: $font-size-reg;
-          font-weight: 600;
-
-          &:hover {
-            cursor: pointer;
-            box-shadow: $shadow-sssss;
-            transform: scale(1.05);
-          }
-        }
-      }
-      > div {
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 25px;
-        > div {
-          padding-right: 20px;
-          padding-left: 20px;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          @include border-radius(50px);
-          background-color: $color-primary-light;
-          margin-top: 20px;
-
-          color: $color-primary;
-          font-size: $font-size-small;
-          font-weight: 600;
-        }
-      }
-
-      &-title {
-        @include mobile {
-          text-align: center;
-        }
-        color: $color-primary;
-        text-shadow: 0px 0px 15px $color-primary-light;
-        font-weight: Bold;
-        letter-spacing: -1px;
-        font-weight: 400;
-        font-size: calc(20pt + 6vw);
-      }
-      &-desc {
-        font-weight: 500;
-        font-size: calc(16pt + .5vw);
-        color: $color-secondary;
-      }
-    }
-  }
-}
-
-.landing_front {
   @include tabletandmobile { height: 100vh }
   height: calc(100vh - 40px);
   width: 100vw;
@@ -114,75 +9,136 @@
     width: 100vw;
     z-index: 999;
   }
-  &-filter1 {
-    height: 60vh;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-  }
-  &-filter2 {
-    height: 75vh;
-    width: 100%;
-    background: linear-gradient(to bottom, rgba(255,255,255,.75), rgba(255,255,255,0));
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 20;
-  }
-  &__in {
+  &__cta {
+    z-index: 999;
     flex: 1;
-    > img {
-      height: 60px;
-      width: 60px;
-      margin-top: 5%;
-      @include border-radius(50px);
-      box-shadow: $shadow-ssss;
-      -webkit-animation: rotating 120s infinite;
-      -moz-animation:    rotating 120s infinite;
-      -o-animation:      rotating 120s infinite;
-      animation:         rotating 120s infinite;
+    width: 100%;
+    padding-left: calc(40px + 1%);
+    padding-bottom: calc(50px + 1%);
+    padding-right: calc(40px + 1%);
+    @include user-select(none);
+
+    &_in {
+      width: 100%;
+      @include size-one {
+        flex-direction: column !important;
+        &-social > a {
+          background-color: $color-black !important;
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+          margin-bottom: 50px;
+        }
+        &-cta {
+          width: 100%;
+        }
+      }
+      &-social {
+        > a {
+          @include transition(all, 200ms);
+          height: 50px;
+          width: 50px;
+          margin-right: 25px;
+          background-color: $color-primary-lighter;
+          @include border-radius(50px);
+          &:hover {
+            background-color: $color-primary;
+          }
+        }
+      }
+      &-cta {
+        @include transition(all, 200ms);
+        @include size-three { text-align: center; background-color: $color-primary; color: white; }
+        @include size-two { text-align: center; background-color: $color-primary; color: white; }
+        @include size-one { text-align: center; background-color: $color-primary; color: white; }
+        color: $color-primary;
+        font-size: $font-size-med;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 2px solid $color-primary;
+        font-weight: 600;
+        @include border-radius(10px);
+        > svg {
+          height: 16px;
+          margin-left: 10px;
+          > g > g {
+            @include transition(all, 200ms);
+            @include size-five { fill: $color-primary; }
+            @include size-four { fill: $color-primary; }
+            @include size-three { fill: white; }
+            @include size-two { fill: white; }
+            @include size-one { fill: white; }
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: $color-primary;
+          color: white;
+          > svg > g > g {
+            fill: white;
+          }
+        }
+        &:active {
+          opacity: .75;
+        }
+      }
     }
-    z-index: 21;
+
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(flex-end);
+    @include align-items(flex-end);
+  }
+  &__text {
+    z-index: 9999;
+    width: 100vw;
+    @include user-select(none);
+    @include size-five { padding-top: calc(2%); padding-left: calc(40px + 1%); }
+    @include size-four { padding-top: calc(2%); padding-left: calc(40px + 1%); }
+    @include size-three { padding-top: 10%; text-align: center;  }
+    @include size-two { padding-top: 15%; text-align: center; }
+    @include size-one { padding-top: 20%; text-align: center; }
     &-title {
-      margin-top: 2%;
-      text-align: center;
-      color: $color-secondary;
-      font-size: calc(3vw + 16px);
+      @include size-five { font-size: 60px; }
+      @include size-four { font-size: 50px; }
+      @include size-three { font-size: 50px; }
+      @include size-two { font-size: 45px; }
+      @include size-one { font-size: 40px; }
+    }
+    > span {
+      font-family: "Cabin";
+      text-shadow: 0px 0px 30px $color-black-75;
+    }
+    &-title {
+      color: #FCFDFF;
+      font-weight: 500;
+    }
+    &-sub {
+      color: $color-primary;
+      font-size: 35px;
       font-weight: 400;
     }
-    &-btn {
-      margin-top: 8%;
-      @include size-five {
-        margin-top: 4%;
-      }
-      @include flexbox;
-      @include flex-direction(row);
-      @include justify-content(center);
-      @include align-items(center);
-
-      @include mobile {
-        @include flexbox;
-        @include flex-direction(column);
-      }
-      > span {
-        color: $color-secondary-75;
-        font-weight: 600;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-      > a {
-        box-shadow: $shadow-sssss;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-    }
   }
-  &_social {
-    margin-bottom: 5%;
+  &-filter1 {
+    height: 25vh;
+    width: 100vw;
+    z-index: 99;
+    @include linear-gradient(transparent, $color-black)
+    position: absolute;
+    bottom: 0px;
   }
+  &-filter2 {
+    height: 25vh;
+    width: 100vw;
+    z-index: 99;
+    @include linear-gradient($color-black-50,transparent)
+    position: absolute;
+    top: 0px;
+  }
+}
+.front-header.light .headerLoggedOut-link span {
+  color: white !important;
 }
 
 .landing-intro {
@@ -195,7 +151,7 @@
     margin-bottom: 10px;
   }
   > span.text {
-    font-size: $font-size-large;
+    font-size: 40px;
     @include tabletandmobile { padding-left: 10px; padding-right: 10px; font-size: $font-size-med }
     font-family: "Cabin";
     font-weight: 700;
@@ -253,9 +209,10 @@
       > span {
         color: $color-secondary-75;
         font-weight: 600;
+        font-size: $font-size-med;
       }
       > p {
-        color: $color-secondary-25;
+        color: $color-secondary-35;
         font-weight: 400;
       }
     }
