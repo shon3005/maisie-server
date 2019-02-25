@@ -155,14 +155,25 @@
     }
     &-btn {
       margin-top: 8%;
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(center);
+      @include align-items(center);
+
+      @include mobile {
+        @include flexbox;
+        @include flex-direction(column);
+      }
       > span {
         color: $color-secondary-75;
         font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 25px;
       }
-      > div {
+      > a {
         box-shadow: $shadow-sssss;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
       }
     }
   }

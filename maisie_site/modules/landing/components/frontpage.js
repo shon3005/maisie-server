@@ -15,10 +15,10 @@ export default props =>
     <div className="landing_front__in col-fs-c">
       <img src="../static/shared/newlogo.svg"/>
       <span className="landing_front__in-title">Discover and host<br />group therapy experiences</span>
-      <div className="landing_front__in-btn row-c-c">
-        <Button kind="primary" weight="dark">Start Hosting</Button>
+      <div className="landing_front__in-btn">
+        <Button kind="primary" weight="dark" href="mailto:providers@heymaisie.com">Start Hosting</Button>
         <span>or</span>
-        <Button kind="primary" weight="purple">Browse Circles</Button>
+        <Button kind="primary" weight="purple" href="/signup">Browse Circles</Button>
       </div>
     </div>
     <div className="landing_front_social">
