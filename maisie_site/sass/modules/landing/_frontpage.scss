@@ -203,13 +203,13 @@
 }
 
 .landing-reasons {
-  padding-bottom: 150px;
+  padding-bottom: 100px;
   background-color: $color-primary-lighter;
   &__in {
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 150px;
+    padding-top: 100px;
     padding-bottom: 50px;
     @include flexbox;
     @include flex-direction(row);
@@ -224,8 +224,8 @@
       @include align-items(center);
       padding-top: 50px;
       padding-bottom: 50px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
       > div {
         margin-top: 50px;
         width: 100% !important;
@@ -237,8 +237,8 @@
       @include align-items(center);
       padding-top: 50px;
       padding-bottom: 50px;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 40px;
+      padding-right: 40px;
       > div {
         margin-top: 50px;
         width: 100% !important;
