@@ -5,6 +5,7 @@ import Footer from '../../shared/components/footer.js';
 import FeaturedRow from './components/featuredrow.js';
 import GrowTogether from './components/growtogether.js';
 import Button from '../../shared/components/button.js';
+import Double from './components/double.js';
 
 const HostCta = () =>
   <div className="landing-hostcta row-sa-c">
@@ -37,6 +38,7 @@ export default (props) =>
           </div>
           <div className="col-c-c"><Button kind="primary" weight="purple">Join your first Circle</Button></div>
         </div>
+        <Double />
         {props.circles ? <FeaturedRow circles={props.circles} /> : null}
         <GrowTogether />
         <WhyCommunity />

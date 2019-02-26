@@ -108,7 +108,7 @@
     }
     > span {
       font-family: "Cabin";
-      text-shadow: 0px 0px 30px $color-black-75;
+      text-shadow: 0px 0px 50px $color-black;
     }
     &-title {
       color: #FCFDFF;
@@ -140,7 +140,6 @@
 .front-header.light .headerLoggedOut-link span {
   color: white !important;
 }
-
 .landing-intro {
   height: 300px;
   width: 100%;
@@ -157,7 +156,6 @@
     font-weight: 700;
   }
 }
-
 .landing-reasons {
   padding-bottom: 100px;
   background-color: $color-primary-lighter;
@@ -215,6 +213,62 @@
         color: $color-secondary-35;
         font-weight: 400;
       }
+    }
+  }
+}
+.l_double {
+  height: 50vw;
+  min-height: 600px;
+  width: 100%;
+  > div {
+    position: relative;
+    > img {
+      height: 30vw;
+      position: absolute;
+      -webkit-animation: rotating 150s infinite;
+      -moz-animation:    rotating 150s infinite;
+      -o-animation:      rotating 150s infinite;
+      animation:         rotating 150s infinite;
+    }
+    h1 {
+      font-size: 2.5vw;
+    }
+  }
+  &__l {
+    > img { right: -15vw }
+    overflow: hidden;
+    width: 50%;
+    height: 100%;
+    background-color: #EEF1FF;
+    padding-left: 5%;
+    h1 {
+      color: $color-primary;
+    }
+    div {
+      padding: 10px;
+      width: 60%;
+      margin-top: 10px;
+      background-color: white;
+      @include border-radius(5px);
+      > span.title {
+        font-weight: 600;
+        color: $color-primary;
+      }
+      > span.text {
+        color: $color-primary-ligh;
+      }
+    }
+  }
+  &__r {
+    box-shadow: inset 30px 0px 30px $color-black-10;
+    overflow: hidden;
+    padding-left: 20%;
+    > img { left: -15vw; }
+    width: 50%;
+    height: 100%;
+    background-color: $color-secondary;
+    > span {
+      flex: 1;
     }
   }
 }

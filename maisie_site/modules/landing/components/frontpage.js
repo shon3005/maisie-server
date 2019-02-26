@@ -15,7 +15,7 @@ export default props =>
     <div className="front__text">
       <span className="front__text-title">Group therapy experiences</span>
       <br />
-      <span className="front__text-sub">Find or host one today.</span>
+      <span className="front__text-sub">Small groups • licensed professionals</span>
     </div>
     <div className="front__cta">
       <div className="front__cta_in row-sb-c">
