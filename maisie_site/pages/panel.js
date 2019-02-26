@@ -22,7 +22,10 @@ const availableBalance = "500.00"
 const ActivePage = (props) => {
   let p = props.p
   return setupstripeprompt
-    ? p == "finances" ? <Finances availableBalance={props.availableBalance} /> : p == "circles" ? <Circles requests={1} /> :  p == "profile" ? <Profile user={props.user} /> : null
+    ? p == "finances" ? <Finances availableBalance={props.availableBalance} /> :
+      p == "circles" ? <Circles requests={1} /> :  
+      p == "profile" ? <Profile user={props.user} /> :
+      null
     : <SetUpStripePrompt />
 }
 
