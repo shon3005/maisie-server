@@ -45,6 +45,8 @@ export default (
               last4
               host {
                 id
+                firstName
+                lastName
                 description
                 license
                 imageUrl

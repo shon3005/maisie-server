@@ -25,13 +25,13 @@ export default (props) => {
       <LargeText>{props.circle ? props.circle.title : null}</LargeText>
       <div style={{height: 20}} />
       <Hosted host={{
-        name: props.user.firstName + ' ' + props.user.lastName,
-        license: props.user.host.license,
-        imageUrl: props.user.host.imageUrl
+        name: props.host.firstName + ' ' + props.host.lastName,
+        license: props.host.license,
+        imageUrl: props.host.imageUrl
       }} abb />
       <div style={{height: 20}} />
       <div className="circle_left_tags row">
-        <Tags tags={props.d.tags ? props.d.tags : null} />
+        <Tags tags={props.circle.tags ? props.circle.tags : null} />
       </div>
       <Divider />
       <Sub>description</Sub>
@@ -51,11 +51,11 @@ export default (props) => {
       <Divider />
       <Sub>about the host</Sub>
       <Hosted host={{
-        name: props.user.firstName + ' ' + props.user.lastName,
-        imageUrl: props.user.host.imageUrl,
-        description: props.user.host.description,
-        education: props.user.host.education,
-        license: props.user.host.license
+        name: props.host.firstName + ' ' + props.host.lastName,
+        imageUrl: props.host.imageUrl,
+        description: props.host.description,
+        education: props.host.education,
+        license: props.host.license
       }} />
     </div>
   );

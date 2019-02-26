@@ -3,6 +3,8 @@ defmodule MaisieApi.Repo.Migrations.CreateHosts do
 
   def change do
     create table(:hosts) do
+      add :first_name, :string
+      add :last_name, :string
       add :license, :string
       add :education, :string
       add :description, :text

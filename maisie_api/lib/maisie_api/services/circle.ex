@@ -3,6 +3,7 @@ defmodule MaisieApi.Services.Circle do
   import Ecto.Changeset
 
   alias MaisieApi.Accounts.User
+  alias MaisieApi.Services.{Question, Request}
 
   schema "circles" do
     field :title, :string
@@ -23,6 +24,8 @@ defmodule MaisieApi.Services.Circle do
     field :who_should_join, :string
     field :tags, {:array, :string}
     belongs_to :user, User
+    has_many :questions, Question
+    has_many :requests, Request
 
     timestamps()
   end

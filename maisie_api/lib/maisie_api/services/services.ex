@@ -6,7 +6,7 @@ defmodule MaisieApi.Services do
   import Ecto.Query, warn: false
   alias MaisieApi.Repo
 
-  alias MaisieApi.Services.Circle
+  alias MaisieApi.Services.{Circle, Question, Request}
 
   @doc """
   Returns the list of circles.
@@ -59,6 +59,18 @@ defmodule MaisieApi.Services do
   def create_circle(attrs \\ %{}) do
     %Circle{}
     |> Circle.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_request(attrs \\ %{}) do
+    %Request{}
+    |> Request.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_question(attrs \\ %{}) do
+    %Question{}
+    |> Question.changeset(attrs)
     |> Repo.insert()
   end
 

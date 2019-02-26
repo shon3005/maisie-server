@@ -18,6 +18,17 @@ export default gql`
       locationType
       min
       imageUrl
+      user {
+        host {
+          id
+          firstName
+          lastName
+          imageUrl
+          license
+          education
+          description
+        }
+      }
     }
   }
 `

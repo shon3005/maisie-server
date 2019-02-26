@@ -3,7 +3,7 @@ defmodule MaisieApi.Accounts.User do
   import Ecto.Changeset
 
   alias MaisieApi.Accounts.Host
-  alias MaisieApi.Services.Circle
+  alias MaisieApi.Services.{Circle, Question, Request}
 
   schema "users" do
     field :email, :string, unique: true
@@ -25,6 +25,8 @@ defmodule MaisieApi.Accounts.User do
     field :stripe_id, :string, unique: true
     has_one :host, Host
     has_many :circles, Circle
+    has_many :questions, Question
+    has_many :requests, Request
 
     timestamps()
   end

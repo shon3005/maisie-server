@@ -17,7 +17,20 @@ export default gql`
       address
       locationType
       min
+      max
       imageUrl
+      tags
+      user {
+        host {
+          id
+          firstName
+          lastName
+          imageUrl
+          license
+          education
+          description
+        }
+      }
     }
   }
 `

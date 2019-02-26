@@ -4,14 +4,13 @@ import HorLinks from './components/hor_links.js';
 var classNames = require('classnames')
 import { connect } from 'react-redux';
 import {Link} from '../../../../../../../routes';
-import cookie from 'cookie';
 import Router from 'next/router';
 
 const LoggedIn = (props) =>
 <div className="row-fe-c">
   <HorLinks circle={props.circle} />
   <div className="headerLoggedIn row-fe-c">
-    <div className="headerLoggedIn-thumb" style={{backgroundImage: "url('../../../../../static/shared/matthew.png')", backgroundSize: "cover", backgroundPosition: "contain"}} />
+    <div className="headerLoggedIn-thumb" style={{backgroundImage: `url(${props.user.imageUrl})`, backgroundSize: "cover", backgroundPosition: "contain"}} />
     <div className={classNames(["headerLoggedIn__drop", {"circle_page" : props.circle}])}>
       <div className="headerLoggedIn__drop-cover" />
       <Spacer circle={props.circle} />

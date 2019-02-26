@@ -18,6 +18,7 @@ defmodule MaisieApiWeb.Schema.Types.UserType do
         field(:support, :string)
         field(:host, :host_type, resolve: assoc(:host))
         field(:circles, list_of(:circle_type), resolve: assoc(:circles))
+        field(:requests, list_of(:request_type), resolve: assoc(:requests))
     end
 
     object :user_update_response_type do

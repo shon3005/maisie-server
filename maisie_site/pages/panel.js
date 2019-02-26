@@ -27,7 +27,7 @@ class Panel extends Component {
     return(
       <ApolloConsumer>
         {client =>
-          <PanelModule client={client} updateUser={this.props.updateUser} user={this.props.user} sub={sub} state={this.props.state} code={this.props.code}/>
+          <PanelModule token={this.props.token} client={client} updateUser={this.props.updateUser} user={this.props.user} sub={sub} state={this.props.state} code={this.props.code}/>
         }
       </ApolloConsumer>
     )

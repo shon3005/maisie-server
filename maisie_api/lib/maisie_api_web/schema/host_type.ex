@@ -4,6 +4,8 @@ defmodule MaisieApiWeb.Schema.Types.HostType do
 
     object :host_type do
         field(:id, :id)
+        field(:first_name, :string)
+        field(:last_name, :string)
         field(:education, :string)
         field(:description, :string)
         field(:image_url, :string)
