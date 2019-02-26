@@ -14,7 +14,7 @@ import SetUpStripePrompt from './setupstripeprompt.js';
 
 const activePage = (user, sub, finances) => {
   return user.host && user.host.hasStripeAccount
-    ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles /> : sub === "profile" ? <Profile user={user} /> : null
+    ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles requests={1} /> : sub === "profile" ? <Profile user={user} /> : null
     : <SetUpStripePrompt/>
 }
 

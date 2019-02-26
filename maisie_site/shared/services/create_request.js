@@ -2,15 +2,19 @@ import gql from 'graphql-tag'
 
 export default (
   apolloClient,
-  state,
-  code,
-  host_id
-) =>
-  apolloClient
+  circleId
+) => {
+  return apolloClient
     .mutate({
       mutation: gql`
-        mutation syncPaymentAccount($state: String!, $code: String!, $id: String!) {
-          syncPaymentAccount(input: {state: $state, code: $code, id: $id}) {
+        mutation createRequest(
+          $circleId: ID!,
+        ) {
+          createRequest(
+            input: {
+              circleId: $circleId,
+            }
+          ) {
             user {
               id
               firstName
@@ -22,9 +26,9 @@ export default (
               school
               work
               bio
+              last4
               imageUrl
               support
-              last4
               host {
                 id
                 firstName
@@ -52,9 +56,18 @@ export default (
                 length
                 id
               }
+              requests {
+                  circle {
+                      id
+                  }
+              }
             }
           }
         }
       `,
-      variables: { state, code, id: host_id },
+      variables:
+      {
+        circleId
+      }
     })
+}

@@ -27,6 +27,8 @@ export default (
               support
               host {
                 id
+                firstName
+                lastName
                 description
                 license
                 imageUrl

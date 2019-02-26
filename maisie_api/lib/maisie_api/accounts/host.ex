@@ -5,6 +5,8 @@ defmodule MaisieApi.Accounts.Host do
 
 
   schema "hosts" do
+    field :first_name, :string
+    field :last_name, :string
     field :description, :string
     field :education, :string
     field :image_url, :string

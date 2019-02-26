@@ -7,6 +7,17 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         Services.create_circle(circle_input)
     end
 
+    def create_question(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        question_input = Map.merge(input, %{user_id: current_user.id })
+        Services.create_question(question_input)
+        {:ok, "question created"}
+    end
+
+    def create_request(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        request_input = Map.merge(input, %{user_id: current_user.id})
+        Services.create_request(request_input)
+    end
+
     def get_circle_by_id(_, %{input: input}, _) do
         {:ok, Services.get_circle!(input.id)}
     end

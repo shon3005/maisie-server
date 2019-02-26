@@ -29,7 +29,6 @@ defmodule MaisieApiWeb.Schema do
         @desc "Get a circle by ID"
         field :circle, type: :circle_type do
           arg(:input, non_null(:circle_get_type))
-          middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.CircleResolver.get_circle_by_id/3)
         end
 
@@ -149,6 +148,20 @@ defmodule MaisieApiWeb.Schema do
           arg(:input, non_null(:charge_input_type))
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.PaymentResolver.charge_customer/3)
+        end
+
+        @desc "Create a circle question"
+        field :create_question, type: :string do
+          arg(:input, non_null(:question_input_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.CircleResolver.create_question/3)
+        end
+
+        @desc "Create a request to join a circle"
+        field :create_request, type: :request_type do
+          arg(:input, non_null(:request_input_type))
+          middleware(Middleware.Authorize, :any)
+          resolve(&Resolvers.CircleResolver.create_request/3)
         end
     end
 

@@ -31,11 +31,14 @@ export default (
             imageUrl
             support
             host {
-            id
-            description
-            license
-            imageUrl
-            education
+              id
+              description
+              license
+              imageUrl
+              education
+              firstName
+              lastName
+              hasStripeAccount
             }
             circles {
             address

@@ -26,6 +26,11 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:user, :user_type, resolve: assoc(:user))
     end
 
+    object :request_type do
+        field(:user, :user_type, resolve: assoc(:user))
+        field(:circle, :circle_type, resolve: assoc(:circle))
+    end
+
     input_object :circle_input_type do
         field(:title, :string)
         field(:description, :string)
@@ -47,5 +52,14 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
 
     input_object :circle_get_type do
         field(:id, non_null(:id))
+    end
+
+    input_object :request_input_type do
+        field(:circle_id, :id)
+    end
+
+    input_object :question_input_type do
+        field(:circle_id, :id)
+        field(:description, :string)
     end
 end
