@@ -41,9 +41,6 @@ export default (props) =>
         <Double />
         {props.circles ? <FeaturedRow circles={props.circles} /> : null}
         <GrowTogether />
-        <WhyCommunity />
-        <HowItWorks />
-        {/*<HostCta />*/}
         <Footer />
     </div>
   </div>
