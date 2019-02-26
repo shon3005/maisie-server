@@ -94,10 +94,9 @@
     font-weight: 600;
     padding-left: 15px;
     padding-right: 12px;
-    > svg {
-      margin-left: 5px;
-      > g > path { @include transition(all, 200ms); fill: $color-secondary-75; }
-    }
+    &.purple { > svg > g > path { @include transition(all, 200ms); fill: white; } }
+    &.dark { > svg > g > path { @include transition(all, 200ms); fill: white; } }
+    &.light { > svg > g > path { @include transition(all, 200ms); fill: $color-secondary-75; } }
   }
   &.link, &.ext {
     > svg {

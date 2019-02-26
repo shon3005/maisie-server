@@ -20,6 +20,11 @@ export default (props) =>
   <div>
     <div className="landing container">
         <FrontPage />
+        {props.circles ?
+          <div className="featuredrowcontainer">
+            <FeaturedRow circles={props.circles} />
+          </div>
+        : null}
         <div className="landing-intro col-c-c">
           <span className="tag">Hey there. We're Maisie.</span>
           <span className="text">
@@ -39,8 +44,13 @@ export default (props) =>
           <div className="col-c-c"><Button kind="primary" weight="purple">Join your first Circle</Button></div>
         </div>
         <Double />
-        {props.circles ? <FeaturedRow circles={props.circles} /> : null}
-        <GrowTogether />
+        <div className="whyhostcta col-c-c">
+          <h1>Are you a mental health professional?</h1>
+          <span>Learn how Maisie can help grow your business.</span>
+          <div style={{height: 20}} />
+          <Button kind="primary" weight="light" href="/host">Show me how</Button>
+        </div>
+        {/* <GrowTogether /> */}
         <Footer />
     </div>
   </div>
