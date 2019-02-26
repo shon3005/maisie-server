@@ -1,4 +1,16 @@
 .headerLoggedOut {
+  &:not(.onlanding) {
+    @include size-one {
+      display: none !important;
+    }
+    @include size-two {
+      display: none !important;
+    }
+    @include size-three {
+      display: none !important;
+    }
+  }
+  flex: 1;
   height: $header-height;
   &-spacer {
     color: $color-secondary-25;

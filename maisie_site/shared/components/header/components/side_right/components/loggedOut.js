@@ -1,6 +1,6 @@
 var classNames = require('classnames')
 export default (props) =>
-  <div className="headerLoggedOut row-fe-c">
+  <div className={classNames([{"onlanding": !props.user}, "headerLoggedOut", "row-fe-c"])}>
     <a href="/support" className="headerLoggedOut-link receive_mobile_directions col-c">
       <span className={classNames({ "circle_page": props.circle })}>Help</span>
       <div />
