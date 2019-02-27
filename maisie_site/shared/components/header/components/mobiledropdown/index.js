@@ -7,7 +7,7 @@ function toggleDrawer(a) {
   a ? z.remove('hide') : z.add('hide') // add or hide based on arg
 }
 
-const Links = () => [["Edit Profile", "/profile"],
+const Links = () => [["Profile", "/profile"],
                     ["Browse", "/"],
                     ["My Circles", "/circles"],
                     ["Settings", "/settings"],

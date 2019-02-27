@@ -1,4 +1,4 @@
-import ProfileModule from '../modules/profile/profile.js';
+import EditProfileModule from '../modules/profile/editprofile.js';
 import Header from '../shared/components/header/index.js';
 import Footer from '../shared/components/footer.js';
 import { connect } from 'react-redux';
@@ -8,7 +8,7 @@ import redirect from '../shared/services/redirect';
 const Profile = () =>
   <div className="profile">
     <Header loggedIn="loggedIn"/>
-    <ProfileModule />
+    <EditProfileModule />
     <Footer />
   </div>
 

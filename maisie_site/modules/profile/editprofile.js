@@ -34,11 +34,11 @@ export default class extends React.Component {
   }
   render() {
     return(
-      <form className="profile__inner col">
-        <span className="profile__inner-title col">Edit Profile</span>
+      <form className="editprofile__inner col">
+        <span className="editprofile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
-        <div className="profile__picture" style={{backgroundImage: "url('../../static/shared/example_prof.svg')"}}></div>
+        <div className="editprofile__picture" style={{backgroundImage: "url('../../static/shared/example_prof.svg')"}}></div>
         <Field title="Profile Picture">
           <input
             type="file"
