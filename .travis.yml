@@ -31,7 +31,7 @@ deploy:
   provider: elasticbeanstalk
   region: us-east-1
   app: multi-maisie-docker
-  env: Maisie-App-env
+  env: MultiMaisieDocker-env
   bucket_name: elasticbeanstalk-us-east-1-640883773139
   bucket_path: multi-maisie-docker
   on:
