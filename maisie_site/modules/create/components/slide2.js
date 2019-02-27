@@ -3,30 +3,47 @@ import Field from '../../../shared/components/text/field.js';
 import LargeText from '../../../shared/components/text/largeText.js';
 import SmallText from '../../../shared/components/text/smallText.js';
 
+var moment = require('moment');
 var classNames = require('classnames');
 
 const group = {
   "title": "test",
   "pending": true,
 }
+var startDate = moment().add(2, 'days'),
+    endDate = moment().add(1, 'months'),
+    dateFormat = "";
+
+function getDateRange(startDate, endDate, dateFormat) {
+    var dates = [],
+        end = moment(endDate),
+        diff = endDate.diff(startDate, 'days');
+
+    if(!startDate || !endDate || diff <= 0) {
+        return;
+    }
+
+    for(var i = 0; i < diff; i++) {
+        dates.push(end.subtract(1,'d').format(dateFormat));
+    }
+
+    return dates.reverse();
+};
 
 
 export default (props) =>
     <div className="create__inner_cont">
       <SmallText>Timing</SmallText>
-      <Field title="Meeting Day">
+      <Field title="Start Date">
         <select
-          id="day"
+          id="start_date"
           style={{width: "100%"}}
-          defaultValue={props.day ? props.day : ""}
+          defaultValue={props.start_date ? props.start_date : ""}
         >
-          <option value="monday">Monday</option>
-          <option value="tuesday">Tuesday</option>
-          <option value="wednesday">Wednesday</option>
-          <option value="thursday">Thursday</option>
-          <option value="friday">Friday</option>
-          <option value="saturday">Saturday</option>
-          <option value="sunday">Sunday</option>
+          {
+            getDateRange(startDate, endDate, dateFormat).map((x, index) =>
+              <option value={x}>{moment(x).format('dddd, MMMM Do, YYYY')}</option>
+          )}
         </select>
       </Field>
       <Field title="Frequency">

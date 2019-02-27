@@ -23,18 +23,18 @@ class Create extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      slideToShow: 0,
+      slideToShow: 1,
       title: false,
       description: false,
       whoshouldjoin: false,
       image_url: "",
       tags: false,
-      day: "",
       frequency: "",
       length: "",
       hour: "",
       minute: "",
       ampm: "",
+      start_date: "",
       location_type: "",
       neighborhood: false,
       address: false,
@@ -67,19 +67,19 @@ class Create extends React.Component {
       !tags.length ? this.setState({tags: ""}) : this.setState({tags: tags });
       title.length && description.length && image_url ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
     } else if (this.state.slideToShow === 1) {
-      var day = document.getElementById("day").value,
-          frequency = document.getElementById("frequency").value,
+      var frequency = document.getElementById("frequency").value,
           length = document.getElementById("length").value,
           hour = document.getElementById("hour").value,
           minute = document.getElementById("minute").value,
-          ampm = document.getElementById("ampm").value;
+          ampm = document.getElementById("ampm").value,
+          start_date = document.getElementById("start_date").value;
       this.setState({
-        day: day,
         frequency: frequency,
         length: length,
         hour: hour,
         minute: minute,
         ampm: ampm,
+        start_date: start_date,
         slideToShow: this.state.slideToShow + 1,
       });
     } else if (this.state.slideToShow === 2) {
@@ -97,7 +97,6 @@ class Create extends React.Component {
     } else if (this.state.slideToShow === 4) {
       this.setState({slideToShow: this.state.slideToShow + 1 });
       const resp = await createCircle(client, {
-        day: this.state.day,
         description: this.state.description,
         title: this.state.title,
         frequency: this.state.frequency,
@@ -110,7 +109,8 @@ class Create extends React.Component {
         max: this.state.max,
         hour: this.state.hour,
         minute: this.state.minute,
-        ampm: this.state.ampm
+        ampm: this.state.ampm,
+        start_date: this.state.start_date
       });
       let bodyFormData = new FormData();
       bodyFormData.append('image', this.state.image);
@@ -135,12 +135,12 @@ class Create extends React.Component {
         /> )}
       else if (this.state.slideToShow == 1) { return(
         <SlideTwo
-          day={this.state.day}
           frequency={this.state.frequency}
           length={this.state.length}
           hour={this.state.hour}
           minute={this.state.minute}
           ampm={this.state.ampm}
+          start_date={this.state.start_date}
         /> )}
       else if (this.state.slideToShow == 2) { return(
         <SlideThree
