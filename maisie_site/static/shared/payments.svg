@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="155px" height="150px" viewBox="0 0 155 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="151px" height="150px" viewBox="0 0 151 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
     <title>payments</title>
     <desc>Created with Sketch.</desc>
@@ -16,18 +16,18 @@
                             <use xlink:href="#path-1"></use>
                         </mask>
                         <use id="Rectangle" fill="#052D54" xlink:href="#path-1"></use>
-                        <path d="M0,42 L144,42 C150.627417,42 156,47.372583 156,54 L156,116 C156,122.627417 150.627417,128 144,128 L0,128 C-5.5228475,128 -10,123.522847 -10,118 L-10,52 C-10,46.4771525 -5.5228475,42 -1.77635684e-15,42 Z" id="Rectangle" fill="#BAC8FF" mask="url(#mask-2)"></path>
-                        <path d="M0,32 L144,32 C150.627417,32 156,37.372583 156,44 L156,106 C156,112.627417 150.627417,118 144,118 L0,118 C-5.5228475,118 -10,113.522847 -10,108 L-10,42 C-10,36.4771525 -5.5228475,32 -1.77635684e-15,32 Z" id="Rectangle" fill="#99AEFF" mask="url(#mask-2)"></path>
+                        <path d="M4,47 L148,47 C154.627417,47 160,52.372583 160,59 L160,121 C160,127.627417 154.627417,133 148,133 L4,133 C-1.5228475,133 -6,128.522847 -6,123 L-6,57 C-6,51.4771525 -1.5228475,47 4,47 Z" id="Rectangle" fill="#DDE4FF" mask="url(#mask-2)"></path>
+                        <path d="M-5,32 L139,32 C145.627417,32 151,37.372583 151,44 L151,106 C151,112.627417 145.627417,118 139,118 L-5,118 C-10.5228475,118 -15,113.522847 -15,108 L-15,42 C-15,36.4771525 -10.5228475,32 -5,32 Z" id="Rectangle" fill="#99AEFF" mask="url(#mask-2)"></path>
                         <path d="M80,44 L143,44 C149.627417,44 155,49.372583 155,56 L155,123 C155,129.627417 149.627417,135 143,135 L80,135 L80,44 Z" id="Rectangle" fill="#ADBEFF" mask="url(#mask-2)"></path>
-                        <path d="M0,22 L144,22 C150.627417,22 156,27.372583 156,34 L156,96 C156,102.627417 150.627417,108 144,108 L0,108 C-5.5228475,108 -10,103.522847 -10,98 L-10,32 C-10,26.4771525 -5.5228475,22 -1.77635684e-15,22 Z" id="Rectangle" fill="#839CFF" mask="url(#mask-2)"></path>
-                        <rect id="Rectangle-Copy-2" fill="#EEF1FF" mask="url(#mask-2)" x="-9" y="45" width="140" height="16"></rect>
+                        <path d="M-35,17 L119,17 C125.627417,17 131,22.372583 131,29 L131,91 C131,97.627417 125.627417,103 119,103 L-35,103 C-40.5228475,103 -45,98.5228475 -45,93 L-45,27 C-45,21.4771525 -40.5228475,17 -35,17 Z" id="Rectangle" fill="#839CFF" mask="url(#mask-2)"></path>
+                        <rect id="Rectangle-Copy-2" fill="#EEF1FF" mask="url(#mask-2)" x="-30" y="40" width="136" height="16"></rect>
                     </g>
                 </g>
-                <path d="M56,42 L143,42 C149.627417,42 155,47.372583 155,54 L155,116 C155,122.627417 149.627417,128 143,128 L41,128 L41,57 C41,48.7157288 47.7157288,42 56,42 Z" id="Rectangle" fill="#BAC8FF"></path>
-                <path d="M35,32 L143,32 C149.627417,32 155,37.372583 155,44 L155,106 C155,112.627417 149.627417,118 143,118 L35,118 L35,32 Z" id="Rectangle" fill="#99AEFF"></path>
-                <path d="M31,22 L143,22 C149.627417,22 155,27.372583 155,34 L155,96 C155,102.627417 149.627417,108 143,108 L31,108 L31,22 Z" id="Rectangle" fill="#839CFF"></path>
-                <rect id="Rectangle-Copy-2" fill="#EEF1FF" x="21" y="45" width="134" height="16"></rect>
-                <rect id="Rectangle-Copy-3" fill="#FFFFFF" opacity="0.25" x="120" y="77" width="26" height="17" rx="2"></rect>
+                <path d="M85,47 L139,47 C145.627417,47 151,52.372583 151,59 L151,121 C151,127.627417 145.627417,133 139,133 L70,133 L70,62 C70,53.7157288 76.7157288,47 85,47 Z" id="Rectangle" fill="#DDE4FF"></path>
+                <path d="M51,32 L120,32 C126.627417,32 132,37.372583 132,44 L132,106 C132,112.627417 126.627417,118 120,118 L51,118 L51,32 Z" id="Rectangle" fill="#99AEFF"></path>
+                <path d="M29,17 L98,17 C104.627417,17 110,22.372583 110,29 L110,91 C110,97.627417 104.627417,103 98,103 L29,103 L29,17 Z" id="Rectangle" fill="#839CFF"></path>
+                <rect id="Rectangle-Copy-2" fill="#EEF1FF" x="18" y="40" width="92" height="16"></rect>
+                <rect id="Rectangle-Copy-3" fill="#FFFFFF" opacity="0.25" x="75" y="72" width="26" height="17" rx="2"></rect>
             </g>
         </g>
     </g>
