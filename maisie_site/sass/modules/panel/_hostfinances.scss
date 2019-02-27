@@ -1,0 +1,157 @@
+.hostfinances {
+  height: auto;
+  width: 100%;
+  > a {
+    margin: 0 auto;
+    color: $color-secondary-50;
+    font-size: $font-size-small;
+    &:hover { cursor: pointer; }
+    &:active { opacity: .75; }
+  }
+  &__top {
+    @include user-select(none);
+    @include desktop {
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(flex-start);
+    }
+    @include tabletandmobile {
+      @include flexbox;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(flex-start);
+    }
+    width: 100%;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    > div {
+      width: 100%;
+    }
+    &-btn {
+      margin-top: 10px;
+      width: 100%;
+    }
+    &_right {
+      @include desktop {
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(flex-end);
+      }
+      @include tabletandmobile {
+        @include flexbox;
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(flex-start);
+      }
+      &-bal {
+        > span {
+          &.tag {
+            font-size: $font-size-tag;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $color-primary;
+            margin-right: 5px;
+          }
+          &.text {
+            font-size: $font-size-med;
+            font-weight: 600;
+            color: $color-secondary-75;
+          }
+        }
+      }
+    }
+  }
+  &__card {
+    @include transition(all, 200ms);
+    border: 1px solid $color-secondary-05;
+    @include border-radius(5px);
+
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 1px 0px $color-secondary-03;
+    margin-top: 10px;
+    > div {
+      > img {
+        margin-right: 15px;
+        margin-bottom: 5px;
+        height: 24px;
+      }
+      > div.in {
+        > span {
+          &.title {
+            font-weight: 600;
+          }
+          &.date {
+            margin-top: -5px;
+            opacity: .25;
+          }
+        }
+      }
+    }
+    > div > span {
+      &.value {
+        font-size: $font-size-med;
+        color: $color-secondary-75;
+        margin-bottom: -5px;
+        font-weight: 600;
+      }
+      &.subvalue {
+        font-size: $font-size-small;
+        color: $color-secondary-50;
+        font-weight: 500;
+      }
+    }
+    &:hover {
+      background-color: #F7F9FB;
+    }
+  }
+  &__setup {
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    background-color: white;
+    border: 1px solid $color-secondary-05;
+    box-shadow: $shadow-ss;
+    @include border-radius(10px);
+    @include user-select(none);
+    @include transition(all, 200ms);
+    &:hover {
+      box-shadow: $shadow-sssss;
+    }
+    > span {
+      margin-bottom: 40px;
+      margin-top: 10px;
+      font-weight: 600;
+      text-align: center;
+      color: $color-primary;
+    }
+    > div {
+      .hostfinances__setup-stripe {
+        padding-top: 10px;
+        height: 84px;
+        clip-rule:evenodd;
+        fill:$color-secondary-75;
+        .st0 {
+          fill:$color-secondary-75;
+        }
+      }
+      .hostfinances__setup-maisie {
+        height: 48px;
+        > g
+          > path {
+          fill: $color-secondary-75;
+        }
+      }
+      .hostfinances__setup-spcr {
+        height: 60px;
+        width: 4px;
+        margin-left: 20px;
+        margin-right: 5px;
+        background-color: $color-secondary-75;
+      }
+    }
+  }
+}

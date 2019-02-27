@@ -1,13 +1,60 @@
-import Head from 'next/head'
+import App, { Container } from 'next/app';
+import React from 'react';
+import { ApolloProvider } from 'react-apollo';
+import { StripeProvider } from 'react-stripe-elements-universal';
+import { withApollo } from '../shared/services/with-apollo';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import Head from 'next/head';
 import '../sass/main.scss';
-import App, {Container} from 'next/app'
-import React from 'react'
-import withApollo from '../shared/services/with-apollo'
-import { ApolloProvider } from 'react-apollo'
+import rootReducer from '../shared/services/reducers';
+import { loadState, saveState } from '../shared/services/local-storage';
+import initStore from '../shared/services/init-store';
+import withRedux from 'next-redux-wrapper';
+// import configureStore from '../shared/services/init-store';
+import { PersistGate } from 'redux-persist/integration/react';
+
+// let store;
+// if (process.browser) {
+//   const persistedState = loadState(document.cookie);
+
+//   store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+  
+//   store.subscribe(() => { saveState(store.getState()); });
+// }
+
+// const { persistor, store } = configureStore({});
 
 class MyApp extends App {
+  static async getInitialProps({Component, ctx}) {
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps({ ctx })
+    }
+    const { req } = ctx;
+
+    // let store;
+    // if (req && req.headers) {
+    //   const persistedState = loadState(req.headers.cookie);
+
+    //   store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
+      
+    //   store.subscribe(() => { saveState(store.getState()); });
+    // }
+
+    return {
+      // storeGIP: store,
+      pageProps
+    };
+  }
+
   render () {
-    const {Component, pageProps, apolloClient} = this.props
+    const {Component, pageProps, apolloClient, store} = this.props;
+    // storeGIP
+
     return (
       <Container>
         <Head>
@@ -26,13 +73,20 @@ class MyApp extends App {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-config" content="https://s3.amazonaws.com/maisie-files/shared/browserconfig.xml" />
           <meta name="theme-color" content="#ffffff" />
+          <script src="https://js.stripe.com/v3/"></script>
         </Head>
-        <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
-        </ApolloProvider>
+        <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+          <Provider store={store}>
+            <PersistGate loading={null} persistor={store.__persistor}>
+              <ApolloProvider client={apolloClient}>
+                <Component {...pageProps} />
+              </ApolloProvider>
+            </PersistGate>
+          </Provider>
+        </StripeProvider>
       </Container>
     )
   }
 }
 
-export default withApollo(MyApp)
+export default withApollo(withRedux(initStore, {debug: true})(MyApp));

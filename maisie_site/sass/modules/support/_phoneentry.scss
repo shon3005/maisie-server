@@ -1,0 +1,46 @@
+.phoneEntry {
+  position: absolute;
+  top: 325px;
+  background-color: #FCFDFF;
+  padding: 10px;
+  box-shadow: $shadow-sssss;
+  @include border-radius(5px);
+  z-index: 1097;
+  &-tri {
+    position: relative;
+    height: 25px;
+    width: 25px;
+    transform: rotate(45deg);
+    background-color: #FCFDFF;
+    margin-top: -16px;
+    @include border-radius(3px);
+    z-index: 1098;
+  }
+  > form {
+    width: 160px;
+    z-index: 1099;
+    > input {
+      height: 36px;
+      width: 100%;
+      @include border-radius(5px);
+      @include transition(all, 200ms);
+      font-family: $font-primary;
+      font-size: $font-size-small;
+      border: 1px solid white;
+      box-shadow: $shadow-sss;
+      outline: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: $color-secondary;
+      caret-color: $color-primary;
+      &:focus {
+        border: 1px solid $color-primary;
+      }
+      &::placeholder {
+        font-family: "Open Sans";
+        color: $color-secondary-25;
+        font-size: $font-size-small;
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.settings {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $color-primary-lightest;
+  @include desktop {
+    padding-bottom: 40px;
+  }
+  &__inner {
+    padding-top: $border-padding;
+    min-height: 80vh;
+
+    @include tabletandmobile {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    padding-left: 18%;
+    padding-right: 18%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+
+    &-submit {
+      width: 100%;
+      > button {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        margin-left: 155px;
+        margin-top: 25px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: auto;
+
+        @include border-radius(50px);
+        font-weight: 600;
+        border: none;
+        outline: 0;
+        background-color: $color-primary;
+        color: white;
+
+        font-family: "Open Sans";
+        font-weight: 600;
+        font-size: $font-size-reg;
+
+        &:hover { cursor: pointer; transform: scale(1.05); }
+        &:active { opacity: .75; }
+      }
+    }
+    &-addlater {
+      width: 100%;
+      @include transition(all, 200ms);
+      @include user-select(none);
+
+      margin-top: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: auto;
+
+      @include border-radius(50px);
+      font-weight: 600;
+      border: none;
+      outline: 0;
+      color: $color-primary;
+
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-size: $font-size-small;
+
+      &:hover { cursor: pointer; }
+      &:active { opacity: .75; }
+    }
+    &-payments {
+      width: 100%;
+      padding: 17px;
+      background-color: white;
+      @include border-radius(5px);
+      border: 1px solid $color-secondary-10;
+    }
+  }
+  &__currentcard {
+    font-size: $font-size-small;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+}

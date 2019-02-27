@@ -5,7 +5,7 @@
   &__button {
     > div {
       @include transition(all, 200ms);
-      border-radius: 50px;
+      @include border-radius(50px);
       overflow: hidden;
       height: 50px;
       width: 50px;

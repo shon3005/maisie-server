@@ -1,0 +1,158 @@
+.circle_right {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: $border-padding;
+  @include size-four { display: none !important; }
+  @include size-three { display: none !important; }
+  @include size-two { display: none !important; }
+  @include size-one { display: none !important; }
+  &__inner {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 260px;
+    background-color: white;
+    @include border-radius(10px);
+    box-shadow: 0px 2px 30px $color-secondary-10;
+
+    &.dark_theme {
+      margin-top: 100px;
+      background-color: #021B33;
+      box-shadow: none;
+    }
+    &-joined {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      @include border-radius(5px);
+      // border: 1px solid $color-secondary-10;
+      background-color: $color-secondary-05;
+      font-size: $font-size-small;
+      font-weight: 600;
+      color: $color-secondary-25;
+
+      > div {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        width: 100%;
+        max-width: 180px;
+        flex-wrap: wrap;
+        > div {
+          box-shadow: $shadow-s;
+          height: 12px;
+          width: 12px;
+          @include border-radius(50px);
+          border: 2px solid $color-primary-light;
+
+          &:not(.unfilled) {
+            background-color: $color-primary;
+          }
+          .unfilled {
+            background-color: white;
+          }
+        }
+      }
+    }
+    &_cont {
+      width: 100%;
+      &-ask {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: $font-size-small;
+        font-weight: 600;
+        color: $color-primary;
+
+        &:hover { cursor: pointer; }
+        &:active { opacity: .5; }
+      }
+      &-price {
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: -10px;
+        color: $color-secondary;
+        font-size: $font-size-reg;
+        font-weight: 600;
+        .large {
+          font-size: $font-size-large;
+        }
+        .lower {
+          font-weight: 500;
+          opacity: .5
+        }
+      }
+      &-join {
+        width: 100%;
+
+        > div {
+          @include transition(all, 200ms);
+          @include user-select(none);
+
+          padding-top: 10px;
+          padding-bottom: 10px;
+
+          @include border-radius(50px);
+          color: white;
+          font-weight: 600;
+          &:not(.requested) {
+            &:not(.joined) {
+              background-color: $color-primary;
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+              }
+            }
+          }
+          &.joined {
+            color: $color-primary;
+            border: 2px solid $color-primary;
+          }
+          &.requested {
+            background-color: $color-primary-light;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.circlesocials {
+  width: 240px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  > span {
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-primary;
+    font-size: $font-size-small;
+  }
+
+  &__in {
+    margin-top: 10px;
+    width: 100%;
+    &_social {
+      @include transition(all, 200ms);
+      @include user-select(none);
+
+      height: 40px;
+      width: 40px;
+      @include border-radius(50px);
+      background-color: $color-secondary-05;
+      box-shadow: none;
+
+      &:hover {
+        cursor: pointer;
+        background-color: white;
+        box-shadow: 0px 0px 20px $color-secondary-10;
+      }
+      &:active {
+        opacity: .5;
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+.sidebar {
+  height: 100%;
+  @include desktop {
+    width: 240px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include tabletandmobile {
+    width: 64px;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  padding-top: 40px;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0px 0px 30px 0px $color-secondary-10;
+  &-tag {
+    @include user-select(none);
+    font-size: $font-size-tag;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-secondary-25;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+    @include user-select(none);
+    @include transition(all, 200ms);
+    @include desktop {
+      padding-left: 20px;
+      padding-right: 20px;
+      width: 100%;
+      &:hover {
+        background-color: $color-secondary-03;
+      }
+    }
+    @include tabletandmobile {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+
+      > span {
+          display: none;
+      }
+    }
+    @include border-radius(50px);
+    > span {
+      text-overflow: ellipsis;
+      flex: 1;
+      width: 100%;
+      margin-left: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-transform: capitalize;
+      font-size: $font-size-reg;
+    }
+    &-tag {
+      position: absolute;
+      height: 5px;
+      width: 5px;
+      background-color: $color-primary;
+      left: -2.5px;
+      @include border-radius(50px);
+      box-shadow: 0px 0px 10px $color-primary;
+      &:not(.active) {
+        display: none;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: .5;
+    }
+    &.small {
+      @include desktop {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 10px;
+      }
+      margin-bottom: 10px;
+      &-imgc {
+        height: 20px;
+        width: 20px;
+        @include border-radius(50px);
+        background-color: $color-primary-light;
+      }
+    }
+    &.large {
+      @include desktop {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 15px;
+      }
+      margin-bottom: 10px;
+      > img {
+        height: 24px;
+      }
+    }
+    &-imgc {
+      height: 20px;
+      width: 20px;
+      @include border-radius(50px);
+      background-color: $color-primary-light;
+      border: 1px solid $color-primary;
+    }
+  }
+}

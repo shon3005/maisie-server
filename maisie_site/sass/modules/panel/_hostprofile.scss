@@ -1,0 +1,51 @@
+.hostprofile {
+  &__modal {
+    max-width: 600px;
+    min-width: 300px;
+    width: 100vw;
+    height: auto;
+    overflow-y: auto;
+    &-img {
+      height: 50px;
+      width: 50px;
+      @include border-radius(50px);
+      margin-left: 140px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    &-top {
+      width: 100%;
+      margin-bottom: -30px;
+      margin-top: 20px;
+    }
+    &_brow {
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+  }
+  &__edit {
+    > div {
+      @include transition(all, 200ms);
+      font-weight: 600;
+      font-size: $font-size-reg;
+      color: $color-secondary-75;
+      @include border-radius(50px);
+
+      &:hover  {
+        cursor: pointer;
+      }
+      &:active {
+        opacity: .75;
+      }
+    }
+  }
+  &__hosted {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: -10px;
+    padding-bottom: 20px;
+    background-color: white;
+    @include border-radius(5px);
+    border: 1px solid $color-secondary-10;
+  }
+}

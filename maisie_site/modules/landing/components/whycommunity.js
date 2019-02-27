@@ -1,16 +1,13 @@
 const u = [
   {
     "title" : "Share experiences",
-    "text" : "Your circle-mates are chosen by a professional based on personality, background, and fit.",
-    "img" : "#",
+    "text" : "Hosts craft their Circles deliberately around shared personalities and backgrounds.",
   }, {
     "title" : "Be heard",
-    "text" : "In most cases, it helps to have more people to talk to. Maisie gives you that audience.",
-    "img" : "#",
+    "text" : "In most cases, it helps to have more people to talk to. You can find that audience on Maisie.",
   }, {
     "title" : "Grow together",
     "text" : "Set goals and discuss progress, together. Your Circle keeps you accountable and on-track.",
-    "img" : "",
   },
 ]
 
@@ -26,7 +23,7 @@ const Cards = (props) => u.map((v, index) =>
 
 export default () =>
   <div className="whycommunity col-fs-c">
-    <span className="whycommunity-title h-large">Why community-focused?</span>
+    <span className="whycommunity-title h-large">Why join a Circle?</span>
     <div className="whycommunity__content row-sa">
       <Cards />
     </div>

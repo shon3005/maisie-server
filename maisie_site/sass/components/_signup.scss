@@ -14,7 +14,13 @@
   left: 0;
   overflow: hidden;
 
-  background-color: rgba(2,22,41,.90);
+  background-color: $color-black;
+
+  &-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
 
   @include mobile {
     &__main {
@@ -28,7 +34,7 @@
         width: 100vw;
         background-color: #FCFDFF;
         padding: 20px;
-        border-radius: 0;
+        @include border-radius(0px);
         .signup__main_in {
           height: 100px;
           &-title {
@@ -109,9 +115,9 @@
       > div {
         padding-top: 30px;
         padding-bottom: 40px;
-        width: 380px;
+        width: 400px;
 
-        border-radius: 7px;
+        @include border-radius(7px);
         box-shadow: $shadow-ssss;
         background-color: #FCFDFF;
 
@@ -198,7 +204,7 @@ button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel, 
   box-shadow: none;
   outline: none;
   border: none;
-  border-radius: 5px;
+  @include border-radius(5px);
 
   color: white;
   font-family: "Open Sans";
@@ -243,7 +249,7 @@ button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel, 
   outline: none;
   border: 0;
   box-shadow: $shadow-sss;
-  border-radius: 5px;
+  @include border-radius(5px);
   border: 1px solid white;
 
   font-weight: "Regular";

@@ -11,33 +11,135 @@
 div.center-parent { position: relative; } // call this on the parent of the image you wish to center
 img.center-child { @include img-center; } // call this on the img element you wish to center
 
-// adds browser support for removing ability to select text
-@mixin user-select($what: none) { -webkit-user-select: $what; -moz-user-select: $what; -ms-user-select: $what; -o-user-select: $what; user-select: $what; }
-
-// adds browser support for transitions
-@mixin transition($what: all, $time: 0.2s) { -webkit-transition: $what $time; -moz-transition: $what $time; -ms-transition: $what $time; -o-transition: $what $time; transition: $what $time; }
-
-// rotation
-@keyframes rotating { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@-moz-keyframes rotating { from { -moz-transform: rotate(0deg); } to { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes rotating { from { -webkit-transform: rotate(0deg); } to { -webkit-transform: rotate(360deg); } }
-
-
-
 // SCREENS
 
 // MOBILE
 @mixin mobile { @media (max-width: 600px) { @content; }}
 
 // NOT DESKTOP
-@mixin tabletandmobile { @media (max-width: 920px) { @content; }}
+@mixin tabletandmobile { @media (max-width: 850px) { @content; }}
 
 // DESKTOP
-@mixin desktop { @media (min-width: 600px) { @content; }}
+@mixin desktop { @media (min-width: 850px) { @content; }}
 
 // in case you want to get more granular, below are more screen size options
 @mixin size-one { @media (max-width: 600px) { @content; }}
 @mixin size-two { @media (min-width: 600px) and (max-width: 800px) { @content; }}
 @mixin size-three { @media (min-width: 800px) and (max-width: 950px) { @content; }}
-@mixin size-four { @media (min-width: 950px) and (max-width: 1200px) { @content; }}
-@mixin size-five { @media (min-width: 1200px) { @content; }}
+@mixin size-four { @media (min-width: 950px) and (max-width: 1100px) { @content; }}
+@mixin size-five { @media (min-width: 1100px) { @content; }}
+
+// // // // // // // // // // // // // //
+// // // // // // // // // // // // // //
+// // Cross Browser Compatibilities // //
+// // // // // // // // // // // // // //
+// // // // // // // // // // // // // //
+
+// adds browser support for removing ability to select text
+@mixin user-select($what: none) { -webkit-user-select: $what; -moz-user-select: $what; -ms-user-select: $what; -o-user-select: $what; user-select: $what; }
+
+// adds browser support for transitions
+@mixin transition($what: all, $time: 0.2s) { -webkit-transition: $what $time; -moz-transition: $what $time; -ms-transition: $what $time; -o-transition: $what $time; transition: $what $time; }
+
+// Linear Gradients
+@mixin linear-gradient($start, $end, $direction: to bottom) {
+/* fall-back color */                   background-color: $start;
+/* C10-25, S5.1-6, iOS -6.1, A-4.3 */   background: -webkit-linear-gradient($direction, $start, $end);
+/* Fx3.6-15 */                          background: -moz-linear-gradient($direction, $start, $end);
+/* Op11.10-12.02 */                     background: -o-linear-gradient($direction, $start, $end);
+/* S4+, C1-9 */                         background: linear-gradient($direction, $start, $end);
+/* IE8-9 */                             -ms-filter: progid:DXImageTransform.Microsoft.gradient( startColorStr=$start, EndColorStr=$end );
+}
+
+// Border Radius
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -khtml-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value;
+}
+
+// Flexbox presets
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: reverse;
+    -moz-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: normal;
+    -moz-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+    -moz-box-direction: reverse;
+    -moz-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-direction: normal;
+    -moz-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit/FF Box fallback.
+  -webkit-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -moz-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  justify-content: $value;
+}
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -moz-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  align-items: $value;
+}

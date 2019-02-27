@@ -6,7 +6,7 @@ defmodule MaisieApi.Accounts do
   import Ecto.Query, warn: false
   alias MaisieApi.Repo
 
-  alias MaisieApi.Accounts.User
+  alias MaisieApi.Accounts.{User, Member}
 
   alias SendGrid.{Mail, Email}
 
@@ -37,7 +37,7 @@ defmodule MaisieApi.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user(id), do: Repo.get(User, id)
 
   @doc """
   Creates a user.
@@ -55,7 +55,13 @@ defmodule MaisieApi.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-    |> to_send_email(Mix.env())
+    # |> to_send_email(Mix.env())
+  end
+
+  def create_member(attrs \\ %{}) do
+    %Member{}
+    |> Member.changeset(attrs)
+    |> Repo.insert()
   end
 
   defp to_send_email({:ok, details}=user, :prod) do
@@ -99,7 +105,31 @@ defmodule MaisieApi.Accounts do
   """
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.update_user_changeset(attrs)
+    |> Repo.update()  
+  end
+
+  def update_user_password(%User{} = user, attrs) do
+    user
+    |> User.update_user_password_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_user_image(%User{} = user, attrs) do
+    user
+    |> User.update_user_image_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_payment(%User{} = user, attrs) do
+    user
+    |> User.update_payment_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_user_support(%User{} = user, attrs) do
+    user
+    |> User.update_support_changeset(attrs)
     |> Repo.update()
   end
 
@@ -130,5 +160,113 @@ defmodule MaisieApi.Accounts do
   """
   def change_user(%User{} = user) do
     User.changeset(user, %{})
+  end
+
+  alias MaisieApi.Accounts.Host
+
+  @doc """
+  Returns the list of hosts.
+
+  ## Examples
+
+      iex> list_hosts()
+      [%Host{}, ...]
+
+  """
+  def list_hosts do
+    Repo.all(Host)
+  end
+
+  @doc """
+  Gets a single host.
+
+  Raises `Ecto.NoResultsError` if the Host does not exist.
+
+  ## Examples
+
+      iex> get_host!(123)
+      %Host{}
+
+      iex> get_host!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_host!(id), do: Repo.get!(Host, id)
+
+  @doc """
+  Creates a host.
+
+  ## Examples
+
+      iex> create_host(%{field: value})
+      {:ok, %Host{}}
+
+      iex> create_host(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_host(attrs \\ %{}) do
+    %Host{}
+    |> Host.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a host.
+
+  ## Examples
+
+      iex> update_host(host, %{field: new_value})
+      {:ok, %Host{}}
+
+      iex> update_host(host, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_host(%Host{} = host, attrs) do
+    host
+    |> Host.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_host_image(%Host{} = host, attrs) do
+    host
+    |> Host.update_host_image_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def update_host_payment(%Host{} = host, attrs) do
+    host
+    |> Host.update_host_payment_changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a Host.
+
+  ## Examples
+
+      iex> delete_host(host)
+      {:ok, %Host{}}
+
+      iex> delete_host(host)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_host(%Host{} = host) do
+    Repo.delete(host)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking host changes.
+
+  ## Examples
+
+      iex> change_host(host)
+      %Ecto.Changeset{source: %Host{}}
+
+  """
+  def change_host(%Host{} = host) do
+    Host.changeset(host, %{})
   end
 end

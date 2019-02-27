@@ -1,0 +1,49 @@
+.headerLoggedOut {
+  height: $header-height;
+  &-spacer {
+    color: $color-secondary-25;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  &-link {
+    @include user-select(none);
+    @include transition(all, 200ms);
+    position: relative;
+    height: $header-height;
+
+    > span {
+      position: relative;
+      height: $header-height;
+      line-height: $header-height;
+      font-weight: 600;
+      color: $color-secondary-75;
+
+      &.circle_page {
+        color: white;
+        font-weight: 600;
+        text-shadow: 0px 0px 10px $color-secondary-25;
+      }
+    }
+    > div {
+      @include transition(all, 200ms);
+
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      z-index: 99999;
+      width: 100%;
+      background-color: $color-primary;
+      opacity: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+      > div {
+        opacity: 1;
+      }
+    }
+    &:active {
+      > span { opacity: .5; }
+    }
+  }
+}

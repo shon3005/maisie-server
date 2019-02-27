@@ -1,0 +1,45 @@
+.hostcircles {
+  &__inner {
+    width: 100%;
+    &-title {
+      width: 100%;
+      padding-top: $border-padding;
+      padding-bottom: $border-padding;
+      padding-left: 3%;
+      padding-right: 3%;
+
+      > span {
+        color: $color-secondary;
+        font-size: $font-size-large;
+        font-weight: 500;
+      }
+      > div {
+        > a {
+          @include transition(all, 200ms);
+          @include user-select(none);
+
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+          @include border-radius(50px);
+
+          background-color: $color-primary;
+          border: none;
+          outline: 0;
+
+          font-family: "Open Sans";
+          font-size: $font-size-reg;
+          font-weight: 600;
+          color: white;
+
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+          }
+          &:active { opacity: .75; }
+        }
+      }
+    }
+  }
+}

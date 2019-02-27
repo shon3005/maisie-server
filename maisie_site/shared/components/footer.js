@@ -1,6 +1,7 @@
-let LINKS_COLUMN_ONE = [["For Consumers", "https://heymaisie.com"],["For Providers", "mailto:providers@heymaisie.com?subject=Inquiring about Maisie for Providers"],["Common Q's", "https://docs.google.com/document/d/1ptvBRSMTaRM5PvlVe0x3kTb8fRlV1CUJhr7W8aWm-6M/edit?usp=sharing"]],
-    LINKS_COLUMN_TWO = [/*["Our Values", ""],["Why Maisie?", ""],*/["Work at Maisie", "https://angel.co/maisie-1"]],
-    LINKS_COLUMN_THREE = [["Product Help", "mailto:support@heymaisie.com"],["Contact Us", "mailto:say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
+var classNames = require('classnames')
+let LINKS_COLUMN_ONE = [["How it works", "/"], ["Browse Circles", "/"] /*, ["Why Host?", "/"]*/],
+    LINKS_COLUMN_TWO = [["Values and Mission", ""],["Careers at Maisie", "https://angel.co/maisie-1"]],
+    LINKS_COLUMN_THREE = [["Product Support", "mailto:support@heymaisie.com"],["Contact Us", "mailto:say@heymaisie.com"]/*,["Terms & Privacy", "#"]*/]
 
 
 function Links(props) {
@@ -29,8 +30,8 @@ function Drawer() {
   )
 }
 
-export default () =>
-  <div className="footer row-c-c">
+export default (props) =>
+  <div className={classNames(["footer", "row-c-c", {hidemobile: props.hidemobile}])}>
     <div className="footer__drawer row-sb-c">
       <Drawer />
       <Logos />

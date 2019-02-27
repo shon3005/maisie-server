@@ -6,27 +6,29 @@ import Head from 'next/head'
 
 import initApollo from './init-apollo'
 
-function parseCookies (req, options = {}) {
+export const parseCookies = (req, options = {}) => {
   return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
 }
 
-export default App => {
+export const withApollo = App => {
   return class WithData extends React.Component {
     static displayName = `WithData(${App.displayName})`
     static propTypes = {
-      apolloState: PropTypes.object.isRequired
+      apolloState: PropTypes.object.isRequired,
     }
 
     static async getInitialProps (ctx) {
       const {
         Component,
         router,
-        ctx: { req, res }
+        ctx: { req, res, query }
       } = ctx
+
       const apollo = initApollo(
         {},
         {
-          getToken: () => parseCookies(req).token
+          getToken: () => parseCookies(req).token,
+          graphql_url: 'http://api:4000/graphql'
         }
       )
 
@@ -34,7 +36,7 @@ export default App => {
 
       let appProps = {}
       if (App.getInitialProps) {
-        appProps = await App.getInitialProps(ctx)
+        appProps = await App.getInitialProps(ctx);
       }
 
       if (res && res.finished) {
@@ -83,13 +85,16 @@ export default App => {
       // After that rendering is done using Next's normal rendering pipeline
       this.apolloClient = initApollo(props.apolloState, {
         getToken: () => {
-          return parseCookies().token
-        }
+          return parseCookies().token;
+        },
+        graphql_url: '/api/graphql'
       })
     }
 
     render () {
-      return <App {...this.props} apolloClient={this.apolloClient} />
+      return (
+        <App {...this.props} apolloClient={this.apolloClient} />
+      );
     }
   }
 }

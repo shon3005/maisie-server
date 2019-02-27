@@ -3,7 +3,9 @@ defmodule MaisieApiWeb.Schema.Types do
 
     alias MaisieApiWeb.Schema.Types
 
-    import_types(Types.Usertype)
+    import_types(Types.UserType)
     import_types(Types.SessionType)
-    import_types(Types.GroupType)
+    import_types(Types.CircleType)
+    import_types(Types.HostType)
+    import_types(Types.PaymentType)
 end

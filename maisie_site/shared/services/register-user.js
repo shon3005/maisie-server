@@ -6,17 +6,31 @@ export default (
   lastName,
   email,
   password,
-  passwordConfirmation,
-  zip
+  passwordConfirmation
 ) =>
   apolloClient
     .mutate({
       mutation: gql`
-        mutation registerUser($firstName: String!, $lastName: String!, $email: String!, $password: String!, $passwordConfirmation: String!, $zip: String!) {
-          registerUser(input: {firstName: $firstName, lastName: $lastName, email: $email, password: $password, passwordConfirmation: $passwordConfirmation, zip: $zip}) {
-            id
+        mutation registerUser($firstName: String!, $lastName: String!, $email: String!, $password: String!, $passwordConfirmation: String!) {
+          registerUser(input: {firstName: $firstName, lastName: $lastName, email: $email, password: $password, passwordConfirmation: $passwordConfirmation}) {
+            token
+            user {
+              id
+              firstName
+              lastName
+              email
+              role
+              phone
+              neighborhood
+              school
+              work
+              bio
+              imageUrl
+              last4
+              support
+            }
           }
         }
       `,
-      variables: { firstName, lastName, email, password, passwordConfirmation, zip },
+      variables: { firstName, lastName, email, password, passwordConfirmation },
     })

@@ -1,0 +1,299 @@
+#create_slide1_imageupload,#profile_imageupload,#hostprofile_imageupload {
+  display: none;
+  +label {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: $color-secondary;
+    &.red {
+      background-color: $color-red;
+    }
+    @include border-radius(50px);
+    color: white;
+    &:hover { cursor: pointer; }
+    &:active { opacity: .90; }
+
+    +span {
+      font-size: $font-size-small;
+      color: $color-secondary-75;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+  }
+}
+.header_progress {
+  width: 100%;
+  height: 4px;
+  background-color: $color-secondary-05;
+
+  > div {
+    height: 100%;
+    background-color: $color-primary;
+  }
+}
+
+.create {
+  height: 100vh;
+  width: 100vw;
+  background-color: $color-primary-lightest;
+
+  &__inner {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+    &_cont {
+      z-index: 5;
+      overflow-y: auto;
+      height: auto;
+      flex: 1;
+      @include tabletandmobile {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      padding-left: 18%;
+      padding-right: 18%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      width: 100%;
+      &-imgadd {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: white;
+        @include border-radius(50px);
+        background-color: $color-secondary;
+        &:hover { cursor: pointer; }
+        &:active { opacity: .75; }
+      }
+      &-largetext {
+        font-size: 40px;
+        font-weight: 500;
+        color: $color-secondary;
+        text-transform: capitalize;
+      }
+      &-smalltext {
+        font-size: $font-size-med;
+        margin-top: -5px;
+        margin-bottom: 40px;
+        margin-left: 2px;
+        font-weight: 500;
+        color: $color-primary;
+      }
+    }
+
+    &_brow {
+      z-index: 10;
+      height: 15%;
+      min-height: 80px;
+      background-color: white;
+      width: 100%;
+      @include desktop {
+        margin-bottom: 40px;
+      }
+
+      box-shadow: 0px -2px 10px $color-secondary-05;
+
+      > div {
+        @include transition(all, 200ms);
+        @include user-select(none);
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+
+        @include border-radius(50px);
+        font-weight: 600;
+        &.no_display {
+          display: none !important;
+        }
+
+        &:hover { cursor: pointer; }
+        &:active { opacity: .75; }
+        &.back {
+          color: $color-primary;
+        }
+        &.next {
+          background-color: $color-primary;
+          color: white;
+          &:hover { transform: scale(1.05); }
+        }
+      }
+    }
+  }
+  &__hostinfo {
+    padding: 10px;
+    background-color: white;
+    @include border-radius(5px);
+    border: 1px solid $color-secondary-05;
+    &-img {
+      height: 40px;
+      width: 40px;
+      overflow: hidden;
+      @include border-radius(50px);
+      > img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+    > span {
+      font-size: $font-size-reg;
+      margin-left: 10px;
+    }
+    &-tag {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-left: 10px;
+
+      @include border-radius(5px);
+      background-color: $color-primary;
+      color: white;
+      font-size: $font-size-tag;
+      text-transform: uppercase;
+    }
+  }
+  &-disclaimer {
+    font-size: $font-size-small;
+    color: $color-secondary-25;
+    margin-top: 10px;
+    margin-left: calc(115px + 5%);
+  }
+  &__field {
+    width: 100%;
+    margin-top: 25px;
+    &_text {
+      width: calc(80px + 5%);
+      margin-right: 25px;
+      text-align: right;
+      > span.tag {
+        font-size: $font-size-tag-small;
+        color: $color-primary;
+        font-weight: 600;
+      }
+    }
+    &_input {
+      flex: 1;
+      &.field_nostretch {
+        flex: none;
+      }
+
+      &-textbox {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: $color-secondary-03;
+        color: $color-secondary-50;
+        @include border-radius(5px);
+        display:block;
+        white-space: pre-wrap;
+      }
+      input, select, textarea {
+        &::placeholder {
+          font-size: $font-size-reg;
+          color: $color-secondary-20;
+          font-weight: 400;
+          font-family: $font-primary;
+        }
+        &.red {
+          border: 1px solid $color-red !important;
+        }
+      }
+
+      > input {
+        @include transition(all, 200ms);
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        width: 100%;
+        height: 50px;
+        @include border-radius(5px);
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: $font-primary;
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+
+      > select {
+        @include transition(all, 200ms);
+
+        position: relative;
+        font-family: $font-primary;
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        padding-left: 20px;
+        height: 50px;
+
+        background-color: white;
+        border: 1px solid $color-secondary-10;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+
+      > textarea {
+        @include transition(all, 200ms);
+        resize: none;
+
+        padding: 10px;
+        width: 100%;
+        @include border-radius(5px);
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+        height: auto;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: $font-primary;
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+    }
+  }
+
+  > button {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 175px;
+    margin-top: 25px;
+
+    @include border-radius(50px);
+    border: none;
+    outline: 0;
+
+    background-color: $color-primary;
+    color: white;
+    font-family: "Open Sans";
+    font-size: $font-size-reg;
+    font-weight: 600;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+    &:active { opacity: .75 }
+  }
+}
+label {
+  &.red {
+    background-color: $color-red !important;
+  }
+}

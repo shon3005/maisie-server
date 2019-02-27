@@ -1,0 +1,82 @@
+.whyhost-f {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-bottom: 40px;
+  &__head {
+    z-index: 9999;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &-title {
+    font-size: $font-size-large;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 75px;
+    width: 75vw;
+    text-align: center;
+    > div {
+      width: 5%;
+      height: 3px;
+      background-color: $color-primary;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__front {
+    height: calc(100vh - 40px);
+    width: 100vw;
+  }
+
+  &__reasons {
+    width: 100vw;
+    background-color: white;
+
+    @include tabletandmobile {
+      flex-direction: column !important;
+    }
+
+    &_block {
+      @include tabletandmobile {
+        height: auto;
+        padding-top: 25px;
+        padding-bottom: 25px;
+      }
+      flex: 3;
+      @include linear-gradient(white, $color-primary-lighter);
+      padding-top: 100px;
+      padding-bottom: 150px;
+      &-num {
+        height: 40px;
+        width: 40px;
+        background-color: $color-primary;
+        @include border-radius(50px);
+
+        color: white;
+        font-weight: 600;
+        font-size: $font-size-med;
+      }
+
+      &-tag {
+        font-size: $font-size-med;
+        color: $color-primary;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+
+      &-msg {
+        font-size: $font-size-small;
+        color: $color-secondary-75;
+        margin-top: 10px;
+        width: 80%;
+        text-align: justify;
+
+      }
+    }
+  }
+}

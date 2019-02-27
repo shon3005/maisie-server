@@ -1,0 +1,29 @@
+.mc-blank {
+  height: 100%;
+  flex: 1;
+  width: 100%;
+  > span {
+    font-size: $font-size-med;
+    font-weight: 600;
+    color: $color-secondary-75;
+  }
+
+  > a {
+    @include transition(all, 200ms);
+    @include user-select(none);
+
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include border-radius(50px);
+
+    font-weight: 600;
+    background-color: $color-primary;
+    color: white;
+
+    &:hover { cursor: pointer; transform: scale(1.05); }
+    &:active { opacity: .5; }
+  }
+}

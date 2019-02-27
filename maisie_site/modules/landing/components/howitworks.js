@@ -2,15 +2,15 @@ const steps = [
   {
     "step": 1,
     "header": "Sign Up",
-    "text": "We’ll ask for some basic info, then a team member will reach out to get to know you a bit more."
+    "text": "Browse our selection of available Circles. We personally vet each host and Circle before allowing it on the site."
   }, {
     "step": 2,
     "header": "Join your circle",
-    "text": "We’ll match you with a group of peers and a therapist to lead it. A meeting time that works for everyone will be found."
+    "text": "Once you've found a Circle you like, apply to join straight from the site. The host will reach out and schedule a short meeting to discuss your goals and expectations for the Circle."
   }, {
     "step": 3,
     "header": "Meet",
-    "text": "Now that your Circle has formed, you’ll come together weekly for a conversation guided by your Circle leader."
+    "text": "Once you're admitted to a Circle, all that's left is to meet. Don't worry, we'll send you a reminder before each meeting."
   }
 ]
 
@@ -34,12 +34,12 @@ export default (props) =>
     <div className="howitworks__content col-fs-c">
       <span className="howitworks__content-title h-large">How does it work?</span>
       <Steps />
-      <div className="howitworks__content-cta row-c-c">
+      <div className="howitworks__content-cta row-sa-c">
         <div className="howitworks__content-cta-1 col-c">
-          <span className="howitworks__content-cta-1-1">Affordable counseling</span>
-          <span className="howitworks__content-cta-1-2">It's here. Ready to give it a try? </span>
+          <span className="howitworks__content-cta-1-1">Spin class for the mind (but more fun).</span>
+          <span className="howitworks__content-cta-1-2">Ready to give it a try?</span>
         </div>
-        <div onClick={(n) => props.onEmailEntry(" ")} className="howitworks__content-cta-2 col-c-c">Get Started</div>
+        <a href="/signup" className="howitworks__content-cta-2 col-c-c">Get Started</a>
       </div>
     </div>
   </div>

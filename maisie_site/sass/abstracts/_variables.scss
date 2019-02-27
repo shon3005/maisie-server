@@ -1,45 +1,61 @@
 // COLOR VARIABLES
 $color-primary: rgba(118,146,255,1);
-
+$color-primary-ligh: rgba(118,146,255,.50);
 $color-primary-light: rgba(118,146,255,.25);
 $color-primary-lighte: rgba(118,146,255,.10);
 $color-primary-lighter: rgba(118,146,255,.05);
 $color-primary-lightest: rgba(118,146,255,.02);
 
 $color-secondary: rgba(5,45,84,1);
+$color-secondary-85: rgba(5,45,84,.85);
 $color-secondary-75: rgba(5,45,84,.75);
 $color-secondary-50: rgba(5,45,84,.50);
 $color-secondary-25: rgba(5,45,84,.25);
 $color-secondary-20: rgba(5,45,84,.20);
 $color-secondary-10: rgba(5,45,84,.10);
 $color-secondary-05: rgba(5,45,84,.05);
+$color-secondary-03: rgba(5,45,84,.03);
+$color-secondary-02: rgba(5,45,84,.02);
 
 $color-black: rgba(2,22,41,1);
+$color-black-95: rgba(2,22,41,.95);
+$color-black-90: rgba(2,22,41,.90);
+$color-black-75: rgba(2,22,41,.75);
+$color-black-50: rgba(2,22,41,.5);
+$color-black-40: rgba(2,22,41,.4);
+$color-black-25: rgba(2,22,41,.25);
+$color-black-10: rgba(2,22,41,.1);
 $color-blue: #72DDF7;
 $color-pink: #FF76F6;
-$color-green: #8AEFDE;
+$color-green: #16E0BD;
 $color-red: #FF8585;
 
 // GRADIENTS
 $gradient-blue-purple: linear-gradient(to bottom right, $color-blue 0%, $color-primary 75%);
 
 // SHADOWS
-$shadow-ss: 0 0px 2px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10);
+$shadow-s: 0 0px 5px 0 rgba(2,22,41,0.02);
+$shadow-ss: 0 0px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.07);
 $shadow-sss: 0 5px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10);
 $shadow-ssss: 0 2px 2px 0 rgba(2,22,41,0.01), 0 5px 5px 0 rgba(2,22,41,0.02), 0 5px 20px 0 rgba(2,22,41,0.10);
 $shadow-sssss: 0 5px 5px 0 rgba(2,22,41,0.02), 0 5px 30px 0 rgba(2,22,41,0.10);
+$shadow-ssssss: 0 5px 5px 0 rgba(2,22,41,0.03), 0 5px 30px 0 rgba(2,22,41,0.10);
 
-
+// SPACING
+$border-padding: calc(1vw + 10px);
+$border-padding-inner: calc(.5vw + 10px);
+$header-height: 60px;
 
 // FONT VARIABLES
-$font-primary: 'Open Sans', sans-serif;
+$font-primary: "Open Sans", "Roboto", Arial, sans-serif;
 $font-display: 'Cabin', sans-serif;
 $font-size-tag-small: 8pt;
-$font-size-tag: 12pt;
-$font-size-small: 12pt;
-$font-size-reg: 14pt;
-$font-size-large: 20pt;
-
+$font-size-tag: 10pt;
+$font-size-small: 10pt;
+$font-size-reg: 16px;
+$font-size-med: 20px;
+$font-size-large: 28px;
+$font-size-title: 40px;
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75em;   // 1200px

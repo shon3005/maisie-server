@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 17</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Web-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy-5" transform="translate(-804.000000, -1282.000000)" fill-rule="nonzero" stroke="#7692FF">
+            <g id="Group-18-Copy-2" transform="translate(804.000000, 1274.000000)">
+                <g id="Group-17" transform="translate(0.000000, 8.000000)">
+                    <rect id="Rectangle" x="0.5" y="10.5" width="23" height="13" rx="0.5"></rect>
+                    <path d="M2.49996616,13.5 C2.49994747,13.5 2.49993232,13.5000152 2.49993232,13.5000338 L2.49993232,21.0000471 C2.49993232,21.2761895 2.72378994,21.5000471 2.99993232,21.5000471 L20.4999764,21.5000471 C20.4999894,21.5000471 20.5,21.5000366 20.5,21.5000236 C20.5,21.5000106 20.4999894,21.5 20.4999764,21.5 L3.65,21.5 C3.01487254,21.5 2.5,20.9851275 2.5,20.35 L2.5,13.5000338 C2.5,13.5000152 2.49998485,13.5 2.49996616,13.5 Z" id="Rectangle"></path>
+                    <path d="M7.5,10.5 L16.5,10.5 L16.5,5 C16.5,2.51471863 14.4852814,0.5 12,0.5 C9.51471863,0.5 7.5,2.51471863 7.5,5 L7.5,10.5 Z" id="Rectangle"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

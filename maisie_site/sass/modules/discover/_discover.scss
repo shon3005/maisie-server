@@ -1,0 +1,46 @@
+.discover {
+  height: 100vh;
+  width: 100%;
+
+  background-color: $color-primary-lightest;
+
+  &__content {
+    width: 100%;
+    padding-left: $border-padding-inner;
+    padding-right: $border-padding-inner;
+
+    flex: 1;
+    &-title {
+      font-size: $font-size-large;
+      font-weight: 400;
+      color: $color-secondary;
+    }
+
+    &-desc {
+      font-size: $font-size-small;
+      font-weight: 500;
+      color: $color-primary;
+    }
+
+    &_browse {
+      margin-top: 40px;
+      width: 100%;
+      height: auto;
+      overflow-y: auto;
+      flex-wrap: wrap;
+      // background-color: $color-primary-light;
+
+    }
+  }
+
+  &__cta {
+    @include user-select(none);
+    @include transition(all, 200ms);
+
+    width: 100%;
+    > span {
+      font-size: $font-size-large;
+      font-weight: 400;
+    }
+  }
+}

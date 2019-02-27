@@ -1,0 +1,61 @@
+.hostwelcome {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $color-primary-lightest;
+  &__in {
+    border: 2px solid $color-secondary-05;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: white;
+    @include border-radius(10px);
+    width: 500px;
+    > span.title {
+      font-weight: 600;
+      font-size: $font-size-small;
+    }
+    > img.logo {
+      margin-top: 5px;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__step {
+    background-color: $color-secondary-03;
+    width: 100%;
+    margin-top: 20px;
+    &_cont {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      > img {
+        width: 30px;
+        margin-right: 15px;
+      }
+      > div {
+        > span.tag {
+          font-weight: 600;
+          font-size: $font-size-small;
+          text-transform: uppercase;
+          color: $color-primary;
+        }
+        > span.text {
+          margin-top: -5px;
+          font-weight: 600;
+        }
+      }
+    }
+    &-prompt {
+      height: 46px;
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+      background-color: $color-secondary-05;
+      @include flexbox;
+      @include flex-direction(column);
+      @include justify-content(center);
+      @include align-items(flex-end);
+    }
+  }
+}

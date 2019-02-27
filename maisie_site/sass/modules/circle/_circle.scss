@@ -1,0 +1,150 @@
+// use the following to set the dark theme
+.circle_left.dark_theme, .circle_right.dark_theme, .circle.dark_theme {
+  .dark_theme_title_text { color: white; }
+  .dark_theme_primary_text { color: #BAC8FF; }
+  .dark_theme_tag_text { color: $color-primary-ligh; }
+  .dark_theme_dark_back { background-color: $color-secondary-25; }
+  .dark_theme_social { background-color: $color-secondary-50;
+    &:hover { background-color: $color-secondary; box-shadow: 0px 0px 20px $color-primary; }}
+  .dark_theme_spacer { background-color: rgba(255,255,255,.05) !important;}
+}
+
+.circle {
+  width: 100vw;
+  height: 100%;
+  background-color: $color-primary-lightest;
+  &.dark_theme { background-color: $color-black; }
+  position: relative;
+  padding-bottom: 140px;
+  @include size-five { padding-bottom: 40px; }
+
+  &_askmodal {
+    position: fixed;
+    z-index: 9999999;
+    height: 100vh;
+    width: 100vw;
+    background-color: $color-black-75;
+    &-text {
+      text-align: center;
+      font-weight: 500;
+      margin-top: -20px;
+      margin-bottom: 20px;
+    }
+    > div {
+      > div {
+        margin-top: 10px;
+        width: 100%;
+        > div {
+          margin-left: 10px;
+        }
+      }
+      border: 2px solid $color-secondary-20;
+      padding: 20px;
+      @include border-radius(5px);
+      margin: 0 auto;
+      background-color: #FCFDFF;
+      > textarea {
+        &::placeholder {
+          font-size: $font-size-reg;
+          color: $color-secondary-20;
+          font-weight: 400;
+          font-family: $font-primary;
+        }
+        @include transition(all, 200ms);
+        resize: none;
+        margin-top: -25px;
+        padding: 10px;
+        width: 90vw;
+        max-width: 450px;
+        height: 200px;
+        background-color: white;
+
+        @include border-radius(5px);
+        border: 1px solid $color-secondary-10;
+        outline: 0;
+
+        font-size: $font-size-reg;
+        color: $color-secondary;
+        font-family: $font-primary;
+        font-weight: 400;
+        &:focus { border: 1px solid $color-secondary-50; }
+      }
+    }
+  }
+
+  &__inner {
+    position: relative;
+
+    &-img {
+      height: 55vh;
+      min-height: 400px;
+      width: 100%;
+      position: relative;
+      &-bshadow {
+        @include linear-gradient(transparent, $color-black)
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 3;
+      }
+      &-filter, &-img {
+        height: 55vh;
+        min-height: 400px;
+        width: 100%;
+      }
+      &-shadow {
+        @include linear-gradient($color-black-50, transparent)
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        height: 40%;
+        width: 100%;
+      }
+      &-filter {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba(118, 146, 255, 0.10);
+        z-index: 2;
+      }
+      &-img {
+        z-index: 1;
+      }
+    }
+    &_cont {
+      z-index: 3;
+      &.dark_theme {
+        margin-top: -5vh;
+      }
+      @include size-four { max-width: 1200px; width: 80%; }
+      @include size-five { max-width: 1200px; width: 80%; }
+      width: 100%;
+      position: relative;
+      margin-top: -15vh;
+      &-spcr {
+        @include size-five { width: calc(2vw + 20px); }
+      }
+    }
+  }
+}
+
+.circleback {
+  @include transition(all, 200ms);
+  @include user-select(none);
+  margin-right: calc(20px + 1%);
+  > span {
+    color: white;
+    font-weight: 600;
+    text-shadow: 0px 0px 10px $color-secondary-25;
+  }
+  &:hover {
+    cursor: pointer;
+    opacity: .75;
+    transform: scale(1.10);
+  }
+  &:active {
+    opacity: .5;
+  }
+}

@@ -1,0 +1,39 @@
+.withPage {
+  background-color: $color-primary-lightest;
+  // background-color: #FCFDFF;
+
+  @include desktop {
+    overflow: hidden;
+    width: 100vw;
+
+    &__inner {
+      width: 100%;
+      &.lim-height {
+        height: calc(100vh - 104px);
+      }
+      &-content {
+        width: 100%;
+        height: 100%;
+        padding: $border-padding;
+      }
+    }
+  }
+
+  @include tabletandmobile {
+    min-height: 100vh;
+    width: 100vw;
+
+    align-items: center !important;
+
+    &__inner {
+      width: 100%;
+      padding-bottom: 40px;
+
+      &-content {
+        width: 100%;
+        padding: $border-padding;
+        overflow-y: auto;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .whycommunity {
-  background: linear-gradient(to bottom, $color-primary-lighter, $color-primary-lighte);
+  @include linear-gradient($color-primary-lightest, $color-primary-lighter);
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -32,10 +32,10 @@
   @include transition(transform, 200ms);
   background: white;
   box-shadow: $shadow-ssss;
-  border-radius: 10px;
+  @include border-radius(10px);
   padding: 20px;
-  width: 30%;
-  font-size: $font-size-small;
+  width: 31%;
+  font-size: $font-size-reg;
   color: $color-secondary;
   &-title {
     font-weight: 600;
@@ -47,10 +47,10 @@
     height: 40px;
     width: 40px;
     overflow: hidden;
-    border-radius: 50px;
+    @include border-radius(50px);
     margin-bottom: 10px;
     > img {
-      border-radius: 50px;
+      @include border-radius(50px);
       height: 40px;
       width: 40px;
     }

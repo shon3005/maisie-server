@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="47px" viewBox="0 0 64 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Group 47</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Web-V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-47">
+            <rect id="Rectangle" fill-opacity="0.05" fill="#7692FF" x="0" y="19" width="56" height="8"></rect>
+            <path d="M56,19 L30.2222222,19 L32,11 L53,11 C54.6568542,11 56,12.3431458 56,14 L56,19 Z M56,27 L56,44 C56,45.6568542 54.6568542,47 53,47 L24,47 L28.4444444,27 L56,27 Z" id="Combined-Shape" fill="#ADBEFF"></path>
+            <path d="M30.2222222,19 L-2.45137244e-13,19 L-2.45581333e-13,14 C-2.45784239e-13,12.3431458 1.34314575,11 3,11 L32,11 L30.2222222,19 Z M28.4444444,27 L24,47 L3,47 C1.34314575,47 -2.44934338e-13,45.6568542 -2.45137244e-13,44 L-2.45388894e-13,27 L28.4444444,27 Z" id="Combined-Shape" fill="#DDE4FF"></path>
+            <circle id="Oval" stroke-opacity="0.25" stroke="#FFFFFF" fill="#7692FF" cx="52" cy="12" r="11.5"></circle>
+            <polygon id="+" fill="#F9FAFF" fill-rule="nonzero" points="50.703173 13.2701613 45 13.2701613 45 10.7580645 50.703173 10.7580645 50.703173 5 53.2824974 5 53.2824974 10.7580645 59 10.7580645 59 13.2701613 53.2824974 13.2701613 53.2824974 19 50.703173 19"></polygon>
+        </g>
+    </g>
+</svg>

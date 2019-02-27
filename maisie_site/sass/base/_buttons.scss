@@ -1,0 +1,148 @@
+.template_buttons {
+  @include transition(all, 200ms);
+  @include user-select(none);
+  @include border-radius(50px);
+
+  // reserved for circle page button
+  &.requested { background-color: $color-primary-light; }
+  &.joined { color: $color-primary; border: 2px solid $color-primary; }
+  //
+  overflow: hidden;
+  white-space:nowrap;
+  display: block;
+  text-overflow: ellipsis;
+
+  &-spinner {
+    @include transition(all, 200ms);
+    > span {
+      text-transform: capitalize;
+      margin-right: 10px;
+      opacity: .5;
+    }
+    > div {
+      transform: rotate(90deg);
+      -webkit-animation: rotating 1s ease-in-out infinite;
+      -moz-animation: rotating 1s ease-in-out infinite;
+      animation: rotating 1s ease-in-out infinite;
+      height: 20px;
+      width: 20px;
+      @include border-radius(50px);
+      background: conic-gradient(transparent, white);
+
+      &.purple {
+        background: conic-gradient(transparent, white);
+        > div { background-color: $color-primary; }
+      }
+      &.dark {
+        background: conic-gradient(transparent, white);
+        > div { background-color: $color-secondary; }
+      }
+      &.light {
+        background: conic-gradient(transparent, $color-secondary-25);
+        > div { background-color: white; }
+      }
+
+      > div {
+        height: 14px;
+        width: 14px;
+
+        @include border-radius(50px);
+      }
+    }
+  }
+
+  &.primary {
+    height: 46px;
+    font-weight: 600;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+  &.alt {
+    height: 36px;
+    box-shadow: 0 0px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.07), inset 0 -11px 12px 0 rgba(5,45,84,0.05);
+    padding-left: 15px;
+    padding-right: 15px;
+
+    font-size: $font-size-small;
+    font-weight: 500;
+    &.purple {
+      border: 1px solid $color-secondary-10;
+      box-shadow: 0 0px 5px 0 rgba(2,22,41,0.05), 0 2px 5px 0 rgba(2,22,41,0.07), inset 0 -11px 20px 0 rgba(5,45,84,0.18);
+    }
+    &.light {
+      border: 1px solid $color-secondary-10;
+    }
+    &.dark {
+      border: 1px solid rgba(255,255,255,.15);
+    }
+  }
+
+
+  &.link {
+    color: $color-secondary-75;
+    font-weight: 600;
+    > svg {
+      margin-left: 8px;
+      > g > g { @include transition(all, 200ms); fill: $color-secondary-75; }
+    }
+  }
+  &.ext {
+    color: $color-secondary-75;
+    height: 50px;
+    font-weight: 600;
+    padding-left: 15px;
+    padding-right: 12px;
+    > svg {
+      margin-left: 5px;
+      > g > path { @include transition(all, 200ms); fill: $color-secondary-75; }
+    }
+  }
+  &.link, &.ext {
+    > svg {
+      height: 12px;
+    }
+  }
+  &.purple {
+    background-color: $color-primary;
+    color: white;
+  }
+  &.light {
+    background-color: white;
+    color: $color-secondary-75;
+  }
+  &.dark {
+    background-color: $color-secondary;
+    color: white;
+  }
+  &:hover {
+    &.button_active {
+      cursor: pointer;
+      &.primary, &.ext {
+        &.purple {
+          box-shadow: 0px 0px 4px $color-primary-lighter, 0px 0px 20px $color-primary-light;
+        }
+        &.light {
+          box-shadow: 0px 0px 30px $color-secondary-20;
+        }
+        transform: translateY(-1px) !important;
+      }
+      &.alt {
+        box-shadow: 0 5px 5px 0 rgba(2,22,41,0.01), 0 2px 5px 0 rgba(2,22,41,0.10), inset 0 -11px 12px 0 rgba(5,45,84,0.05);
+        &.purple { background-color: #839DFF; }
+        &.dark { background-color: #20457D; }
+        &.light { background-color: #F8F9FF; }
+      }
+      &.link {
+        color: $color-primary;
+        > svg > g > g { fill: $color-primary; }
+      }
+    }
+  }
+  &:active {
+    &.button_active {
+      opacity: .75;
+    }
+  }
+}

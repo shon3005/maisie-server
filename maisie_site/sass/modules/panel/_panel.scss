@@ -1,0 +1,19 @@
+.panel {
+  min-height: 100vh;
+  width: 100vw;
+  background-color: $color-primary-lightest;
+  @include desktop {
+    padding-bottom: 40px;
+  }
+  &__inner {
+    padding-top: $border-padding;
+    min-height: 80vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    @include size-five { padding-left: 10%; padding-right: 10%; margin: 0 auto; max-width: 1250px; }
+
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+  }
+}
