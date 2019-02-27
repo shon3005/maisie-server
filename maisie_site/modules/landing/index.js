@@ -28,9 +28,9 @@ export default (props) =>
         <div className="landing-intro col-c-c">
           <span className="tag">Hey there. We're Maisie.</span>
           <span className="text">
-            We offer affordable and fun ways to maintain your
+            We offer an affordable and fun way to maintain your
             <br />
-            mental health and make friends, called Circles.
+            mental health and make friends, which we call Circles.
           </span>
         </div>
         <div className="landing-reasons">
