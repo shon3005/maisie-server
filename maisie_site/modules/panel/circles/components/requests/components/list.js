@@ -6,7 +6,7 @@ function requests(a) {
         <a>View Profile</a>
       </div>
       <div className="circles_req__ind_r row-fe-c">
-        <div className="email" style={{backgroundImage: "url('../../../../../../../static/shared/email_lightgray.svg')", backgroundRepeat: "no-repeat", backgroundSize: "18px 18px", backgroundPosition: "center"}} />
+        <a className="email" style={{backgroundImage: "url('../../../../../../../static/shared/email_lightgray.svg')", backgroundRepeat: "no-repeat", backgroundSize: "18px 18px", backgroundPosition: "center"}} />
         <div className="accept" style={{backgroundImage: "url('../../../../../../../static/shared/accept.svg')", backgroundRepeat: "no-repeat", backgroundSize: "15px 15px", backgroundPosition: "center"}} />
         <div className="deny" style={{backgroundImage: "url('../../../../../../../static/shared/deny.svg')", backgroundRepeat: "no-repeat", backgroundSize: "12px 12px", backgroundPosition: "center"}} />
       </div>

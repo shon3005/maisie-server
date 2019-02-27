@@ -89,12 +89,12 @@
       }
     }
     &_r {
-      > div {
+      > div, > a {
         height: 30px;
         width: 30px;
         @include border-radius(50px);
       }
-      > div.email {
+      > a.email {
         margin-left: 25px;
         background-color: $color-secondary-05;
       }
