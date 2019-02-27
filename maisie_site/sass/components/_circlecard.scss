@@ -52,15 +52,19 @@
     > span {
       width: 100%;
       font-size: $font-size-small;
-      font-weight: 400;
+      font-weight: 600;
       color: $color-secondary;
     }
     &-title {
       font-size: $font-size-reg !important;
-      font-weight: 600 !important;
+      font-weight: 600;
       width: 100%;
     }
+    &-spots {
+      color: $color-secondary-50 !important;
+    }
     &-price {
+      font-weight: 600;
       color: $color-primary !important;
     }
   }
