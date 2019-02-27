@@ -1,23 +1,20 @@
 .whyhost-f {
-  height: 100vh;
   width: 100vw;
   position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
   padding-bottom: 40px;
-  &__head {
-    z-index: 9999;
+  &-header {
+    width: 100vw;
+    z-index: 999;
     position: absolute;
-    top: 0;
-    width: 100%;
   }
-
   &-title {
     font-size: $font-size-large;
-    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 75px;
+    margin-top: 150px;
+    margin-bottom: 150px;
     width: 75vw;
     text-align: center;
     > div {
@@ -29,7 +26,8 @@
   }
 
   &__front {
-    height: calc(100vh - 40px);
+    position: relative;
+    height: 100vh;
     width: 100vw;
   }
 

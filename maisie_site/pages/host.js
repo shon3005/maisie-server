@@ -1,6 +1,40 @@
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import GrowTogether from '../modules/landing/components/growtogether.js';
+import Button from '../shared/components/button.js';
+
+const HostFront = () =>
+  <div className="whyhostfront">
+    <div className="whyhostfront-header light"><Header loggedIn="loggedOut"/></div>
+    <div className="whyhostfront-img1" />
+    <div className="whyhostfront-img2" />
+    <div className="whyhostfront-img3" />
+    <div className="whyhostfront-img5" />
+    <img className="whyhostfront-img4" src="https://s3.amazonaws.com/maisie-files/landing/back.png" />
+    <div className="whyhostfront-title">
+      <div className="whyhostfront-forpros">
+        <span>For Therapists</span>
+      </div>
+      Grow your practice.
+      <br />
+      Practice your interests.
+    </div>
+  </div>
+
+const HostReasons = () =>
+  <div className="whyhostreasons">
+    <div className="whyhostreasons__in">
+    {[["../../static/shared/payments.svg", "Payments", "Maisie doesn't just accept payments, it automates them. Never deal with cash and checks again. Get instant payouts at any time."],
+      ["../../static/shared/managepeople.svg", "People Management", "Manage your Circle members and requests right from our easy-to-use platform."],
+      ["../../static/shared/communications.svg", "Communications", "Send out communications to individual members or entire Circles easily. Your info is kept completely private."],
+    ].map((a, i) => <div key={i} className="col"><img src={a[0]} /><span>{a[1]}</span><p>{a[2]}</p></div>
+    )}
+    </div>
+    <div className="col-c-c"><Button kind="primary" weight="purple">Start hosting today</Button></div>
+  </div>
+
+
+
 
 export default () => {
   const r = [
@@ -23,11 +57,15 @@ export default () => {
   )
   return(
     <div className="whyhost-f">
-      <div className="whyhost-f__head"><Header whitelogo={true} noheader={true} non_app={true} /></div>
-      <div className="whyhost-f__front" style={{backgroundImage: "url('../../static/shared/plantsncouch.png')", backgroundSize: "cover", backgroundPosition: "center"}} />
+      <HostFront />
+      <HostReasons />
       <div className="whyhost-f-title col-c-c">
         <div />
         <span>Hosting on Maisie takes your business to the next level</span>
+      </div>
+      <div className="whyhostplants">
+        <img src="../static/shared/plantsncouch.png" />
+        <h1>Maisie works with your practice</h1>
       </div>
       <div className="whyhost-f__reasons row">
         {r}
