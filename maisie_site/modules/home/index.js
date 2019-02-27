@@ -8,8 +8,8 @@ export default (props) => {
     <div className="discover col-fs-c">
       <Header loggedIn={"loggedIn"}/>
       <div className="discover__content col-fs-c">
-      <FullPageSpinner color={"dark"} />
-      {/* <FeaturedRow circles={props.circles}/> */}
+      {/* <FullPageSpinner color={"dark"} /> */}
+      <FeaturedRow circles={props.circles}/>
       </div>
       <Footer />
     </div>
