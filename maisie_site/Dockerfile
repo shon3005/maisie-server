@@ -19,7 +19,7 @@ RUN yarn install
 COPY . .
 RUN yarn build && yarn --production
 
-FROM nginx
+FROM mhart/alpine-node:base
 WORKDIR /app
 COPY --from=builder /app .
 EXPOSE 3000
