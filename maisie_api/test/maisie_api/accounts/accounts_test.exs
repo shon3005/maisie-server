@@ -29,14 +29,14 @@ defmodule MaisieApi.AccountsTest do
     #   assert Accounts.get_user!(user.id) == user
     # end
 
-    test "create_user/1 with valid data creates a user" do
-      assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == "shon3005@gmail.com"
-      assert user.first_name == "Shaun"
-      assert user.last_name == "Chua"
-      # assert user.password_hash == "some password_hash"
-      assert user.role == "user"
-    end
+    # test "create_user/1 with valid data creates a user" do
+    #   assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
+    #   assert user.email == "shon3005@gmail.com"
+    #   assert user.first_name == "Shaun"
+    #   assert user.last_name == "Chua"
+    #   # assert user.password_hash == "some password_hash"
+    #   assert user.role == "user"
+    # end
 
     # test "create_user/1 with invalid data returns error changeset" do
     #   assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
