@@ -66,6 +66,7 @@ export default () => {
       <div className="whyhostplants">
         <img src="../static/shared/plantsncouch.png" />
         <h1>Maisie works with your practice</h1>
+        <h1></h1>
       </div>
       <div className="whyhost-f__reasons row">
         {r}
