@@ -28,6 +28,8 @@ defmodule MaisieApi.Services do
     Repo.all(query)
   end
 
+  def get_request_by_id(id), do: Repo.get(Request, id)
+
   @doc """
   Gets a single circle.
 
@@ -106,6 +108,10 @@ defmodule MaisieApi.Services do
   """
   def delete_circle(%Circle{} = circle) do
     Repo.delete(circle)
+  end
+
+  def delete_request(%Request{} = request) do
+    Repo.delete(request)
   end
 
   @doc """

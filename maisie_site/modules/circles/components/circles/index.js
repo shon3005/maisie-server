@@ -7,7 +7,6 @@ export default (props) =>
       <span>My Circles</span>
       <div className="row-fe-c">
         <Requests requests={props.requests} />
-        <a href="/create" className="col-c-c">Start a Circle</a>
       </div>
     </div>
     <Cards/>

@@ -12,9 +12,9 @@ import Modal from '../../shared/components/modal/index.js';
 import ProfileModal from './profile/profilemodal.js';
 import SetUpStripePrompt from './setupstripeprompt.js';
 
-const activePage = (user, sub, finances) => {
+const activePage = (user, sub, finances, updateUser) => {
   return user.host && user.host.hasStripeAccount
-    ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles requests={1} /> : sub === "profile" ? <Profile user={user} /> : null
+    ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles userId={user.id} updateUser={updateUser}/> : sub === "profile" ? <Profile user={user} /> : null
     : <SetUpStripePrompt/>
 }
 
@@ -81,7 +81,7 @@ export default class PanelModule extends Component {
       <Header loggedIn="loggedIn"/>
       <HostHeader page={this.props.sub} />
       <div className="panel__inner">
-        {activePage(this.props.user, this.props.sub, this.state.finances)}
+        {activePage(this.props.user, this.props.sub, this.state.finances, this.props.updateUser)}
       </div>
       <Footer />
     </div>

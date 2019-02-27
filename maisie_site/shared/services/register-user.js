@@ -20,12 +20,13 @@ export default (
               lastName
               email
               role
-              imageUrl
               phone
               neighborhood
               school
               work
               bio
+              imageUrl
+              last4
               support
             }
           }

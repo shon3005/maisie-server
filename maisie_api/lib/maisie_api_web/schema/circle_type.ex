@@ -24,9 +24,18 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:who_should_join, :string)
         field(:image_url, :string)
         field(:user, :user_type, resolve: assoc(:user))
+        field(:requests, list_of(:request_type), resolve: assoc(:requests))
+        field(:members, list_of(:member_type), resolve: assoc(:members))
     end
 
     object :request_type do
+        field(:id, :id)
+        field(:user, :user_type, resolve: assoc(:user))
+        field(:circle, :circle_type, resolve: assoc(:circle))
+    end
+
+    object :member_type do
+        field(:id, :id)
         field(:user, :user_type, resolve: assoc(:user))
         field(:circle, :circle_type, resolve: assoc(:circle))
     end
@@ -56,6 +65,13 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
 
     input_object :request_input_type do
         field(:circle_id, :id)
+    end
+
+    input_object :member_input_type do
+        field(:circle_id, :id)
+        field(:request_id, :id)
+        field(:user_id, :id)
+        field(:host_id, :id)
     end
 
     input_object :question_input_type do

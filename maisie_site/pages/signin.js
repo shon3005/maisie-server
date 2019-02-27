@@ -36,23 +36,7 @@ class Signin extends Component {
         maxAge: 30 * 24 * 60 * 60 // 30 days
       });
 
-      await this.props.updateUser({
-        id: data.loginUser.user.id,
-        firstName: data.loginUser.user.firstName,
-        lastName: data.loginUser.user.lastName,
-        email: data.loginUser.user.email,
-        role: data.loginUser.user.role,
-        imageUrl: data.loginUser.user.imageUrl,
-        phone: data.loginUser.user.phone,
-        neighborhood: data.loginUser.user.neighborhood,
-        school: data.loginUser.user.school,
-        work: data.loginUser.user.work,
-        bio: data.loginUser.user.bio,
-        support: data.loginUser.user.support,
-        last4: data.loginUser.user.last4,
-        host: data.loginUser.user.host,
-        circles: data.loginUser.user.circles
-      });
+      await this.props.updateUser(data.loginUser.user);
 
       Router.push('/')
     } catch (e) {

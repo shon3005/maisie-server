@@ -1,11 +1,8 @@
 import LargeText from '../../../shared/components/text/largeText.js';
 import Button from '../../../shared/components/button.js';
-import createRequest from '../../../shared/services/create_request';
 
 const handleClick = async (client, circleId) => {
   // close modal
-  const resp = await createRequest(client, circleId);
-  console.log(resp);
   document.getElementById("onjoinmodal").classList.add('hide');
 }
 
