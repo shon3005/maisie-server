@@ -247,9 +247,8 @@
       margin-top: 20vw;
       height: 14vw;
       position: absolute;
-      -webkit-animation: rotating 150s infinite;
-      -moz-animation:    rotating 150s infinite;
-      -o-animation:      rotating 150s infinite;
+      -webkit-animation: -webkit-rotating 150s infinite;
+      -moz-animation:    -moz-rotating 150s infinite;
       animation:         rotating 150s infinite;
     }
   }

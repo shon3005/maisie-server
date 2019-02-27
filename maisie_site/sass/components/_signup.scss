@@ -55,9 +55,8 @@
           .signup_logo {
             height: 40px;
             opacity: .25;
-            -webkit-animation: rotating 40s infinite;
-            -moz-animation:    rotating 40s infinite;
-            -o-animation:      rotating 40s infinite;
+            -webkit-animation: -webkit-rotating 40s infinite;
+            -moz-animation:    -moz-rotating 40s infinite;
             animation:         rotating 40s infinite;
           }
           .signup_wordmark {
@@ -140,9 +139,8 @@
           .signup_logo {
             height: 40px;
             opacity: .25;
-            -webkit-animation: rotating 40s infinite;
-            -moz-animation:    rotating 40s infinite;
-            -o-animation:      rotating 40s infinite;
+            -webkit-animation: -webkit-rotating 40s infinite;
+            -moz-animation:    -moz-rotating 40s infinite;
             animation:         rotating 40s infinite;
           }
           .signup_wordmark {
@@ -221,9 +219,8 @@ button.signup__main__wrap__form-button, button.signup__main__wrap__form-cancel, 
 
 .signup_spinner {
   height: 40px;
-  -webkit-animation: rotating 2s ease-in-out infinite;
-  -moz-animation:    rotating 2s ease-in-out infinite;
-  -o-animation:      rotating 2s ease-in-out infinite;
+  -webkit-animation: -webkit-rotating 2s ease-in-out infinite;
+  -moz-animation:    -moz-rotating 2s ease-in-out infinite;
   animation:         rotating 2s ease-in-out infinite;
 }
 

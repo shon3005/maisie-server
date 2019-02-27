@@ -19,35 +19,14 @@
       margin-right: 10px;
       opacity: .5;
     }
-    > div {
+    > img {
       transform: rotate(90deg);
-      -webkit-animation: rotating 1s ease-in-out infinite;
-      -moz-animation: rotating 1s ease-in-out infinite;
+      -webkit-animation: -webkit-rotating 1s ease-in-out infinite;
+      -moz-animation: -moz-rotating 1s ease-in-out infinite;
       animation: rotating 1s ease-in-out infinite;
-      height: 20px;
-      width: 20px;
+      height: 24px;
+      width: 24px;
       @include border-radius(50px);
-      background: conic-gradient(transparent, white);
-
-      &.purple {
-        background: conic-gradient(transparent, white);
-        > div { background-color: $color-primary; }
-      }
-      &.dark {
-        background: conic-gradient(transparent, white);
-        > div { background-color: $color-secondary; }
-      }
-      &.light {
-        background: conic-gradient(transparent, $color-secondary-25);
-        > div { background-color: white; }
-      }
-
-      > div {
-        height: 14px;
-        width: 14px;
-
-        @include border-radius(50px);
-      }
     }
   }
 

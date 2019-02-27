@@ -1,11 +1,13 @@
 var classNames = require('classnames');
+var spinnerColor = (x) => x === "purple"
+  ? "spinner_white"
+  : x === "light"
+    ? "spinner_dark"
+    : x === "dark"
+      ? "spinner_purple"
+      : null
+
 export default props =>
   <div className="fullpagespinner col-c-c">
-    <div className={classNames(["col-c-c", {
-      "purple": props.color === "purple",
-      "light": props.color === "light",
-      "dark": props.color === "dark",
-    }])}>
-      <div />
-    </div>
+    <img src={`../../static/shared/${spinnerColor(props.color)}.png`} />
   </div>

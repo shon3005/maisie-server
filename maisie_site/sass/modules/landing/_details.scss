@@ -6,9 +6,8 @@
     width: 10vw;
     height: 10vw;
     z-index: 20;
-    -webkit-animation: rotating 50s infinite;
-    -moz-animation:    rotating 50s infinite;
-    -o-animation:      rotating 50s infinite;
+    -webkit-animation: -webkit-rotating 50s infinite;
+    -moz-animation:    -moz-rotating 50s infinite;
     animation:         rotating 50s infinite;
   }
   &__content {

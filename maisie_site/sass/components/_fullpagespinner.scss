@@ -6,32 +6,13 @@
     margin-right: 10px;
     opacity: .5;
   }
-  > div {
+  > img {
     transform: rotate(90deg);
-    -webkit-animation: rotating 1s ease-in-out infinite;
-    -moz-animation: rotating 1s ease-in-out infinite;
+    -webkit-animation: -webkit-rotating 1s ease-in-out infinite;
+    -moz-animation: -moz-rotating 1s ease-in-out infinite;
     animation: rotating 1s ease-in-out infinite;
     height: 36px;
     width: 36px;
     @include border-radius(50px);
-    &.purple {
-      background: conic-gradient(transparent, $color-primary);
-      > div { background-color: #FCFDFF; }
-    }
-    &.dark {
-      background: conic-gradient(transparent, $color-secondary-25);
-      > div { background-color: #FCFDFF; }
-    }
-    &.light {
-      background: conic-gradient(transparent, white);
-      > div { background-color: $color-primary; }
-    }
-
-    > div {
-      height: 30px;
-      width: 30px;
-
-      @include border-radius(50px);
-    }
   }
 }

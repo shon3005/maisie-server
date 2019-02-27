@@ -7,9 +7,8 @@
     right: 0;
   }
   &-graphic {
-    -webkit-animation: rotating 40s infinite;
-    -moz-animation:    rotating 40s infinite;
-    -o-animation:      rotating 40s infinite;
+    -webkit-animation: -webkit-rotating 40s infinite;
+    -moz-animation:    -moz-rotating 40s infinite;
     animation:         rotating 40s infinite;
     position: absolute;
     height: calc(100px + 25vw);

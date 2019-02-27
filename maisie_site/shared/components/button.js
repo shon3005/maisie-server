@@ -1,15 +1,17 @@
 var classNames = require('classnames');
 
+var spinnerColor = (x) => x === "purple"
+  ? "spinner_white"
+  : x === "light"
+    ? "spinner_dark"
+    : x === "dark"
+      ? "spinner_purple"
+      : null
+
 const Spinner = (props) =>
   <div className="template_buttons-spinner row-c-c">
     { props.saving && props.kind != "link" && props.kind != "ext" ? <span>{props.saving}</span> : null}
-    <div className={classNames(["col-c-c", {
-      "purple": props.weight === "purple",
-      "dark": props.weight === "dark",
-      "light": props.weight === "light"
-    }])}>
-      <div />
-    </div>
+    <img src={`../../static/shared/${spinnerColor(props.weight)}.png`} />
   </div>
 
 export default (props) => {

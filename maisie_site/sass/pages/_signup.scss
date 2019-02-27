@@ -23,9 +23,8 @@
         width: 64px;
         @include border-radius(50px);
         box-shadow: $shadow-ssss;
-        -webkit-animation: rotating 100s infinite;
-        -moz-animation:    rotating 100s infinite;
-        -o-animation:      rotating 100s infinite;
+        -webkit-animation: -webkit-rotating 100s infinite;
+        -moz-animation:    -moz-rotating 100s infinite;
         animation:         rotating 100s infinite;
       }
 
