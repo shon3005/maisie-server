@@ -37,7 +37,6 @@ class Index extends Component {
         </Query> :
         <Query query={getAllCircles}>
           {getAllCircles => {
-            console.log(getAllCircles);
             return <Landing circles={getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : null}/>
           }}
         </Query>

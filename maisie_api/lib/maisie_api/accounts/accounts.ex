@@ -6,7 +6,7 @@ defmodule MaisieApi.Accounts do
   import Ecto.Query, warn: false
   alias MaisieApi.Repo
 
-  alias MaisieApi.Accounts.User
+  alias MaisieApi.Accounts.{User, Member}
 
   alias SendGrid.{Mail, Email}
 
@@ -56,6 +56,12 @@ defmodule MaisieApi.Accounts do
     |> User.changeset(attrs)
     |> Repo.insert()
     # |> to_send_email(Mix.env())
+  end
+
+  def create_member(attrs \\ %{}) do
+    %Member{}
+    |> Member.changeset(attrs)
+    |> Repo.insert()
   end
 
   defp to_send_email({:ok, details}=user, :prod) do

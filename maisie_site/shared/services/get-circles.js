@@ -21,6 +21,28 @@ export default gql`
       user {
         id
       }
+      requests {
+        id
+        user {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
+      members {
+        id
+        user {
+          id
+          firstName
+          lastName
+          email
+        }
+      }
     }
   }
 `
+
+// user {
+//   id
+// }

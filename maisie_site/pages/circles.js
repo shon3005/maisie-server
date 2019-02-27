@@ -37,7 +37,7 @@ class Circles extends Component {
             zIndex: 99997,
           }}
         />
-        <CirclesModule token={this.props.token} blank={this.props.user.circles ? false : true} />
+        <CirclesModule token={this.props.token} blank={this.props.user.circles ? false : true}/>
         <Footer />
       </div>
     );

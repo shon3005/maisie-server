@@ -1,6 +1,7 @@
 import {
   UPDATE_USER,
-  UPDATE_TOKEN
+  UPDATE_TOKEN,
+  UPDATE_REQUESTS
 } from '../types';
 
 const user = (state = [], action) => {
@@ -9,6 +10,11 @@ const user = (state = [], action) => {
       return {
         ...state,
         user: action.payload
+      }
+    case UPDATE_REQUESTS:
+      return {
+        ...state,
+        requests: action.payload
       }
     case UPDATE_TOKEN:
       return {

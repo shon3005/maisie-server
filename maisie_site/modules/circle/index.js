@@ -34,6 +34,8 @@ export default (props) => {
               dark={props.dark} // sets color scheme
               d={props.d} // sets dummy data for component
               user={props.user}
+              client={client}
+              updateUser={props.updateUser}
               //
               // *** need to put logic for button status here ***
               status={""} // adjusts join button when status changes
