@@ -16,7 +16,6 @@ class CheckoutForm extends React.Component {
 
   handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
-    console.log('CLIENT SIDE ROUTE', Router.route);
     document.getElementById("submit_card_button").classList.add('saving');
     this.setState({submitMessage: "Adding Card..."});
     try {
@@ -38,12 +37,10 @@ class CheckoutForm extends React.Component {
   };
 
   proceedToIndex = () => {
-    console.log('PUSH TO INDEX');
     Router.push('/');
   }
 
   render() {
-    console.log('ROUTE', this.props.route);
     return (
       <ApolloConsumer>
         {client => (
@@ -57,7 +54,7 @@ class CheckoutForm extends React.Component {
               </div>
             </form>
             {
-              this.props.route === '/signup' ?
+              Router.route === '/signup' ?
                 <button className="settings__inner-addlater col-c-c" type="button" onClick={this.proceedToIndex}>I'll Add It Later</button> :
                 null
             }
