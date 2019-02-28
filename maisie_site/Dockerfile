@@ -15,12 +15,14 @@
 FROM mhart/alpine-node AS builder
 WORKDIR /app
 COPY package.json .
-RUN yarn install
+RUN npm install
 COPY . .
-RUN yarn build && yarn --production
+RUN npm run build
 
 FROM mhart/alpine-node:base
 WORKDIR /app
 COPY --from=builder /app .
 EXPOSE 3000
-CMD ["node_modules/.bin/next", "start"]
+ENV NODE_ENV=production
+# CMD ["node_modules/.bin/next", "start"]
+CMD ["npm", "start"]
