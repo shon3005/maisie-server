@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import getUserById from '../shared/services/get-user-profile';
 import { Query } from 'react-apollo';
 import cookie from 'cookie';
+import redirect from '../shared/services/redirect';
 
 const Profile = props => {
   const id = props.query.id;
@@ -12,8 +13,8 @@ const Profile = props => {
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserById} variables={{userId: id}}>
-        { getUserById => { 
-          return <ProfileModule user={getUserById.data.get_user_by_id} token={props.token} />
+        { ({data: {getUserById}}) => { 
+            return getUserById ? <ProfileModule user={getUserById} token={props.token} /> : null;
           }
         }
       </Query>
