@@ -24,5 +24,5 @@ WORKDIR /app
 COPY --from=builder /app .
 EXPOSE 3000
 ENV NODE_ENV=production
-# CMD ["node_modules/.bin/next", "start"]
-CMD ["npm", "start"]
+CMD ["node_modules/.bin/next", "start"]
+# CMD ["npm", "start"]
