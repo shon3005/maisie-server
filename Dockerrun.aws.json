@@ -17,7 +17,7 @@
       "image": "shon3005/multi-maisie-api",
       "hostname": "api",
       "essential": false,
-      "memory": 128
+      "memory": 256
     },
     {
       "name": "nginx",
