@@ -28,10 +28,10 @@ export const withApollo = App => {
         {},
         {
           getToken: () => parseCookies(req).token,
-          graphql_url: 'http://api:4000/graphql'
+          graphql_url: 'http://multimaisiedocker-env.hc7kfsmz9r.us-east-1.elasticbeanstalk.com/api/graphql'
         }
       )
-
+      // 'http://api:4000/graphql'
       ctx.ctx.apolloClient = apollo
 
       let appProps = {}

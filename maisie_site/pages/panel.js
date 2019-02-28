@@ -12,6 +12,7 @@ class Panel extends Component {
   static getInitialProps = ({ctx}) => {
     let cookies;
     if (ctx.req) {
+      console.log('SERVER SIDE COOKIE', ctx.req.headers.cookie);
       cookies = cookie.parse(ctx.req.headers.cookie || '');
       if (!cookies.token) {
         redirect(ctx, '/')
