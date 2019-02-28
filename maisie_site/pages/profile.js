@@ -8,12 +8,14 @@ import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 
 const Profile = props => {
+  console.log('TO DISPLAY');
   const id = props.query.id;
   return(
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserById} variables={{userId: id}}>
         { ({data: {getUserById}}) => { 
+            console.log(getUserById);
             return getUserById ? <ProfileModule user={getUserById} token={props.token} /> : null;
           }
         }
