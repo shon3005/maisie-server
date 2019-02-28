@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,700');
 
 // ABSTRACTS
 @import "abstracts/functions";
@@ -20,6 +20,7 @@
 @import "components/signup";
 @import "components/sidebar";
 @import "components/circlecard";
+@import "components/fullpagespinner";
 
 @import "components/header/header";
 @import "components/header/loggedIn";
@@ -62,6 +63,7 @@
 
 
 @import "modules/host/host";
+@import "modules/host/hostfront";
 
 @import "modules/settings/settings";
 
@@ -69,6 +71,7 @@
 @import "modules/support/phoneentry";
 
 @import "modules/profile/profile";
+@import "modules/profile/editprofile";
 
 @import "modules/create/create";
 

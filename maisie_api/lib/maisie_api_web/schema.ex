@@ -15,6 +15,13 @@ defmodule MaisieApiWeb.Schema do
             resolve(&Resolvers.UserResolver.user/3)
         end
 
+         @desc "Get user profile by user id"
+        field :get_user_by_id, :user_type do
+            arg(:user_id, non_null(:string))
+            middleware(Middleware.Authorize, :any)
+            resolve(&Resolvers.UserResolver.get_user_by_id/3)
+        end
+
         @desc "Get a list of all users"
         field :users, list_of(:user_type) do
             middleware(Middleware.Authorize, :any)

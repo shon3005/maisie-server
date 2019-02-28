@@ -12,3 +12,5 @@ module.exports = routes()                           // ----   ----   -----      
 .add('create')
 .add('signup')
 .add('signin')
+.add('profile', '/profile/:id')
+.add('editprofile')

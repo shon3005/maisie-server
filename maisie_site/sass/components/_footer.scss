@@ -18,8 +18,8 @@
     left: 0 !important;
     width: 100% !important;
     background-color: $color-black;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: calc(20px + 1%);
+    padding-right: calc(20px + 1%);
 
 
 
@@ -63,8 +63,8 @@
         }
         & .footer__logos-logo {
           transform: rotate(90deg);
-          -webkit-animation: rotating 50s linear infinite;
-          -moz-animation: rotating 50s linear infinite;
+          -webkit-animation: -webkit-rotating 50s linear infinite;
+          -moz-animation: -moz-rotating 50s linear infinite;
           animation: rotating 50s linear infinite;
         }
       }

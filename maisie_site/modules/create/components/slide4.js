@@ -36,7 +36,7 @@ export default (props) =>
         </select>
       </Field>
       <Disclaimer>What is the minimum number of people you need for the Circle to start?</Disclaimer>
-      <Field title="Maxium">
+      <Field title="Maximum">
         <select
           id="max"
           style={{width: 100}}

@@ -10,6 +10,7 @@ $color-secondary: rgba(5,45,84,1);
 $color-secondary-85: rgba(5,45,84,.85);
 $color-secondary-75: rgba(5,45,84,.75);
 $color-secondary-50: rgba(5,45,84,.50);
+$color-secondary-35: rgba(5,45,84,.35);
 $color-secondary-25: rgba(5,45,84,.25);
 $color-secondary-20: rgba(5,45,84,.20);
 $color-secondary-10: rgba(5,45,84,.10);
@@ -47,7 +48,7 @@ $border-padding-inner: calc(.5vw + 10px);
 $header-height: 60px;
 
 // FONT VARIABLES
-$font-primary: "Open Sans", "Roboto", Arial, sans-serif;
+$font-primary: "Open Sans", "Cabin", Arial, sans-serif;
 $font-display: 'Cabin', sans-serif;
 $font-size-tag-small: 8pt;
 $font-size-tag: 10pt;

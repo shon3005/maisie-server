@@ -1,0 +1,18 @@
+.fullpagespinner {
+  @include transition(all, 200ms);
+  flex: 1;
+  > span {
+    text-transform: capitalize;
+    margin-right: 10px;
+    opacity: .5;
+  }
+  > img {
+    transform: rotate(90deg);
+    -webkit-animation: -webkit-rotating 1s ease-in-out infinite;
+    -moz-animation: -moz-rotating 1s ease-in-out infinite;
+    animation: rotating 1s ease-in-out infinite;
+    height: 36px;
+    width: 36px;
+    @include border-radius(50px);
+  }
+}

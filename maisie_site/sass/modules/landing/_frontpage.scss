@@ -1,104 +1,359 @@
 .front {
-  @include user-select(none);
-  @include mobile {
-    height: 800px;
-  }
-  background: $color-primary-lighter;
-  z-index: 1;
+  @include tabletandmobile { height: 100vh }
   height: calc(100vh - 40px);
-  min-height: 640px;
-  width: 100%;
+  width: 100vw;
+  min-height: 660px;
+  z-index: 10;
   position: relative;
-  &__header {
-    z-index: 9999;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  &-header {
+    width: 100vw;
+    z-index: 999;
   }
-  &__background {
-    z-index: 2;
-    top: 0;
-    position: absolute;
+  &__cta {
+    z-index: 999;
     flex: 1;
-    img {
-      @include mobile {
-        height: 800px;
-      }
-      min-width: 100vw;
-      height: calc(100vh - 40px);
-      min-height: 640px;
-      bottom: 0;
-    }
-  }
-  &__content {
-    z-index: 3;
-    height: 90%;
     width: 100%;
+    padding-left: calc(40px + 1%); padding-right: calc(40px + 1%);
+    @include size-five { padding-left: calc(80px + 1%); padding-right: calc(80px + 1%); }
+    @include size-four { padding-left: calc(60px + 1%); padding-right: calc(60px + 1%); }
+    padding-bottom: calc(50px + 1%);
+    @include user-select(none);
 
     &_in {
-      margin-top:75px;
-      text-align: center;
-      width: 90%;
-      &_cta {
+      width: 100%;
+      @include size-one {
+        flex-direction: column !important;
+        &-social > a {
+          background-color: $color-black !important;
+          margin-left: 10px !important;
+          margin-right: 10px !important;
+          margin-bottom: 50px;
+        }
+        &-cta {
+          width: 100%;
+        }
+      }
+      &-social {
         > a {
-          @include transition(all,200ms);
-          margin-top: 25px;
-          padding-left: 25px;
-          padding-right: 25px;
-          padding-top: 15px;
-          padding-bottom: 15px;
+          @include transition(all, 200ms);
+          height: 50px;
+          width: 50px;
+          margin-right: 25px;
+          background-color: $color-primary-lighter;
           @include border-radius(50px);
-          border: none;
-          transform: scale(1);
-          background-color: $color-primary;
-          color: white;
-
-          box-shadow: $shadow-ssss;
-          font-size: $font-size-reg;
-          font-weight: 600;
-
           &:hover {
-            cursor: pointer;
-            box-shadow: $shadow-sssss;
-            transform: scale(1.05);
+            background-color: $color-primary;
           }
         }
       }
-      > div {
-        width: 100%;
-        margin-top: 10px;
-        margin-bottom: 25px;
-        > div {
-          padding-right: 20px;
-          padding-left: 20px;
-          padding-top: 5px;
-          padding-bottom: 5px;
-          @include border-radius(50px);
-          background-color: $color-primary-light;
-          margin-top: 20px;
-
-          color: $color-primary;
-          font-size: $font-size-small;
-          font-weight: 600;
-        }
-      }
-
-      &-title {
-        @include mobile {
-          text-align: center;
-        }
+      &-cta {
+        @include transition(all, 200ms);
+        @include size-three { text-align: center; background-color: $color-primary; color: white; }
+        @include size-two { text-align: center; background-color: $color-primary; color: white; }
+        @include size-one { text-align: center; background-color: $color-primary; color: white; }
         color: $color-primary;
-        text-shadow: 0px 0px 15px $color-primary-light;
-        font-weight: Bold;
-        letter-spacing: -1px;
-        font-weight: 400;
-        font-size: calc(20pt + 6vw);
-      }
-      &-desc {
-        font-weight: 500;
-        font-size: calc(16pt + .5vw);
-        color: $color-secondary;
+        font-size: $font-size-med;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 2px solid $color-primary;
+        font-weight: 600;
+        @include border-radius(10px);
+        > svg {
+          height: 16px;
+          margin-left: 10px;
+          > g > g {
+            @include transition(all, 200ms);
+            @include size-five { fill: $color-primary; }
+            @include size-four { fill: $color-primary; }
+            @include size-three { fill: white; }
+            @include size-two { fill: white; }
+            @include size-one { fill: white; }
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          background-color: $color-primary;
+          color: white;
+          > svg > g > g {
+            fill: white;
+          }
+        }
+        &:active {
+          opacity: .75;
+        }
       }
     }
+
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(flex-end);
+    @include align-items(flex-end);
+  }
+  &__text {
+    z-index: 9999;
+    width: 100vw;
+    @include user-select(none);
+    @include size-five { padding-top: calc(20px + 1%); padding-left: calc(80px + 1%); }
+    @include size-four { padding-top: calc(20px + 1%); padding-left: calc(60px + 1%); }
+    @include size-three { padding-top: 10%; text-align: center;  }
+    @include size-two { padding-top: 15%; text-align: center; }
+    @include size-one { padding-top: 20%; text-align: center; }
+    &-title {
+      @include size-five { font-size: 60px; }
+      @include size-four { font-size: 50px; }
+      @include size-three { font-size: 50px; }
+      @include size-two { font-size: 45px; }
+      @include size-one { font-size: 40px; }
+    }
+    > span {
+      font-family: "Cabin";
+      text-shadow: 0px 0px 50px $color-black;
+    }
+    &-title {
+      color: #FCFDFF;
+      font-weight: 500;
+    }
+    &-sub {
+      color: $color-primary;
+      font-size: 35px;
+      font-weight: 400;
+    }
+  }
+  &-filter1 {
+    height: 25vh;
+    width: 100vw;
+    z-index: 99;
+    @include linear-gradient(transparent, $color-black)
+    position: absolute;
+    bottom: 0px;
+  }
+  &-filter2 {
+    height: 25vh;
+    width: 100vw;
+    z-index: 99;
+    @include linear-gradient($color-black-50,transparent)
+    position: absolute;
+    top: 0px;
+  }
+}
+.front-header.light .headerLoggedOut-link span {
+  color: white !important;
+}
+.landing-intro {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  width: 100%;
+  background-color: $color-primary;
+  color: white;
+  text-align: center;
+  > span.tag {
+    margin-bottom: 10px;
+  }
+  > span.text {
+    font-size: 40px;
+    @include tabletandmobile { padding-left: 10px; padding-right: 10px; font-size: $font-size-med }
+    font-family: "Cabin";
+    font-weight: 700;
+  }
+}
+.landing-reasons {
+  padding-bottom: 150px;
+  background-color: $color-primary-lighter;
+  &__in {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    @include size-three {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    @include size-two {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      @include align-items(center);
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-left: 40px;
+      padding-right: 40px;
+      > div {
+        margin-top: 50px;
+        width: 100% !important;
+      }
+    }
+    @include size-one {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      @include align-items(center);
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding-left: 40px;
+      padding-right: 40px;
+      > div {
+        margin-top: 50px;
+        width: 100% !important;
+      }
+    }
+    > div {
+      width: 30%;
+      > img {
+        margin-bottom: 25px;
+        height: 50px;
+      }
+      > span {
+        color: $color-secondary-75;
+        font-weight: 600;
+        font-size: $font-size-med;
+      }
+      > p {
+        color: $color-secondary-35;
+        font-weight: 400;
+      }
+    }
+  }
+}
+.l_double {
+  @include user-select(none);
+  min-height: 700px;
+  width: 100%;
+  background-color: #EEF1FF;
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(space-between);
+  > div {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100px;
+    > div > div {
+      @include transition(all, 300ms);
+      &:hover {
+        transform: scale(1.025);
+      }
+      width: 75vw
+    }
+    h1 {
+      font-size: 4vw;
+      width: 100%;
+      margin-top: 100px;
+    }
+    > img {
+      margin-top: 20vw;
+      height: 14vw;
+      position: absolute;
+      -webkit-animation: -webkit-rotating 150s infinite;
+      -moz-animation:    -moz-rotating 150s infinite;
+      animation:         rotating 150s infinite;
+    }
+  }
+  @include size-five {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    > div {
+      width: 50%;
+      height: 100%;
+      padding-bottom: 100px;
+      > div > div { width: 75% }
+    }
+  }
+  @include size-four {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    > div {
+      > img { margin-top: 20vw; }
+      width: 50%;
+      height: 100%;
+      padding-bottom: 100px;
+      > div > div { width: 75% }
+    }
+  }
+  &__l {
+    height: 100%;
+    > img { right: -7vw }
+    background-color: #EEF1FF;
+    padding-left: 5%;
+    h1 {
+      color: $color-primary;
+      text-align: left;
+    }
+    > div {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      > div {
+        padding: 10px;
+        width: 75%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        @include border-radius(5px);
+        > span.title {
+          font-weight: 700;
+          color: $color-primary;
+        }
+        > span.text {
+          font-weight: 500;
+          color: $color-primary-ligh;
+        }
+      }
+    }
+  }
+  &__r {
+    height: 100%;
+    > img { left: -7vw }
+    background-color: $color-secondary;
+    padding-right: 5%;
+    h1 {
+      color: #EEF1FF;
+      text-align: right;
+    }
+    > div {
+      padding-top: 20px;
+      padding-bottom: 30px;
+      > div {
+        padding: 10px;
+        width: 75%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: $color-primary-light;
+        @include border-radius(5px);
+        > span.title {
+          font-weight: 700;
+          color: #EEF1FF;
+        }
+        > span.text {
+          font-weight: 500;
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+.featuredrowcontainer {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.whyhostcta {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-color: $color-primary;
+  > h1 {
+    font-size: $font-size-large;
+    font-weight: 600;
+    color: #EEF1FF;
+  }
+  > span {
+    font-size: $font-size-med;
+    font-weight: 600;
+    color: $color-secondary;
+
   }
 }

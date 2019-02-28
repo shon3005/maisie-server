@@ -7,9 +7,8 @@
     right: 0;
   }
   &-graphic {
-    -webkit-animation: rotating 40s infinite;
-    -moz-animation:    rotating 40s infinite;
-    -o-animation:      rotating 40s infinite;
+    -webkit-animation: -webkit-rotating 40s infinite;
+    -moz-animation:    -moz-rotating 40s infinite;
     animation:         rotating 40s infinite;
     position: absolute;
     height: calc(100px + 25vw);
@@ -58,12 +57,11 @@
       }
       padding-left: 20px;
       padding-right: 20px;
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 150px;
+      padding-bottom: 150px;
       font-size: $font-size-med;
       width: 100%;
-      background-color: $color-primary-lighter;
-      margin-top: 7vw;
+      background-color: #EEF1FF;
       &-1 {
         @include tabletandmobile {
           align-items: center !important;
@@ -74,12 +72,12 @@
         &-1 {
           color: $color-primary;
           font-weight: 600;
-          font-size: $font-size-large;
+          font-size: 40px;
         }
         &-2 {
-          color: $color-secondary;
-          font-weight: 500;
-          font-size: $font-size-med;
+          color: $color-secondary-75;
+          font-weight: 600;
+          font-size: $font-size-large;
         }
       }
       &-2 {

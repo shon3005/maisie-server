@@ -19,35 +19,14 @@
       margin-right: 10px;
       opacity: .5;
     }
-    > div {
+    > img {
       transform: rotate(90deg);
-      -webkit-animation: rotating 1s ease-in-out infinite;
-      -moz-animation: rotating 1s ease-in-out infinite;
+      -webkit-animation: -webkit-rotating 1s ease-in-out infinite;
+      -moz-animation: -moz-rotating 1s ease-in-out infinite;
       animation: rotating 1s ease-in-out infinite;
-      height: 20px;
-      width: 20px;
+      height: 24px;
+      width: 24px;
       @include border-radius(50px);
-      background: conic-gradient(transparent, white);
-
-      &.purple {
-        background: conic-gradient(transparent, white);
-        > div { background-color: $color-primary; }
-      }
-      &.dark {
-        background: conic-gradient(transparent, white);
-        > div { background-color: $color-secondary; }
-      }
-      &.light {
-        background: conic-gradient(transparent, $color-secondary-25);
-        > div { background-color: white; }
-      }
-
-      > div {
-        height: 14px;
-        width: 14px;
-
-        @include border-radius(50px);
-      }
     }
   }
 
@@ -94,10 +73,9 @@
     font-weight: 600;
     padding-left: 15px;
     padding-right: 12px;
-    > svg {
-      margin-left: 5px;
-      > g > path { @include transition(all, 200ms); fill: $color-secondary-75; }
-    }
+    &.purple { > svg > g > path { @include transition(all, 200ms); fill: white; } }
+    &.dark { > svg > g > path { @include transition(all, 200ms); fill: white; } }
+    &.light { > svg > g > path { @include transition(all, 200ms); fill: $color-secondary-75; } }
   }
   &.link, &.ext {
     > svg {
@@ -116,12 +94,23 @@
     background-color: $color-secondary;
     color: white;
   }
+  &.button_active {
+    &.primary, &.ext {
+      &.purple {
+        box-shadow: 0px 0px 0px $color-primary-lighter, 0px 0px 0px $color-primary-light;
+      }
+      &.light {
+        box-shadow: 0px 0px 0px $color-secondary-20;
+      }
+      transform: translateY(-1px) !important;
+    }
+  }
   &:hover {
     &.button_active {
       cursor: pointer;
       &.primary, &.ext {
         &.purple {
-          box-shadow: 0px 0px 4px $color-primary-lighter, 0px 0px 20px $color-primary-light;
+          box-shadow: 0px 0px 30px $color-primary-ligh;
         }
         &.light {
           box-shadow: 0px 0px 30px $color-secondary-20;
