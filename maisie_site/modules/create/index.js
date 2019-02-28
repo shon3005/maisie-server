@@ -114,6 +114,7 @@ class Create extends React.Component {
         ampm: this.state.ampm,
         start_date: this.state.start_date,
         tags: this.state.tags,
+        day: 'monday',
         whoshouldjoin: this.state.whoshouldjoin
       });
       let bodyFormData = new FormData();
