@@ -6,6 +6,11 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         |> get_user_handler()
     end
 
+    def get_user_by_id(_, %{user_id: user_id}, _) do
+        Accounts.get_user(user_id)
+        |> get_user_handler()
+    end
+
     def users(_,_, %{context: _context}) do
         {:ok, Accounts.list_users()}
     end
