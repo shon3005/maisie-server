@@ -4,7 +4,7 @@ defmodule MaisieApiWeb.Schema do
     alias MaisieApiWeb.Resolvers
     alias MaisieApiWeb.Schema.Middleware
 
-    # import Types
+    # import Types #
     import_types(Absinthe.Plug.Types)
     import_types(MaisieApiWeb.Schema.Types)
 
