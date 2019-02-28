@@ -20,10 +20,11 @@ class Panel extends Component {
     } else {
       cookies = cookie.parse(document.cookie || '');
     }
-    return {sub: ctx.query.sub, client: ctx.apolloClient, code: ctx.query.code, state: ctx.query.state, token: cookies.token};
+    return {sub: ctx.query.sub, code: ctx.query.code, state: ctx.query.state, token: cookies.token};
   }
 
   render() {
+    console.log('RENDERING');
     let sub = this.props.sub ? this.props.sub : "finances";
     return(
       <ApolloConsumer>
