@@ -70,7 +70,7 @@ class Signup extends Component {
           <div className="signup col-c-c">
             <div className="signup-back"><Back /></div>
             <div className="signup__main col-c-c">
-              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton} route={this.props.route}/>)}
+              {this.withActiveSlide(<SlideOne onSubmit={(form) => this.handleSubmit(form, client)} error={this.state.error ? this.state.error : null} />, <SlideTwo />, <SlideThree user={this.props.user} handleButton={this.props.handleButton}/>)}
             </div>
           </div>
         )}
