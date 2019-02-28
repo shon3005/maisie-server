@@ -16,21 +16,22 @@ class CheckoutForm extends React.Component {
 
   handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
+    console.log('CLIENT SIDE ROUTE', Router.route);
     document.getElementById("submit_card_button").classList.add('saving');
     this.setState({submitMessage: "Adding Card..."});
     try {
       const {source} = await this.props.stripe.createSource({type: 'card', owner: {
         name: this.props.user.firstName + ' ' + this.props.user.lastName
       }});
-      const {data} = this.props.route === '/signup' ?
+      const {data} = Router.route === '/signup' ?
         await createCustomer(client, source.id) :
         await updateCustomer(client, source.id);
-      this.props.route === '/signup' ?
+      Router.route === '/signup' ?
         await this.props.updateUser(data.createCustomer) :
         await this.props.updateUser(data.updateCustomer);
       document.getElementById("submit_card_button").classList.remove('saving');
       this.setState({addCardMessageMessage: 'Add Card'});
-      this.props.route === '/signup' ? this.proceedToIndex() : null;
+      Router.route === '/signup' ? this.proceedToIndex() : null;
     } catch (e) {
       console.log(e);
     }
