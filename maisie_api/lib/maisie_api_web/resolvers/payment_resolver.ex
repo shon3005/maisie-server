@@ -102,11 +102,15 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
     end
 
     defp connect_handler({:ok, %{ stripe_user_id: stripe_id }} = response, current_user, host_id) do
-        Stripe.Account.update(stripe_id, %{payout_schedule: %{interval: "manual"}})
+        IO.puts "STRIPEID"
+        IO.puts stripe_id
+        IO.inspect Stripe.Account.update(stripe_id, %{payout_schedule: %{interval: "manual"}})
         Accounts.update_host_payment(Accounts.get_host!(host_id), %{stripe_id: stripe_id, has_stripe_account: true})
     end
 
     defp connect_handler({:error, %Stripe.Error{} = error}, current_user, _host_id) do
+        IO.puts "STRIPE SYNC PAYMENT ERROR"
+        IO.inspect error
         format_errors(error)
     end
 
