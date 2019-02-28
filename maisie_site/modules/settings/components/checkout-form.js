@@ -37,10 +37,12 @@ class CheckoutForm extends React.Component {
   };
 
   proceedToIndex = () => {
+    console.log('PUSH TO INDEX');
     Router.push('/');
   }
 
   render() {
+    console.log('ROUTE', this.props.route);
     return (
       <ApolloConsumer>
         {client => (
