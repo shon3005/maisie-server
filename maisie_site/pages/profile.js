@@ -27,6 +27,7 @@ const Profile = props => {
 
 Profile.getInitialProps = ({ctx}) => {
   let cookies;
+  console.log('WHERE ARE YOU BREAKING');
   if (ctx.req) {
     cookies = cookie.parse(ctx.req.headers.cookie || '');
     if (!cookies.token) {
@@ -38,6 +39,7 @@ Profile.getInitialProps = ({ctx}) => {
       redirect(ctx, '/')
     }
   }
+  console.log('QUERY', ctx.query);
   return { query: ctx.query, token: cookies.token };
 }
 
