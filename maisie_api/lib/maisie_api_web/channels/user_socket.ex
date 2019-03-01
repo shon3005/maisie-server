@@ -1,5 +1,9 @@
 defmodule MaisieApiWeb.UserSocket do
   use Phoenix.Socket
+  use Absinthe.Phoenix.Socket,
+    schema: MaisieApiWeb.Schema
+
+  transport :websocket, Phoenix.Transports.WebSocket
 
   ## Channels
   # channel "room:*", MaisieApiWeb.RoomChannel

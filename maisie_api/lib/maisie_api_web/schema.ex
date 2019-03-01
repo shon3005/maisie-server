@@ -187,6 +187,14 @@ defmodule MaisieApiWeb.Schema do
     end
 
     # subscription do
-        
-    # end
+   subscription do
+      @desc "subscribe to updated circle list"
+      field :get_circles, type: list_of(:circle_type) do
+         arg(:user_id, non_null(:string))
+         middleware(Middleware.Authorize, :any)
+         trigger :accept_request
+         trigger :deny_request
+         resolve(&Resolvers.CircleResolver.get_circles_by_user_id/3)
+      end
+   end
 end
