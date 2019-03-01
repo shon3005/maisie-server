@@ -8,14 +8,12 @@ import cookie from 'cookie';
 import redirect from '../shared/services/redirect';
 
 const Profile = props => {
-  console.log('TO DISPLAY');
   const id = props.query.id;
   return(
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserById} variables={{userId: id}}>
         { getUserById => { 
-            console.log(getUserById);
             return getUserById && getUserById.data && getUserById.data.getUserById ? <ProfileModule user={getUserById} token={props.token} /> : null;
           }
         }
@@ -27,7 +25,6 @@ const Profile = props => {
 
 Profile.getInitialProps = ({ctx}) => {
   let cookies;
-  console.log('WHERE ARE YOU BREAKING');
   if (ctx.req) {
     cookies = cookie.parse(ctx.req.headers.cookie || '');
     if (!cookies.token) {
@@ -39,7 +36,6 @@ Profile.getInitialProps = ({ctx}) => {
       redirect(ctx, '/')
     }
   }
-  console.log('QUERY', ctx.query);
   return { query: ctx.query, token: cookies.token };
 }
 
