@@ -8,17 +8,24 @@ import redirect from '../shared/services/redirect';
 const Profile = (props) =>
   <div className="profile">
     <Header loggedIn="loggedIn"/>
-    <EditProfileModule user={props.user}/>
+    <EditProfileModule user={props.user} token={props.token}/>
     <Footer />
   </div>
 
-Profile.getInitialProps = async (context) => {
-  if (context.req) {
-    const cookies = cookie.parse(context.req.headers.cookie || '');
+Profile.getInitialProps = async ({ctx}) => {
+  let cookies;
+  if (ctx.req) {
+    cookies = cookie.parse(ctx.req.headers.cookie || '');
+    if (!cookies.token) {
+      redirect(context, '/')
+    }
+  } else {
+    cookies = cookie.parse(document.cookie || '');
     if (!cookies.token) {
       redirect(context, '/')
     }
   }
+  return {token: cookies.token}
 }
 
   const mapStateToProps = (state) => {

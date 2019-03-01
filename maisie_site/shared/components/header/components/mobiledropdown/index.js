@@ -7,20 +7,20 @@ function toggleDrawer(a) {
   a ? z.remove('hide') : z.add('hide') // add or hide based on arg
 }
 
-const Links = () => [["Profile", "/profile"],
+const Links = (props) => [["Profile", `/profile/${props.userId}`],
                     ["Browse", "/"],
                     ["My Circles", "/circles"],
                     ["Settings", "/settings"],
                     ["Help", "/support"]].map((x, index) => <a key={index} className="row-fs-c" href={x[1]}>{x[0]}</a> )
 
 
-const MobileDropdown = (props) =>
-  <div className="mobile_head_drop">
+const MobileDropdown = (props) => {
+  return <div className="mobile_head_drop">
     <div
       className="mobile_head_drop_icon"
-      onClick={(a) => toggleDrawer(true)}
+      onClick={(_) => toggleDrawer(true)}
       style={{
-        backgroundImage: `url(../../../static/shared/matthew.png)`,
+        backgroundImage: `url(${props.user.imageUrl})`,
         backgroundPosition: "center",
         backgroundSize: "contain"
       }}
@@ -43,20 +43,18 @@ const MobileDropdown = (props) =>
               ? <a className="row-fs-c" href="/panel">Host Panel</a>
               : null
           }
-          <Links />
+          <Links userId={props.user.id}/>
           <div className="row-fs-c" onClick={() => handleDelete()}>Sign Out</div>
         </div>
       </div>
     </div>
   </div>
+}
 
 const mapStateToProps = (state) => {
   return { user: state.user.user };
 }
 const handleDelete = () => {
-  document.cookie = cookie.serialize('user', '', {
-    maxAge: -1
-  });
   document.cookie = cookie.serialize('token', '', {
     maxAge: -1
   });

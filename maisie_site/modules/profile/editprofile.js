@@ -7,7 +7,7 @@ import { ApolloConsumer } from 'react-apollo';
 import * as actions from '../../shared/services/actions';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
+import Router from 'next/router';
 
 const Spacer = (props) => <div style={{height: props.height}} />
 
@@ -81,6 +81,7 @@ class Profile extends React.Component {
     await this.props.updateUser(user);
     document.getElementById("save_profile_button").classList.remove('saving');
     this.setState({saveMessage: 'Save'});
+    Router.push(`/profile/${this.props.user.id}`);
   }
   render() {
     return(
@@ -88,7 +89,7 @@ class Profile extends React.Component {
         <span className="editprofile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
-        <div id="profilePic" className="editprofile__picture" style={{backgroundImage: `url(${this.props.user.imageUrl})`}}></div>
+        <img src={this.props.user.imageUrl} id="profilePic" className="editprofile__picture" />
         <Field title="Profile Picture">
           <input
             type="file"
