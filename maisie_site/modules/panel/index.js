@@ -13,6 +13,7 @@ import ProfileModal from './profile/profilemodal.js';
 import SetUpStripePrompt from './setupstripeprompt.js';
 
 const activePage = (user, sub, finances, updateUser) => {
+  console.log('DETERMINING PAGE');
   return user.host && user.host.hasStripeAccount
     ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles userId={user.id} updateUser={updateUser}/> : sub === "profile" ? <Profile user={user} /> : null
     : <SetUpStripePrompt/>
@@ -70,6 +71,7 @@ export default class PanelModule extends Component {
   }
 
   render() {
+    console.log('ABLE TO GET IN HERE');
     return <div className="panel">
       <Modal id="profile_modal">
         {

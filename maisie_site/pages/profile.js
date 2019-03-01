@@ -14,9 +14,9 @@ const Profile = props => {
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserById} variables={{userId: id}}>
-        { ({data: {getUserById}}) => { 
+        { getUserById => { 
             console.log(getUserById);
-            return getUserById ? <ProfileModule user={getUserById} token={props.token} /> : null;
+            return getUserById && getUserById.data && getUserById.data.getUserById ? <ProfileModule user={getUserById} token={props.token} /> : null;
           }
         }
       </Query>
