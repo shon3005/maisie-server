@@ -56,8 +56,7 @@ defmodule MaisieApi.MixProject do
       {:uuid, "~> 1.1"},
       {:hackney, "~> 1.9"},
       {:stripity_stripe, "~> 2.0.0"},
-      {:httpotion, "~> 3.1.0"},
-      {:absinthe_phoenix, "~> 1.4.0"}
+      {:httpotion, "~> 3.1.0"}
     ]
   end
 

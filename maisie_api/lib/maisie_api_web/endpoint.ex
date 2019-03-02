@@ -1,6 +1,5 @@
 defmodule MaisieApiWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :maisie_api
-  use Absinthe.Phoenix.Endpoint
 
   socket "/socket", MaisieApiWeb.UserSocket,
     websocket: true,

@@ -11,8 +11,7 @@ defmodule MaisieApi.Application do
       # Start the Ecto repository
       MaisieApi.Repo,
       # Start the endpoint when the application starts
-      MaisieApiWeb.Endpoint,
-      {Absinthe.Subscription, [MaisieApiWeb.Endpoint]} # add this line
+      MaisieApiWeb.Endpoint
       # Starts a worker by calling: MaisieApi.Worker.start_link(arg)
       # {MaisieApi.Worker, arg},
     ]
