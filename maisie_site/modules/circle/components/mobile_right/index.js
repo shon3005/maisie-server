@@ -1,23 +1,48 @@
 import Button from '../../../../shared/components/button.js';
-var classNames= require('classnames')
+var classNames= require('classnames');
+import Router from 'next/router';
+import createRequest from '../../../../shared/services/create_request';
 
 export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       joining: false,
+      statis: ''
     }
   }
-  handleJoin(a) {
-    !a
-      ? document.getElementById("onjoinmodal").classList.remove('hide')
-        // *** need to put logic here for changing status to "requested"
-      : null
+  componentDidMount = () => {
+    this.props.user && this.props.user.requests ? this.props.user.requests.forEach((request) => {
+      (request.circle.id === this.props.circle.id) ? this.setState({status: 'requested'}) : null;
+    }) : null;
+
+    this.props.user && this.props.user.members ? this.props.user.members.forEach((member) => {
+      (member.circle.id === this.props.circle.id) ? this.setState({status: 'joined'}) : null;
+    }) : null;
+  }
+  handleJoin = async (a) => {
+    if (this.props.user) {
+      this.setState({joining: true});
+      !a
+        ? document.getElementById("onjoinmodal").classList.remove('hide')
+          // *** need to put logic here for changing status to "requested"
+        : null
+      const {data: {createRequest: {user: user}}} = await createRequest(client, circleId);
+      await this.props.updateUser(user);
+      this.setState({joining: false, status: 'requested'});
+    } else {
+      Router.push('/signin');
+    }
   }
   handleClick() {
-    document.getElementById("askmodal").classList.remove('hide');
+    if (this.props.user) {
+      document.getElementById("askmodal").classList.remove('hide');
+    } else {
+      Router.push('/signin');
+    }
   }
   render() {
+    const isHostCircle = this.props.user ? this.props.user.circles.find((circle) => circle.id === this.props.circle.id) : null;
     return(
       <div className="circle_mobile_right row-sb-c">
         <div className="circle_mobile_right_left col">
@@ -25,17 +50,17 @@ export default class extends React.Component {
           <span className="circle_mobile_right_left-price"><span className="large">{"$" + this.props.circle.price}</span> per session</span>
           <span className="circle_mobile_right_left-ppl lower">{this.props.circle.min + "-" + this.props.circle.max + " members"}</span>
         </div>
-        <Button saving={this.state.joining} kind="primary" weight="purple" onClick={(a) => this.handleJoin(this.props.status)} className={classNames({
-          "requested": this.props.status === "requested",
-          "joined": this.props.status === "joined",
+        {!isHostCircle ? <Button saving={this.state.joining} kind="primary" weight="purple" onClick={(a) => this.handleJoin(this.props.status, this.props.client, this.props.circle.id)} className={classNames({
+          "requested": this.state.status === "requested",
+          "joined": this.state.status === "joined",
           "col-c-c": true, })}
         >{
-          this.props.status === "requested"
+          this.state.status === "requested"
             ? "Requested"
-            : this.props.status === "joined"
+            : this.state.status === "joined"
               ? "Already joined"
               : "Request to join"
-        }</Button>
+        }</Button> : null}
       </div>
     )
   }

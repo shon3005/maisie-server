@@ -57,6 +57,11 @@ export default (
                   id
                 }
               }
+              members {
+                circle {
+                  id
+                }
+              }
             }
           }
         }

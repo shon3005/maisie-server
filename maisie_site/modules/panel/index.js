@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import stripeTransactions from '../../shared/services/stripe-transactions-2';
 import syncPayment from '../../shared/services/sync-payment';
-import Router from 'next/router';
 import Footer from '../../shared/components/footer.js';
 import Header from '../../shared/components/header/index.js';
 import HostHeader from './hostheader/index.js';

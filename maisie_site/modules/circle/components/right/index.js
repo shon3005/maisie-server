@@ -17,6 +17,10 @@ export default class extends React.Component {
     this.props.user && this.props.user.requests ? this.props.user.requests.forEach((request) => {
       (request.circle.id === this.props.circle.id) ? this.setState({status: 'requested'}) : null;
     }) : null;
+
+    this.props.user && this.props.user.members ? this.props.user.members.forEach((member) => {
+      (member.circle.id === this.props.circle.id) ? this.setState({status: 'joined'}) : null;
+    }) : null;
   }
   handleJoin = async (a, client, circleId) => {
     if (this.props.user) {
