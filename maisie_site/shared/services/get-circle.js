@@ -8,7 +8,6 @@ export default gql`
       description
       price
       frequency
-      day
       hour
       minute
       ampm
@@ -20,6 +19,8 @@ export default gql`
       max
       imageUrl
       tags
+      startDate
+      whoShouldJoin
       user {
         host {
           id

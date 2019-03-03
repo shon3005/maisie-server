@@ -24,7 +24,6 @@ export default (props) =>
       <Field title="Title"><span className="create__field_input-textbox">{props.title}</span></Field>
       <Field title="Description"><span className="create__field_input-textbox">{props.description}</span></Field>
       <Divider />
-      <Field title="Day"><span className="create__field_input-textbox" style={{textTransform: "capitalize"}}>{props.day}</span></Field>
       <Field title="Frequency"><span className="create__field_input-textbox" style={{textTransform: "capitalize"}}>{props.frequency}</span></Field>
       <Field title="Length"><span className="create__field_input-textbox" style={{textTransform: "capitalize"}}>{props.length}</span></Field>
       <Field title="Time"><span className="create__field_input-textbox">{props.hour + ":" + props.minute + " " + props.ampm}</span></Field>

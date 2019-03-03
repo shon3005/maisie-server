@@ -8,7 +8,6 @@ export default gql`
       description
       price
       frequency
-      day
       hour
       minute
       ampm
@@ -18,6 +17,8 @@ export default gql`
       locationType
       min
       imageUrl
+      startDate
+      tags
       user {
         host {
           id

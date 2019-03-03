@@ -63,7 +63,7 @@ export default (props) =>
       <Disclaimer>Maybe you don't want just anyone joining your Circle. Here is your place to tell the world who should join, and who should not.</Disclaimer>
       <Field title="Host">
         <div className="create__hostinfo row-fs-c">
-          <div className="create__hostinfo-img" style={{backgroundImage: `url(${props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+          <div className="create__hostinfo-img" style={{backgroundImage: `url(${props.user.host.imageUrl || '/static/shared/profile-default.svg'})`, backgroundSize: "cover", backgroundPosition: "center"}} />
           <span>{props.user.firstName + ' ' + props.user.lastName}</span>
           <div className="create__hostinfo-tag col-c-c">{props.user.host.license}</div>
         </div>

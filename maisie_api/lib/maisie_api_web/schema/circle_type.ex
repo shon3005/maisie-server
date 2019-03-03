@@ -10,7 +10,6 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:description, :string)
         field(:price, :string)
         field(:frequency, :string)
-        field(:day, :string)
         field(:hour, :string)
         field(:minute, :string)
         field(:ampm, :string)
@@ -20,6 +19,7 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:location_type, :string)
         field(:min, :string)
         field(:max, :string)
+        field(:start_date, :datetime)
         field(:tags, list_of(:string))
         field(:who_should_join, :string)
         field(:image_url, :string)
@@ -45,7 +45,6 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:description, :string)
         field(:price, :string)
         field(:frequency, :string)
-        field(:day, :string)
         field(:hour, :string)
         field(:minute, :string)
         field(:ampm, :string)
@@ -57,6 +56,7 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:max, :string)
         field(:tags, :string)
         field(:who_should_join, :string)
+        field(:start_date, :datetime)
     end
 
     input_object :circle_get_type do

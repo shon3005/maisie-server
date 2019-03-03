@@ -19,7 +19,7 @@ export default (props) => {
     {
       "img": "../../../static/circle/day.svg",
       "tag": "day",
-      "text": props.day,
+      "text": '',
     }, {
       "img": "../../../static/circle/time.svg",
       "tag": "time",

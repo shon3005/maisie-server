@@ -80,7 +80,7 @@ class Create extends React.Component {
         hour: hour,
         minute: minute,
         ampm: ampm,
-        start_date: start_date,
+        start_date: new Date(start_date),
         slideToShow: this.state.slideToShow + 1,
       });
     } else if (this.state.slideToShow === 2) {
@@ -112,9 +112,8 @@ class Create extends React.Component {
         hour: this.state.hour,
         minute: this.state.minute,
         ampm: this.state.ampm,
-        start_date: this.state.start_date,
+        startDate: this.state.start_date,
         tags: this.state.tags,
-        day: 'monday',
         whoshouldjoin: this.state.whoshouldjoin
       });
       let bodyFormData = new FormData();
@@ -170,7 +169,6 @@ class Create extends React.Component {
         <SlideFive
           title={this.state.title}
           description={this.state.description}
-          day={this.state.day}
           frequency={this.state.frequency}
           length={this.state.length}
           hour={this.state.hour}

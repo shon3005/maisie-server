@@ -1,15 +1,9 @@
 import Disclaimer from '../../../shared/components/text/disclaimer.js';
 import Field from '../../../shared/components/text/field.js';
-import LargeText from '../../../shared/components/text/largeText.js';
 import SmallText from '../../../shared/components/text/smallText.js';
 
 var moment = require('moment');
-var classNames = require('classnames');
 
-const group = {
-  "title": "test",
-  "pending": true,
-}
 var startDate = moment().add(2, 'days'),
     endDate = moment().add(1, 'months'),
     dateFormat = "";

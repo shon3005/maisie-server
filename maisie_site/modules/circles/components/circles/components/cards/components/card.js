@@ -1,4 +1,5 @@
 var classNames = require('classnames');
+import moment from 'moment';
 
 export default (props) => {
   return (
@@ -7,7 +8,7 @@ export default (props) => {
         <div className="mycirclescard__cont-img" style={{backgroundImage: `url(${props.data.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
         <div className="mycirclescard__cont_text col">
           <span className="mycirclescard__cont_text-title">{props.data.title}</span>
-          <span className="mycirclescard__cont_text-date">{"every " + props.data.day + " at " + props.data.hour + ":" + props.data.minute + props.data.ampm}</span>
+          <span className="mycirclescard__cont_text-date">{"every " + moment(props.data.startDate).format("dddd") + " at " + props.data.hour + ":" + props.data.minute + props.data.ampm}</span>
           <span className="mycirclescard__cont_text-eco"><span className="price">{"$ " + props.data.price}</span><span>{" • " + props.data.min + " people minimum"}</span></span>
         </div>
       </div>

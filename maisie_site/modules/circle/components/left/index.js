@@ -2,7 +2,6 @@ import LargeText from '../../../../shared/components/text/largeText.js';
 import Hosted from './components/hosted.js';
 import Divider from './components/divider.js';
 import Tags from './components/tags.js';
-import Details from './components/details.js';
 import Calendar from './components/calendar/index.js';
 import Location from './components/location.js';
 
@@ -10,7 +9,6 @@ import Location from './components/location.js';
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 var classNames = require('classnames')
 export default (props) => {
-  const day = props.circle && props.circle.day ? props.circle.day : 'tuesday';
   const minute = props.circle && props.circle.minute ? props.circle.minute : 0;
   const location = props.circle && props.circle.locationType ? props.circle.locationType : "private space";
   let hour = props.circle && props.circle.hour ? props.circle.hour : 0;
@@ -38,10 +36,14 @@ export default (props) => {
       <div className="circle_left-text dark_theme_primary_text">{props.circle ? props.circle.description : null}</div>
       <Divider />
       <Sub>scheduling</Sub>
-      <Calendar date={"2019-04-20"} time={props.circle ? props.d.time : null} length={props.circle ? props.circle.length : null} />
+      <Calendar
+        date={props.circle.startDate}
+        time={props.circle ? new Date(new Date().setHours(props.circle.hour)).setMinutes(props.circle.minute) : null}
+        length={props.circle ? props.circle.length : null}
+      />
       <Divider />
       <Sub>who should join this circle?</Sub>
-      <div className="dark_theme_primary_text circle_left-text">{props.d.who_should_join}</div>
+      <div className="dark_theme_primary_text circle_left-text">{props.circle.whoShouldJoin}</div>
       <Divider />
 
       <Sub>location</Sub>

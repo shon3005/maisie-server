@@ -50,7 +50,6 @@ export default (
             circles {
                 address
                 ampm
-                day
                 description
                 frequency
                 hour
@@ -63,6 +62,8 @@ export default (
                 locationType
                 length
                 id
+                startDate
+                tags
                 members {
                     id
                 }

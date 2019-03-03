@@ -20,7 +20,7 @@ export default class Circles extends Component {
             return current.requests && current.requests.length > 0 ?
               total + current.requests.length : total;
           }, 0) : null;
-        return requests ? <div className="hostcircles__inner">
+        return <div className="hostcircles__inner">
           <div className="hostcircles__inner-title row-sb-c">
             <LargeText>Circles I'm Hosting</LargeText>
             <div className="circles_overlay hide" id="circles_overlay"
@@ -33,17 +33,17 @@ export default class Circles extends Component {
               }}
             />
             <div className="row-fe-c">
-              <Requests
+              {requests ? <Requests
                 requests={requests}
                 circles={getCircles.data && getCircles.data.userCircles ? getCircles.data.userCircles : []}
                 host={this.props.userId}
                 updateUser={this.props.updateUser}
-              />
+              /> : null}
               <Button kind="primary" weight="purple" href="/create">Start a Circle</Button>
             </div>
           </div>
           <Cards />
-        </div> : null
+        </div>
       }}
     </Query>
   }

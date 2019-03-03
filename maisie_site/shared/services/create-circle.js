@@ -10,7 +10,6 @@ export default (
         mutation createCircle(
           $title: String!,
           $description: String!,
-          $day: String!,
           $frequency: String!,
           $length: String!,
           $hour: String!,
@@ -24,12 +23,12 @@ export default (
           $max: String!,
           $tags: String!,
           $whoShouldJoin: String!
+          $startDate: DateTime!
         ) {
           createCircle(
             input: {
               title: $title,
               description: $description,
-              day: $day,
               frequency: $frequency,
               length: $length,
               hour: $hour,
@@ -43,6 +42,7 @@ export default (
               max: $max,
               tags: $tags,
               whoShouldJoin: $whoShouldJoin
+              startDate: $startDate
             }
           ) {
             id
@@ -53,7 +53,6 @@ export default (
       {
         title: circleDetails.title,
         description: circleDetails.description,
-        day: circleDetails.day,
         frequency: circleDetails.frequency,
         length: circleDetails.length,
         hour: circleDetails.hour,
@@ -66,7 +65,8 @@ export default (
         min: circleDetails.min,
         max: circleDetails.max,
         tags: circleDetails.tags,
-        whoShouldJoin: circleDetails.whoshouldjoin
+        whoShouldJoin: circleDetails.whoshouldjoin,
+        startDate: circleDetails.startDate
       }
     })
 }

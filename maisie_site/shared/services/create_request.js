@@ -42,7 +42,6 @@ export default (
               circles {
                 address
                 ampm
-                day
                 description
                 frequency
                 hour
@@ -54,6 +53,8 @@ export default (
                 neighborhood
                 locationType
                 length
+                startDate
+                tags
                 id
               }
               requests {
