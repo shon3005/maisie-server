@@ -36,9 +36,7 @@ export default (props) => {
               user={props.user}
               client={client}
               updateUser={props.updateUser}
-              //
-              // *** need to put logic for button status here ***
-              status={""} // adjusts join button when status changes
+              status={""}
             />
             <MobileRight
               circle={props.circle}
@@ -47,8 +45,7 @@ export default (props) => {
               user={props.user}
               client={client}
               updateUser={props.updateUser}
-              // *** need to put logic for button status here ***
-              status={""} // adjusts join button when status changes
+              status={""}
             />
           </div>
         </div>

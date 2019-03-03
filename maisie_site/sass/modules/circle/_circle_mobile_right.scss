@@ -16,6 +16,38 @@
   background-color: white;
   box-shadow: 0px -05px 50px $color-black-10;
 
+  &_button {
+    > div {
+      @include transition(all, 200ms);
+      @include user-select(none);
+
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      @include border-radius(50px);
+      color: white;
+      font-weight: 600;
+      &:not(.requested) {
+        &:not(.joined) {
+          background-color: $color-primary;
+          &:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+          }
+        }
+      }
+      &.joined {
+        color: $color-primary;
+        background-color: white;
+        border: 2px solid $color-primary;
+      }
+      &.requested {
+        background-color: $color-primary-light;
+        pointer-events: none;
+      }
+    }
+  }
+
   &_left {
     &-title {
       font-size: calc(.8vw + 12px);

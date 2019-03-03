@@ -107,6 +107,7 @@
           }
           &.joined {
             color: $color-primary;
+            background-color: white;
             border: 2px solid $color-primary;
           }
           &.requested {

@@ -3,16 +3,14 @@ import Button from '../../../shared/components/button.js';
 import Card from './components/card.js';
 import hostPayout from '../../../shared/services/host-payout';
 import { ApolloConsumer } from 'react-apollo';
-// import FullPageSpinner from '../../../shared/components/fullpagespinner';
+import FullPageSpinner from '../../../shared/components/fullpagespinner';
 
 export default (props) => {
   const finances = props.finances;
   const transactions = finances ? finances.transactions : null;
   const balance = finances ? finances.balance / 100 : null;
   const url = finances ? finances.url : null;
-  return <div>
-  {/* <FullPageSpinner color={"light"} /> */}
-  <div className="hostfinances col">
+  return transactions ? <div className="hostfinances col">
     <div className="hostfinances__top col">
       <div className="row-sb-c">
         <LargeText>Recent Transactions</LargeText>
@@ -43,8 +41,7 @@ export default (props) => {
       <div style={{height: 20}} />
       <a href="mailto:providers@heymaisie.com">Something incorrect?</a>
     </div>
-  </div>
-  </div>
+  </div> : <FullPageSpinner color={"dark"} />
 };
 
 const payout = async (client, hostId) => {
