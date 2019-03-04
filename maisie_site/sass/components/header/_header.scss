@@ -6,7 +6,9 @@
   width: 100%;
   padding-left: calc(20px + 1%);
   padding-right: calc(20px + 1%);
-
+  &:not(.include_banner) {
+    height: $header-height;
+  }
   &.include_banner {
     @include size-five {
       height: calc($header-height+$header-height);
@@ -29,7 +31,7 @@
       padding-top: 120px;
     }
   }
-  
+
   &.circle_page {
     position: absolute;
     background-color: transparent;
