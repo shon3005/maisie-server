@@ -48,30 +48,30 @@ export default (
                 hasStripeAccount
             }
             circles {
-                address
-                ampm
-                description
-                frequency
-                hour
-                minute
-                min
-                imageUrl
-                title
-                price
-                neighborhood
-                locationType
-                length
-                id
-                startDate
-                tags
-                members {
-                    id
-                }
+              address
+              ampm
+              description
+              frequency
+              hour
+              minute
+              min
+              imageUrl
+              title
+              price
+              neighborhood
+              locationType
+              length
+              id
+              startDate
+              tags
+              members {
+                  id
+              }
             }
             requests {
-                circle {
-                    id
-                }
+              circle {
+                id
+              }
             }
           }
         }

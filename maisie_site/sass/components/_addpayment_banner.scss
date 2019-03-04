@@ -1,0 +1,63 @@
+.addpayment_banner {
+  width: 100vw;
+  background-color: $color-primary;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding-left: calc(20px + 1%);
+  padding-right: calc(20px + 1%);
+  @include align-items(center);
+  @include flexbox;
+  @include size-five {
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    height: $header-height;
+  }
+  @include size-four {
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    height: $header-height;
+  }
+  @include size-three {
+    @include flex-direction(column);
+    height: calc($header-height + $header-height);
+    > span { margin-top: 15px }
+    > a { margin-top: 15px; margin-bottom: 15px; }
+  }
+  @include size-two {
+    @include flex-direction(column);
+    height: calc($header-height + $header-height);
+    > span { margin-top: 15px; text-overflow: hidden; }
+    > a { margin-top: 15px; margin-bottom: 15px; }
+  }
+  @include size-one {
+    @include flex-direction(column);
+    height: calc($header-height + $header-height);
+    > span { margin-top: 15px; text-overflow: hidden;}
+    > a { margin-top: 15px; margin-bottom: 15px; }
+  }
+  > span {
+    color: white;
+    font-size: $font-size-small;
+    font-weight: 600;
+  }
+  > a {
+    @include transition(all, 200ms);
+    height: 36px;
+    font-size: $font-size-small;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background-color: rgba(255,255,255,.25);
+    @include border-radius(50px);
+    &:hover {
+      cursor: pointer;
+    }
+    &:active {
+      opacity: .5;
+    }
+  }
+}

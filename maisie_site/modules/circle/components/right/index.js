@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from '../../../../shared/components/button.js';
-const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 var classNames= require('classnames');
 import createRequest from '../../../../shared/services/create_request';
 import Router from 'next/router';

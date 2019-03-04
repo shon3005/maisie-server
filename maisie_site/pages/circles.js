@@ -37,7 +37,7 @@ class Circles extends Component {
             zIndex: 99997,
           }}
         />
-        <CirclesModule token={this.props.token} blank={this.props.user.circles ? false : true}/>
+        <CirclesModule blank={this.props.user.members && this.props.user.members.length > 0 ? false : true}/>
         <Footer />
       </div>
     );
@@ -46,8 +46,7 @@ class Circles extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user.user,
-    token: state.user.token
+    user: state.user.user
   }
 }
 

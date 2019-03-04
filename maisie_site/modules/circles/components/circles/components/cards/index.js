@@ -1,13 +1,13 @@
 import Card from './components/card.js';
-import { Query } from 'react-apollo';
-import getCircles from '../../../../../../shared/services/get-circles';
 import { connect } from 'react-redux';
+import { Query } from 'react-apollo';
+import getUserById from '../../../../../../shared/services/get-user-profile';
 
 const Cards = (props) => {
-  return <Query query={getCircles} variables={{ userId: props.user.id }}>
-    {getCircles => {
-        const userCircles = getCircles.data && getCircles.data.userCircles ? getCircles.data.userCircles : null;
-        return userCircles ? userCircles.map((c, index) => <Card user={props.user} data={c} key={index} /> ) : null;
+  return <Query query={getUserById} variables={{ userId: props.user.id }}>
+    {getUserById => {
+        const user = getUserById && getUserById.data && getUserById.data.getUserById ? getUserById.data.getUserById : null;
+        return user && user.members && user.members.length > 0 ? user.members.map((m, index) => <Card user={user} data={m.circle} key={index} /> ) : null;
       }
     }
   </Query>

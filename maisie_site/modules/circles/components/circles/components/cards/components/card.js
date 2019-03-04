@@ -23,10 +23,10 @@ export default (props) => {
             host: props.user.role === "host",
             member: props.user.role === "user",
           }])}>
-            <div>{ props.user.id === props.data.user.id ? "Host" : props.user.role === "user" ? "Member" : null }</div>
+            <div>Member</div>
           </div>
         </div>
-        <div className="mycirclescard__right-pay"><em>{props.user.role === "user" ? "Last payment: 2/07/19" : null}</em></div>
+        {/* <div className="mycirclescard__right-pay"><em>{props.user.role === "user" ? "Last payment: 2/07/19" : null}</em></div> */}
       </div>
     </a>
   );

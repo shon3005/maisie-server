@@ -1,23 +1,23 @@
 const LOGIC_MAIN = [
   {
     "text": "discover",
-    "img": "../../../static/sidebar/circles.svg",
+    "img": "https://s3.amazonaws.com/maisie-files/sidebar/circles.svg",
     "href": "discover",
   }, {
     "text": "messages",
-    "img": "../../../static/sidebar/messages.svg",
+    "img": "https://s3.amazonaws.com/maisie-files/sidebar/messages.svg",
     "href": "messages",
   }, {
     "text": "schedule",
-    "img": "../../../static/sidebar/schedule.svg",
+    "img": "https://s3.amazonaws.com/maisie-files/sidebar/schedule.svg",
     "href": "schedule",
   }, {
     "text": "account",
-    "img": "../../../static/sidebar/settings.svg",
+    "img": "https://s3.amazonaws.com/maisie-files/sidebar/settings.svg",
     "href": "account",
   }, {
     "text": "support",
-    "img": "../../../static/sidebar/support.svg",
+    "img": "https://s3.amazonaws.com/maisie-files/sidebar/support.svg",
     "href": "support",
   },
 ]

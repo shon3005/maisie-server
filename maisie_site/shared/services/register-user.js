@@ -63,6 +63,21 @@ export default (
               }
               members {
                 circle {
+                  address
+                  ampm
+                  description
+                  frequency
+                  hour
+                  minute
+                  min
+                  imageUrl
+                  title
+                  price
+                  neighborhood
+                  locationType
+                  length
+                  startDate
+                  tags
                   id
                 }
               }

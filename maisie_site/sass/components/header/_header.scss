@@ -3,11 +3,33 @@
     background-color: white;
     box-shadow: 0px 2px 2px $color-secondary-05;
   }
-  height: $header-height;
   width: 100%;
   padding-left: calc(20px + 1%);
   padding-right: calc(20px + 1%);
 
+  &.include_banner {
+    @include size-five {
+      height: calc($header-height+$header-height);
+      padding-top: $header-height;
+    }
+    @include size-four {
+      height: calc($header-height+$header-height);
+      padding-top: $header-height;
+    }
+    @include size-three {
+      height: calc($header-height+$header-height+$header-height);
+      padding-top: 120px;
+    }
+    @include size-two {
+      height: calc($header-height+$header-height+$header-height);
+      padding-top: 120px;
+    }
+    @include size-one {
+      height: calc($header-height+$header-height+$header-height);
+      padding-top: 120px;
+    }
+  }
+  
   &.circle_page {
     position: absolute;
     background-color: transparent;

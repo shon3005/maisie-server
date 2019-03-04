@@ -33,10 +33,10 @@ defmodule MaisieApiWeb.Schema do
            resolve(&Resolvers.CircleResolver.circles/3)
         end
 
-        @desc "Get a circle by ID"
-        field :circle, type: :circle_type do
-          arg(:input, non_null(:circle_get_type))
-          resolve(&Resolvers.CircleResolver.get_circle_by_id/3)
+        @desc "Get user and circle by IDs"
+        field :user_and_circle, type: :user_and_circle_type do
+          arg(:input, non_null(:user_and_circle_get_type))
+          resolve(&Resolvers.SharedResolver.get_user_and_circle_by_id/3)
         end
 
         @desc "Get a circles by user ID"

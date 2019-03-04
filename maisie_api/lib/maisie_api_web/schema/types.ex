@@ -8,4 +8,5 @@ defmodule MaisieApiWeb.Schema.Types do
     import_types(Types.CircleType)
     import_types(Types.HostType)
     import_types(Types.PaymentType)
+    import_types(Types.SharedType)
 end

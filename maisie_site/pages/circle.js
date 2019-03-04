@@ -2,27 +2,29 @@
 // Use the following to set a dark theme on the page.
 const PREFER_DARK_THEME = false
 // Caution: this should be used for featured circles only.
+/* added payment? */ let addedPayment = false;
 //
 import CircleModule from '../modules/circle/index.js';
 import Footer from '../shared/components/footer.js';
 import Header from '../shared/components/header/index.js';
 import DATA from '../modules/circle/dummy_data.js';
 import { connect } from 'react-redux';
-import getCircle from '../shared/services/get-circle';
+import getUserAndCircle from '../shared/services/get-user-and-circle';
 import { Query } from 'react-apollo';
 import * as actions from '../shared/services/actions';
 
 var classNames = require('classnames')
 
-function Circle(props) {
-  const id = props.query && props.query.id !== 'null' ? props.query.id : null;
+const Circle = (props) => {
+  const circle_id = props.query && props.query.id !== 'null' ? props.query.id : null;
+  const user_id = props.user && props.user.id ? props.user.id : null;
   return(
     <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
-      <Header circle loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
-      {id ?
-        <Query query={getCircle} variables={{id: id}}>
-          {getCircleObj => {
-            return getCircleObj.data && getCircleObj.data.circle ? <CircleModule dark={PREFER_DARK_THEME} d={DATA} host={getCircleObj.data.circle.user.host} user={props.user} id={id} circle={getCircleObj.data.circle} updateUser={props.updateUser}/> : null;
+      <Header needToAddPayment={props.user && !props.user.last4} circle loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
+      {circle_id ?
+        <Query query={getUserAndCircle} variables={{circleId: circle_id, userId: user_id}}>
+          {getUserAndCircle => {
+            return getUserAndCircle.data && getUserAndCircle.data.UserAndCircle ? <CircleModule dark={PREFER_DARK_THEME} d={DATA} host={getUserAndCircle.data.UserAndCircle.circle.user.host} user={getUserAndCircle.data.UserAndCircle.user} id={circle_id} circle={getUserAndCircle.data.UserAndCircle.circle} updateUser={props.updateUser}/> : null;
           }}
         </Query> :
         null
