@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import acceptRequest from '../../../../../../shared/services/accept-request';
 import denyRequest from '../../../../../../shared/services/deny-request';
+import Link from 'next/link'
 
 export default class List extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ export default class List extends Component {
       <div key={index} className="circles_req__ind row-sb-c">
         <div className="circles_req__ind_l col">
           <span className="circles_req__ind_l-name">{req.user.firstName + ' ' + req.user.lastName}</span>
-          <a>View Profile</a>
+          <Link href={'/profile/' + req.user.id}>
+            <a>View Profile</a>
+          </Link>
         </div>
         <div className="circles_req__ind_r row-fe-c">
           <a href={'mailto:' + req.user.email} className="email" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/email_lightgray.svg')", backgroundRepeat: "no-repeat", backgroundSize: "18px 18px", backgroundPosition: "center"}} />
