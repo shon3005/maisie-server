@@ -30,7 +30,7 @@ const MobileDropdown = (props) => {
         <div
           onClick={(a) => toggleDrawer(false)}
           style={{
-            backgroundImage: `url(../../../static/shared/x.svg)`,
+            backgroundImage: `url('https://s3.amazonaws.com/maisie-files/shared/x.svg')`,
             backgroundPosition: "center",
             backgroundSize: "contain"
           }}

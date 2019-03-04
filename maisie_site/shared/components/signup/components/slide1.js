@@ -50,7 +50,7 @@ export default class extends Component {
   renderForm = () => {
     return (
       <div className="signupfull__inner_right col-c-c">
-        <img src="../static/shared/newlogo.svg"/>
+        <img src="https://s3.amazonaws.com/maisie-files/shared/newlogo.svg"/>
         <div style={{height: 20}} />
         <span className="signupfull__inner_right-welcome">welcome to maisie</span>
         <span className="signupfull__inner_right-subwelcome">create an account</span>

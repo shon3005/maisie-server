@@ -89,7 +89,7 @@ class Profile extends React.Component {
         <span className="editprofile__inner-title col">Edit Profile</span>
         <Spacer height={50} />
         <SmallText>General</SmallText>
-        <img src={this.props.user.imageUrl || '/static/shared/profile-default.svg'} id="profilePic" className="editprofile__picture" />
+        <img src={this.props.user.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'} id="profilePic" className="editprofile__picture" />
         <Field title="Profile Picture">
           <input
             type="file"

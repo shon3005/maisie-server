@@ -3,29 +3,29 @@ var moment = require('moment');
 export default (props) => {
   const obj = {
     "private space": {
-      "img": "../../../static/circle/private.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/private.svg",
       "text": "private space",
     },
     "shared space": {
-      "img": "../../../static/circle/shared.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/shared.svg",
       "text": "shared space",
     },
     "outdoors": {
-      "img": "../../../static/circle/outdoors.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/outdoors.svg",
       "text": "outdoors",
     },
   }
   const ren1 = [
     {
-      "img": "../../../static/circle/day.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/day.svg",
       "tag": "day",
       "text": '',
     }, {
-      "img": "../../../static/circle/time.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/time.svg",
       "tag": "time",
       "text": moment(props.time).format("h:mm A").toString(),
     }, {
-      "img": "../../../static/circle/length.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/length.svg",
       "tag": "length",
       "text": props.length === 'continuous' ? props.length : props.length + 'weeks',
     }
@@ -36,7 +36,7 @@ export default (props) => {
       "tag": "type",
       "text": obj[props.type || 'private space']["text"],
     }, {
-      "img": "../../../static/circle/location.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/location.svg",
       "tag": "location",
       "text": props.neighborhood,
     }, {

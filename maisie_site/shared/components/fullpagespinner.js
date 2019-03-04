@@ -9,5 +9,5 @@ var spinnerColor = (x) => x === "purple"
 
 export default props =>
   <div className="fullpagespinner col-c-c">
-    <img src={`../../static/shared/${spinnerColor(props.color)}.png`} />
+    <img src={`https://s3.amazonaws.com/maisie-files/shared/${spinnerColor(props.color)}.png`} />
   </div>

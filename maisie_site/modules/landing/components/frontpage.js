@@ -1,13 +1,11 @@
 import React from "react";
 import Header from '../../../shared/components/header/index.js';
-import SocialButtons from '../../../shared/components/socialButtons.js';
-import Button from '../../../shared/components/button.js';
 
 export default props =>
   <div
     className="front col-fs-c"
     style={{
-      backgroundImage: "url('../../../static/shared/campfire_2.jpg')",
+      backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/background_full.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center bottom",
   }}>

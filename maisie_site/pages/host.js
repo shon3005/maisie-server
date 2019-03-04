@@ -39,9 +39,9 @@ const HostReasons = () =>
       <span>Hosting on Maisie takes your business to the next level</span>
     </div>
     <div className="whyhostreasons__in">
-    {[["../../static/shared/payments.svg", "Payments", "Maisie doesn't just accept payments, it automates them. Never deal with cash and checks again. Get instant payouts at any time."],
-      ["../../static/shared/managepeople.svg", "People Management", "Manage your Circle members and requests right from our easy-to-use platform."],
-      ["../../static/shared/communications.svg", "Communications", "Send out communications to individual members or entire Circles easily. Your info is kept completely private."],
+    {[["https://s3.amazonaws.com/maisie-files/shared/payments.svg", "Payments", "Maisie doesn't just accept payments, it automates them. Never deal with cash and checks again. Get instant payouts at any time."],
+      ["https://s3.amazonaws.com/maisie-files/shared/managepeople.svg", "People Management", "Manage your Circle members and requests right from our easy-to-use platform."],
+      ["https://s3.amazonaws.com/maisie-files/shared/communications.svg", "Communications", "Send out communications to individual members or entire Circles easily. Your info is kept completely private."],
     ].map((a, i) => <div key={i} className="col"><img src={a[0]} /><span>{a[1]}</span><p>{a[2]}</p></div>
     )}
     </div>
@@ -75,7 +75,7 @@ export default () => {
       <HostFront />
       <HostReasons />
       <div className="whyhostplants">
-        <img src="../static/shared/plantsncouch.png" />
+        <img src="https://s3.amazonaws.com/maisie-files/shared/plantsncouch.png" />
         <h1>Maisie works with your practice</h1>
         <h1></h1>
       </div>

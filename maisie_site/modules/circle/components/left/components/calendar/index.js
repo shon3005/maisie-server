@@ -14,21 +14,21 @@ export default (props) => {
     <div className="circlecal row-sb-c">
       <div className="circlecal__left col-sa">
         <div className="circledetails__item row-fs-c">
-          <img src="../../../static/circle/day.svg" />
+          <img src="https://s3.amazonaws.com/maisie-files/circle/day.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">starts on</span>
             <span className="text dark_theme_primary_text">{moment(props.date).format("dddd, MMM. Do")}</span>
           </div>
         </div>
         <div className="circledetails__item row-fs-c">
-          <img src="../../../static/circle/time.svg" />
+          <img src="https://s3.amazonaws.com/maisie-files/circle/time.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">time</span>
             <span className="text dark_theme_primary_text">{moment(props.time).format("h:mm A").toString()}</span>
           </div>
         </div>
         <div className="circledetails__item row-fs-c">
-          <img src="../../../static/circle/length.svg" />
+          <img src="https://s3.amazonaws.com/maisie-files/circle/length.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">length</span>
             <span className="text dark_theme_primary_text">{props.length === 'continuous' ? "ongoing each week" : props.length + ' weeks'}</span>

@@ -72,7 +72,7 @@ class Signin extends Component {
       <ApolloConsumer>
         {client => (
           <div className="signin col-c-c">
-            <a href="/"><img src="../static/shared/newlogo.svg"/></a>
+            <a href="/"><img src="https://s3.amazonaws.com/maisie-files/shared/newlogo.svg"/></a>
                           <div style={{height: 20}} />
             <span className="signin-welcome">welcome back</span>
             <span className="signin-subwelcome">please sign in</span>

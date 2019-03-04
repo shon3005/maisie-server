@@ -40,7 +40,7 @@ class Support extends React.Component {
           <div className="settings__inner col-fs-c">
             <div className="support__inner__top row-c-c">
               <div className="support__inner__top_box col-c-c">
-                <img src="../../static/support/text.svg" />
+                <img src="https://s3.amazonaws.com/maisie-files/support/text.svg" />
                 <div style={{height: 10}} />
                 <span className="support__inner__top_box-title">Email us</span>
                 <span className="support__inner__top_box-desc">We'll respond as soon as possible</span>
@@ -49,7 +49,7 @@ class Support extends React.Component {
               </div>
                             <div className="support__inner__top-space" />
               <div className="support__inner__top_box col-c-c">
-                <img src="../../static/support/phone.svg" />
+                <img src="https://s3.amazonaws.com/maisie-files/support/phone.svg" />
                 <div style={{height: 10}} />
                 <span className="support__inner__top_box-title">Have us call you</span>
                 <span className={classNames({

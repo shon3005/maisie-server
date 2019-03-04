@@ -2,7 +2,7 @@ import Button from '../../../shared/components/button.js';
 export default () =>
   <div className="l_double">
     <div className="l_double__l col">
-      <img src="../../../static/shared/circle_l.svg" />
+      <img src="https://s3.amazonaws.com/maisie-files/shared/circle_l.svg" />
       <h1>What is a Circle?</h1>
       <div className="col">
         <div>
@@ -27,7 +27,7 @@ export default () =>
       <Button kind="primary" weight="purple" href="/signup">Browse our Circles</Button>
     </div>
     <div className="l_double__r col-fs-fe">
-      <img src="../../../static/shared/circle_d.svg" />
+      <img src="https://s3.amazonaws.com/maisie-files/shared/circle_d.svg" />
       <h1>Why is it better?</h1>
       <div className="col-fs-fe">
         <div>

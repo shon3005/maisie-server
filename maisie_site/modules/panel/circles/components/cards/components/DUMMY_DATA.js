@@ -2,7 +2,7 @@ export default [
   {
     "title": "example group one",
     "pending": true,
-    "img": "../../../../../static/shared/matthew.png",
+    "img": "https://s3.amazonaws.com/maisie-files/shared/matthew.png",
     "day": "monday",
     "time": "8:00pm",
     "price": 45,
@@ -12,7 +12,7 @@ export default [
   }, {
     "title": "example group one",
     "pending": false,
-    "img": "../../../../../static/shared/matthew.png",
+    "img": "https://s3.amazonaws.com/maisie-files/shared/matthew.png",
     "day": "monday",
     "time": "8:00pm",
     "price": 45,

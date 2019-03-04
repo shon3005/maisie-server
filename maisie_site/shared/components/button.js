@@ -11,7 +11,7 @@ var spinnerColor = (x) => x === "purple"
 const Spinner = (props) =>
   <div className="template_buttons-spinner row-c-c">
     { props.saving && props.kind != "link" && props.kind != "ext" ? <span>{props.saving}</span> : null}
-    <img src={`../../static/shared/${spinnerColor(props.weight)}.png`} />
+    <img src={`https://s3.amazonaws.com/maisie-files/shared/${spinnerColor(props.weight)}.png`} />
   </div>
 
 export default (props) => {

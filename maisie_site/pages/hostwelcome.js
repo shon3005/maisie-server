@@ -7,25 +7,25 @@ const HostWelcome = () =>
   <div className="hostwelcome col-c-c">
     <div className="hostwelcome__in col-fs-c">
       <span className="title">WELCOME TO</span>
-      <img className="logo" src="../static/header/logo_nocircle.svg" />
+      <img className="logo" src="https://s3.amazonaws.com/maisie-files/header/logo_nocircle.svg" />
       <Step
         num={1}
         text="Set up an account with Stripe"
-        img="../static/shared/creditcard.svg"
+        img="https://s3.amazonaws.com/maisie-files/shared/creditcard.svg"
         href="https://www.stripe.com"
         href_title="Set up Stripe account"
       />
       <Step
         num={2}
         text="Add some info to your Host Profile"
-        img="../static/shared/heartcircle.svg"
+        img="https://s3.amazonaws.com/maisie-files/shared/heartcircle.svg"
         href="https://www.stripe.com"
         href_title="Set up Stripe account"
       />
       <Step
         num={3}
         text="Create your first Circle"
-        img="../static/shared/spincircle.svg"
+        img="https://s3.amazonaws.com/maisie-files/shared/spincircle.svg"
         href="https://www.stripe.com"
         href_title="Set up Stripe account"
       />

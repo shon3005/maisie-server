@@ -1,15 +1,15 @@
 export default (props) => {
   const obj = {
     "private space": {
-      "img": "../../../static/circle/private.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/private.svg",
       "text": "private space",
     },
     "shared space": {
-      "img": "../../../static/circle/shared.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/shared.svg",
       "text": "shared space",
     },
     "outdoors": {
-      "img": "../../../static/circle/outdoors.svg",
+      "img": "https://s3.amazonaws.com/maisie-files/circle/outdoors.svg",
       "text": "outdoors",
     },
   }
@@ -25,7 +25,7 @@ export default (props) => {
           </div>
         </div>
         <div className="circledetails__item row-fs-c">
-          <img src="../../../static/circle/location.svg" />
+          <img src="https://s3.amazonaws.com/maisie-files/circle/location.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">location</span>
             <span className="text dark_theme_primary_text">{props.neighborhood}</span>

@@ -6,7 +6,7 @@ export default (props) =>
     <div className="row-fs-c">
       {/*<Link as="/panel" href="/panel/dash">
         <div className={classNames(["col-c-c", {"selected": props.page === "dash"}])}>
-          <img src="../../../static/shared/house.svg" />
+          <img src="https://s3.amazonaws.com/maisie-files/shared/house.svg" />
           <div />
         </div>
       </Link>*/}
