@@ -20,7 +20,7 @@ const MobileDropdown = (props) => {
       className="mobile_head_drop_icon"
       onClick={(_) => toggleDrawer(true)}
       style={{
-        backgroundImage: `url(${props.user.imageUrl})`,
+        backgroundImage: `url(${props.user.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`,
         backgroundPosition: "center",
         backgroundSize: "contain"
       }}

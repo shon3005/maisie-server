@@ -5,6 +5,10 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     alias MaisieApi.Services.{Request}
 
     def create_circle(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        # IO.inspect input.host_id
+        # host = Accounts.get_host!(input.host_id)
+        # Stripe.API.request(%{name: input.title, type: "service"}, host.stripe_id, )
+
         input = Map.replace(input, :tags, String.split(input.tags, ", "))
         circle_input = Map.merge(input, %{user_id: current_user.id})
         Services.create_circle(circle_input)

@@ -114,7 +114,8 @@ class Create extends React.Component {
         ampm: this.state.ampm,
         startDate: this.state.start_date,
         tags: this.state.tags,
-        whoshouldjoin: this.state.whoshouldjoin
+        whoshouldjoin: this.state.whoshouldjoin,
+        hostId: this.props.user.host.id
       });
       let bodyFormData = new FormData();
       bodyFormData.append('image', this.state.image);

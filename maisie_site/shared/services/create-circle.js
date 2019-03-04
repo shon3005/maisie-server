@@ -22,8 +22,9 @@ export default (
           $min: String!,
           $max: String!,
           $tags: String!,
-          $whoShouldJoin: String!
-          $startDate: DateTime!
+          $whoShouldJoin: String!,
+          $startDate: DateTime!,
+          $hostId: ID!
         ) {
           createCircle(
             input: {
@@ -41,8 +42,9 @@ export default (
               min: $min,
               max: $max,
               tags: $tags,
-              whoShouldJoin: $whoShouldJoin
-              startDate: $startDate
+              whoShouldJoin: $whoShouldJoin,
+              startDate: $startDate,
+              hostId: $hostId
             }
           ) {
             id
@@ -66,7 +68,8 @@ export default (
         max: circleDetails.max,
         tags: circleDetails.tags,
         whoShouldJoin: circleDetails.whoshouldjoin,
-        startDate: circleDetails.startDate
+        startDate: circleDetails.startDate,
+        hostId: circleDetails.hostId
       }
     })
 }

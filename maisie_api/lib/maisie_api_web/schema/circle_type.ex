@@ -57,6 +57,7 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
         field(:tags, :string)
         field(:who_should_join, :string)
         field(:start_date, :datetime)
+        field(:host_id, :id)
     end
 
     input_object :circle_get_type do

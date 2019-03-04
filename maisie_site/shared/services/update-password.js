@@ -14,7 +14,7 @@ export default (
         ) {
           updatePassword(
             input: {
-              oldPassword: $oldPassword
+              oldPassword: $oldPassword,
               password: $password,
               passwordConfirmation: $passwordConfirmation,
             }

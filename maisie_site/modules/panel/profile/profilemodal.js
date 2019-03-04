@@ -80,7 +80,7 @@ class ProfileModal extends React.Component {
             <Field title="Description">
               <textarea onChange={(x) => this.changeField(this.props.user.host)} id="hostprofilemodal_description" defaultValue={this.props.user.host.description} />
             </Field>
-            <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+            <div className="hostprofile__modal-img" style={{backgroundImage: `url(${this.props.user.host.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundSize: "cover", backgroundPosition: "center"}} />
             <Field title="Profile Picture">
               <input
                 type="file"
