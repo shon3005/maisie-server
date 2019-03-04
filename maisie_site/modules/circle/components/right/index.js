@@ -25,6 +25,10 @@ export default class extends React.Component {
   handleJoin = async (a, client, circleId) => {
     if (this.props.user) {
       this.setState({joining: true});
+      if (!this.props.user.last4) {
+        Router.push('/settings');
+        return;
+      }
       !a
         ? document.getElementById("onjoinmodal").classList.remove('hide')
           // *** need to put logic here for changing status to "requested"
