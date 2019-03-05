@@ -19,6 +19,7 @@ export default (props) => {
     return(
       <a
         href={props.href && !props.saving ? props.href : null}
+        style={props.style ? props.style : null}
         target={props.target ? props.target : null}
         onClick={props.onClick ? props.onClick : null}
         className={classNames([
@@ -59,6 +60,7 @@ export default (props) => {
       <div
         type={props.type ? props.type : null}
         onClick={props.onClick ? props.onClick : null}
+        style={props.style ? props.style : null}
         className={classNames([
           "template_buttons",
           "row-c-c",
