@@ -33,6 +33,7 @@
     }
     &_newcity {
       height: 360px;
+      @include user-select(none);
       width: 100%;
       margin-top: 40px;
       margin-bottom: 40px;
@@ -42,8 +43,8 @@
         margin-right: 5%;
         height: 100%;
         flex: 1;
-        @include border-radius(5px);
-        // box-shadow: $shadow-ss;
+        @include border-radius(8px);
+        box-shadow: $shadow-sssss;
         padding-left: 40px;
         padding-top: 40px;
         > span.large {
