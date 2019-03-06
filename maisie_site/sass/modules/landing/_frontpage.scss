@@ -125,7 +125,7 @@
     height: 25vh;
     width: 100vw;
     z-index: 99;
-    @include linear-gradient(transparent, $color-black)
+    @include linear-gradient(transparent, $color-black);
     position: absolute;
     bottom: 0px;
   }
@@ -133,7 +133,7 @@
     height: 25vh;
     width: 100vw;
     z-index: 99;
-    @include linear-gradient($color-black-50,transparent)
+    @include linear-gradient($color-black-50,transparent);
     position: absolute;
     top: 0px;
   }
