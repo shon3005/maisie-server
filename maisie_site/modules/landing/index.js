@@ -3,7 +3,7 @@ import Footer from '../../shared/components/footer.js';
 import FeaturedRow from './components/featuredrow.js';
 import Button from '../../shared/components/button.js';
 import Double from './components/double.js';
-
+import Options from './components/options.js';
 const HostCta = () =>
   <div className="landing-hostcta row-sa-c">
     <div className="landing-hostcta__cont col">
@@ -40,6 +40,7 @@ export default (props) =>
           </div>
           <div className="col-c-c"><Button kind="primary" weight="purple">Join your first Circle</Button></div>
         </div>
+        <Options />
         <Double />
         <div className="whyhostcta col-c-c">
           <h1>Are you a mental health professional?</h1>
