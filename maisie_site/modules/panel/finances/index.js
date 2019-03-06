@@ -12,24 +12,20 @@ export default (props) => {
   const url = finances ? finances.url : null;
   return transactions ? <div className="hostfinances col">
     <div className="hostfinances__top col">
-      <div className="row-sb-c">
+      <div className="hostfinances__top_right">
         <LargeText>Recent Transactions</LargeText>
         <div className="hostfinances__top_right-bal row-fs-c">
           <span className="tag">Available balance: </span>
-          <span className="text">{" $" + balance}</span>
+          <span className="text">{balance > 0 ? " $" + balance : "$0"}</span>
         </div>
       </div>
       <div className="hostfinances__top-btn row-sb-c">
         <Button kind="ext" weight="light" href={url} target="_blank">Visit Stripe Dashboard</Button>
         <ApolloConsumer>
           {client =>
-            <Button kind="primary" weight="purple" onClick={() => payout(client, props.host.id)}>
-              <span>
-                Pay out
-                <span style={{fontWeight: "600"}}>{" $" + balance}
-                </span>
-              </span>
-            </Button>
+            balance > 0
+              ? <Button kind="primary" weight="purple" onClick={() => payout(client, props.host.id)}><span>Pay out<span style={{fontWeight: "600"}}>{" $" + balance}</span></span></Button>
+              : <Button className="fade" kind="primary" weight="purple"><span>Pay out</span></Button>
           }
         </ApolloConsumer>
       </div>

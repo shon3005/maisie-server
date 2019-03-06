@@ -1,4 +1,4 @@
-$grid_wh: calc(.5vw + 30px);
+$grid_wh: calc(1vw + 30px);
 
 .circlecal {
   @include user-select(none);
@@ -6,12 +6,20 @@ $grid_wh: calc(.5vw + 30px);
   padding-top: 20px;
   padding-bottom: 20px;
   padding-right: 5%;
-  background-color: $color-primary-lightest;
   @include border-radius(5px);
-  @include tabletandmobile {
-    padding-left: 0px;
-    padding-right: 0px;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(space-between);
+  @include flex-direction(row);
+  @include size-three {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+  @include size-one {
     @include flex-direction(column !important);
+    &__spacer {
+      height: 40px;
+    }
   }
   &__left {
     height: 250px;

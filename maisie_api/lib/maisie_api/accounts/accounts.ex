@@ -64,32 +64,32 @@ defmodule MaisieApi.Accounts do
     |> Repo.insert()
   end
 
-  defp to_send_email({:ok, details}=user, :prod) do
-    send_email(details)
-    user
-  end
+  # defp to_send_email({:ok, details}=user, :prod) do
+  #   send_email(details)
+  #   user
+  # end
 
-  defp to_send_email({:ok, details}=user, :dev) do
-    send_email(details)
-    user
-  end
+  # defp to_send_email({:ok, details}=user, :dev) do
+  #   send_email(details)
+  #   user
+  # end
 
-  defp to_send_email({:error, _details}=user, _env) do
-    user
-  end
+  # defp to_send_email({:error, _details}=user, _env) do
+  #   user
+  # end
 
-  defp to_send_email(user, _env) do
-    user
-  end
+  # defp to_send_email(user, _env) do
+  #   user
+  # end
 
-  defp send_email(details) do
-    Email.build()
-    |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
-    |> Email.put_from("do-not-reply@heymaisie.com")
-    |> Email.add_to(details.email)
-    |> Email.add_dynamic_template_data("firstName", details.first_name)
-    |> Mail.send()
-  end
+  # defp send_email(details) do
+  #   Email.build()
+  #   |> Email.put_template(System.get_env("SENDGRID_TEMPLATE_ID"))
+  #   |> Email.put_from("do-not-reply@heymaisie.com")
+  #   |> Email.add_to(details.email)
+  #   |> Email.add_dynamic_template_data("firstName", details.first_name)
+  #   |> Mail.send()
+  # end
 
   @doc """
   Updates a user.

@@ -1,8 +1,8 @@
 const Full = (props) => {
-  return (<div className="circlehost row-c">
-    <img src={props.host.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'} className="circlehost-img col-c-c" style={{backgroundSize: "cover", backgroundPosition: "center"}} />
-    <div className="circlehost__inner col">
-      <div className="circlehost__inner_name row-fs-c">
+  return (<div className="circlehost">
+    <div className="circlehost-img col-c-c" style={{backgroundImage: `url(${props.host.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: 'no-repeat'}} />
+    <div className="circlehost__inner">
+      <div className="circlehost__inner_name">
         <span className="dark_theme_title_text">{props.host.name}</span>
         <div className="col-c-c"><span>{props.host.license}</span></div>
       </div>
@@ -17,12 +17,12 @@ const Full = (props) => {
 
 const Abb = (props) =>
   <div className="hostabb row-fs-c">
-    <div className="hostabb__thumb" style={{backgroundImage: `url(${props.host.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundSize: "cover", backgroundPosition: "center"}} />
+    <div className="hostabb__thumb" style={{backgroundImage: `url(${props.host.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: 'no-repeat'}} />
     <div className="hostabb__text col">
       <span className="hostabb__text-tag dark_theme_tag_text">hosted by</span>
       <div className="circlehost__inner_name row-fs-c" style={{marginTop: 5}}>
         <span className="dark_theme_title_text">{props.host.name}</span>
-        <div className="col-c-c"><span>{props.host.license}</span></div>
+        <div className="col-c-c abb"><span>{props.host.license}</span></div>
       </div>
     </div>
   </div>

@@ -23,9 +23,8 @@ defmodule MaisieApiWeb.UploadController do
       |> ExAws.request!
 
     # build the image url and add to the params to be stored
-    updated_params =
-      upload_params          
-      |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}" end)
+    upload_params          
+    |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}" end)
     
     updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}")
     sync_database(table, id, updated_params, conn, bucket_name)
@@ -34,55 +33,55 @@ defmodule MaisieApiWeb.UploadController do
   defp upload_file(false, conn, _image_params, _upload_params) do
     conn
     |> put_status(403)
-    |> json(%{"error": "user not authorized"})
+    |> json(%{error: "user not authorized"})
   end
 
-  defp sync_database("circle" = table, id, updated_params, conn, bucket_name) do
+  defp sync_database("circle", id, updated_params, conn, bucket_name) do
     circle = Services.get_circle!(id)
     # delete previous file
     delete_previous_file(circle.image_url, bucket_name)
 
     case Services.update_circle(circle, updated_params) do
-      {:ok, circle} ->
+      {:ok, _circle} ->
         json(conn, %{success: "file saved, circle updated successfully"})
-      {:error, changeset} ->
+      {:error, _changeset} ->
         conn
         |> put_status(400)
-        |> json(%{"error": "file was not saved, circle was not updated"})
+        |> json(%{error: "file was not saved, circle was not updated"})
     end    
   end
 
-  defp sync_database("user" = table, id, updated_params, conn, bucket_name) do
+  defp sync_database("user", id, updated_params, conn, bucket_name) do
     user = Accounts.get_user(id)
       # delete previous file
     delete_previous_file(user.image_url, bucket_name)
 
     case Accounts.update_user_image(user, updated_params) do
-      {:ok, user} ->
+      {:ok, _user} ->
         json(conn, %{success: "file saved, user updated successfully"})
-      {:error, changeset} ->
+      {:error, _changeset} ->
         conn
         |> put_status(400)
-        |> json(%{"error": "file was not saved, user was not updated"})
+        |> json(%{error: "file was not saved, user was not updated"})
     end    
   end
 
-  defp sync_database("host" = table, id, updated_params, conn, bucket_name) do
+  defp sync_database("host", id, updated_params, conn, bucket_name) do
     host = Accounts.get_host!(id)
     # delete previous file
     delete_previous_file(host.image_url, bucket_name)
 
     case Accounts.update_host_image(host, updated_params) do
-      {:ok, host} ->
+      {:ok, _host} ->
         json(conn, %{success: "file saved, host updated successfully"})
-      {:error, changeset} ->
+      {:error, _changeset} ->
         conn
         |> put_status(400)
-        |> json(%{"error": "file was not saved, host was not updated"})
+        |> json(%{error: "file was not saved, host was not updated"})
     end    
   end
 
-  defp delete_previous_file(image_url = nil, _bucket_name) do
+  defp delete_previous_file(nil, _bucket_name) do
     "nothing to do here"
   end
 
@@ -91,7 +90,7 @@ defmodule MaisieApiWeb.UploadController do
     |> ExAws.request!
   end
 
-  defp authorized?(%{"context" => %{"current_user": user}} = assigns) do
+  defp authorized?(%{"context" => %{current_user: _user}}) do
     true
   end
 

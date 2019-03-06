@@ -4,9 +4,9 @@
 
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
   box-shadow: 0px 1px 1px $color-secondary-05;
+  @include size-five { padding-left: 20px; padding-right: 20px; }
+  @include size-four { padding-left: 20px; padding-right: 20px; }
   &__right {
     &-pay {
       font-size: $font-size-small;

@@ -5,37 +5,14 @@
   position: relative;
   overflow: hidden;
   padding-bottom: 40px;
-  @include size-five {
-    &-title { font-size: 50px; text-align: right; margin-right: calc(20px + 1%); }
-    &-img4 { left: -20vh; }
-    &-img5 { left: -18vh; }
-  }
-  @include size-four {
-    &-title { font-size: 50px; text-align: right; margin-right: calc(20px + 1%); }
-    &-img4 { left: -12vh; }
-    &-img5 { left: -10vh; }
-  }
-  @include size-three {
-    &-title { font-size: 45px; text-align: center; }
-    &-img4 { width: 100vw; left: 0; }
-    &-img5 { width: 100vw; left: 0; }
-  }
-  @include size-two {
-    &-title { font-size: 40px; text-align: center; }
-    &-img4 { width: 100vw; left: 0; }
-    &-img5 { width: 100vw; left: 0; }
-  }
-  @include size-one {
-    &-title { font-size: 40px; text-align: center; }
-    &-img4 { width: 100vw; left: 0; }
-    &-img5 { width: 100vw; left: 0; }
-  }
-  &-forpros {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: $color-primary;
+  background: linear-gradient(to bottom right, transparent, $color-primary-lighter);
+  > img {
+    height: 50vh;
+    min-width: 600px;
+    left: -10vw;
+    top: 35vh;
+    position: absolute;
+    z-index: 1;
   }
   &-header {
     width: 100vw;
@@ -43,88 +20,24 @@
     position: absolute;
   }
   &-title {
-    margin-top: 30vh;
+    font-family: "Cabin", "Open Sans";
+    margin-top: 100px;
+    margin-right: 5%;
     font-weight: 600;
-    color: $color-secondary;
-    > div {
-      z-index: 9999 !important;
-    }
-  }
-  &-img1, &-img2, &-img3 {
-    position: absolute;
-    height: 200vh;
-    width: 300vw;
-    top: -100vw;
-    transform: rotate(-40deg);
-  }
-  &-img1 {
-    left: -110vw;
-    background-color: $color-primary-lighter;
-    z-index: -1;
-  }
-  &-img2 {
-    left: -130vw;
-    background-color: $color-primary-light;
-    z-index: -1;
-  }
-  &-img3 {
-    left: -150vw;
-    background-color: $color-primary;
-    z-index: -1;
-  }
-  &-img4 {
-    height: 110vh;
-    top: -10vh;
-    left: -40vw;
-    position: absolute;
-    z-index: -1;
-  }
-  &-img5 {
-    height: 60vh;
-    width: 90vh;
-    top: 21vh;
-    z-index: -1;
-    position: absolute;
-    background-color: $color-primary;
-  }
-  > a {
-    @include transition(all, 200ms);
-    margin-top: 50px;
-    margin-right: 50px;
+    line-height: calc(25px + 4vw);
     text-align: right;
-    > span {
-      @include transition(all, 200ms);
-      font-size: $font-size-large;
-      color: $color-primary;
-      font-weight: 600;
-    }
-    > svg {
-      @include transition(all, 200ms);
-      height: 24px;
-      margin-top: 2px;
-      margin-left: 10px;
-      > g > g {
-        @include transition(all, 200ms);
-        fill: $color-primary;
-      }
-    }
-    &:hover {
-      cursor: pointer;
-      > span {
-        font-size: 36px;
-        color: $color-secondary;
-        margin-right: 10px;
-      }
-      > svg {
-        height: 38px;
-        > g > g {
-          fill: $color-secondary;
-        }
-      }
-    }
-    &:active {
-      opacity: .5;
-    }
+    color: $color-primary;
+    font-size: calc(2.5vw + 20px);
+  }
+  &-sub {
+    font-family: "Cabin", "Open Sans";
+    margin-top: 40px;
+    margin-bottom: 50px;
+    margin-right: 5%;
+    font-weight: 500;
+    text-align: right;
+    color: $color-secondary;
+    font-size: calc(24px + 1vw);
   }
 }
 .whyhostreasons {
@@ -183,6 +96,52 @@
       > p {
         color: #EEF1FF;
         font-weight: 400;
+      }
+    }
+  }
+}
+.whyhosthow {
+  min-height: 100vh;
+  width: 100%;
+  padding: 5%;
+  background-color: white;
+  @include size-two { @include flex-direction(column !important); }
+  @include size-one { @include flex-direction(column !important); }
+  > img {
+    width: 35vw;
+    @include size-two { width: auto; max-height: 240px; }
+    @include size-one { width: auto; max-height: 240px; }
+    @include border-radius(5px);
+    box-shadow: $shadow-sssss;
+  }
+  > div {
+    width: 50vw;
+    @include size-two { width: 100%; }
+    @include size-one { width: 100%; }
+    color: $color-secondary;
+    > h1 {
+      font-size: 40px;
+      margin-bottom: 25px;
+    }
+    > div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      > div.col-c-c {
+        margin-top: 5px;
+        height: 40px;
+        width: 40px;
+        background-color: $color-primary;
+        @include border-radius(50px);
+        color: white;
+        font-size: $font-size-med;
+        font-weight: 700;
+      }
+      > div:not(.col-c-c) {
+        > p {
+          color: $color-secondary-75;
+        }
+        flex: 1;
+        margin-left: 20px;
       }
     }
   }

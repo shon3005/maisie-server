@@ -27,7 +27,7 @@ export default class List extends Component {
         <div className="circles_req__ind_r row-fe-c">
           <a href={'mailto:' + req.user.email} className="email" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/email_lightgray.svg')", backgroundRepeat: "no-repeat", backgroundSize: "18px 18px", backgroundPosition: "center"}} />
           <div onClick={() => this.handleAcceptRequest(index, client, req.id, req.user.id, circleId, hostId, circleIndex)} className="accept" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/accept.svg')", backgroundRepeat: "no-repeat", backgroundSize: "15px 15px", backgroundPosition: "center"}} />
-          <div onClick={() => this.handleDenyRequest(index, client, req.id, hostId, circleIndex)} className="deny" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/deny.svg')", backgroundRepeat: "no-repeat", backgroundSize: "12px 12px", backgroundPosition: "center"}} />
+          <div onClick={() => this.handleDenyRequest(index, client, req.id, circleIndex)} className="deny" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/deny.svg')", backgroundRepeat: "no-repeat", backgroundSize: "12px 12px", backgroundPosition: "center"}} />
         </div>
       </div>
     );
@@ -43,8 +43,8 @@ export default class List extends Component {
     this.props.updateRequestCount();
   }
   
-  handleDenyRequest = async (index, client, requestId, hostId, circleIndex) => {
-    await denyRequest(client, requestId, hostId);
+  handleDenyRequest = async (index, client, requestId, circleIndex) => {
+    await denyRequest(client, requestId);
     this.setState({
       circleRequests: {
         ...this.state.circleRequests, [circleIndex]: this.state.circleRequests[circleIndex].filter((_, i) => i !== index)
@@ -57,7 +57,7 @@ export default class List extends Component {
     return this.props.r.map((circle, index) => {
       return this.state.circleRequests[index].length !== 0 ? <div key={index} className="circles_req">
         <div className="circles_req-title">{circle.title}</div>
-        {this.requests(this.state.circleRequests[index] || [], this.props.client, circle.id, this.props.host, index)}
+        {this.requests(this.state.circleRequests[index] || [], this.props.client, circle.id, this.props.hostId, index)}
       </div> : null
     })
   }

@@ -23,57 +23,7 @@ export default (
               circleId: $circleId,
               hostId: $hostId
             }
-          ) {
-            id
-            firstName
-            lastName
-            email
-            role
-            phone
-            neighborhood
-            school
-            work
-            bio
-            last4
-            imageUrl
-            support
-            host {
-                id
-                firstName
-                lastName
-                description
-                license
-                imageUrl
-                education
-                hasStripeAccount
-            }
-            circles {
-              address
-              ampm
-              description
-              frequency
-              hour
-              minute
-              min
-              imageUrl
-              title
-              price
-              neighborhood
-              locationType
-              length
-              id
-              startDate
-              tags
-              members {
-                  id
-              }
-            }
-            requests {
-              circle {
-                id
-              }
-            }
-          }
+          )
         }
       `,
       variables:

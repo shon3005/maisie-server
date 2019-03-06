@@ -1,4 +1,33 @@
 .hostprofile {
+  &__top {
+    @include flexbox;
+    @include size-five {
+      @include flex-direction(row);
+      @include justify-content(space-between);
+    }
+    @include size-four {
+      @include flex-direction(row);
+      @include justify-content(space-between);
+    }
+    @include size-three {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      > div:not(.hostprofile__edit) { margin-left: 15px; }
+    }
+    @include size-two {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      > div:not(.hostprofile__edit) { margin-left: 15px; }
+    }
+    @include size-one {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      > div:not(.hostprofile__edit) { margin-left: 15px; }
+    }
+    > div {
+      margin-bottom: 25px; 
+    }
+  }
   &__modal {
     max-width: 600px;
     min-width: 300px;

@@ -30,7 +30,7 @@ class Requests extends Component {
               <List
                 r={this.props.circles || []}
                 client={client}
-                host={this.props.host}
+                hostId={this.props.hostId}
                 updateUser={this.props.updateUser}
                 updateRequestCount={() => this.setState({numberOfRequests: this.state.numberOfRequests - 1})}
               />

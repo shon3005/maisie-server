@@ -7,7 +7,23 @@
       padding-bottom: $border-padding;
       padding-left: 3%;
       padding-right: 3%;
+      @include flexbox;
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      @include align-items(center);
+      @include size-two {
+        @include flex-direction(column !important);
+        @include align-items(flex-start !important);
+        > div { margin-top: 10px; margin-bottom: 10px; }
+        > div.row-fe-c { margin-left: -10px; }
 
+      }
+      @include size-one {
+        @include flex-direction(column !important);
+        @include align-items(flex-start !important);
+        > div { margin-top: 10px; margin-bottom: 10px; }
+        > div.row-fe-c { margin-left: -10px; }
+      }
       > span {
         color: $color-secondary;
         font-size: $font-size-large;

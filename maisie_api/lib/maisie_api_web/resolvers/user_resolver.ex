@@ -35,7 +35,7 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         |> update_user_support_handler()
     end
 
-    defp get_user_handler({:error, %Ecto.Changeset{} = changeset}) do
+    defp get_user_handler({:error, _changeset}) do
         {:error, %{message: "get-user", details: "USER NOT FOUND"}}
     end
 
@@ -43,27 +43,27 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         {:ok, response}
     end
 
-    defp update_user_handler({:error, %Ecto.Changeset{} = changeset}) do
+    defp update_user_handler({:error, _changeset}) do
         {:error, %{message: "update-user", details: "UPDATE USER FAILED"}}
     end
 
-    defp update_user_handler({:ok, %MaisieApi.Accounts.User{} = user} = response) do
+    defp update_user_handler({:ok, %MaisieApi.Accounts.User{} = user}) do
         {:ok, %{user: user}}
     end
 
-    defp update_user_password_handler({:error, %Ecto.Changeset{} = changeset}) do
+    defp update_user_password_handler({:error, _changeset}) do
         {:error, %{message: "update-user", details: "UPDATE USER PASSWORD FAILED"}}
     end
 
-    defp update_user_password_handler({:ok, %MaisieApi.Accounts.User{} = user} = response) do
+    defp update_user_password_handler({:ok, _user}) do
         {:ok, "UPDATE USER PASSWORD SUCCESS"}
     end
 
-    defp update_user_support_handler({:error, %Ecto.Changeset{} = changeset}) do
+    defp update_user_support_handler({:error, _changeset}) do
         {:error, %{message: "update-user-support", details: "UPDATE USER SUPPORT FAILED"}}
     end
 
-    defp update_user_support_handler({:ok, %MaisieApi.Accounts.User{} = user} = response) do
+    defp update_user_support_handler({:ok, %MaisieApi.Accounts.User{} = user}) do
         {:ok, user}
     end
 
@@ -71,7 +71,7 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         format_errors(changeset.errors)
     end
 
-    defp handler(response, input) do
+    defp handler(_response, input) do
         proceed_login_user(input)
     end
 
