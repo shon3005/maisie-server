@@ -27,7 +27,7 @@ export default class List extends Component {
         <div className="circles_req__ind_r row-fe-c">
           <a href={'mailto:' + req.user.email} className="email" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/email_lightgray.svg')", backgroundRepeat: "no-repeat", backgroundSize: "18px 18px", backgroundPosition: "center"}} />
           <div onClick={() => this.handleAcceptRequest(index, client, req.id, req.user.id, circleId, hostId, circleIndex)} className="accept" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/accept.svg')", backgroundRepeat: "no-repeat", backgroundSize: "15px 15px", backgroundPosition: "center"}} />
-          <div onClick={() => this.handleDenyRequest(index, client, req.id, circleIndex)} className="deny" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/deny.svg')", backgroundRepeat: "no-repeat", backgroundSize: "12px 12px", backgroundPosition: "center"}} />
+          <div onClick={() => this.handleDenyRequest(index, client, req.id, req.user.id, circleId, hostId, circleIndex)} className="deny" style={{backgroundImage: "url('https://s3.amazonaws.com/maisie-files/shared/deny.svg')", backgroundRepeat: "no-repeat", backgroundSize: "12px 12px", backgroundPosition: "center"}} />
         </div>
       </div>
     );
@@ -43,8 +43,8 @@ export default class List extends Component {
     this.props.updateRequestCount();
   }
   
-  handleDenyRequest = async (index, client, requestId, circleIndex) => {
-    await denyRequest(client, requestId);
+  handleDenyRequest = async (index, client, requestId, userId, circleId, hostId, circleIndex) => {
+    await denyRequest(client, requestId, userId, circleId, hostId);
     this.setState({
       circleRequests: {
         ...this.state.circleRequests, [circleIndex]: this.state.circleRequests[circleIndex].filter((_, i) => i !== index)
