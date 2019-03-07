@@ -40,6 +40,7 @@ export default (props) => {
         date={props.circle.startDate}
         time={props.circle ? new Date(new Date().setHours(props.circle.hour)).setMinutes(props.circle.minute) : null}
         length={props.circle ? props.circle.length : null}
+        length={props.circle ? props.circle.frequency : null}
       />
       <Divider />
       <Sub>who should join this circle?</Sub>
