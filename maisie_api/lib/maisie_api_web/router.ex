@@ -11,6 +11,7 @@ defmodule MaisieApiWeb.Router do
     pipe_through :api
 
     resources "/upload", MaisieApiWeb.UploadController, only: [:create]
+    resources "/stripe-events", MaisieApiWeb.StripeEventsController, only: [:create]
     
     forward("/graphql", Absinthe.Plug, schema: MaisieApiWeb.Schema)
 

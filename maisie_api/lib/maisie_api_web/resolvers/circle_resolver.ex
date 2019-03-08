@@ -17,7 +17,7 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         host = Accounts.get_host!(input.host_id)
         {:ok, product} = Stripe.API.request(%{name: input.title, type: "service"}, :post, "products", %{}, connect_account: host.stripe_id)
         {price, _} =  Integer.parse(input.price)
-
+        
         {:ok, plan} = Stripe.API.request(%{currency: "usd", interval: interval_map[input.frequency], interval_count: interval_count_map[input.frequency], product: product["id"], amount: price * 110}, :post, "plans", %{}, connect_account: host.stripe_id)
 
         input = Map.put(input, :tags, String.split(input.tags, ", "))
@@ -49,7 +49,22 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         {:ok, %Stripe.Customer{sources: %Stripe.List{data: [%Stripe.Source{id: source_id}]}}} = Stripe.Customer.retrieve(user.stripe_id)
         {:ok, %{"id" => new_source_id}} = Stripe.API.request(%{customer: user.stripe_id, original_source: source_id, usage: "reusable"}, :post, "sources", %{}, connect_account: host.stripe_id)
         {:ok, %{"id" => customer_id}} = Stripe.API.request(%{description: user.email , source: new_source_id}, :post, "customers", %{}, connect_account: host.stripe_id)
-        subscription = Stripe.API.request(%{application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
+        installments_limit = %{
+            "1 session" => 1,
+            "2 sessions" => 2,
+            "3 sessions" => 3,
+            "4 sessions" => 4,
+            "5 sessions" => 5,
+            "6 sessions" => 6,
+            "7 sessions" => 7,
+            "8 sessions" => 8,
+            "9 sessions" => 9,
+            "10 sessions" => 10,
+            "11 sessions" => 11,
+            "12 sessions" => 12,
+            "continuous" => "continuous",
+        }
+        subscription = Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
 
         send_accept_email(user, host, circle)
         {:ok, "request accepted"}
