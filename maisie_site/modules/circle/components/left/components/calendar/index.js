@@ -31,7 +31,14 @@ export default (props) => {
           <img src="https://s3.amazonaws.com/maisie-files/circle/length.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">length</span>
-            <span className="text dark_theme_primary_text">{props.length === 'continuous' ? "ongoing each week" : props.length + ' weeks'}</span>
+            <span className="text dark_theme_primary_text">{props.length === 'continuous' ? "continuous" : props.length}</span>
+          </div>
+        </div>
+        <div className="circledetails__item row-fs-c">
+          <img src="https://s3.amazonaws.com/maisie-files/circle/length.svg" />
+          <div className="col">
+            <span className="tag dark_theme_tag_text">frequency</span>
+            <span className="text dark_theme_primary_text">{props.frequency}</span>
           </div>
         </div>
       </div>

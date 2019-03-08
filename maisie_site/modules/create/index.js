@@ -180,6 +180,7 @@ class Create extends React.Component {
           address={this.state.address}
           price={this.state.price}
           min={this.state.min}
+          start_date={this.state.start_date.toLocaleDateString()}
         /> )}
       else if (this.state.slideToShow == 5) {
         return(
