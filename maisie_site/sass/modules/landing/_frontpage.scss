@@ -159,13 +159,19 @@
   }
 }
 .landing-reasons {
-  padding-bottom: 150px;
+  padding-bottom: 50px;
+  padding-top: 100px;
+  text-align: center;
+  > span {
+    font-size: 40px;
+  }
   background-color: $color-primary-lighter;
   &__in {
+    text-align: left;
     width: 100%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 150px;
+    padding-top: 100px;
     padding-bottom: 50px;
     @include flexbox;
     @include flex-direction(row);
@@ -316,9 +322,10 @@
   }
 }
 .featuredrowcontainer {
+  padding-top: 25px;
+  padding-bottom: 50px;
   position: relative;
-  margin-top: 40px;
-  margin-bottom: 60px;
+  background-color: $color-primary-lighter;
 }
 .whyhostcta {
   padding-top: 150px;
@@ -335,5 +342,119 @@
     font-weight: 600;
     color: $color-secondary;
 
+  }
+}
+.landing-stats {
+  padding-top: 125px;
+  padding-bottom: 125px;
+  @include linear-gradient($color-primary-light, $color-primary-lighte, to bottom right);
+  @include flexbox;
+  @include flex-direction(row);
+  @include justify-content(space-between);
+  @include align-items(center);
+  @include size-two {
+    @include flex-direction(column !important);
+  }
+  @include size-one {
+    @include flex-direction(column !important);
+  }
+  &__in {
+    @include size-two {
+      width: 90vw;
+      margin-bottom: 100px;
+    }
+    @include size-one {
+      width: 90vw;
+      margin-bottom: 100px;
+    }
+    padding-left: 5%;
+    width: 50vw;
+    &-title {
+      font-family: "Georgia";
+      font-size: 55px;
+      font-weight: 800;
+      color: $color-primary;
+      letter-spacing: -1px;
+    }
+    &-explain {
+      font-weight: 500;
+      color: $color-secondary-75;
+      font-size: $font-size-med;
+    }
+    &-emph {
+      font-weight: 700;
+      color: $color-secondary-75;
+      font-size: $font-size-med;
+    }
+  }
+  &__card {
+    @include transition(all, 300ms);
+    @include user-select(none);
+    margin-right: 5%;
+    @include size-two {
+      width: 90vw;
+      margin-left: 5vw;
+    }
+    @include size-one {
+      width: 90vw;
+      margin-left: 5vw;
+    }
+    width: 35vw;
+    min-width: 300px;
+    padding-bottom: 40px;
+    background-color: white;
+    box-shadow: 0px 0px 30px $color-secondary-10;
+    @include border-radius(10px);
+    overflow: hidden;
+    &-img {
+      height: 300px;
+      width: 100%;
+      position: relative;
+      > div {
+        height: 100%;
+        width: 100%;
+        background-color: $color-primary;
+        opacity: .85;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+      }
+      > span {
+        color: white;
+        z-index: 1000;
+        font-size: $font-size-large;
+        font-weight: 600;
+      }
+    }
+    &-tag {
+      width: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      > span {
+        font-size: $font-size-small;
+        font-weight: 600;
+        color: $color-secondary-25;
+      }
+      > div {
+        @include transition(all, 200ms);
+        height: 2px;
+        width: 0px;
+        background-color: $color-primary;
+      }
+    }
+    > span {
+      margin-left: 20px;
+      font-size: $font-size-med;
+      font-weight: 500;
+    }
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: 0px 0px 50px $color-secondary-20;
+      > .landing-stats__card-tag > div {
+        width: 100%;
+      }
+    }
   }
 }

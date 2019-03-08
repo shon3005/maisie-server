@@ -11,7 +11,7 @@ export default props =>
     <div className="landing-options__in col-fs-c">
       <div className="landing-options__in-top">
         <span>Considering your options</span>
-        <h1>How does Maisie stack up?</h1>
+        <h1>What are the benefits to using Maisie?</h1>
         <div className="landing-options__in_grid row-c-c">
           <div className="landing-options__in_grid-column col one">
             <h2>Mental wellness</h2>
@@ -31,11 +31,11 @@ export default props =>
             <h2>Maisie</h2>
             <div>
               <div style={{height: 5}} />
-              <div><img src="../../../static/shared/purple_check.svg" />$20-$50 per session</div>
+              <div><img src="../../../static/shared/purple_check.svg" />$25-$75 per session</div>
               <div className="d" style={{height: 4}} />
               <div><img src="../../../static/shared/purple_check.svg" />Not required</div>
               <div className="d" style={{height: 4}} />
-              <div><img src="../../../static/shared/purple_check.svg" />1 to 1.5 hours</div>
+              <div><img src="../../../static/shared/purple_check.svg" />1 to 2 hours</div>
               <div className="d" style={{height: 4}} />
               <div><img src="../../../static/shared/purple_check.svg" />Automatic</div>
               <div style={{height: 5}} />
@@ -44,7 +44,7 @@ export default props =>
         </div>
       </div>
     </div>
-    <div style={{marginTop: 50, textAlign: "center", zIndex: 3}}>
+    <div style={{marginTop: 100, textAlign: "center", zIndex: 3}}>
       <span className="landing-options-cta">Still deciding? We're here to help.</span>
       <Button kind="link" href="mailto:say@heymaisie.com">Ask a question</Button>
     </div>
