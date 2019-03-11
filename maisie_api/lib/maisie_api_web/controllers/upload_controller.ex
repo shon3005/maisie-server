@@ -26,7 +26,7 @@ defmodule MaisieApiWeb.UploadController do
     upload_params          
     |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}" end)
     
-    updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}")
+    updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{String.replace(unique_filename, " ", "%20")}")
     sync_database(table, id, updated_params, conn, bucket_name)
   end
 
