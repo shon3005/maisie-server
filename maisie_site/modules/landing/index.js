@@ -20,7 +20,9 @@ export default (props) =>
         <div className="landing-intro col-c-c">
           <span className="tag">Hey there. We're Maisie.</span>
           <span className="text">
-            Maisie is group therapy made simple.
+            We help people manage their mental health and fight
+            <br />
+            loneliness using the power of group psychotherapy.
           </span>
         </div>
         <div className="landing-stats">
@@ -55,15 +57,15 @@ export default (props) =>
           </div>
         </div>
         <div className="landing-reasons">
-          <span>Why try group therapy?</span>
+          <span>Why group therapy?</span>
           <div className="landing-reasons__in">
-          {[["https://s3.amazonaws.com/maisie-files/shared/affordable.svg", "Affordable", "Maisie is more affordable than one-on-one options, and does not require insurance to get started."],
-            ["https://s3.amazonaws.com/maisie-files/shared/unique.svg", "Unique", "Experiences on Maisie are fun! Get outside, get active, or get talking. No matter what you’re comfortable with, you can find your Circle on Maisie."],
-            ["https://s3.amazonaws.com/maisie-files/shared/transparent.svg", "Transparent", "You’ll never be surprised by pricing or expectations on Maisie– every detail is clear up front."],
+          {[["https://s3.amazonaws.com/maisie-files/shared/affordable.svg", "Affordable", "Maisie is more affordable than one-on-one options, while still providing a meaningful experience with a licensed professional."],
+            ["https://s3.amazonaws.com/maisie-files/shared/unique.svg", "Unique", "Get outside, get active, or get talking. No matter what you’re comfortable with, you can find your community on Maisie."],
+            ["https://s3.amazonaws.com/maisie-files/shared/transparent.svg", "Transparent", "Say goodbye to the traditional process of finding therapy. Maisie makes it simple and clear right up front."],
           ].map((a, i) => <div key={i} className="col"><img src={a[0]} /><span>{a[1]}</span><p>{a[2]}</p></div>
           )}
           </div>
-          <div className="col-c-c"><Button kind="primary" weight="purple">Join your first Circle</Button></div>
+          <div className="col-c-c"><Button kind="primary" weight="purple">Bring Maisie to your organization</Button></div>
         </div>
         {props.circles ?
           <div className="featuredrowcontainer">
