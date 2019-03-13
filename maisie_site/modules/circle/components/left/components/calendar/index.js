@@ -6,6 +6,7 @@ var moment = require('moment');
 
 
 export default (props) => {
+  console.log(props.frequency)
   // creates array where first value is month as a number, second is month as letters, third is month as abbreviated letters
   const this_month = [moment(props.date).format("MM"), moment(props.date).format("MMMM"), moment(props.date).format("MMM" + ".")]
   // creates array where first value is day as a number, second is day as a number with example "st" or "nd" after, third is day of the week as a string, fourth is day of the week as a number
