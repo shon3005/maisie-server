@@ -21,7 +21,7 @@ export default class Circles extends Component {
               total + current.requests.length : total;
           }, 0) : null;
         return <div className="hostcircles__inner">
-          <div className="hostcircles__inner-title row-sb-c">
+          <div className="hostcircles__inner-title">
             <LargeText>Circles I'm Hosting</LargeText>
             <div className="circles_overlay hide" id="circles_overlay"
               onClick={() => handleClick()}
@@ -36,7 +36,7 @@ export default class Circles extends Component {
               {requests ? <Requests
                 requests={requests}
                 circles={getCircles.data && getCircles.data.userCircles ? getCircles.data.userCircles : []}
-                host={this.props.userId}
+                hostId={this.props.hostId}
                 updateUser={this.props.updateUser}
               /> : null}
               <Button kind="primary" weight="purple" href="/create">Start a Circle</Button>

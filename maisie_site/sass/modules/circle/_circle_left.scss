@@ -1,20 +1,26 @@
 .circle_left {
   box-shadow: 0px 2px 30px $color-secondary-10;
-
+  .spacer {
+    height: 2px;
+  }
   &.dark_theme {
     background-color: transparent;
     box-shadow: none;
   }
   background-color: white;
-  padding: 40px;
 
-  @include size-four { @include border-radius(10px); }
-  @include size-five { @include border-radius(10px); }
+  @include size-one { padding-top: 40px; padding-bottom: 40px; }
+  @include size-two { padding-top: 40px; padding-bottom: 40px; }
+  @include size-three { padding-top: 40px; padding-bottom: 40px; }
+  @include size-four { @include border-radius(10px); padding: 40px; margin-bottom: 40px; }
+  @include size-five { @include border-radius(10px); padding: 40px; margin-bottom: 60px; }
   width: 100%;
   margin-bottom: 20px;
-  @include size-five { margin-bottom: 40px }
-  @include size-four { margin-bottom: 60px }
-
+  > div:not(.spacer) {
+    @include size-one { padding-left: 25px;  padding-right: 25px; }
+    @include size-two { padding-left: 25px;  padding-right: 25px; }
+    @include size-three { padding-left: 25px;  padding-right: 25px; }
+  }
   color: $color-secondary;
   &-title {
     font-size: $font-size-title;
@@ -84,25 +90,74 @@
 }
 .circlehost {
   margin-top: 15px;
+  @include flexbox;
+  @include size-five {
+    @include flex-direction(row);
+    @include align-items(flex-start);
+    @include justify-content(center);
+  }
+  @include size-four {
+    @include flex-direction(row);
+    @include align-items(flex-start);
+    @include justify-content(center);
+  }
+  @include size-three {
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(flex-start);
+
+  }
+  @include size-two {
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(flex-start);
+  }
+  @include size-one {
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(flex-start);
+  }
   &-img {
     height: 100px;
     width: 100px;
     overflow: hidden;
     @include border-radius(50px);
     margin-top: 5px;
-
-    > img {
-      width: 100%;
-      height: 100%;
-
-    }
   }
   &__inner {
     flex: 1;
-    margin-left: 20px;
+    @include flexbox;
+    @include flex-direction(column);
+    @include size-five { @include align-items(flex-start); margin-left: 20px; }
+    @include size-four { @include align-items(flex-start); margin-left: 20px; }
+    @include size-three { @include align-items(center); }
+    @include size-two { @include align-items(center); }
+    @include size-one { @include align-items(center); }
     &_name {
-      margin-top: 25px;
-      height: 20px;
+      margin-top: 10px;
+      @include flexbox;
+      @include justify-content(flex-start);
+      @include align-items(center);
+      @include size-five {
+        @include flex-direction(row);
+        > div { margin-left: 10px; }
+      }
+      @include size-four {
+        @include flex-direction(row);
+        > div { margin-left: 10px; }
+      }
+      @include size-three {
+        @include flex-direction(column);
+        > div.abb { margin-left: 10px; }
+      }
+      @include size-two {
+        @include flex-direction(column);
+        > div.abb { margin-left: 10px; }
+      }
+      @include size-one {
+        @include flex-direction(column);
+        > div.abb { margin-left: 10px; }
+      }
       > span {
         text-transform: capitalize;
         font-size: 20px;
@@ -114,7 +169,6 @@
         padding-bottom: 2px;
         padding-left: 8px;
         padding-right: 8px;
-        margin-left: 10px;
 
         @include border-radius(5px);
         background-color: $color-primary;
@@ -124,7 +178,7 @@
       }
     }
     &_education {
-      margin-bottom: 35px;
+      margin-bottom: 10px;
       margin-top: 10px;
       height: 20px;
       > img {

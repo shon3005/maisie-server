@@ -7,7 +7,8 @@ defmodule MaisieApiWeb.Schema.Types.PaymentType do
     end
 
     object :transaction_type do
-        field(:circle_name, :string)
+        field(:net, :integer)
+        field(:fee, :integer)
         field(:date, :integer)
         field(:amount, :integer)
     end

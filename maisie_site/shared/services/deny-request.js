@@ -3,6 +3,8 @@ import gql from 'graphql-tag'
 export default (
   apolloClient,
   requestId,
+  userId,
+  circleId,
   hostId
 ) => {
   return apolloClient
@@ -10,68 +12,25 @@ export default (
       mutation: gql`
         mutation denyRequest(
           $requestId: ID!,
+          $userId: ID!,
+          $circleId: ID!,
           $hostId: ID!
         ) {
           denyRequest(
             input: {
               requestId: $requestId,
+              userId: $userId,
+              circleId: $circleId,
               hostId: $hostId
             }
-          ) {
-            user {
-              id
-              firstName
-              lastName
-              email
-              role
-              phone
-              neighborhood
-              school
-              work
-              bio
-              last4
-              imageUrl
-              support
-              host {
-                id
-                firstName
-                lastName
-                description
-                license
-                imageUrl
-                education
-                hasStripeAccount
-              }
-              circles {
-                address
-                ampm
-                description
-                frequency
-                hour
-                minute
-                min
-                imageUrl
-                title
-                price
-                neighborhood
-                locationType
-                length
-                startDate
-                tags
-                id
-              }
-              requests {
-                  circle {
-                      id
-                  }
-              }
-            }
-          }
+          )
         }
       `,
       variables:
       {
         requestId,
+        userId,
+        circleId,
         hostId
       }
     })

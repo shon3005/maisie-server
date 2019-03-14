@@ -2,17 +2,20 @@ import gql from 'graphql-tag'
 
 export default (
   apolloClient,
-  circleId
+  circleId,
+  hostId
 ) => {
   return apolloClient
     .mutate({
       mutation: gql`
         mutation createRequest(
           $circleId: ID!,
+          $hostId: ID!,
         ) {
           createRequest(
             input: {
               circleId: $circleId,
+              hostId: $hostId,
             }
           ) {
             user {
@@ -88,7 +91,8 @@ export default (
       `,
       variables:
       {
-        circleId
+        circleId,
+        hostId
       }
     })
 }

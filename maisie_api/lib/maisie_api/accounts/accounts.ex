@@ -55,7 +55,7 @@ defmodule MaisieApi.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-    # |> to_send_email(Mix.env())
+    |> to_send_email(Mix.env())
   end
 
   def create_member(attrs \\ %{}) do
@@ -88,6 +88,7 @@ defmodule MaisieApi.Accounts do
     |> Email.put_from("do-not-reply@heymaisie.com")
     |> Email.add_to(details.email)
     |> Email.add_dynamic_template_data("firstName", details.first_name)
+    |> Email.add_dynamic_template_data("circleUrl", "https://heymaisie.com")
     |> Mail.send()
   end
 

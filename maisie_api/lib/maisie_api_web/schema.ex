@@ -172,15 +172,15 @@ defmodule MaisieApiWeb.Schema do
         end
 
          @desc "Accept a request to join a circle"
-        field :accept_request, type: :user_type do
-          arg(:input, non_null(:member_input_type))
+        field :accept_request, type: :string do
+          arg(:input, :member_input_type)
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.CircleResolver.accept_request/3)
         end
 
          @desc "Deny a request to join a circle"
-        field :deny_request, type: :user_type do
-          arg(:input, non_null(:member_input_type))
+        field :deny_request, type: :string do
+          arg(:input, :member_input_type)
           middleware(Middleware.Authorize, :any)
           resolve(&Resolvers.CircleResolver.deny_request/3)
         end

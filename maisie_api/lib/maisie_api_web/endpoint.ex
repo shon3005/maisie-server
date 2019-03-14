@@ -28,6 +28,7 @@ defmodule MaisieApiWeb.Endpoint do
     parsers: [:urlencoded, {:multipart, length: 20_000_000}, :json],
     pass: ["*/*"],
     json_decoder: Poison,
+    body_reader: {MaisieApiWeb.CacheBodyReader, :read_body, []},
     query_string_length: 1_000_000
     # json_decoder: Phoenix.json_library(),
 

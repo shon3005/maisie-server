@@ -1,5 +1,5 @@
 defmodule MaisieApiWeb.Resolvers.PaymentResolver do
-    alias MaisieApi.{Accounts, Guardian}
+    alias MaisieApi.{Accounts}
 
     def create_or_update_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Accounts.get_user(current_user.id)
@@ -16,16 +16,16 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
 
     def create_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Stripe.Customer.create(%{
-            "email": current_user.email,
-            "source": input.source
+            email: current_user.email,
+            source: input.source
         })
         |> handler(current_user)
     end
 
     def update_customer(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Stripe.Customer.update(current_user.stripe_id, %{
-            "email": current_user.email,
-            "source": input.source
+            email: current_user.email,
+            source: input.source
         })
         |> update_handler(current_user)
     end
@@ -69,7 +69,7 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
         |> charge_handler(current_user)
     end
 
-    defp transfer_to_host({:ok, %Stripe.Charge{transfer: transfer_id} = charge}, input) do
+    defp transfer_to_host({:ok, %Stripe.Charge{transfer: transfer_id}}, input) do
         Stripe.Transfer.update(transfer_id, %{
             metadata: %{
                 circle: input.circle
@@ -77,40 +77,40 @@ defmodule MaisieApiWeb.Resolvers.PaymentResolver do
         })
     end
 
-    defp update_handler({ :ok, %Stripe.Customer{ id: id, sources: %Stripe.List{ data: [ %Stripe.Source{ card: %{ last4: last4 } } | _tail ] } } } = response, current_user) do
+    defp update_handler({ :ok, %Stripe.Customer{ sources: %Stripe.List{ data: [ %Stripe.Source{ card: %{ last4: last4 } } | _tail ] } } }, current_user) do
         Accounts.update_payment(current_user, %{last4: last4})
     end
 
-    defp update_handler({:error, %Stripe.Error{} = error}, current_user) do
+    defp update_handler({:error, %Stripe.Error{} = error}, _current_user) do
         format_errors(error)
     end
 
-    defp charge_handler({:ok, %Stripe.Transfer{}} = response, current_user) do
+    defp charge_handler({:ok, %Stripe.Transfer{}}, _current_user) do
         {:ok, "charge succeeded"}
     end
 
-    defp charge_handler({:error, %Stripe.Error{} = error}, current_user) do
+    defp charge_handler({:error, %Stripe.Error{} = error}, _current_user) do
         format_errors(error)
     end
 
-    defp handler({:ok, %Stripe.Customer{ id: stripe_id, sources: %Stripe.List{ data: [ %Stripe.Source{ card: %{ last4: last4 } } | _tail ] } } } = response, current_user) do
+    defp handler({:ok, %Stripe.Customer{ id: stripe_id, sources: %Stripe.List{ data: [ %Stripe.Source{ card: %{ last4: last4 } } | _tail ] } } }, current_user) do
         Accounts.update_payment(current_user, %{stripe_id: stripe_id, last4: last4})
     end
 
-    defp handler({:error, %Stripe.Error{} = error}, current_user) do
+    defp handler({:error, %Stripe.Error{} = error}, _current_user) do
         format_errors(error)
     end
 
-    defp connect_handler({:ok, %{ stripe_user_id: stripe_id }} = response, current_user, host_id) do
+    defp connect_handler({:ok, %{ stripe_user_id: stripe_id }}, _current_user, host_id) do
         Stripe.Account.update(stripe_id, %{payout_schedule: %{interval: "manual"}})
         Accounts.update_host_payment(Accounts.get_host!(host_id), %{stripe_id: stripe_id, has_stripe_account: true})
     end
 
-    defp connect_handler({:error, %Stripe.Error{} = error}, current_user, _host_id) do
+    defp connect_handler({:error, %Stripe.Error{} = error}, _current_user, _host_id) do
         format_errors(error)
     end
 
-    defp format_errors(%Stripe.Error{ extra: %{ http_status: status }, message: message } = error) do
+    defp format_errors(%Stripe.Error{ extra: %{ http_status: status }, message: message }) do
         {:error, %{message: status, details: message}}
     end
 end

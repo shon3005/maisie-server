@@ -11,9 +11,10 @@ export default (
             stripeTransactions(hostId: $id) {
             balance
             transactions {
-                circleName
                 date
                 amount
+                net
+                fee
             }
             url
             }

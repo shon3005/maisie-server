@@ -32,6 +32,7 @@ export default (props) => {
           </div>
         </div>
       </div>
+      <div className="circlecal__spacer"/>
       <div className="circlecal__location col-c-c">Maps coming soon</div>
 
     </div>

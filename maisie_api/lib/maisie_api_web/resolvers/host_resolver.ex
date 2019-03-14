@@ -11,12 +11,12 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         |> handler()
     end
 
-    def update_host(_, %{input: input}, %{context: %{current_user: current_user}}) do
+    def update_host(_, %{input: input}, _current_user) do
         Accounts.update_host(Accounts.get_host!(input.id), input)
         |> update_host_handler()
     end
 
-    def get_transactions(_, %{host_id: host_id}, %{context: %{current_user: current_user}}) do
+    def get_transactions(_, %{host_id: host_id}, _current_user) do
         Accounts.get_host!(host_id)
         |> list_transfers()
     end
@@ -26,18 +26,17 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         |> retrieve_balance()
     end
 
-    def host_stripe_dashboard_url(_, %{host_id: host_id}, %{context: %{current_user: current_user}}) do
+    def host_stripe_dashboard_url(_, %{host_id: host_id}, _current_user) do
         Accounts.get_host!(host_id)
         |> create_account_link()
     end
 
     defp list_transfers(%Accounts.Host{stripe_id: stripe_id} = host) do
-        {:ok,
-        %{"available" => [%{"amount" => balance}],
-        "pending" => [%{"amount" => pending_balance}]}} = Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
+        {:ok, %{"available" => [%{"amount" => balance}]}} = Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
         {:ok, url} = create_account_link(host)
-        Stripe.Transfer.list(%{destination: stripe_id, limit: 5})
-        |> transfer_handler(balance, url)
+        {:ok, %{"available" => [%{"amount" => amount}]}}= Stripe.API.request(%{}, :get, "balance", %{}, connect_account: stripe_id)
+        Stripe.API.request(%{limit: 5}, :get, "balance/history", %{}, connect_account: stripe_id)
+        |> transfer_handler(amount, url)
     end
 
     defp retrieve_balance(%Accounts.Host{stripe_id: stripe_id}) do
@@ -45,7 +44,7 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         |> create_payout(stripe_id)
     end
 
-    defp create_payout({:ok, %{"available" => [%{"amount" => balance}], "pending" => [%{"amount" => pending_balance}]}}, stripe_id) do
+    defp create_payout({:ok, %{"available" => [%{"amount" => balance}]}}, stripe_id) do
         Stripe.Payout.create(%{
             amount: balance,
             currency: "usd"
@@ -80,11 +79,12 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         {:error, error.message}
     end
 
-    defp transfer_handler({:ok, %Stripe.List{data: transactions}}, balance, url) do
-        new_transactions = Enum.map(transactions, fn transfer -> %{
-            amount: transfer.amount,
-            date: transfer.created,
-            circle_name: transfer.metadata["circle"]
+    defp transfer_handler({:ok, %{"data" => transactions}}, balance, url) do
+        new_transactions = Enum.map(transactions, fn transaction -> %{
+            amount: transaction["amount"],
+            date: transaction["created"],
+            fee: transaction["fee"],
+            net: transaction["net"],
         } end)
 
         transfers = %{
@@ -104,11 +104,11 @@ defmodule MaisieApiWeb.Resolvers.HostResolver do
         response
     end
 
-    defp update_host_handler({:error, %Ecto.Changeset{} = changeset}) do
+    defp update_host_handler({:error, _changeset}) do
         {:error, %{message: "update-host", details: "UPDATE HOST FAILED"}}
     end
 
-    defp update_host_handler({:ok, %MaisieApi.Accounts.Host{} = host} = response) do
+    defp update_host_handler({:ok, %MaisieApi.Accounts.Host{} = host}) do
         {:ok, host}
     end
 

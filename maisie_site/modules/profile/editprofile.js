@@ -32,7 +32,7 @@ class Profile extends React.Component {
     const image_url = document.getElementById("profile_imageupload").value;
     const reader = new FileReader();
     const imgtag = document.getElementById("profilePic");
-    imgtag.title = files[0].name;
+    imgtag.title = files[0] && files[0].name ? files[0].name : null;
 
     reader.onload = this.onload(imgtag);
     reader.readAsDataURL(files[0]);

@@ -4,28 +4,13 @@ import { ApolloProvider } from 'react-apollo';
 import { StripeProvider } from 'react-stripe-elements-universal';
 import { withApollo } from '../shared/services/with-apollo';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-
 import Head from 'next/head';
 import '../sass/main.scss';
-import rootReducer from '../shared/services/reducers';
-import { loadState, saveState } from '../shared/services/local-storage';
 import initStore from '../shared/services/init-store';
 import withRedux from 'next-redux-wrapper';
-// import configureStore from '../shared/services/init-store';
 import { PersistGate } from 'redux-persist/integration/react';
-
-// let store;
-// if (process.browser) {
-//   const persistedState = loadState(document.cookie);
-
-//   store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
-  
-//   store.subscribe(() => { saveState(store.getState()); });
-// }
-
-// const { persistor, store } = configureStore({});
+import getConfig from 'next/config';
+const { publicRuntimeConfig } = getConfig();
 
 class MyApp extends App {
   static async getInitialProps({Component, ctx}) {
@@ -34,27 +19,14 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps({ ctx })
     }
-    const { req } = ctx;
-
-    // let store;
-    // if (req && req.headers) {
-    //   const persistedState = loadState(req.headers.cookie);
-
-    //   store = createStore(rootReducer, persistedState, applyMiddleware(thunk));
-      
-    //   store.subscribe(() => { saveState(store.getState()); });
-    // }
 
     return {
-      // storeGIP: store,
       pageProps
     };
   }
 
   render () {
     const {Component, pageProps, apolloClient, store} = this.props;
-    // storeGIP
-
     return (
       <Container>
         <Head>
@@ -75,7 +47,7 @@ class MyApp extends App {
           <meta name="theme-color" content="#ffffff" />
           <script src="https://js.stripe.com/v3/"></script>
         </Head>
-        <StripeProvider apiKey="pk_test_ViPZJWABK26GK2CJCd25Wahf">
+        <StripeProvider apiKey={publicRuntimeConfig.stripePublicKey}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={store.__persistor}>
               <ApolloProvider client={apolloClient}>

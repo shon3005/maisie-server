@@ -64,7 +64,9 @@ a {
 }
 .fade {
   opacity: .25 !important;
-  &:hover { pointer-events: none; transform: none !important;}
+  pointer-events: none;
+  &:hover { pointer-events: none; transform: none !important; box-shadow: none; }
+  &:active { pointer-events: none !important; box-shadow: none; }
 }
 .saving {
   @include transition(all, 200ms);
@@ -72,14 +74,17 @@ a {
   background-color: $color-primary-light !important;
   color: $color-primary !important;
   opacity: 1 !important;
+  pointer-events: none;
   &:hover {
     opacity: 1 !important;
     transform: none !important;
+    box-shadow: none;
     pointer-events: none !important;
     cursor: default !important;
   }
   &:active {
     pointer-events: none !important;
+    box-shadow: none;
   }
 }
 .r_cont {

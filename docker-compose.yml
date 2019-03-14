@@ -38,5 +38,7 @@ services:
     volumes:
       - /app/node_modules
       - ./maisie_site:/app
+    env_file:
+      - .env
 volumes:
   postgres-data:

@@ -15,6 +15,9 @@ class ProfileModal extends React.Component {
       saveMessage: "Save",
     }
   }
+  handleCancel = () => {
+    document.getElementById("profile_modal").classList.add("hide");
+  }
   handleSubmit = async (client) => {
     document.getElementById("hostprofile__modal_brow-cancel").classList.add('disabled');
     document.getElementById("hostprofile__modal_brow-submit").classList.add('saving');
@@ -48,6 +51,7 @@ class ProfileModal extends React.Component {
     await this.props.updateUser(user);
     document.getElementById("hostprofile__modal_brow-cancel").classList.add('disabled');
     document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
+    this.setState({saveMessage: 'Save'});
     document.getElementById("profile_modal").classList.add("hide")
   }
   handleUploadImage(x) {
@@ -92,7 +96,7 @@ class ProfileModal extends React.Component {
                 <span>{ this.state.image ? "Uploaded: " + this.state.image : null}</span>
             </Field>
             <div className="hostprofile__modal_brow row-fe-c">
-              <Button kind="alt" weight="light" id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => document.getElementById("profile_modal").classList.add("hide")}>
+              <Button kind="alt" weight="light" id="hostprofile__modal_brow-cancel" className="hostprofile__modal_brow-cancel" onClick={() => this.handleCancel()}>
                 Cancel
               </Button>
               <div style={{width: 10}}/>
