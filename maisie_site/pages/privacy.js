@@ -1,9 +1,10 @@
 import Header from '../shared/components/header/index.js';
 import Footer from '../shared/components/footer/index.js';
+import { connect } from 'react-redux';
 
-export default () =>
+const Privacy = (props) =>
   <div className="privacy">
-    <Header trnsp loggedIn="loggedOut" />
+    <Header trnsp loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
     <div className="privacy__in">
       <h2>
       Maisie Privacy Policy
@@ -92,3 +93,9 @@ export default () =>
     </div>
     <Footer />
   </div>
+
+const mapStateToProps = (state) => {
+  return { user: state.user.user };
+}
+
+export default connect(mapStateToProps)(Privacy);
