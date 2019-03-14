@@ -32,20 +32,12 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     end
 
     def create_request(_, %{input: input}, %{context: %{current_user: current_user}}) do
-        request_input = Map.merge(input, %{user_id: current_user.id})
-        Services.create_request(request_input)
-    end
+        request_input = Map.merge(%{circle_id: input.circle_id}, %{user_id: current_user.id})
 
-    def accept_request(_, %{input: %{request_id: request_id, user_id: user_id, circle_id: circle_id, host_id: host_id}}, _) do
-        Map.merge(%{}, %{user_id: user_id, circle_id: circle_id})
-        |> Accounts.create_member()
+        user = Accounts.get_user(current_user.id)
+        host = Accounts.get_host!(input.host_id)
+        circle = Services.get_circle!(input.circle_id)
 
-        Services.get_request_by_id(request_id)
-        |> Services.delete_request()
-
-        user = Accounts.get_user(user_id)
-        host = Accounts.get_host!(host_id)
-        circle = Services.get_circle!(circle_id)
         {:ok, %Stripe.Customer{sources: %Stripe.List{data: [%Stripe.Source{id: source_id}]}}} = Stripe.Customer.retrieve(user.stripe_id)
         {:ok, %{"id" => new_source_id}} = Stripe.API.request(%{customer: user.stripe_id, original_source: source_id, usage: "reusable"}, :post, "sources", %{}, connect_account: host.stripe_id)
         {:ok, %{"id" => customer_id}} = Stripe.API.request(%{description: user.email , source: new_source_id}, :post, "customers", %{}, connect_account: host.stripe_id)
@@ -64,7 +56,40 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
             "12 sessions" => 12,
             "continuous" => "continuous",
         }
-        subscription = Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
+        Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
+
+        Services.create_request(request_input)
+    end
+
+    def accept_request(_, %{input: %{request_id: request_id, user_id: user_id, circle_id: circle_id, host_id: host_id}}, _) do
+        Map.merge(%{}, %{user_id: user_id, circle_id: circle_id})
+        |> Accounts.create_member()
+
+        Services.get_request_by_id(request_id)
+        |> Services.delete_request()
+
+        user = Accounts.get_user(user_id)
+        host = Accounts.get_host!(host_id)
+        circle = Services.get_circle!(circle_id)
+        # {:ok, %Stripe.Customer{sources: %Stripe.List{data: [%Stripe.Source{id: source_id}]}}} = Stripe.Customer.retrieve(user.stripe_id)
+        # {:ok, %{"id" => new_source_id}} = Stripe.API.request(%{customer: user.stripe_id, original_source: source_id, usage: "reusable"}, :post, "sources", %{}, connect_account: host.stripe_id)
+        # {:ok, %{"id" => customer_id}} = Stripe.API.request(%{description: user.email , source: new_source_id}, :post, "customers", %{}, connect_account: host.stripe_id)
+        # installments_limit = %{
+        #     "1 session" => 1,
+        #     "2 sessions" => 2,
+        #     "3 sessions" => 3,
+        #     "4 sessions" => 4,
+        #     "5 sessions" => 5,
+        #     "6 sessions" => 6,
+        #     "7 sessions" => 7,
+        #     "8 sessions" => 8,
+        #     "9 sessions" => 9,
+        #     "10 sessions" => 10,
+        #     "11 sessions" => 11,
+        #     "12 sessions" => 12,
+        #     "continuous" => "continuous",
+        # }
+        # subscription = Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
 
         send_accept_email(user, host, circle)
         {:ok, "request accepted"}

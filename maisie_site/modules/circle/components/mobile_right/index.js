@@ -21,20 +21,21 @@ export default class extends React.Component {
       (member.circle.id === this.props.circle.id) ? this.setState({status: 'joined'}) : null;
     }) : null;
   }
-  handleJoin = async (a) => {
+  handleJoin = async (a, client, circleId, hostId) => {
     if (this.props.user) {
       this.setState({joining: true});
       if (!this.props.user.last4) {
         Router.push('/settings');
         return;
       }
-      !a
+      const {data: {createRequest: {user: user}}} = await createRequest(client, circleId, hostId);
+      await this.props.updateUser(user);
+      this.setState({joining: false, status: 'requested'}, () => {
+        !a
         ? document.getElementById("onjoinmodal").classList.remove('hide')
           // *** need to put logic here for changing status to "requested"
         : null
-      const {data: {createRequest: {user: user}}} = await createRequest(client, circleId);
-      await this.props.updateUser(user);
-      this.setState({joining: false, status: 'requested'});
+      });
     } else {
       Router.push('/signin');
     }
@@ -56,7 +57,7 @@ export default class extends React.Component {
           <span className="circle_mobile_right_left-ppl lower">{this.props.circle.min + "-" + this.props.circle.max + " members"}</span>
         </div>
         <div className="circle_mobile_right_button">
-          {!isHostCircle ? <Button saving={this.state.joining} kind="primary" weight="purple" onClick={(a) => this.handleJoin(this.props.status, this.props.client, this.props.circle.id)} className={classNames({
+          {!isHostCircle ? <Button saving={this.state.joining} kind="primary" weight="purple" onClick={(a) => this.handleJoin(this.props.status, this.props.client, this.props.circle.id, this.props.circle.user.host.id)} className={classNames({
             "requested": this.state.status === "requested",
             "joined": this.state.status === "joined",
             "col-c-c": true, })}

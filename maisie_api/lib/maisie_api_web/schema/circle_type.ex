@@ -66,6 +66,7 @@ defmodule MaisieApiWeb.Schema.Types.CircleType do
 
     input_object :request_input_type do
         field(:circle_id, :id)
+        field(:host_id, :id)
     end
 
     input_object :member_input_type do
