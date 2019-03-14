@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 import { Query } from 'react-apollo';
 import getAllCircles from '../shared/services/get-all-circles';
 import cookie from 'cookie';
-import GaWrapper from '../shared/ga_wrapper.js';
-
 class Index extends Component {
   static getInitialProps({ctx}) {
     let cookies;
@@ -29,7 +27,6 @@ class Index extends Component {
 
   render() {
     return (
-      <GaWrapper>
         <Query query={getAllCircles}>
           {getAllCircles => {
             const circles = getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : [];
@@ -38,7 +35,6 @@ class Index extends Component {
               <Landing circles={circles}/>
           }}
         </Query>
-      </GaWrapper>
     )
   }
 }

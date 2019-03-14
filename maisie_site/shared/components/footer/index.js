@@ -9,19 +9,18 @@ export default props =>
       </div>
       <div className="circlesocials col-fs-c">
         <div className="circlesocials__in row">
-          <a
-            className="twitter-share-button"
-            datatext="Check out this Circle on Maisie!"
-            datavia="@sayheymaisie"
-            datadnt="true"
-            datashowcount="false"
-            href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-            className="circlesocials__in_social dark_theme_social col-c-c"
-            style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/twitter_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}}
-          />
-          <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/insta_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
-          <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/fb_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
-          <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/email_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
+          <a href="https://twitter.com/sayheymaisie">
+            <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/twitter_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
+          </a>
+          <a href="https://instagram.com/sayheymaisie">
+            <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/insta_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
+          </a>
+          <a href="https://facebook.com/sayheymaisie">
+            <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/fb_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
+          </a>
+          <a href="mailto:say@heymaisie.com">
+            <div className="circlesocials__in_social dark_theme_social col-c-c" style={{backgroundImage: `url(https://s3.amazonaws.com/maisie-files/shared/email_${props.dark ? "lightpurple" : "lightgray"}.svg)`, backgroundRepeat: "no-repeat", backgroundSize: "20px 20px", backgroundPosition: "center"}} />
+          </a>
         </div>
       </div>
       <div style={{height: 20}} />
