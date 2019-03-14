@@ -50,17 +50,7 @@
     z-index: 1;
     @include size-one { bottom: -8vh; text-align: center; }
     @include size-two { bottom: -8vh; text-align: center; }
-    @include linear-gradient(transparent, $color-black);
-    position: absolute;
     bottom: 0px;
-  }
-  &-filter2 {
-    height: 25vh;
-    width: 100vw;
-    z-index: 99;
-    @include linear-gradient($color-black-50,transparent);
-    position: absolute;
-    top: 0px;
   }
 }
 .front-header.light .headerLoggedOut-link span {
