@@ -4,6 +4,7 @@ import FeaturedRow from './components/featuredrow.js';
 import Button from '../../shared/components/button.js';
 import Double from './components/double.js';
 import Options from './components/options.js';
+
 const HostCta = () =>
   <div className="landing-hostcta row-sa-c">
     <div className="landing-hostcta__cont col">

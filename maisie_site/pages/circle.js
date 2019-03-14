@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import getUserAndCircle from '../shared/services/get-user-and-circle';
 import { Query } from 'react-apollo';
 import * as actions from '../shared/services/actions';
+import GaWrapper from '../shared/ga_wrapper.js';
 
 var classNames = require('classnames')
 
@@ -19,18 +20,20 @@ const Circle = (props) => {
   const circle_id = props.query && props.query.id !== 'null' ? props.query.id : null;
   const user_id = props.user && props.user.id ? props.user.id : null;
   return(
-    <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
-      <Header needToAddPayment={props.user && !props.user.last4} circle loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
-      {circle_id ?
-        <Query query={getUserAndCircle} variables={{circleId: circle_id, userId: user_id}}>
-          {getUserAndCircle => {
-            return getUserAndCircle.data && getUserAndCircle.data.UserAndCircle ? <CircleModule dark={PREFER_DARK_THEME} d={DATA} host={getUserAndCircle.data.UserAndCircle.circle.user.host} user={getUserAndCircle.data.UserAndCircle.user} id={circle_id} circle={getUserAndCircle.data.UserAndCircle.circle} updateUser={props.updateUser}/> : null;
-          }}
-        </Query> :
-        null
-      }
-      <Footer hidemobile />
-    </div>
+    <GaWrapper>
+      <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
+        <Header needToAddPayment={props.user && !props.user.last4} circle loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
+        {circle_id ?
+          <Query query={getUserAndCircle} variables={{circleId: circle_id, userId: user_id}}>
+            {getUserAndCircle => {
+              return getUserAndCircle.data && getUserAndCircle.data.UserAndCircle ? <CircleModule dark={PREFER_DARK_THEME} d={DATA} host={getUserAndCircle.data.UserAndCircle.circle.user.host} user={getUserAndCircle.data.UserAndCircle.user} id={circle_id} circle={getUserAndCircle.data.UserAndCircle.circle} updateUser={props.updateUser}/> : null;
+            }}
+          </Query> :
+          null
+        }
+        <Footer hidemobile />
+      </div>
+    </GaWrapper>
   )
 }
 

@@ -5,6 +5,7 @@ import Router from 'next/router'
 import { connect } from 'react-redux';
 import * as actions from '../shared/services/actions';
 import cookie from 'cookie';
+import GaWrapper from '../shared/ga_wrapper';
 
 const Error = (props) => <div className="signin__error">{props.children}</div>
 
@@ -71,36 +72,38 @@ class Signin extends Component {
     return (
       <ApolloConsumer>
         {client => (
-          <div className="signin col-c-c">
-            <a href="/"><img src="https://s3.amazonaws.com/maisie-files/shared/newlogo.svg"/></a>
-                          <div style={{height: 20}} />
-            <span className="signin-welcome">welcome back</span>
-            <span className="signin-subwelcome">please sign in</span>
-                          <div style={{height: 20}} />
-            <form className="col-fs-c" onSubmit={(_) => this.handleSubmit(client)}>
-              <input
-                required
-                id="signin_email"
-                placeholder="email address"
-                type="text"
-                value={this.state.email} onChange={this.handleEmailChange}
-              />
-                          <div style={{height: 10}} />
-              <input
-                required
-                id="signin_password"
-                placeholder="password"
-                type="password"
-                value={this.state.password} onChange={this.handlePasswordChange}
-              />
-              <Error>{this.state.error ? "Error: incorrect user credentials" : null}</Error>
-              <button onClick={this.handleEnterPress} id="signin_submit" type="submit">
-                Sign In
-              </button>
-              <div style={{height: 20}} />
-              <a>Forgot your password?</a>
-            </form>
-          </div>
+          <GaWrapper>
+            <div className="signin col-c-c">
+              <a href="/"><img src="https://s3.amazonaws.com/maisie-files/shared/newlogo.svg"/></a>
+                            <div style={{height: 20}} />
+              <span className="signin-welcome">welcome back</span>
+              <span className="signin-subwelcome">please sign in</span>
+                            <div style={{height: 20}} />
+              <form className="col-fs-c" onSubmit={(_) => this.handleSubmit(client)}>
+                <input
+                  required
+                  id="signin_email"
+                  placeholder="email address"
+                  type="text"
+                  value={this.state.email} onChange={this.handleEmailChange}
+                />
+                            <div style={{height: 10}} />
+                <input
+                  required
+                  id="signin_password"
+                  placeholder="password"
+                  type="password"
+                  value={this.state.password} onChange={this.handlePasswordChange}
+                />
+                <Error>{this.state.error ? "Error: incorrect user credentials" : null}</Error>
+                <button onClick={this.handleEnterPress} id="signin_submit" type="submit">
+                  Sign In
+                </button>
+                <div style={{height: 20}} />
+                <a>Forgot your password?</a>
+              </form>
+            </div>
+          </GaWrapper>
         )}
       </ApolloConsumer>
     )
