@@ -15,8 +15,8 @@
   background-color: $color-primary-lightest;
   &.dark_theme { background-color: $color-black; }
   position: relative;
-  padding-bottom: 140px;
-  @include size-five { padding-bottom: 40px; }
+  padding-bottom: 100px;
+  @include size-five { padding-bottom: 0px; }
 
   &_askmodal {
     position: fixed;

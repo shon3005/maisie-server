@@ -78,6 +78,13 @@ export default class extends React.Component {
           </div>
           {/* can't use this now -> <div className="col-fs-c"><Socials dark={this.props.dark} /></div>*/}
         </div>
+        {
+          !isHostCircle && this.state.status != "requested" && this.state.status != "joined"
+            ? <div className="circle_right__inner_cont-note col-c-c">
+                When you request to join this Circle, you'll be charged for the first session. If the host declines your request, you'll automatically be refunded.
+              </div>
+            : null
+        }
       </div>
     )
   }

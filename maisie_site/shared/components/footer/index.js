@@ -40,7 +40,7 @@ export default props =>
     </div>
     <div className="newfooter__in col-fs">
       <h1>Resources</h1>
-      <div className="newfooter__in-link"><a href="mailto:support@heymaisie.com">Product Support</a></div>
+      <div className="newfooter__in-link"><a href="/support">Product Support</a></div>
       <div className="newfooter__in-link"><a href="/terms">Terms of Service</a></div>
       <div className="newfooter__in-link"><a href="/privacy">Privacy Policy</a></div>
     </div>
