@@ -1,136 +1,136 @@
 .landing-options {
+  width: 100%;
+  padding-top: 100px;
+  // padding-bottom: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
+  position: relative;
+  @include size-two { padding-left: 0; padding-right: 0; }
+  @include size-one { padding-left: 0; padding-right: 0; }
+  @include linear-gradient(rgba(118, 146, 255, 0.05), #EEF1FF);
+  &-background {
+    height: 100%;
     width: 100%;
-    padding-top: 100px;
-    // padding-bottom: 100px;
-    padding-left: 5%;
-    padding-right: 5%;
-    position: relative;
-    @include size-two { padding-left: 0; padding-right: 0; }
-    @include size-one { padding-left: 0; padding-right: 0; }
-    @include linear-gradient(rgba(118, 146, 255, 0.05), #EEF1FF);
-    &-background {
-      height: 100%;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: 1;
+  }
+  &-cta {
+    font-size: $font-size-large;
+    font-weight: 500;
+    margin-top: 10px;
+    color: $color-primary;
+  }
+  &__in {
+    background-color: #FBFCFF;
+    box-shadow: 0px 0px 50px $color-secondary-10;
+    @include border-radius(10px);
+    padding: 80px;
+    max-width: 950px;
+    width: 100%;
+    z-index: 2;
+    @include size-two { padding: 20px; @include border-radius(0px); }
+    @include size-one { padding: 20px; @include border-radius(0px); }
+    &-top {
+      text-align: left;
       width: 100%;
-      position: absolute;
-      top: -50px;
-      left: 0;
-      z-index: 1;
-    }
-    &-cta {
-      font-size: $font-size-large;
-      font-weight: 500;
-      margin-top: 10px;
-      color: $color-primary;
-    }
-    &__in {
-      background-color: #FBFCFF;
-      box-shadow: 0px 0px 50px $color-secondary-10;
-      @include border-radius(10px);
-      padding: 80px;
-      max-width: 950px;
-      width: 100%;
-      z-index: 2;
-      @include size-two { padding: 20px; @include border-radius(0px); }
-      @include size-one { padding: 20px; @include border-radius(0px); }
-      &-top {
-        text-align: left;
-        width: 100%;
-        > span, > h1 { font-weight: 600; }
-        > span {
-          color: $color-primary;
-        }
-        > h1 {
-          font-size: $font-size-large;
-          color: $color-secondary;
-        }
+      > span, > h1 { font-weight: 600; }
+      > span {
+        color: $color-primary;
       }
-      &_grid {
-        font-size: $font-size-small;
-        @include size-two {
-          font-size: 12px;
+      > h1 {
+        font-size: $font-size-large;
+        color: $color-secondary;
+      }
+    }
+    &_grid {
+      font-size: $font-size-small;
+      @include size-two {
+        font-size: 12px;
+      }
+      @include size-one {
+        font-size: 10px;
+      }
+      &-column {
+        margin-top: 40px;
+        &.one {
+          color: $color-secondary;
+          flex: 2;
         }
-        @include size-one {
-          font-size: 10px;
+        &.two {
+          color: $color-secondary-50;
+          flex: 1;
         }
-        &-column {
+        &.three {
+          color: $color-secondary;
+          flex: 1;
+        }
+        > h2 {
+          font-weight: 700;
+          font-size: $font-size-small;
+          color: inherit;
+          text-transform: uppercase;
+          margin-left: 20px;
+          margin-bottom: 20px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        > div {
+          @include flexbox;
+          @include flex-direction(column);
+          @include justify-content(center);
+          @include align-items(flex-start);
+          height: 56px;
+          padding-left: 20px;
+          padding-right: 20px;
+          width: 100%;
+          background-color: $color-secondary-03;
+          margin-bottom: 4px;
+          color: inherit;
+          font-size: inherit;
+          font-weight: 600;
+        }
+        &-three {
           margin-top: 40px;
-          &.one {
-            color: $color-secondary;
-            flex: 2;
-          }
-          &.two {
-            color: $color-secondary-50;
-            flex: 1;
-          }
-          &.three {
-            color: $color-secondary;
-            flex: 1;
-          }
           > h2 {
+            white-space: nowrap;
+            overflow: hidden;
             font-weight: 700;
-            font-size: $font-size-small;
+            font-size: inherit;
             color: inherit;
             text-transform: uppercase;
             margin-left: 20px;
-            margin-bottom: 20px;
             text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
+            margin-bottom: 17px;
           }
+          height: 100%;
           > div {
-            @include flexbox;
-            @include flex-direction(column);
-            @include justify-content(center);
-            @include align-items(flex-start);
-            height: 56px;
-            padding-left: 20px;
-            padding-right: 20px;
-            width: 100%;
-            background-color: $color-secondary-03;
-            margin-bottom: 4px;
-            color: inherit;
-            font-size: inherit;
-            font-weight: 600;
-          }
-          &-three {
-            margin-top: 40px;
-            > h2 {
-              white-space: nowrap;
-              overflow: hidden;
-              font-weight: 700;
-              font-size: inherit;
-              color: inherit;
-              text-transform: uppercase;
-              margin-left: 20px;
-              text-overflow: ellipsis;
-              margin-bottom: 17px;
-            }
-            height: 100%;
-            > div {
-              background-color: white;
-              box-shadow: $shadow-sssss;
-              @include border-radius(5px);
-              > div {
-                > img {
-                  margin-right: 6px;
-                }
-                &.d { background-color: $color-secondary-03}
-                @include flexbox;
-                @include flex-direction(row);
-                @include justify-content(flex-start);
-                @include align-items(center);
-                height: 56px;
-                padding-left: 20px;
-                padding-right: 20px;
-                width: 100%;
-                color: inherit;
-                font-size: inherit;
-                font-weight: 600;
-              }
-            }
+            background-color: white;
+            box-shadow: $shadow-sssss;
             @include border-radius(5px);
+            > div {
+              > img {
+                margin-right: 6px;
+              }
+              &.d { background-color: $color-secondary-03}
+              @include flexbox;
+              @include flex-direction(row);
+              @include justify-content(flex-start);
+              @include align-items(center);
+              height: 56px;
+              padding-left: 20px;
+              padding-right: 20px;
+              width: 100%;
+              color: inherit;
+              font-size: inherit;
+              font-weight: 600;
+            }
           }
+          @include border-radius(5px);
         }
       }
     }
   }
+}

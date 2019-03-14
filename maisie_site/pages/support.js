@@ -1,6 +1,6 @@
 import SupportModule from '../modules/support/index.js';
 import Header from '../shared/components/header/index.js';
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';
 import redirect from '../shared/services/redirect';

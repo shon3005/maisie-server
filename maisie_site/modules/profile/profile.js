@@ -15,7 +15,7 @@ export default class extends React.Component {
       <form className="profile__inner col">
         <div className="profile__inner-title row-sb-c">
           <div className="row-fs-c">
-          <div className="img" style={{backgroundImage: `url(${this.props.user.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "cover"}} />
+            <div className="img" style={{backgroundImage: `url(${this.props.user.imageUrl || 'https://s3.amazonaws.com/maisie-files/shared/profile-default.svg'})`, backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "cover"}} />
             <div>
               <span className="title">{this.props.user.firstName + ' ' + this.props.user.lastName}</span>
               <div className="sub">{this.props.user.email}</div>

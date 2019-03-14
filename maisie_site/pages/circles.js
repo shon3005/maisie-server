@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CirclesModule from '../modules/circles/index.js';
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';

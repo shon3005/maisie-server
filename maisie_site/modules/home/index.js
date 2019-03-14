@@ -1,5 +1,5 @@
 import Header from '../../shared/components/header/index.js';
-import Footer from '../../shared/components/footer.js';
+import Footer from '../../shared/components/footer/index.js';
 import FeaturedRow from '../landing/components/featuredrow.js';
 import FullPageSpinner from '../../shared/components/fullpagespinner.js';
 import Button from '../../shared/components/button.js';

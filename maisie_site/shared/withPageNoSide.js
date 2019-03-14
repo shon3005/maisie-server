@@ -1,5 +1,5 @@
 import Header from './components/header/index.js';
-import Footer from './components/footer.js';
+import Footer from './components/footer/index.js';
 
 var classNames = require('classnames');
 

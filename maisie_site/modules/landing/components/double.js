@@ -33,13 +33,13 @@ export default () =>
         <div>
           <span className="title">Insurance</span><br />
           <span className="text">
-          No insurance is required to use Maisie. But that's okay: sessions on Maisie are often cheaper than what you would pay for 1:1, even with insurance.
+            No insurance is required to use Maisie. But that's okay: sessions on Maisie are often cheaper than what you would pay for 1:1, even with insurance.
           </span>
         </div>
         <div>
           <span className="title">Social</span><br />
           <span className="text">
-          Meet new people and make new friends! Part of the value of Circles are the valuable communities they help build.
+            Meet new people and make new friends! Part of the value of Circles are the valuable communities they help build.
           </span>
         </div>
         <div>

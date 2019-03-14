@@ -35,7 +35,7 @@ export default props =>
               <div className="d" style={{height: 4}} />
               <div><img src="../../../static/shared/purple_check.svg" />Not required</div>
               <div className="d" style={{height: 4}} />
-              <div><img src="../../../static/shared/purple_check.svg" />1 to 2 hours</div>
+              <div><img src="../../../static/shared/purple_check.svg" />1 to 2 hours</div>
               <div className="d" style={{height: 4}} />
               <div><img src="../../../static/shared/purple_check.svg" />Automatic</div>
               <div style={{height: 5}} />

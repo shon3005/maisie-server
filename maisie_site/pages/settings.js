@@ -1,5 +1,5 @@
 import SettingsModule from '../modules/settings/index.js';
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import Header from '../shared/components/header/index.js';
 import { connect } from 'react-redux';
 import cookie from 'cookie';

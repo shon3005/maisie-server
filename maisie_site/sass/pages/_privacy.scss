@@ -1,0 +1,29 @@
+.privacy {
+  &__in {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    > p {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      font-weight: 500;
+      font-size: $font-size-reg;
+      color: $color-secondary-50;
+    }
+    > h1 {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      font-weight: 800;
+      font-size: $font-size-med;
+      color: $color-secondary-75;
+    }
+    > h2 {
+      margin-top: 25px;
+      margin-bottom: 25px;
+      font-weight: 800;
+      font-size: $font-size-large;
+      color: $color-secondary-75;
+    }
+  }
+}

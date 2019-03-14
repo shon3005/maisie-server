@@ -1,4 +1,4 @@
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import Header from '../shared/components/header/index.js';
 import GrowTogether from '../modules/landing/components/growtogether.js';
 import Button from '../shared/components/button.js';
@@ -81,7 +81,7 @@ export default () => {
             <div className="col-c-c">3</div>
             <div>
               <h2>Host</h2>
-              <p>Users will apply to join your Circle, and you’re in charge of deciding who comes. Don’t worry about payments or communicating schedules– we handle it all.</p>
+              <p>Users will apply to join your Circle, and you’re in charge of deciding who comes. Don’t worry about payments or communicating schedules– we handle it all.</p>
             </div>
           </div>
           <Button

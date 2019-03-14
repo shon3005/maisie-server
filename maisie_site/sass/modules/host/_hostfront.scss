@@ -156,3 +156,49 @@
     left: 40vw;
   }
 }
+.whyhosthow {
+  min-height: 100vh;
+  width: 100%;
+  padding: 5%;
+  background-color: white;
+  @include size-two { @include flex-direction(column !important); }
+  @include size-one { @include flex-direction(column !important); }
+  > img {
+    width: 35vw;
+    @include size-two { width: auto; max-height: 240px; }
+    @include size-one { width: auto; max-height: 240px; }
+    @include border-radius(5px);
+    box-shadow: $shadow-sssss;
+  }
+  > div {
+    width: 50vw;
+    @include size-two { width: 100%; }
+    @include size-one { width: 100%; }
+    color: $color-secondary;
+    > h1 {
+      font-size: 40px;
+      margin-bottom: 25px;
+    }
+    > div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      > div.col-c-c {
+        margin-top: 5px;
+        height: 40px;
+        width: 40px;
+        background-color: $color-primary;
+        @include border-radius(50px);
+        color: white;
+        font-size: $font-size-med;
+        font-weight: 700;
+      }
+      > div:not(.col-c-c) {
+        > p {
+          color: $color-secondary-75;
+        }
+        flex: 1;
+        margin-left: 20px;
+      }
+    }
+  }
+}

@@ -6,6 +6,11 @@ export default (props) =>
       <div />
     </a>
     <div className="headerLoggedOut-spacer" />
+    <a href="mailto:say@heymaisie.com" className="headerLoggedOut-link col-c">
+      <span className={classNames({ "circle_page": props.circle })}>Are you an employer?</span>
+      <div />
+    </a>
+    <div className="headerLoggedOut-spacer" />
     <a href="/signin" className="headerLoggedOut-link col-c">
       <span className={classNames({ "circle_page": props.circle })}>Sign In</span>
       <div />
