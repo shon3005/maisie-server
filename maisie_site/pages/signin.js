@@ -5,7 +5,6 @@ import Router from 'next/router'
 import { connect } from 'react-redux';
 import * as actions from '../shared/services/actions';
 import cookie from 'cookie';
-import GaWrapper from '../shared/ga_wrapper';
 
 const Error = (props) => <div className="signin__error">{props.children}</div>
 
@@ -72,7 +71,6 @@ class Signin extends Component {
     return (
       <ApolloConsumer>
         {client => (
-          <GaWrapper>
             <div className="signin col-c-c">
               <a href="/"><img src="https://s3.amazonaws.com/maisie-files/shared/newlogo.svg"/></a>
                             <div style={{height: 20}} />
@@ -103,7 +101,6 @@ class Signin extends Component {
                 <a>Forgot your password?</a>
               </form>
             </div>
-          </GaWrapper>
         )}
       </ApolloConsumer>
     )

@@ -12,7 +12,6 @@ import { connect } from 'react-redux';
 import getUserAndCircle from '../shared/services/get-user-and-circle';
 import { Query } from 'react-apollo';
 import * as actions from '../shared/services/actions';
-import GaWrapper from '../shared/ga_wrapper.js';
 
 var classNames = require('classnames')
 
@@ -20,7 +19,6 @@ const Circle = (props) => {
   const circle_id = props.query && props.query.id !== 'null' ? props.query.id : null;
   const user_id = props.user && props.user.id ? props.user.id : null;
   return(
-    <GaWrapper>
       <div className={classNames("circle", {"dark_theme": PREFER_DARK_THEME})}>
         <Header needToAddPayment={props.user && !props.user.last4} circle loggedIn={props.user ? 'loggedIn' : 'loggedOut'} />
         {circle_id ?
@@ -33,7 +31,6 @@ const Circle = (props) => {
         }
         <Footer hidemobile />
       </div>
-    </GaWrapper>
   )
 }
 
