@@ -28,19 +28,19 @@ export default class extends React.Component {
           <div className="profile__inner_in-item">
             <span className="tag">bio</span>
             <br />
-            <span className="text">{this.props.user.bio || 'not available'}</span>
+            <span className="text">{this.props.user.bio || 'Not Available'}</span>
             <Spacer height={25} />
             <span className="tag">School</span>
             <br />
-            <span className="text">{this.props.user.school || 'not available'}</span>
+            <span className="text">{this.props.user.school || 'Not Available'}</span>
             <Spacer height={25} />
             <span className="tag">Work</span>
             <br />
-            <span className="text">{this.props.user.work || 'not available'}</span>
+            <span className="text">{this.props.user.work || 'Not Available'}</span>
             <Spacer height={25} />
             <span className="tag">Where you live</span>
             <br />
-            <span className="text">{this.props.user.neighborhood || 'not available'}</span>
+            <span className="text">{this.props.user.neighborhood || 'Not Available'}</span>
           </div>
         </div>
         <Spacer height={20} />
@@ -48,11 +48,11 @@ export default class extends React.Component {
           <div className="profile__inner_in-item">
             <span className="tag">phone</span>
             <br />
-            <span className="text">{this.props.user.phone || 'not available'}</span>
-            <Spacer height={25} />
-            <span className="tag">gender</span>
+            <span className="text">{this.props.user.phone || 'Not Available'}</span>
+            {/* <Spacer height={25} /> */}
+            {/* <span className="tag">gender</span> */}
             <br />
-            <span className="text">Not using this field</span>
+            {/* <span className="text">Not using this field</span> */}
           </div>
         </div>
       </form>

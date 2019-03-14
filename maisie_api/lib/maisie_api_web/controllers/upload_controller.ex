@@ -12,21 +12,17 @@ defmodule MaisieApiWeb.UploadController do
 
   defp upload_file(true, conn, image_params, %{"id" => id, "table" => table} = upload_params) do
     file_uuid = UUID.uuid4(:hex)
-    image_filename = image_params.filename
-    unique_filename = "#{file_uuid}-#{image_filename}"
     {:ok, image_binary} = File.read(image_params.path)
 
     bucket_name = System.get_env("BUCKET_NAME")
-          
     image = 
-      ExAws.S3.put_object(bucket_name, unique_filename, image_binary)          
+      ExAws.S3.put_object(bucket_name, file_uuid, image_binary)          
       |> ExAws.request!
-
     # build the image url and add to the params to be stored
     upload_params          
-    |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{unique_filename}" end)
+    |> Map.update(image, image_params, fn _value -> "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{file_uuid}" end)
     
-    updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{String.replace(unique_filename, " ", "%20")}")
+    updated_params = Map.put(%{}, :image_url, "https://#{bucket_name}.s3.amazonaws.com/#{bucket_name}/#{file_uuid}")
     sync_database(table, id, updated_params, conn, bucket_name)
   end
 
@@ -70,7 +66,6 @@ defmodule MaisieApiWeb.UploadController do
     host = Accounts.get_host!(id)
     # delete previous file
     delete_previous_file(host.image_url, bucket_name)
-
     case Accounts.update_host_image(host, updated_params) do
       {:ok, _host} ->
         json(conn, %{success: "file saved, host updated successfully"})
