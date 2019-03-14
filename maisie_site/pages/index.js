@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Landing from '../modules/landing/index.js';
 import Home from '../modules/home/index';
 import { connect } from 'react-redux'
-import getAllCircles from '../shared/services/get-all-circles';
 import { Query } from 'react-apollo';
+import getAllCircles from '../shared/services/get-all-circles';
 import cookie from 'cookie';
 import GaWrapper from '../shared/ga_wrapper.js';
 
@@ -29,22 +29,16 @@ class Index extends Component {
 
   render() {
     return (
-      this.props.token ?
-        <GaWrapper>
-          <Query query={getAllCircles}>
-            {getAllCircles => {
-              const circles = getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : [];
-              return <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user} circles={circles}/>
-            }}
-          </Query>
-        </GaWrapper> :
-        <GaWrapper>
-          <Query query={getAllCircles}>
-            {getAllCircles => {
-              return <Landing circles={getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : null}/>
-            }}
-          </Query>
-        </GaWrapper>
+      <GaWrapper>
+        <Query query={getAllCircles}>
+          {getAllCircles => {
+            const circles = getAllCircles.data && getAllCircles.data.circles && getAllCircles.data.circles.length > 0 ? getAllCircles.data.circles : [];
+            return this.props.token ?
+              <Home onSignUpFlowPress={this.handleSignUpToggle.bind(this)} user={this.props.user} circles={circles}/> :
+              <Landing circles={circles}/>
+          }}
+        </Query>
+      </GaWrapper>
     )
   }
 }

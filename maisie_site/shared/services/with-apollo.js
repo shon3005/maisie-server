@@ -21,17 +21,16 @@ export const withApollo = App => {
       const {
         Component,
         router,
-        ctx: { req, res, query }
+        ctx: { req, res }
       } = ctx
 
       const apollo = initApollo(
         {},
         {
           getToken: () => parseCookies(req).token,
-          graphql_url: 'http://multimaisiedocker-env.hc7kfsmz9r.us-east-1.elasticbeanstalk.com/api/graphql'
+          graphql_url: '/api/graphql'
         }
       )
-      // 'http://api:4000/graphql'
       ctx.ctx.apolloClient = apollo
 
       let appProps = {}
