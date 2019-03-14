@@ -5,7 +5,7 @@ const PREFER_DARK_THEME = false
 /* added payment? */ let addedPayment = false;
 //
 import CircleModule from '../modules/circle/index.js';
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import Header from '../shared/components/header/index.js';
 import DATA from '../modules/circle/dummy_data.js';
 import { connect } from 'react-redux';

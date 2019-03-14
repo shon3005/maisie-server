@@ -1,6 +1,6 @@
 import ProfileModule from '../modules/profile/profile.js';
 import Header from '../shared/components/header/index.js';
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import { connect } from 'react-redux';
 import getUserById from '../shared/services/get-user-profile';
 import { Query } from 'react-apollo';
@@ -13,7 +13,7 @@ const Profile = props => {
     <div className="profile">
       <Header loggedIn="loggedIn"/>
       <Query query={getUserById} variables={{userId: id}}>
-        { getUserById => { 
+        { getUserById => {
             return getUserById && getUserById.data && getUserById.data.getUserById ? <ProfileModule user={getUserById.data.getUserById} token={props.token} /> : null;
           }
         }

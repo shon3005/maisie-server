@@ -1,4 +1,4 @@
-import Footer from '../../shared/components/footer.js';
+import Footer from '../../shared/components/footer/index.js';
 import Progress from './components/progressBar.js';
 import Header from '../../shared/components/header/index.js';
 import LargeText from '../../shared/components/text/largeText.js';

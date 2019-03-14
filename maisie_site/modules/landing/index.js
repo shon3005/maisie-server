@@ -1,5 +1,5 @@
 import FrontPage from './components/frontpage.js';
-import Footer from '../../shared/components/footer.js';
+import Footer from '../../shared/components/footer/index.js';
 import FeaturedRow from './components/featuredrow.js';
 import Button from '../../shared/components/button.js';
 import Double from './components/double.js';
@@ -65,7 +65,7 @@ export default (props) =>
           ].map((a, i) => <div key={i} className="col"><img src={a[0]} /><span>{a[1]}</span><p>{a[2]}</p></div>
           )}
           </div>
-          <div className="col-c-c"><Button kind="primary" weight="purple">Bring Maisie to your organization</Button></div>
+          <div className="col-c-c"><Button kind="primary" weight="purple">Sign up with Maisie</Button></div>
         </div>
         {props.circles ?
           <div className="featuredrowcontainer">

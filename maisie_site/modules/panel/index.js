@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import stripeTransactions from '../../shared/services/stripe-transactions-2';
 import syncPayment from '../../shared/services/sync-payment';
-import Footer from '../../shared/components/footer.js';
+import Footer from '../../shared/components/footer/index.js';
 import Header from '../../shared/components/header/index.js';
 import HostHeader from './hostheader/index.js';
 import Finances from './finances/index.js';
@@ -33,9 +33,9 @@ export default class PanelModule extends Component {
       const stripeTransactionsResp =
         spr && spr.data && spr.data.syncPaymentAccount && spr.data.syncPaymentAccount && spr.data.syncPaymentAccount.user ?
           this.handleStripeTransactions(this.props.client, this.props.user.host.id) : null;
-      
+
       const str = await stripeTransactionsResp;
-      str && str.data && str.data.stripeTransactions && str.data.stripeTransactions ? 
+      str && str.data && str.data.stripeTransactions && str.data.stripeTransactions ?
         this.handleUpdateUser(this.props.updateUser, spr.data.syncPaymentAccount.user) : null;
       str && str.data && str.data.stripeTransactions ? this.setState({finances: str.data.stripeTransactions}) : null;
     }
@@ -49,7 +49,7 @@ export default class PanelModule extends Component {
       return e;
     }
   }
-  
+
   handleSyncPayment = async (client, state, code, hostId) => {
     try {
       const sp = await syncPayment(client, state, code, hostId);
@@ -58,7 +58,7 @@ export default class PanelModule extends Component {
       return e;
     }
   }
-  
+
   handleUpdateUser = (updateUser, user) => {
     try {
       const uu = updateUser(user);

@@ -122,10 +122,6 @@
 }
 
 .circlesocials {
-  width: 240px;
-  padding-left: 15px;
-  padding-right: 15px;
-
   > span {
     width: 100%;
     font-weight: 600;
@@ -138,6 +134,7 @@
     margin-top: 10px;
     width: 100%;
     &_social {
+      margin-right: 15px;
       @include transition(all, 200ms);
       @include user-select(none);
 

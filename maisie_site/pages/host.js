@@ -1,4 +1,4 @@
-import Footer from '../shared/components/footer.js';
+import Footer from '../shared/components/footer/index.js';
 import Header from '../shared/components/header/index.js';
 import GrowTogether from '../modules/landing/components/growtogether.js';
 import Button from '../shared/components/button.js';

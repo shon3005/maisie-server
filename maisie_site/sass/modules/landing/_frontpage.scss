@@ -1,6 +1,6 @@
 .front {
   @include tabletandmobile { height: 100vh }
-  height: calc(100vh - 40px);
+  height: 90vh;
   width: 100vw;
   min-height: 660px;
   position: relative;
@@ -43,7 +43,8 @@
     z-index: 99;
     position: absolute;
     right: 0;
-    height: 75vh;
+    height: 70vh;
+    min-height: 500px;
     bottom: 5vh;
     max-width: 90vw;
     z-index: 1;
@@ -55,8 +56,8 @@
   color: white !important;
 }
 .landing-intro {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   width: 100%;
   background-color: $color-primary;
   color: white;
@@ -241,8 +242,8 @@
   background-color: $color-primary-lighter;
 }
 .whyhostcta {
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 75px;
+  padding-bottom: 75px;
   background-color: $color-primary;
   text-align: center;
   > h1 {
