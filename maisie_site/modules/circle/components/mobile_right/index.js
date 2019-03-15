@@ -56,7 +56,7 @@ export default class extends React.Component {
           <span className="circle_mobile_right_left-price"><span className="large">{"$" + this.props.circle.price}</span> per session</span>
           <span className="circle_mobile_right_left-ppl lower">{this.props.circle.min + "-" + this.props.circle.max + " members"}</span>
         </div>
-        <div className="circle_mobile_right_button">
+        <div className="circle_mobile_right_button col-fs-fe">
           {!isHostCircle ? <Button saving={this.state.joining} kind="primary" weight="purple" onClick={(a) => this.handleJoin(this.props.status, this.props.client, this.props.circle.id, this.props.circle.user.host.id)} className={classNames({
             "requested": this.state.status === "requested",
             "joined": this.state.status === "joined",
@@ -68,6 +68,14 @@ export default class extends React.Component {
                 ? "Already joined"
                 : "Request to join"
           }</Button> : null}
+          {
+            !isHostCircle && this.state.status != "requested" && this.state.status != "joined"
+            ? <div className="circle_right__inner_cont-note col-c-c">
+                When you request to join this Circle, you'll be charged for the first session. If the host declines your request, you'll automatically be refunded.
+              </div>
+            : null
+          }
+
         </div>
       </div>
     )

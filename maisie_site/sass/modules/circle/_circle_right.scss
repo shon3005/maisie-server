@@ -60,13 +60,28 @@
         @include user-select(none);
 
         margin-top: 20px;
-        margin-bottom: 20px;
+        // margin-bottom: 20px;
         font-size: $font-size-small;
         font-weight: 600;
         color: $color-primary;
 
         &:hover { cursor: pointer; }
         &:active { opacity: .5; }
+      }
+      &-note {
+        @include border-radius(5px);
+        font-size: $font-size-tag-small;
+        font-weight: 500;
+        color: $color-secondary-25;
+        margin-top: 5px;
+        max-width: 375px;
+        @include size-five {
+          margin-top: 25px;
+          width: 240px;
+          text-align: center;
+        }
+        // box-shadow: 0px 1px 0px $color-secondary-05;
+        text-align: right;
       }
       &-price {
         padding-left: 20px;

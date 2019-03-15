@@ -45,7 +45,7 @@
     right: 0;
     height: 70vh;
     min-height: 500px;
-    bottom: 5vh;
+    top: 15vh;
     max-width: 90vw;
     z-index: 1;
     @include size-one { bottom: -8vh; text-align: center; }

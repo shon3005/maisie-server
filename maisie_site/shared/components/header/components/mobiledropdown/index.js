@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import cookie from 'cookie';
+import Router from 'next/router';
 
 var classNames = require('classnames')
 function toggleDrawer(a) {
@@ -55,9 +56,8 @@ const mapStateToProps = (state) => {
   return { user: state.user.user };
 }
 const handleDelete = () => {
-  document.cookie = cookie.serialize('token', '', {
-    maxAge: -1
-  });
-  location.reload(true);
+  document.cookie = 'token' + `=;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+  localStorage.removeItem('persist:nextjs');
+  Router.route !== '/' ? Router.push('/') : location.reload(true);
 }
 export default connect(mapStateToProps)(MobileDropdown);
