@@ -38,6 +38,8 @@ class ProfileModal extends React.Component {
         'Authorization': `Bearer ${this.props.token}`
       }});
     } catch(e) {
+      document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
+      this.setState({saveMessage: 'Save'});
       console.log(e);
     }
 
@@ -100,9 +102,13 @@ class ProfileModal extends React.Component {
                 Cancel
               </Button>
               <div style={{width: 10}}/>
-              <Button kind="alt" weight="purple" id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={() => this.handleSubmit(client)}>
-                {this.state.saveMessage}
-              </Button>
+              {
+                this.state.saveMessage === 'Save' ?
+                <Button kind="alt" weight="purple" id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={() => this.handleSubmit(client)}>
+                  {this.state.saveMessage}
+                </Button> :
+                <Button kind="alt" weight="purple" saving={'Saving...'} id="hostprofile__modal_brow-submit" className="hostprofile__modal_brow-submit fade" onClick={() => this.handleSubmit(client)} />
+              }
             </div>
           </div>
         }

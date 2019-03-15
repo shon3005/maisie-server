@@ -41,47 +41,53 @@ class Profile extends React.Component {
   }
   handlePress = async (e, client) => {
     e.preventDefault()
-    document.getElementById("save_profile_button").classList.add("saving");
-    this.setState({saveMessage: "Saving..."});
-    if (this.state.image) {
-      let bodyFormData = new FormData();
-      bodyFormData.append('image', this.state.image);
-      bodyFormData.append('id', this.props.user.id);
-      bodyFormData.append('table', 'user');
-      try {
-        await axios.post('/api/upload', bodyFormData, { headers: {
-          'Content-Type': 'multipart/form-data',
-          'Authorization': `Bearer ${this.props.token}`
-        }});
-      } catch(e) {
-        console.log(e);
+    try {
+      document.getElementById("save_profile_button").classList.add("saving");
+      this.setState({saveMessage: "Saving..."});
+      if (this.state.image) {
+        let bodyFormData = new FormData();
+        bodyFormData.append('image', this.state.image);
+        bodyFormData.append('id', this.props.user.id);
+        bodyFormData.append('table', 'user');
+        try {
+          await axios.post('/api/upload', bodyFormData, { headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${this.props.token}`
+          }});
+        } catch(e) {
+          console.log(e);
+        }
       }
+
+      const firstName = document.getElementById("firstname").value;
+      const lastName = document.getElementById("lastname").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const neighborhood = document.getElementById("location").value;
+      const school = document.getElementById("school").value;
+      const work = document.getElementById("work").value;
+      const bio = document.getElementById("bio").value;
+
+      const {data: {updateProfile: {user}}} = await updateProfile(client, {
+        firstName,
+        lastName,
+        email,
+        phone,
+        neighborhood,
+        school,
+        work,
+        bio
+      });
+
+      await this.props.updateUser(user);
+      document.getElementById("save_profile_button").classList.remove('saving');
+      this.setState({saveMessage: 'Save Profile'});
+      Router.push(`/profile/${this.props.user.id}`);
+    } catch (e) {
+      document.getElementById("save_profile_button").classList.remove('saving');
+      this.setState({saveMessage: 'Save Profile'});
+      console.log(e);
     }
-
-    const firstName = document.getElementById("firstname").value;
-    const lastName = document.getElementById("lastname").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const neighborhood = document.getElementById("location").value;
-    const school = document.getElementById("school").value;
-    const work = document.getElementById("work").value;
-    const bio = document.getElementById("bio").value;
-
-    const {data: {updateProfile: {user}}} = await updateProfile(client, {
-      firstName,
-      lastName,
-      email,
-      phone,
-      neighborhood,
-      school,
-      work,
-      bio
-    });
-
-    await this.props.updateUser(user);
-    document.getElementById("save_profile_button").classList.remove('saving');
-    this.setState({saveMessage: 'Save'});
-    Router.push(`/profile/${this.props.user.id}`);
   }
   render() {
     return(
@@ -182,7 +188,11 @@ class Profile extends React.Component {
         <ApolloConsumer>
           {client =>
             <div className="r_cont">
-              <Button type="submit" kind="primary" id="save_profile_button" weight="purple" onClick={(e) => this.handlePress(e, client)}>{this.state.saveMessage}</Button>
+              {
+                this.state.saveMessage === 'Save Profile' ?
+                <Button type="submit" kind="primary" id="save_profile_button" weight="purple" onClick={(e) => this.handlePress(e, client)}>{this.state.saveMessage}</Button> :
+                <Button type="submit" kind="primary" id="save_profile_button" weight="purple" saving={'Saving Profile'} onClick={(e) => this.handlePress(e, client)} />
+              }
             </div>
           }
         </ApolloConsumer>

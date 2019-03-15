@@ -24,23 +24,29 @@ export default class extends React.Component {
 
   handlePassSubmit = async (e, client) => {
     e.preventDefault();
-    document.getElementById("submit_password_button").classList.add('saving');
-    this.setState({submitMessage: "Submitting..."});
-    var old_pass = document.getElementById("old_pass").value;
-    var new_pass = document.getElementById("new_pass").value;
-    var confirm_pass = document.getElementById("confirm_pass").value;
-    !old_pass.length ? this.setState({old_pass: ""}) : this.setState({old_pass: true });
-    !new_pass.length ? this.setState({new_pass: ""}) : this.setState({new_pass: true });
-    !confirm_pass.length ? this.setState({confirm_pass: ""}) : this.setState({confirm_pass: true });
-    new_pass !== confirm_pass ? this.setState({ confirm_pass: "", new_pass: "", pass_error: "Passwords do not match" }) : null;
-    if (old_pass.length && new_pass.length && confirm_pass.length && new_pass === confirm_pass) {
-      await updatePassword(client, {
-        oldPassword: old_pass,
-        password: new_pass,
-        passwordConfirmation: confirm_pass,
-      });
+    try {
+      document.getElementById("submit_password_button").classList.add('saving');
+      this.setState({submitMessage: "Submitting..."});
+      var old_pass = document.getElementById("old_pass").value;
+      var new_pass = document.getElementById("new_pass").value;
+      var confirm_pass = document.getElementById("confirm_pass").value;
+      !old_pass.length ? this.setState({old_pass: ""}) : this.setState({old_pass: true });
+      !new_pass.length ? this.setState({new_pass: ""}) : this.setState({new_pass: true });
+      !confirm_pass.length ? this.setState({confirm_pass: ""}) : this.setState({confirm_pass: true });
+      new_pass !== confirm_pass ? this.setState({ confirm_pass: "", new_pass: "", pass_error: "Passwords do not match" }) : null;
+      if (old_pass.length && new_pass.length && confirm_pass.length && new_pass === confirm_pass) {
+        await updatePassword(client, {
+          oldPassword: old_pass,
+          password: new_pass,
+          passwordConfirmation: confirm_pass,
+        });
+        document.getElementById("submit_password_button").classList.remove('saving');
+        this.setState({submitMessage: 'Submit'});
+      }
+    } catch (e) {
       document.getElementById("submit_password_button").classList.remove('saving');
       this.setState({submitMessage: 'Submit'});
+      console.log(e)
     }
   }
 
@@ -81,7 +87,11 @@ export default class extends React.Component {
         <ApolloConsumer>
           {client =>
             <div className="r_cont">
-              <Button kind="primary" weight="purple" onClick={(e) => this.handlePassSubmit(e, client)}>Submit</Button>
+              {
+                this.state.submitMessage === 'Submit' ?
+                <Button kind="primary" weight="purple" id="submit_password_button" onClick={(e) => this.handlePassSubmit(e, client)}>{this.state.submitMessage}</Button> :
+                <Button kind="primary" weight="purple" id="submit_password_button" saving={'Submitting...'} onClick={(e) => this.handlePassSubmit(e, client)} />
+              }
             </div>
           }
         </ApolloConsumer>

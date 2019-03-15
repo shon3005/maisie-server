@@ -8,10 +8,12 @@ import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
 import { connect } from 'react-redux';
 import * as actions from '../../../shared/services/actions';
+import Button from '../../../shared/components/button';
 
 class CheckoutForm extends React.Component {
   state = {
-    addCardMessage: 'Add Card'
+    addCardMessage: 'Add Card',
+    showError: false
   }
 
   handleSubmit = (client) => async (ev) => {
@@ -32,6 +34,8 @@ class CheckoutForm extends React.Component {
       this.setState({addCardMessageMessage: 'Add Card'});
       Router.route === '/signup' ? this.proceedToIndex() : null;
     } catch (e) {
+      document.getElementById("submit_card_button").classList.remove('saving');
+      this.setState({addCardMessageMessage: 'Add Card', showError: true});
       console.log(e);
     }
   };
@@ -49,8 +53,14 @@ class CheckoutForm extends React.Component {
               <div className="settings__inner-payments">
                 <CardSection />
               </div>
+              <div style={{height: 20}} />
               <div className="settings__inner-submit row-fe-c">
-                <button id="submit_card_button">{this.state.addCardMessage}</button>
+                {this.state.showError ? <span style={{color: "#FF8585", marginRight: "10px"}}>Card Is Invalid</span> : null}
+                {
+                  this.state.addCardMessage === 'Add Card' ?
+                  <Button kind="primary" weight="purple" id="submit_card_button">{this.state.addCardMessage}</Button> :
+                  <Button kind="primary" weight="purple" saving={'Adding Card...'} id="submit_card_button" />
+                }
               </div>
             </form>
             {
