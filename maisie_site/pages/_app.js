@@ -27,7 +27,6 @@ class MyApp extends App {
     if (window.localStorage["persist:nextjs"]) {
       const a = JSON.parse(JSON.parse(window.localStorage["persist:nextjs"])["user"])
       if (a.user && a.user.id) {
-        console.log(a.user);
         FullStoryAPI('identify', a.user.id, {
           displayName: a.user.firstName + " " + a.user.lastName,
           email: a.user.email,
