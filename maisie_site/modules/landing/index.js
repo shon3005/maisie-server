@@ -41,7 +41,7 @@ export default (props) =>
             </span>
             <div style={{height: 2, width: 50, backgroundColor: "#7692ff", marginTop: 25, marginBottom: 25}} />
             <div className="col" style={{fontSize: "20px"}}>
-            <Button kind="link">Get started with Maisie</Button>
+            <Button kind="link" href="/signup">Get started with Maisie</Button>
             </div>
           </div>
           <div className="landing-stats__card col">
@@ -66,7 +66,8 @@ export default (props) =>
           ].map((a, i) => <div key={i} className="col"><img src={a[0]} /><span>{a[1]}</span><p>{a[2]}</p></div>
           )}
           </div>
-          <div className="col-c-c"><Button kind="primary" weight="purple">Sign up with Maisie</Button></div>
+          <div style={{height: 25}} />
+          <div className="col-c-c"><Button kind="primary" weight="purple" href="/signup">Sign up with Maisie</Button></div>
         </div>
         {props.circles ?
           <div className="featuredrowcontainer">
