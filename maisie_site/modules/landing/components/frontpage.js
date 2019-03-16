@@ -11,7 +11,7 @@ export default props =>
         works together.
       </span>
       <div style={{
-        height: 50
+        height: 60
       }} />
       <span className="front__text-middle">
         Maisie offers affordable experiences that
@@ -19,7 +19,7 @@ export default props =>
         build community and combat loneliness.
       </span>
       <div style={{
-        height: 50
+        height: 60
       }} />
       <div style={{display: "inline-block"}} className="col-fs">
         <Button kind="primary" weight="purple" href="/signup">Get started with Maisie</Button>
