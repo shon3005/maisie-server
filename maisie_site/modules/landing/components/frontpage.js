@@ -22,7 +22,7 @@ export default props =>
         height: 50
       }} />
       <div style={{display: "inline-block"}} className="col-fs">
-        <Button kind="primary" weight="purple">Get started with Maisie</Button>
+        <Button kind="primary" weight="purple" href="/signup">Get started with Maisie</Button>
       </div>
     </div>
     <img className="front-background" src="../../../static/shared/front_people.svg" />
