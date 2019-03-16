@@ -58,7 +58,7 @@ class MyApp extends App {
           <meta name="theme-color" content="#ffffff" />
           <script src="https://js.stripe.com/v3/"></script>
         </Head>
-        <FullStory org="JYKYB" />
+        <FullStory org={publicRuntimeConfig.fullStoryOrg} />
         <StripeProvider apiKey={publicRuntimeConfig.stripePublicKey}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={store.__persistor}>
