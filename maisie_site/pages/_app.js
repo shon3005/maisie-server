@@ -11,7 +11,7 @@ import withRedux from 'next-redux-wrapper';
 import { PersistGate } from 'redux-persist/integration/react';
 import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
-import { FullStoryAPI } from 'react-fullstory';
+import FullStory, { FullStoryAPI } from 'react-fullstory';
 
 class MyApp extends App {
   static async getInitialProps({Component, ctx}) {
@@ -58,14 +58,8 @@ class MyApp extends App {
           <meta name="msapplication-config" content="https://s3.amazonaws.com/maisie-files/shared/browserconfig.xml" />
           <meta name="theme-color" content="#ffffff" />
           <script src="https://js.stripe.com/v3/"></script>
-          <script dangerouslySetInnerHTML={{
-              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-PHCB3GR');`,
-          }} />
         </Head>
+        <FullStory org="JYKYB" />
         <StripeProvider apiKey={publicRuntimeConfig.stripePublicKey}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={store.__persistor}>
