@@ -50,7 +50,7 @@ class MyApp extends App {
           <link rel="apple-touch-icon" sizes="152x152" href="https://s3.amazonaws.com/maisie-files/shared/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="https://s3.amazonaws.com/maisie-files/shared/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="https://s3.amazonaws.com/maisie-files/shared/favicon-16x16.png" />
-          <link rel="manifest" href="https://s3.amazonaws.com/maisie-files/shared/site.webmanifest" />
+          <link rel="manifest" href="/static/site.webmanifest" />
           <link rel="mask-icon" href="https://s3.amazonaws.com/maisie-files/shared/safari-pinned-tab.svg" color="#7692ff" />
           <link rel="shortcut icon" href="https://s3.amazonaws.com/maisie-files/shared/favicon.ico" />
           <meta name="msapplication-TileColor" content="#ffffff" />
@@ -73,4 +73,4 @@ class MyApp extends App {
   }
 }
 
-export default withApollo(withRedux(initStore, {debug: true})(MyApp));
+export default withApollo(withRedux(initStore, {debug: false})(MyApp));
