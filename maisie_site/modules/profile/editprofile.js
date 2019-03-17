@@ -149,9 +149,9 @@ class Profile extends React.Component {
         <Disclaimer>We use this to help you discover new Circles and won't share it with anyone.</Disclaimer> */}
         <Field title="Where You Live">
           <select id="location" defaultValue={this.props.user.neighborhood} style={{width: 150}}>
-            <option value="nyc">New York City</option>
-            <option value="sf">Bay Area</option>
-            <option value="other">Somewhere Else</option>
+            <option value="New York City">New York City</option>
+            <option value="Bay Area">Bay Area</option>
+            <option value="Other">Somewhere Else</option>
           </select>
         </Field>
         <Spacer height={100} />
