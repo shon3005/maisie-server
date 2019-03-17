@@ -15,14 +15,16 @@
   }
   background-color: #FDFDFF;
   &__text {
-    @include size-one { text-align: center; }
-    @include size-two { text-align: center; }
+    @include size-one { text-align: center; margin-left: 0vw; }
+    @include size-two { text-align: center; margin-left: 0vw; }
     width: auto;
     position: relative;
     margin-left: 5vw;
     margin-top: 75px;
     z-index: 998;
     &-top {
+      @include size-one { font-size: 60px; }
+      @include size-two { font-size: 60px; }
       font-size: 75px;
       line-height: 75px;
       letter-spacing: -1.5px;
@@ -32,6 +34,8 @@
       color: $color-secondary;
     }
     &-middle {
+      @include size-one { font-size: 20px; line-height: 20px; }
+      @include size-two { font-size: 20px; line-height: 20px; }
       font-size: $font-size-large;
       color: $color-primary;
       font-weight: 600;
@@ -48,8 +52,8 @@
     top: 15vh;
     max-width: 90vw;
     z-index: 1;
-    @include size-one { bottom: -8vh; text-align: center; }
-    @include size-two { bottom: -8vh; text-align: center; }
+    @include size-one { bottom: -8vh; text-align: center; opacity: .5; }
+    @include size-two { bottom: -8vh; text-align: center; opacity: .5; }
     bottom: 0px;
   }
 }
