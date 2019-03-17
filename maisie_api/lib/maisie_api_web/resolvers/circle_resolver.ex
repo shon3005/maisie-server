@@ -41,22 +41,29 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         {:ok, %Stripe.Customer{sources: %Stripe.List{data: [%Stripe.Source{id: source_id}]}}} = Stripe.Customer.retrieve(user.stripe_id)
         {:ok, %{"id" => new_source_id}} = Stripe.API.request(%{customer: user.stripe_id, original_source: source_id, usage: "reusable"}, :post, "sources", %{}, connect_account: host.stripe_id)
         {:ok, %{"id" => customer_id}} = Stripe.API.request(%{description: user.email , source: new_source_id}, :post, "customers", %{}, connect_account: host.stripe_id)
+        {price, _} =  Integer.parse(circle.price)
+        Stripe.API.request(%{currency: "usd", amount: price * 110, application_fee_amount: Kernel.trunc(price * 110 * 0.1459), customer: customer_id}, :post, "charges", %{}, connect_account: host.stripe_id)
         installments_limit = %{
-            "1 session" => 1,
-            "2 sessions" => 2,
-            "3 sessions" => 3,
-            "4 sessions" => 4,
-            "5 sessions" => 5,
-            "6 sessions" => 6,
-            "7 sessions" => 7,
-            "8 sessions" => 8,
-            "9 sessions" => 9,
-            "10 sessions" => 10,
-            "11 sessions" => 11,
-            "12 sessions" => 12,
+            "1 session" => 0,
+            "2 sessions" => 1,
+            "3 sessions" => 2,
+            "4 sessions" => 3,
+            "5 sessions" => 4,
+            "6 sessions" => 5,
+            "7 sessions" => 6,
+            "8 sessions" => 7,
+            "9 sessions" => 8,
+            "10 sessions" => 9,
+            "11 sessions" => 10,
+            "12 sessions" => 11,
             "continuous" => "continuous",
         }
-        Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 14.59, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
+        billing_cycle_anchor_interval = %{
+            "every week" => 604800,
+            "every other week" => 1209600,
+            "once a month" => 2419200
+        }
+        Stripe.API.request(%{trial_end: DateTime.to_unix(DateTime.add(circle.start_date, billing_cycle_anchor_interval[circle.frequency], :second)), metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 14.59, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
 
         Services.create_request(request_input)
     end
