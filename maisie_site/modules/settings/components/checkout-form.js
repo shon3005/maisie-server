@@ -19,7 +19,7 @@ class CheckoutForm extends React.Component {
   handleSubmit = (client) => async (ev) => {
     ev.preventDefault();
     document.getElementById("submit_card_button").classList.add('saving');
-    this.setState({submitMessage: "Adding Card..."});
+    this.setState({addCardMessage: "Adding Card..."});
     try {
       const {source} = await this.props.stripe.createSource({type: 'card', owner: {
         name: this.props.user.firstName + ' ' + this.props.user.lastName
@@ -31,11 +31,11 @@ class CheckoutForm extends React.Component {
         await this.props.updateUser(data.createCustomer) :
         await this.props.updateUser(data.updateCustomer);
       document.getElementById("submit_card_button").classList.remove('saving');
-      this.setState({addCardMessageMessage: 'Add Card'});
+      this.setState({addCardMessage: 'Add Card'});
       Router.route === '/signup' ? this.proceedToIndex() : null;
     } catch (e) {
       document.getElementById("submit_card_button").classList.remove('saving');
-      this.setState({addCardMessageMessage: 'Add Card', showError: true});
+      this.setState({addCardMessage: 'Add Card', showError: true});
       console.log(e);
     }
   };
@@ -58,8 +58,8 @@ class CheckoutForm extends React.Component {
                 {this.state.showError ? <span style={{color: "#FF8585", marginRight: "10px"}}>Card Is Invalid</span> : null}
                 {
                   this.state.addCardMessage === 'Add Card' ?
-                  <Button kind="primary" weight="purple" id="submit_card_button">{this.state.addCardMessage}</Button> :
-                  <Button kind="primary" weight="purple" saving={'Adding Card...'} id="submit_card_button" />
+                  <Button kind="primary" weight="purple" id="submit_card_button" onClick={this.handleSubmit(client)}>{this.state.addCardMessage}</Button> :
+                  <Button kind="primary" weight="purple" saving='Adding Card...' id="submit_card_button" />
                 }
               </div>
             </form>

@@ -31,7 +31,7 @@ export default (props) => {
       </div>
       {transactions ?
         transactions.map((transaction, i) => (
-          <Card key={i} transaction={transaction}/>
+          <Card key={i} transaction={transaction} payout={transaction.amount < 0}/>
         )) : null
       }
       <div style={{height: 20}} />
@@ -41,5 +41,6 @@ export default (props) => {
 };
 
 const payout = async (client, hostId) => {
-  await hostPayout(client, hostId)
+  await hostPayout(client, hostId);
+  location.reload();
 }

@@ -56,7 +56,7 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
             "12 sessions" => 12,
             "continuous" => "continuous",
         }
-        Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 18.18, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
+        Stripe.API.request(%{metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 14.59, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
 
         Services.create_request(request_input)
     end
