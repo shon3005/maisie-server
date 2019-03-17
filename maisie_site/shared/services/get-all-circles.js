@@ -16,9 +16,13 @@ export default gql`
       address
       locationType
       min
+      max
       imageUrl
       startDate
       tags
+      members {
+        id
+      }
       user {
         host {
           id

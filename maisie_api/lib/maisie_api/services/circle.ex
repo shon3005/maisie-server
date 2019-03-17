@@ -2,7 +2,7 @@ defmodule MaisieApi.Services.Circle do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias MaisieApi.Accounts.User
+  alias MaisieApi.Accounts.{User, Member}
   alias MaisieApi.Services.{Question, Request}
 
   schema "circles" do
@@ -28,6 +28,7 @@ defmodule MaisieApi.Services.Circle do
     belongs_to :user, User
     has_many :questions, Question
     has_many :requests, Request
+    has_many :members, Member
 
     timestamps()
   end

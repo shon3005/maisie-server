@@ -9,8 +9,7 @@ export default (props) => {
       href={`circle/${b.id}`}
       low={b.min}
       high={b.max}
-      high={"12"}
-      spots={"12"}
+      spots={parseInt(b.max) - b.members.length}
       key={index}
     />
   )
