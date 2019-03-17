@@ -10,8 +10,16 @@ import Profile from './profile/index.js';
 import Modal from '../../shared/components/modal/index.js';
 import ProfileModal from './profile/profilemodal.js';
 import SetUpStripePrompt from './setupstripeprompt.js';
+import FullPageSpinner from '../../shared/components/fullpagespinner';
 
-const activePage = (user, sub, finances, updateUser) => {
+const activePage = (user, sub, finances, updateUser, code, state) => {
+  if (code && state && user.host && !user.host.hasStripeAccount) {
+    return <div style={{textAlign: 'center'}}>
+      <span>Loading your account, please do not close your browser</span>
+      <div style={{height: 20}} />
+      <FullPageSpinner color={"dark"} />
+    </div>
+  }
   return user.host && user.host.hasStripeAccount
     ? sub === "finances" ? <Finances finances={finances} host={user.host}/> : sub === "circles" ? <Circles userId={user.id} hostId={user.host.id} updateUser={updateUser}/> : sub === "profile" ? <Profile user={user} /> : null
     : <SetUpStripePrompt/>
@@ -80,7 +88,7 @@ export default class PanelModule extends Component {
       <Header loggedIn="loggedIn"/>
       <HostHeader page={this.props.sub} />
       <div className="panel__inner">
-        {activePage(this.props.user, this.props.sub, this.state.finances, this.props.updateUser)}
+        {activePage(this.props.user, this.props.sub, this.state.finances, this.props.updateUser, this.props.code, this.props.state)}
       </div>
       <Footer />
     </div>

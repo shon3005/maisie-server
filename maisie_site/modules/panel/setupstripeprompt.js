@@ -41,7 +41,7 @@ export default (props) =>
 const signUpConnectAccount = async (client) => {
   try {
     const {data: {stripeAuthorize: url}} = await stripeAuthorize(client);
-    window.open(url)
+    window.open(url);
   } catch(e) {
     console.log(e);
   }
