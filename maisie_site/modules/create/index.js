@@ -211,7 +211,6 @@ class Create extends React.Component {
           </ApolloConsumer>
           <div className={classNames(["next", {"no_display": this.state.slideToShow != 5}])} onClick={() => Router.push('/panel/circles')}>Finish</div>
         </div>
-        <Footer />
       </div>
     )
   }
