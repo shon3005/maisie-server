@@ -44,17 +44,13 @@ export default class extends React.Component {
           </div>
         </div>
         <Spacer height={20} />
-        <div className="profile__inner_in">
+        {this.props.currentUser.id === this.props.user.id ? <div className="profile__inner_in">
           <div className="profile__inner_in-item">
             <span className="tag">phone</span>
             <br />
             <span className="text">{this.props.user.phone || 'Not Available'}</span>
-            {/* <Spacer height={25} /> */}
-            {/* <span className="tag">gender</span> */}
-            <br />
-            {/* <span className="text">Not using this field</span> */}
           </div>
-        </div>
+        </div> : null}
       </form>
     )
   }
