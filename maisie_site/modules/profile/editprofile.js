@@ -39,8 +39,9 @@ class Profile extends React.Component {
 
     this.setState({image_url, image: files[0]});
   }
-  handlePress = async (e, client) => {
-    e.preventDefault()
+  handlePress = async (e, client, user) => {
+    e.preventDefault();
+    const hostId = user.host && user.host.id ? user.host.id : null;
     try {
       document.getElementById("save_profile_button").classList.add("saving");
       this.setState({saveMessage: "Saving..."});
@@ -76,7 +77,8 @@ class Profile extends React.Component {
         neighborhood,
         school,
         work,
-        bio
+        bio,
+        hostId
       });
 
       await this.props.updateUser(user);
@@ -190,7 +192,7 @@ class Profile extends React.Component {
             <div className="r_cont">
               {
                 this.state.saveMessage === 'Save Profile' ?
-                <Button type="submit" kind="primary" id="save_profile_button" weight="purple" onClick={(e) => this.handlePress(e, client)}>{this.state.saveMessage}</Button> :
+                <Button type="submit" kind="primary" id="save_profile_button" weight="purple" onClick={(e) => this.handlePress(e, client, this.props.user)}>{this.state.saveMessage}</Button> :
                 <Button type="submit" kind="primary" id="save_profile_button" weight="purple" saving={'Saving Profile'} onClick={(e) => this.handlePress(e, client)} />
               }
             </div>

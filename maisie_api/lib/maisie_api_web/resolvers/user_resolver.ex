@@ -21,6 +21,7 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     end
 
     def update_user(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        update_host(input.host_id, input.first_name, input.last_name)
         Accounts.update_user(current_user, input)
         |> update_user_handler()
     end
@@ -33,6 +34,23 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
     def update_user_support(_, %{input: input}, %{context: %{current_user: current_user}}) do
         Accounts.update_user_support(current_user, input)
         |> update_user_support_handler()
+    end
+
+    defp update_host(host_id, first_name, last_name) do
+        Accounts.update_host(Accounts.get_host!(host_id), %{first_name: first_name, last_name: last_name})
+        |> update_host_handler()
+    end
+
+    defp update_host(nil, _first_name, _last_name) do
+        "not a host"
+    end
+
+    defp update_host_handler({:error, _changeset}) do
+        {:error, %{message: "update-host", details: "UPDATE HOST FAILED"}}
+    end
+
+    defp update_host_handler({:ok, %MaisieApi.Accounts.Host{} = host}) do
+        {:ok, host}
     end
 
     defp get_user_handler({:error, _changeset}) do

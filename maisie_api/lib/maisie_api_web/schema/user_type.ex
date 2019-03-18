@@ -43,6 +43,13 @@ defmodule MaisieApiWeb.Schema.Types.UserType do
         field(:school, :string)
         field(:work, :string)
         field(:bio, :string)
+        field(:host_id, :id)
+    end
+
+    input_object :host_update_type do
+        field(:first_name, non_null(:string))
+        field(:last_name, non_null(:string))
+        field(:host_id, non_null(:id))
     end
 
     input_object :user_update_password_type do

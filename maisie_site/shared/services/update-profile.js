@@ -15,7 +15,8 @@ export default (
           $neighborhood: String,
           $school: String,
           $work: String,
-          $bio: String
+          $bio: String,
+          $hostId: ID
         ) {
           updateProfile(
             input: {
@@ -26,7 +27,8 @@ export default (
               neighborhood: $neighborhood,
               school: $school,
               work: $work,
-              bio: $bio
+              bio: $bio,
+              hostId: $hostId
             }
           ) {
             user {
@@ -88,6 +90,7 @@ export default (
         neighborhood: profile.neighborhood,
         school: profile.school,
         work: profile.work,
-        bio: profile.bio
+        bio: profile.bio,
+        hostId: profile.hostId
       }
     });

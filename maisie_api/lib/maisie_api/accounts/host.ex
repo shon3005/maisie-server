@@ -21,9 +21,10 @@ defmodule MaisieApi.Accounts.Host do
   @doc false
   def changeset(host, attrs) do
     host
-    |> cast(attrs, [:license, :education, :description, :image_url, :user_id])
-    |> validate_required([:license, :education, :description, :image_url, :user_id])
+    |> cast(attrs, [:first_name, :last_name, :license, :education, :description, :image_url, :user_id])
     |> unique_constraint(:user_id)
+
+        # |> validate_required([:license, :education, :description, :image_url, :user_id])
   end
 
   def update_host_image_changeset(host, attrs) do

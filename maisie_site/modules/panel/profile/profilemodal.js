@@ -28,19 +28,21 @@ class ProfileModal extends React.Component {
     description = document.getElementById("hostprofilemodal_description").value,
     image = document.getElementById("hostprofile_imageupload").files[0];
 
-    let bodyFormData = new FormData();
-    bodyFormData.append('image', image);
-    bodyFormData.append('id', this.props.user.host.id);
-    bodyFormData.append('table', 'host');
-    try {
-      await axios.post('/api/upload', bodyFormData, { headers: {
-        'Content-Type': 'multipart/form-data',
-        'Authorization': `Bearer ${this.props.token}`
-      }});
-    } catch(e) {
-      document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
-      this.setState({saveMessage: 'Save'});
-      console.log(e);
+    if (image) {
+      let bodyFormData = new FormData();
+      bodyFormData.append('image', image);
+      bodyFormData.append('id', this.props.user.host.id);
+      bodyFormData.append('table', 'host');
+      try {
+        await axios.post('/api/upload', bodyFormData, { headers: {
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${this.props.token}`
+        }});
+      } catch(e) {
+        document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
+        this.setState({saveMessage: 'Save'});
+        console.log(e);
+      }
     }
 
     const {data: {updateHost: { user }}} = await updateHost(client, {
@@ -51,7 +53,7 @@ class ProfileModal extends React.Component {
     });
 
     await this.props.updateUser(user);
-    document.getElementById("hostprofile__modal_brow-cancel").classList.add('disabled');
+    document.getElementById("hostprofile__modal_brow-cancel").classList.remove('disabled');
     document.getElementById("hostprofile__modal_brow-submit").classList.remove('saving');
     this.setState({saveMessage: 'Save'});
     document.getElementById("profile_modal").classList.add("hide")
