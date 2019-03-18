@@ -48,8 +48,8 @@ class CheckoutForm extends React.Component {
     return (
       <ApolloConsumer>
         {client => (
-          <div>
-            <form onSubmit={this.handleSubmit(client)} style={{width: "100%"}}>
+          <div style={{width: "100%", paddingLeft: "15px", paddingRight: "15px"}}>
+            <form onSubmit={this.handleSubmit(client)}>
               <div className="settings__inner-payments">
                 <CardSection />
               </div>
