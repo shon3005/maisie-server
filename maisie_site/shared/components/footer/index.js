@@ -34,7 +34,7 @@ export default props =>
     </div>
     <div className="newfooter__in col-fs">
       <h1>Company</h1>
-      <div className="newfooter__in-link"><a href="/">About Us</a></div>
+      <div className="newfooter__in-link"><a href="/about">About Us</a></div>
       <div className="newfooter__in-link"><a href="https://angel.co/maisie-1">Work at Maisie</a></div>
       <div className="newfooter__in-link"><a href="mailto:say@heymaisie.com">Contact Us</a></div>
     </div>
