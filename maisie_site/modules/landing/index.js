@@ -77,6 +77,13 @@ export default (props) =>
             <FeaturedRow circles={props.circles} />
           </div>
         : null}
+        <div className="col-fs-fe" style={{
+          paddingRight: "5%",
+          backgroundColor: "rgba(118, 146, 255, 0.05)",
+          paddingBottom: 50
+        }}>
+          <Button kind="primary" weight="purple" href="/signup">See more Circles</Button>
+        </div>
         <Options />
         <Double />
         <div className="whyhostcta col-c-c">
