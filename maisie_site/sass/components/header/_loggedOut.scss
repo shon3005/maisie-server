@@ -27,7 +27,9 @@
     @include transition(all, 200ms);
     position: relative;
     height: $header-height;
-
+    @include size-one {
+      font-size: $font-size-small;
+    }
     > span {
       position: relative;
       height: $header-height;
