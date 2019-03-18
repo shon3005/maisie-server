@@ -31,10 +31,10 @@ const About = (props) =>
         great people, often working toward the same goals as you.
       </p>
       <p>
-        Maisie is the first site of its kind, and we are committed to making group therapy a widely available
-        and accessible form of mental wellness. If you're passionate about this mission, we'd love to hear from you.
+        Maisie is the first site of its kind and is the absolute best place to find or host a group therapy experience.
+         If you're passionate about our mission of making mental wellness accessible to all, we'd love to hear from you.
       </p>
-      <Button kind="link">Get in touch with us</Button>
+      <Button kind="link" href="mailto:say@heymaisie.com">Get in touch with us</Button>
       <div style={{
         height: 1,
         width: "100%",
