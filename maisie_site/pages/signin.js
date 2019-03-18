@@ -45,7 +45,7 @@ class Signin extends Component {
     }
   }
 
-  handleSubmit = (client) => {
+  handleSubmit = (event, client) => {
     event.preventDefault()
     this.signinUser(client);
   }
@@ -77,7 +77,7 @@ class Signin extends Component {
               <span className="signin-welcome">welcome back</span>
               <span className="signin-subwelcome">please sign in</span>
                             <div style={{height: 20}} />
-              <form className="col-fs-c" onSubmit={(_) => this.handleSubmit(client)}>
+              <form className="col-fs-c" onSubmit={(e) => this.handleSubmit(e, client)}>
                 <input
                   required
                   id="signin_email"
