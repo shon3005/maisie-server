@@ -36,13 +36,13 @@ defmodule MaisieApiWeb.Resolvers.UserResolver do
         |> update_user_support_handler()
     end
 
+    defp update_host(nil, _first_name, _last_name) do
+        "not a host"
+    end
+
     defp update_host(host_id, first_name, last_name) do
         Accounts.update_host(Accounts.get_host!(host_id), %{first_name: first_name, last_name: last_name})
         |> update_host_handler()
-    end
-
-    defp update_host(nil, _first_name, _last_name) do
-        "not a host"
     end
 
     defp update_host_handler({:error, _changeset}) do
