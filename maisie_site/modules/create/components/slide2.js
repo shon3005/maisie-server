@@ -5,7 +5,7 @@ import SmallText from '../../../shared/components/text/smallText.js';
 var moment = require('moment');
 
 var startDate = moment().add(2, 'days'),
-    endDate = moment().add(1, 'months'),
+    endDate = moment().add(2, 'months'),
     dateFormat = "";
 
 function getDateRange(startDate, endDate, dateFormat) {
