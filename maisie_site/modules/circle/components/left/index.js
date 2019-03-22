@@ -9,15 +9,7 @@ import Location from './components/location.js';
 const Sub = (props) => <div className="circle_left__subhead">{props.children}</div>
 var classNames = require('classnames')
 export default (props) => {
-  const minute = props.circle && props.circle.minute ? props.circle.minute : 0;
   const location = props.circle && props.circle.locationType ? props.circle.locationType : "private space";
-  let hour = props.circle && props.circle.hour ? props.circle.hour : 0;
-  hour = props.circle && props.circle.ampm && props.circle.ampm === 'am' ?
-    hour :
-    hour + 12;
-  const date = new Date();
-  date.setHours(hour);
-  date.setMinutes(minute);
   return (
     <div className={classNames(["circle_left", {"dark_theme": props.dark}])}>
       <LargeText>{props.circle ? props.circle.title : null}</LargeText>
@@ -38,7 +30,7 @@ export default (props) => {
       <Sub>scheduling</Sub>
       <Calendar
         date={props.circle.startDate}
-        time={props.circle ? new Date(new Date().setHours(props.circle.hour)).setMinutes(props.circle.minute) : null}
+        time={props.circle ? props.circle.hour + ':' + props.circle.minute + ' ' + props.circle.ampm.toUpperCase() : null}
         length={props.circle ? props.circle.length : null}
         frequency={props.circle.frequency}
       />

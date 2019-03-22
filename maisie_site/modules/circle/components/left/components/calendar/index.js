@@ -24,7 +24,7 @@ export default (props) => {
           <img src="https://s3.amazonaws.com/maisie-files/circle/time.svg" />
           <div className="col">
             <span className="tag dark_theme_tag_text">time</span>
-            <span className="text dark_theme_primary_text">{moment(props.time).format("h:mm A").toString()}</span>
+            <span className="text dark_theme_primary_text">{props.time}</span>
           </div>
         </div>
         <div className="circledetails__item row-fs-c">
