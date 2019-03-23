@@ -98,7 +98,7 @@ class Signin extends Component {
                   Sign In
                 </button>
                 <div style={{height: 20}} />
-                <a>Forgot your password?</a>
+                <a href="/signup">New to Maisie? Sign up</a>
               </form>
             </div>
         )}
