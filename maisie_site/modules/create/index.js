@@ -66,7 +66,7 @@ class Create extends React.Component {
       !description.length ? this.setState({description: ""}) : this.setState({description: description });
       !whoshouldjoin.length ? this.setState({whoshouldjoin: ""}) : this.setState({whoshouldjoin: whoshouldjoin });
       !tags.length ? this.setState({tags: ""}) : this.setState({tags: tags });
-      title.length && description.length && image_url ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
+      tags && whoshouldjoin && title.length && description.length && image_url ? this.setState({ slideToShow: this.state.slideToShow + 1 }) : null;
     } else if (this.state.slideToShow === 1) {
       var frequency = document.getElementById("frequency").value,
           length = document.getElementById("length").value,
