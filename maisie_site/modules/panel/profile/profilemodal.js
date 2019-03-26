@@ -67,9 +67,9 @@ class ProfileModal extends React.Component {
     let license = document.getElementById("hostprofilemodal_license").value === x.license,
         education = document.getElementById("hostprofilemodal_education").value === x.education,
         description = document.getElementById("hostprofilemodal_description").value === x.description,
-        image = document.getElementById("hostprofile_imageupload").value === true,
+        image = document.getElementById("hostprofile_imageupload").value,
         submit = document.getElementById("hostprofile__modal_brow-submit");
-    license || education || description || image ? submit.classList.remove("fade") : submit.classList.add("fade")
+    !license || !education || !description || image ? submit.classList.remove("fade") : submit.classList.add("fade")
   }
   render() {
     return(

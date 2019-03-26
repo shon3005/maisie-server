@@ -28,6 +28,7 @@
     text-transform: capitalize;
   }
   &-text {
+    white-space: pre-wrap;
     font-weight: 500;
   }
   &__subhead {
