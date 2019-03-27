@@ -41,8 +41,12 @@ class Create extends React.Component {
       price: false,
       min: 0,
       max: 0,
+      subscription: false,
       createCircleMessage: 'Submit'
     }
+  }
+  isSubscription = (value)  => {
+    this.setState({subscription: value});
   }
   handleBackPress() {
     this.setState({ slideToShow: this.state.slideToShow === 0 ? 0 : this.state.slideToShow - 1 })
@@ -115,7 +119,8 @@ class Create extends React.Component {
         startDate: this.state.start_date,
         tags: this.state.tags,
         whoshouldjoin: this.state.whoshouldjoin,
-        hostId: this.props.user.host.id
+        hostId: this.props.user.host.id,
+        subscription: this.state.subscription
       });
       let bodyFormData = new FormData();
       bodyFormData.append('image', this.state.image);
@@ -165,6 +170,8 @@ class Create extends React.Component {
           price={this.state.price}
           min={this.state.min}
           max={this.state.max}
+          subscription={this.state.subscription}
+          isSubscription={this.isSubscription}
         /> )}
       else if (this.state.slideToShow == 4) { return(
         <SlideFive

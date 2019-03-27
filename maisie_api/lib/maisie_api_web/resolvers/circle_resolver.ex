@@ -4,6 +4,17 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     alias SendGrid.{Mail, Email}
 
     def create_circle(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        %{product_id: product_id, plan_id: plan_id} = create_product_and_plan(input.subscription, input)
+        input = Map.put(input, :tags, String.split(input.tags, ", "))
+        circle_input = Map.merge(input, %{user_id: current_user.id, stripe_product_id: product_id, stripe_plan_id: plan_id})
+        Services.create_circle(circle_input)
+    end
+
+    defp create_product_and_plan(false, _input) do
+        %{product_id: nil, plan_id: nil}
+    end
+
+    defp create_product_and_plan(true, input) do
         interval_map = %{
             "every week" => "week",
             "every other week" => "week",
@@ -17,12 +28,8 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         host = Accounts.get_host!(input.host_id)
         {:ok, product} = Stripe.API.request(%{name: input.title, type: "service"}, :post, "products", %{}, connect_account: host.stripe_id)
         {price, _} =  Integer.parse(input.price)
-        
         {:ok, plan} = Stripe.API.request(%{currency: "usd", interval: interval_map[input.frequency], interval_count: interval_count_map[input.frequency], product: product["id"], amount: price * 110}, :post, "plans", %{}, connect_account: host.stripe_id)
-
-        input = Map.put(input, :tags, String.split(input.tags, ", "))
-        circle_input = Map.merge(input, %{user_id: current_user.id, stripe_product_id: product["id"], stripe_plan_id: plan["id"]})
-        Services.create_circle(circle_input)
+        %{product_id: product["id"], plan_id: plan["id"]}
     end
 
     def create_question(_, %{input: input}, %{context: %{current_user: current_user}}) do
@@ -43,6 +50,17 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         {:ok, %{"id" => customer_id}} = Stripe.API.request(%{description: user.email , source: new_source_id}, :post, "customers", %{}, connect_account: host.stripe_id)
         {price, _} =  Integer.parse(circle.price)
         Stripe.API.request(%{currency: "usd", amount: price * 110, application_fee_amount: Kernel.trunc(price * 110 * 0.1459), customer: customer_id}, :post, "charges", %{}, connect_account: host.stripe_id)
+
+        create_subscription(circle.subscription, circle, host, customer_id)
+
+        Services.create_request(request_input)
+    end
+
+    defp create_subscription(false, _circle, _host, _customer_id) do
+        IO.puts "Charge 1 time"
+    end
+
+    defp create_subscription(true, circle, host, customer_id) do
         installments_limit = %{
             "1 session" => 0,
             "2 sessions" => 1,
@@ -64,8 +82,6 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
             "once a month" => 2419200
         }
         Stripe.API.request(%{trial_end: DateTime.to_unix(DateTime.add(circle.start_date, billing_cycle_anchor_interval[circle.frequency], :second)), metadata: %{installments_paid: 0, installments_limit: installments_limit[circle.length]}, application_fee_percent: 14.59, customer: customer_id, items: [%{plan: circle.stripe_plan_id}]}, :post, "subscriptions", %{}, connect_account: host.stripe_id)
-
-        Services.create_request(request_input)
     end
 
     def accept_request(_, %{input: %{request_id: request_id, user_id: user_id, circle_id: circle_id, host_id: host_id}}, _) do
