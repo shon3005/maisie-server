@@ -26,7 +26,7 @@ export default (props) =>
         height: 25
       }} />
       <div className="row-fs-c">
-        <Selector />
+        <Selector isSubscription={props.isSubscription} subscription={props.subscription} />
       </div>
       <div style={{
         height: 25

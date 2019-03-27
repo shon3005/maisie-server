@@ -24,7 +24,8 @@ export default (
           $tags: String!,
           $whoShouldJoin: String!,
           $startDate: DateTime!,
-          $hostId: ID!
+          $hostId: ID!,
+          $subscription: Boolean!
         ) {
           createCircle(
             input: {
@@ -44,7 +45,8 @@ export default (
               tags: $tags,
               whoShouldJoin: $whoShouldJoin,
               startDate: $startDate,
-              hostId: $hostId
+              hostId: $hostId,
+              subscription: $subscription
             }
           ) {
             id
@@ -69,7 +71,8 @@ export default (
         tags: circleDetails.tags,
         whoShouldJoin: circleDetails.whoshouldjoin,
         startDate: circleDetails.startDate,
-        hostId: circleDetails.hostId
+        hostId: circleDetails.hostId,
+        subscription: circleDetails.subscription
       }
     })
 }

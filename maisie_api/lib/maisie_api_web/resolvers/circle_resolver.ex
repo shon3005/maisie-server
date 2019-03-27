@@ -4,6 +4,17 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
     alias SendGrid.{Mail, Email}
 
     def create_circle(_, %{input: input}, %{context: %{current_user: current_user}}) do
+        %{product_id: product_id, plan_id: plan_id} = create_product_and_plan(input.subscription, input)
+        input = Map.put(input, :tags, String.split(input.tags, ", "))
+        circle_input = Map.merge(input, %{user_id: current_user.id, stripe_product_id: product_id, stripe_plan_id: plan_id})
+        Services.create_circle(circle_input)
+    end
+
+    defp create_product_and_plan(false, _input) do
+        %{product_id: nil, plan_id: nil}
+    end
+
+    defp create_product_and_plan(true, input) do
         interval_map = %{
             "every week" => "week",
             "every other week" => "week",
@@ -17,12 +28,8 @@ defmodule MaisieApiWeb.Resolvers.CircleResolver do
         host = Accounts.get_host!(input.host_id)
         {:ok, product} = Stripe.API.request(%{name: input.title, type: "service"}, :post, "products", %{}, connect_account: host.stripe_id)
         {price, _} =  Integer.parse(input.price)
-        
         {:ok, plan} = Stripe.API.request(%{currency: "usd", interval: interval_map[input.frequency], interval_count: interval_count_map[input.frequency], product: product["id"], amount: price * 110}, :post, "plans", %{}, connect_account: host.stripe_id)
-
-        input = Map.put(input, :tags, String.split(input.tags, ", "))
-        circle_input = Map.merge(input, %{user_id: current_user.id, stripe_product_id: product["id"], stripe_plan_id: plan["id"]})
-        Services.create_circle(circle_input)
+        %{product_id: product["id"], plan_id: plan["id"]}
     end
 
     def create_question(_, %{input: input}, %{context: %{current_user: current_user}}) do

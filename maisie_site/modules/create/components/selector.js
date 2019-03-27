@@ -3,8 +3,12 @@ export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: "left"
+      active: props.subscription ? 'right' : 'left'
     }
+  }
+  isSubscription = (value) => {
+    this.setState({ active: value })
+    value === 'right' ? this.props.isSubscription(true) : this.props.isSubscription(false);
   }
   render() {
     return(
@@ -13,12 +17,12 @@ export default class extends React.Component {
           "create-session__select": true,
           "col-c-c": true,
           "active": this.state.active === "left",
-        })} onClick={() => this.setState({ active: "left" })}>One-time fee</div>
+        })} onClick={() => this.isSubscription('left')}>One-time fee</div>
         <div className={classNames({
           "create-session__select": true,
           "col-c-c": true,
           "active": this.state.active === "right",
-        })} onClick={() => this.setState({ active: "right" })}>Per session</div>
+        })} onClick={() => this.isSubscription('right')}>Per session</div>
         <div className={classNames({
           "create-session__active": true,
           "left": this.state.active === "left",
