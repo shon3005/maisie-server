@@ -2,13 +2,14 @@ import Disclaimer from '../../../shared/components/text/disclaimer.js';
 import Field from '../../../shared/components/text/field.js';
 import LargeText from '../../../shared/components/text/largeText.js';
 import SmallText from '../../../shared/components/text/smallText.js';
+import Selector from './selector.js';
 
 var classNames = require('classnames');
 
 export default (props) =>
     <div className="create__inner_cont">
       <SmallText>Economics</SmallText>
-      <Field title="Price">
+      <Field title="Price" className="row-c-c">
         <span>$</span>
         <input
           type="num"
@@ -21,6 +22,15 @@ export default (props) =>
           })}
         />
       </Field>
+      <div style={{
+        height: 25
+      }} />
+      <div className="row-fs-c">
+        <Selector />
+      </div>
+      <div style={{
+        height: 25
+      }} />
       <Field title="Minimum">
         <select
           id="min"

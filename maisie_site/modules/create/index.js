@@ -23,7 +23,7 @@ class Create extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      slideToShow: 0,
+      slideToShow: 3,
       title: false,
       description: false,
       whoshouldjoin: false,

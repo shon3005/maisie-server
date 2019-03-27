@@ -292,3 +292,46 @@ label {
     background-color: $color-red !important;
   }
 }
+.create-session {
+  position: relative;
+  margin-left: calc(100px + 5%);
+  @include user-select(none);
+  &__select {
+    @include user-select(none);
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 100%;
+    text-align: center;
+    z-index: 10;
+    line-height: 40px;
+    font-size: $font-size-small;
+    font-weight: 500;
+    &.active {
+      @include transition(all, 200ms);
+      color: white;
+    }
+    &:not(.active) {
+      color: $color-secondary-50;
+      cursor: pointer;
+    }
+  }
+  height: 40px;
+  @include border-radius(50px);
+  background-color: $color-secondary-05;
+  &__active {
+    @include user-select(none);
+    @include transition(all, 200ms);
+    &.left {
+      left: 0;
+    }
+    &.right {
+      left: 50%;
+    }
+    @include border-radius(50px);
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    z-index: 9;
+    background-color: $color-primary;
+  }
+}
