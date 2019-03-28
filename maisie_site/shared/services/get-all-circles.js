@@ -20,6 +20,7 @@ export default gql`
       imageUrl
       startDate
       tags
+      subscription
       members {
         id
       }

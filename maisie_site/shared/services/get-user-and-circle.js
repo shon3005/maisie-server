@@ -22,6 +22,7 @@ export default gql`
         tags
         startDate
         whoShouldJoin
+        subscription
         user {
           host {
             id

@@ -4,6 +4,6 @@ export default (props) =>
     <div className="circlecard__cont col">
       <span className="circlecard__cont-title lim_one_line">{props.title}</span>
       <span className="circlecard__cont-spots lim_one_line">{props.spots + " spots left (" + props.low + "-" + props.high + " total)"}</span>
-      <span className="circlecard__cont-price lim_one_line">{"$" + props.price.toString() + " per session"}</span>
+      <span className="circlecard__cont-price lim_one_line">{"$" + props.price.toString()} {props.subscription ? " per session" : " total"}</span>
     </div>
   </a>

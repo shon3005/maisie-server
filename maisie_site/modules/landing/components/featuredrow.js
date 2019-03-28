@@ -12,6 +12,7 @@ const MapCards = (props) => {
       high={b.max}
       spots={parseInt(b.max) - b.members.length}
       key={index}
+      subscription={b.subscription}
     />
   )
   return x

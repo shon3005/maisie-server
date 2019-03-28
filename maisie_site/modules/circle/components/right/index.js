@@ -54,7 +54,7 @@ export default class extends React.Component {
         <div className={classNames(["circle_right__inner", "col-fs-c", { "dark_theme": this.props.dark }])}>
           <div className="circle_right__inner_cont col-fs-c">
             <div className="circle_right__inner_cont-price col-fs-c dark_theme_primary_text">
-              <span><span className="large">{"$" + this.props.circle.price}</span> per session</span>
+              <span><span className="large">{"$" + this.props.circle.price}</span>{this.props.circle.subscription ? ' per session' : ' total'}</span>
             </div>
             <div style={{height: 10}} />
             <div className="circle_right__inner_cont-price col-fs-c dark_theme_primary_text">
@@ -81,7 +81,7 @@ export default class extends React.Component {
         {
           !isHostCircle && this.state.status != "requested" && this.state.status != "joined"
             ? <div className="circle_right__inner_cont-note col-c-c">
-                When you request to join this Circle, you'll be charged for the first session. If the host declines your request, you'll automatically be refunded.
+                When you request to join this Circle, you'll be charged for the {this.props.circle.subscription ? 'first session' : 'full amount'}. If the host declines your request, you'll automatically be refunded.
               </div>
             : null
         }

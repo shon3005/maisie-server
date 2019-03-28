@@ -53,7 +53,7 @@ export default class extends React.Component {
       <div className="circle_mobile_right row-sb-c">
         <div className="circle_mobile_right_left col">
           <span className="circle_mobile_right_left-title">{this.props.circle.title}</span>
-          <span className="circle_mobile_right_left-price"><span className="large">{"$" + this.props.circle.price}</span> per session</span>
+          <span className="circle_mobile_right_left-price"><span className="large">{"$" + this.props.circle.price}</span>{this.props.circle.subscription ? ' per session' : ' total'}</span>
           <span className="circle_mobile_right_left-ppl lower">{this.props.circle.min + "-" + this.props.circle.max + " members"}</span>
         </div>
         <div className="circle_mobile_right_button col-fs-fe">
@@ -71,7 +71,7 @@ export default class extends React.Component {
           {
             !isHostCircle && this.state.status != "requested" && this.state.status != "joined"
             ? <div className="circle_right__inner_cont-note col-c-c">
-                When you request to join this Circle, you'll be charged for the first session. If the host declines your request, you'll automatically be refunded.
+                When you request to join this Circle, you'll be charged for the {this.props.circle.subscription ? 'first session' : 'full amount'}. If the host declines your request, you'll automatically be refunded.
               </div>
             : null
           }
